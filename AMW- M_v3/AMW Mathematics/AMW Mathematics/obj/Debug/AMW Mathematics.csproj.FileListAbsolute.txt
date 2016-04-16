@@ -71,3 +71,6 @@ D:\Programowanie\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW_Mathema
 D:\Programowanie\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW_Mathematics.Logo.resources
 D:\Programowanie\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
 D:\Programowanie\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW Mathematics.csproj.GenerateResource.Cache
+D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\bin\Debug\AMW Mathematics.exe.config
+D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW Mathematics.exe
+D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW Mathematics.pdb

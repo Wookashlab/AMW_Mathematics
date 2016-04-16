@@ -24,13 +24,18 @@ namespace AMW_Mathematics
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)            //Licznik odpowiadający za wyświetlenie programu 
         {
             licznik++;
             if (licznik==10)
             {
                 Close();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

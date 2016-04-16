@@ -28,6 +28,7 @@ namespace AMW_Mathematics
             if (wartosc == "Kropka") wartosc = ".";
             if (wartosc == "Przecinek") wartosc = ",";
             tekst.Text += wartosc;                                                      //dodadanie wartosci klaiwsza do lini wporwadzania
+            
 
         }
        
