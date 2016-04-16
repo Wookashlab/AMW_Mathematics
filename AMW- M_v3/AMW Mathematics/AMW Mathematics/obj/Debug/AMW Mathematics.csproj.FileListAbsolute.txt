@@ -74,10 +74,3 @@ D:\Programowanie\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW Mathema
 D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\bin\Debug\AMW Mathematics.exe.config
 D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW Mathematics.exe
 D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW Mathematics.pdb
-D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\bin\Debug\AMW Mathematics.exe
-D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\bin\Debug\AMW Mathematics.pdb
-D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW Mathematics.csprojResolveAssemblyReference.cache
-D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW_Mathematics.Interface.resources
-D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW_Mathematics.Logo.resources
-D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
-D:\AMW_Mathematics\AMW- M_v3\AMW Mathematics\AMW Mathematics\obj\Debug\AMW Mathematics.csproj.GenerateResource.Cache
