@@ -1,4 +1,8 @@
-Plik testowy
+Plik testowy  Labuda
 Maciej Hein 
 £a³ mamy w³asnego Git- hub-a do pracy in¿ynierskiej xD
+<<<<<<< HEAD
 jhkhkjkj
+=======
+jhkhkjkjMaciej
+>>>>>>> origin/master
