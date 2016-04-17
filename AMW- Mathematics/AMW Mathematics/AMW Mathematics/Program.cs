@@ -18,8 +18,6 @@ namespace AMW_Mathematics
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Logo());
             Application.Run(new Interface());
-            
-            
         }
     }
 }

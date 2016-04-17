@@ -17,20 +17,11 @@ namespace AMW_Mathematics
             InitializeComponent();
         }
 
-        int licznik;
-
-        private void Logo_Load(object sender, EventArgs e)
+        int i = 0;
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)            //Licznik włączający porgram  #L 
-        {
-            licznik++;
-            if (licznik==10)
-            {
-                Close();
-            }
+            i++;
+            if (i == 15) Close();
         }
     }
 }

@@ -39,7 +39,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(561, 230);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -49,11 +49,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 237);
+            this.label1.Location = new System.Drawing.Point(12, 254);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(177, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "2016 || Maciej Hein, Łukasz Labuda";
+            this.label1.Text = "2015 || Maciej Hein, Łukasz Labuda";
             // 
             // timer1
             // 
@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 258);
+            this.ClientSize = new System.Drawing.Size(587, 276);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);

@@ -15,19 +15,13 @@ namespace AMW_Mathematics
         Liczwyraz l;
         string wejscie;
         Klawiatura klawa = new Klawiatura();
-       
-        
         public Interface()
         {
-                     
             InitializeComponent();
-            this.Show();
+           
             
-
-            
-
         }
-        
+
         private void button13_Click(object sender, EventArgs e)
         {
             wejscie = textBox1.Text + "=";
@@ -73,7 +67,14 @@ namespace AMW_Mathematics
         }
         private void Interface_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if(e.KeyCode == Keys.Enter)
+            {
+                wejscie = textBox1.Text + "=";
+                l = new Liczwyraz();
+                listBox1.Items.Add(wejscie + l.liczwyrazenie(wejscie));
+                wejscie = "";
+                textBox1.Clear();
+            }
         }
     }
 }
