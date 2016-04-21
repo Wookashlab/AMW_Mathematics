@@ -23,7 +23,7 @@ namespace Projekt
             //BuildLocalizedApplicationBar();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+/*        private void button_Click(object sender, RoutedEventArgs e)                     //Zakomentowałem to bo narazie nie używamy tego 
         {
             var webClient = new WebClient();
             webClient.OpenReadAsync(new Uri("http://hein.bluequeen.tk/select.php"));
@@ -42,6 +42,6 @@ namespace Projekt
                         i++;
                     }
              }
-        }
+        } */
     }
 }
