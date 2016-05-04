@@ -76,5 +76,21 @@ namespace AMW_Mathematics
                 textBox1.Clear();
             }
         }
+
+        private void bBksp_Click(object sender, MouseEventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+            {
+                textBox1.Text = textBox1.Text.Substring(0, textBox1.Text.Length - 1);
+                
+            }
+            kBksp.Image = new Bitmap("img/ps/klawa/Click/Bksp.png");
+        }
+
+        private void kEnter_MouseDown(object sender, MouseEventArgs e)
+        {
+            button13.PerformClick();
+            kEnter.Image = new Bitmap("img/ps/klawa/Click/Enter.png");
+        }
     }
 }

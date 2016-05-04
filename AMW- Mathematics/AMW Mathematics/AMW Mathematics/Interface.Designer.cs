@@ -166,6 +166,8 @@
             this.kMnozenie = new System.Windows.Forms.PictureBox();
             this.kDodawanie = new System.Windows.Forms.PictureBox();
             this.kOdejmowanie = new System.Windows.Forms.PictureBox();
+            this.kEnter = new System.Windows.Forms.PictureBox();
+            this.kBksp = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -204,6 +206,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.kMnozenie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kDodawanie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kOdejmowanie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kEnter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kBksp)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1604,11 +1608,41 @@
             this.kOdejmowanie.MouseLeave += new System.EventHandler(this.klaw_MouseLeave);
             this.kOdejmowanie.MouseUp += new System.Windows.Forms.MouseEventHandler(this.klawa_MouseUp);
             // 
+            // kEnter
+            // 
+            this.kEnter.Image = ((System.Drawing.Image)(resources.GetObject("kEnter.Image")));
+            this.kEnter.Location = new System.Drawing.Point(97, 760);
+            this.kEnter.Name = "kEnter";
+            this.kEnter.Size = new System.Drawing.Size(85, 33);
+            this.kEnter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.kEnter.TabIndex = 2;
+            this.kEnter.TabStop = false;
+            this.kEnter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.kEnter_MouseDown);
+            this.kEnter.MouseEnter += new System.EventHandler(this.klaw_MouseEnter);
+            this.kEnter.MouseLeave += new System.EventHandler(this.klaw_MouseLeave);
+            this.kEnter.MouseUp += new System.Windows.Forms.MouseEventHandler(this.klawa_MouseUp);
+            // 
+            // kBksp
+            // 
+            this.kBksp.Image = ((System.Drawing.Image)(resources.GetObject("kBksp.Image")));
+            this.kBksp.Location = new System.Drawing.Point(49, 760);
+            this.kBksp.Name = "kBksp";
+            this.kBksp.Size = new System.Drawing.Size(47, 32);
+            this.kBksp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.kBksp.TabIndex = 2;
+            this.kBksp.TabStop = false;
+            this.kBksp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bBksp_Click);
+            this.kBksp.MouseEnter += new System.EventHandler(this.klaw_MouseEnter);
+            this.kBksp.MouseLeave += new System.EventHandler(this.klaw_MouseLeave);
+            this.kBksp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.klawa_MouseUp);
+            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1115, 799);
+            this.Controls.Add(this.kBksp);
+            this.Controls.Add(this.kEnter);
             this.Controls.Add(this.kOdejmowanie);
             this.Controls.Add(this.kDodawanie);
             this.Controls.Add(this.kMnozenie);
@@ -1723,6 +1757,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.kMnozenie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kDodawanie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kOdejmowanie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kEnter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kBksp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1867,6 +1903,8 @@
         private System.Windows.Forms.PictureBox kMnozenie;
         private System.Windows.Forms.PictureBox kDodawanie;
         private System.Windows.Forms.PictureBox kOdejmowanie;
+        private System.Windows.Forms.PictureBox kEnter;
+        private System.Windows.Forms.PictureBox kBksp;
     }
 }
 
