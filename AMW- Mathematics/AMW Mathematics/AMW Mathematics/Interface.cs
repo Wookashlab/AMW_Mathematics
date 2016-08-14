@@ -92,5 +92,10 @@ namespace AMW_Mathematics
             button13.PerformClick();
             kEnter.Image = new Bitmap("img/ps/klawa/Click/Enter.png");
         }
+
+        private void button41_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
