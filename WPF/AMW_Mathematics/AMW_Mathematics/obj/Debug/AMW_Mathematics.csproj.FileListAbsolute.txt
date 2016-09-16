@@ -17,3 +17,16 @@ D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Deb
 D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
 D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
 D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.g.cs
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\MainWindow.g.cs
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.baml
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\MainWindow.baml
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
