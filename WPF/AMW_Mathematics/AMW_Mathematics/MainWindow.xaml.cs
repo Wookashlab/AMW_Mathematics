@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using MaximaSharp;
 namespace AMW_Mathematics
 {
     /// <summary>
@@ -29,6 +29,7 @@ namespace AMW_Mathematics
 
         private void button7_Copy_Click(object sender, RoutedEventArgs e)
         {
+            string cos = Maxima.Eval("2+2");
             wejscie = textBox.Text + "=";
             l = new Liczwyraz();
             listBox.Items.Add(wejscie + l.liczwyrazenie(wejscie));

@@ -110,6 +110,12 @@
   <ItemGroup>
     <Resource Include="img\lastv4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MaximaSharp\MaximaSharp\MaximaSharp.csproj">
+      <Project>{bb92ea20-c7f1-4330-9e1a-2c06ec24e587}</Project>
+      <Name>MaximaSharp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
