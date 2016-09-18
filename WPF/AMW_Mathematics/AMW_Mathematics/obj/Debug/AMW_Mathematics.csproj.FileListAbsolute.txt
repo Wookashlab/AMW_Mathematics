@@ -39,12 +39,12 @@ C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.g.cs
-C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\MainWindow.g.cs
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.baml
-C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\MainWindow.baml
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
