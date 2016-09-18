@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using MaximaSharp;
 namespace AMW_Mathematics
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         private Dictionary<string, string> SymbolsAndValues;
         public MainWindow()
@@ -129,6 +130,36 @@ namespace AMW_Mathematics
                 }
             }
             return Expresion;
+        }
+
+
+
+        private void Keyboard_Click(object sender, RoutedEventArgs e)
+        {
+            var klawisz = (Button)sender;
+            string wartosc = klawisz.Content.ToString();
+            ExpressionField.Text = ExpressionField.Text + wartosc;
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            ExpressionField.Text = "";
+        }
+
+        private void kBack_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (ExpressionField.Text.Length > 0)
+            {
+                ExpressionField.Text = ExpressionField.Text.Substring(0, ExpressionField.Text.Length - 1);
+
+            }
+        }
+
+        private void Function_Click(object sender, RoutedEventArgs e)
+        {
+            var klawisz = (Button)sender;
+            string wartosc = klawisz.Content.ToString();
+            ExpressionField.Text = ExpressionField.Text + wartosc+"(";
         }
     }
 }

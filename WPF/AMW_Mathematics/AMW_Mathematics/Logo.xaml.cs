@@ -11,13 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace AMW_Mathematics
 {
     /// <summary>
     /// Interaction logic for Logo.xaml
     /// </summary>
-    public partial class Logo : Window
+    public partial class Logo : MetroWindow
     {
         public Logo()
         {
@@ -39,6 +40,7 @@ namespace AMW_Mathematics
                 this.Close();
             }
         }
+        
 
     }
 }
