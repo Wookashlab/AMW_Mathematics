@@ -27,7 +27,7 @@ namespace AMW_Mathematics
             InitializeComponent();
             SymbolsAndValues = new Dictionary<string, string>(); 
         }
-        private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
+        private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) //branch dziala
         {
             string Expresion = ExpressionField.Text;
             Expresion = SaveValuesOfVariables(Expresion);
@@ -52,7 +52,6 @@ namespace AMW_Mathematics
         private string AddToNumberDot(string Expresion)
         {
            string pom = "";
-           bool pointexist = false;
            for(int i = 0; i < Expresion.Length; i++)
            {
                if(Char.IsNumber(Expresion[i]) == true)

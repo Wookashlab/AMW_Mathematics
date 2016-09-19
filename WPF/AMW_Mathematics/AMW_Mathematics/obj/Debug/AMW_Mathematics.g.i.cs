@@ -657,6 +657,14 @@ namespace AMW_Mathematics {
         #line default
         #line hidden
         
+        
+        #line 348 "..\..\AMW_Mathematics.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.CheckBox checkBox;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -1109,6 +1117,9 @@ namespace AMW_Mathematics {
             
             #line default
             #line hidden
+            return;
+            case 78:
+            this.checkBox = ((System.Windows.Controls.CheckBox)(target));
             return;
             }
             this._contentLoaded = true;
