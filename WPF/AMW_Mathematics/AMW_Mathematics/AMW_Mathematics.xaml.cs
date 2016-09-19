@@ -27,7 +27,7 @@ namespace AMW_Mathematics
             InitializeComponent();
             SymbolsAndValues = new Dictionary<string, string>(); 
         }
-        private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) //branch dziala
+        private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) //branch dziala małe niepowodzenie
         {
             string Expresion = ExpressionField.Text;
             Expresion = SaveValuesOfVariables(Expresion);
