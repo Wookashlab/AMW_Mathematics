@@ -24,22 +24,15 @@ namespace AMW_Mathematics
     {
         Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Dictionary<string, string> SymbolsAndValues;
-<<<<<<< HEAD
         private ViewPlot ViewPlot = new ViewPlot();
-=======
        
->>>>>>> origin/master
         public MainWindow()
         {
             InitializeComponent();
             SymbolsAndValues = new Dictionary<string, string>();
-<<<<<<< HEAD
             List<ChartListView> DataListView = new List<ChartListView>();
             DataListView.Add(new ChartListView { LabelChartValue = "1" });
             ChartListFunction.Items.Add(DataListView);
-=======
-                       
->>>>>>> origin/master
         }
        
      
@@ -64,6 +57,7 @@ namespace AMW_Mathematics
                 return ExpressionField.Text.Substring(0, Math.Min(ExpressionField.Text.Length, ExpressionField.Text.IndexOf(":"))) + ":=" + Expresion;
             }
             else return Expresion;
+
         }
         private string AddToNumberDot(string Expresion)
         {
@@ -176,7 +170,6 @@ namespace AMW_Mathematics
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(),klawisz.Content.ToString());
         }
-<<<<<<< HEAD
         private void PlotChart_Click(object sender, RoutedEventArgs e)
         {
             ViewPlot = new ViewPlot();
@@ -189,7 +182,6 @@ namespace AMW_Mathematics
             DataListView.Add(new ChartListView { LabelChartValue = "2" });
             ChartListFunction.Items.Add(DataListView);
         }
-=======
 
         private void Tab_Click(object sender, RoutedEventArgs e)            //funckja po wciśnieciu + lub - na karcie #Ł
         {
@@ -214,6 +206,5 @@ namespace AMW_Mathematics
         }
 
     
->>>>>>> origin/master
     }
 }
