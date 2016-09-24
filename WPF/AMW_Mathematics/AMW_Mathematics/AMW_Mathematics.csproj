@@ -90,6 +90,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Keyboard.cs" />
     <Compile Include="Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
     </Compile>

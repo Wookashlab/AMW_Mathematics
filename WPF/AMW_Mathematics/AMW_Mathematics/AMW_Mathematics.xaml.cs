@@ -21,12 +21,17 @@ namespace AMW_Mathematics
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Dictionary<string, string> SymbolsAndValues;
+       
         public MainWindow()
         {
             InitializeComponent();
-            SymbolsAndValues = new Dictionary<string, string>(); 
+            SymbolsAndValues = new Dictionary<string, string>();
+                       
         }
+       
+     
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) 
         {
             string Expresion = ExpressionField.Text;
@@ -133,19 +138,19 @@ namespace AMW_Mathematics
 
 
 
-        private void Keyboard_Click(object sender, RoutedEventArgs e)
+        private void Keyboard_Click(object sender, RoutedEventArgs e)       //funckja wprowadzająca cyfry i znaki z kalwiatury "telefonu" #Ł
         {
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + wartosc;
         }
 
-        private void Clear_Click(object sender, RoutedEventArgs e)
+        private void Clear_Click(object sender, RoutedEventArgs e)          //funckja czyszcząca okno wprowadzania #Ł
         {
             ExpressionField.Text = "";
         }
 
-        private void kBack_MouseDown(object sender, MouseButtonEventArgs e)
+        private void kBack_MouseDown(object sender, MouseButtonEventArgs e) //funckja cofająca z klawiatury "telefonu" #Ł
         {
             if (ExpressionField.Text.Length > 0)
             {
@@ -154,11 +159,35 @@ namespace AMW_Mathematics
             }
         }
 
-        private void Function_Click(object sender, RoutedEventArgs e)
+        private void Function_Click(object sender, RoutedEventArgs e)       //funckja do prowadznie funckji z klawiatury "telefonu" #Ł
         {
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
-            ExpressionField.Text = ExpressionField.Text + wartosc+"(";
+            ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(),klawisz.Content.ToString());
         }
+
+        private void Tab_Click(object sender, RoutedEventArgs e)            //funckja po wciśnieciu + lub - na karcie #Ł
+        {
+            int wartosc;
+            var klawisz = (Button)sender;
+            if (klawisz.Content.ToString() == "-") wartosc = 27;            //ustalnie czy karta ma być zmniejszona czy zwiększona #Ł
+            else wartosc = 125;
+            switch (keyboard.ShowHide(klawisz.Name.ToString()))             //zmiana szerokości odpowiedniej karty (mozna poszerzyć o nowe) #Ł
+            {
+                case 1:
+                    TrigonometryTab.Height = wartosc;
+                    break;
+                case 2:
+                    StatisticTab.Height = wartosc;
+                    break;
+                default:
+                    StandardTab.Height = wartosc;
+                    break;
+
+            }
+            klawisz.Content = keyboard.Mark(klawisz.Content.ToString());   //zmiana znaku + na - i vice versa #Ł
+        }
+
+    
     }
 }
