@@ -109,8 +109,8 @@
                     <Grid Margin="0,0,-11,-11">
                         <ListBox x:Name="ResultList" Margin="10,10,10,160" FontSize="22"/>
                         <GroupBox x:Name="groupBox5" Header="" HorizontalAlignment="Left" Margin="10,427,0,0" VerticalAlignment="Top" Height="139" Width="840">
-                            <Grid>
-                                <TextBox x:Name="ExpressionField" HorizontalAlignment="Left" Height="65" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" FontSize="18"/>
+                            <Grid FocusManager.FocusedElement="{Binding ElementName=ExpressionField}">
+                                <TextBox x:Name="ExpressionField" HorizontalAlignment="Left" Height="65" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" FontSize="18" TabIndex="0"/>
                                 <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" TextWrapping="Wrap" Text="Wpisz wyrażenie i naciśnij Wprowadź" VerticalAlignment="Top" Width="808"/>
                                 <Button x:Name="Clear" Content="Wyczyść" HorizontalAlignment="Left" Margin="743,5,0,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
                                 <Button x:Name="ConfirmExpresion" Content="Wprowadź" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
@@ -136,215 +136,73 @@
         </Grid>
         <Button x:Name="button8" Content="Plik" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-0.045,0.6"/>
         <Image x:Name="image" Source="img/AMW.png" HorizontalAlignment="Left" Height="618" Margin="-11,208,0,0" VerticalAlignment="Top" Width="364"/>
-        <Button x:Name="k7" Content="7" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" FontWeight="Bold" FontSize="9">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-        </Button>
-        <Button x:Name="k8" Content="8" HorizontalAlignment="Left" Margin="98,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="k9" Content="9" HorizontalAlignment="Left" Margin="165,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="k4" Content="4" HorizontalAlignment="Left" Margin="29,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="k5" Content="5" HorizontalAlignment="Left" Margin="98,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="k6" Content="6" HorizontalAlignment="Left" Margin="165,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="k1" Content="1" HorizontalAlignment="Left" Margin="29,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="k2" Content="2" HorizontalAlignment="Left" Margin="98,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="k3" Content="3" HorizontalAlignment="Left" Margin="165,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="k0" Content="0" HorizontalAlignment="Left" Margin="29,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="kKropka" Content="." HorizontalAlignment="Left" Margin="98,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="kPrzecinek" Content="," HorizontalAlignment="Left" Margin="165,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="kDzielenie" Content="/" HorizontalAlignment="Left" Margin="232,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="kMnożenie" Content="*" HorizontalAlignment="Left" Margin="232,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="kDodawanie" Content="+" HorizontalAlignment="Left" Margin="232,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="kOdejmowanie" Content="-" HorizontalAlignment="Left" Margin="232,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="{DynamicResource {x:Static SystemColors.GrayTextColorKey}}"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+        <Button x:Name="k7" Content="7" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
+        <Button x:Name="k8" Content="8" HorizontalAlignment="Left" Margin="98,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
+        <Button x:Name="k9" Content="9" HorizontalAlignment="Left" Margin="165,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
+        <Button x:Name="k4" Content="4" HorizontalAlignment="Left" Margin="29,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="k5" Content="5" HorizontalAlignment="Left" Margin="98,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="k6" Content="6" HorizontalAlignment="Left" Margin="165,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="k1" Content="1" HorizontalAlignment="Left" Margin="29,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="k2" Content="2" HorizontalAlignment="Left" Margin="98,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="k3" Content="3" HorizontalAlignment="Left" Margin="165,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="k0" Content="0" HorizontalAlignment="Left" Margin="29,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="kKropka" Content="." HorizontalAlignment="Left" Margin="98,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="kPrzecinek" Content="," HorizontalAlignment="Left" Margin="165,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="kDzielenie" Content="/" HorizontalAlignment="Left" Margin="232,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="kMnożenie" Content="*" HorizontalAlignment="Left" Margin="232,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="kDodawanie" Content="+" HorizontalAlignment="Left" Margin="232,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Button x:Name="kOdejmowanie" Content="-" HorizontalAlignment="Left" Margin="232,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+
         <Image x:Name="kBack" HorizontalAlignment="Left" Height="33" Margin="219,770,0,0" VerticalAlignment="Top" Width="51" Source="img/Klawiatura/cofnij.png" MouseDown="kBack_MouseDown"/>
         <Image x:Name="kEnter" HorizontalAlignment="Left" Height="36" Margin="118,770,0,0" VerticalAlignment="Top" Width="87" Source="img/Klawiatura/=.png" MouseDown="ConfirmExpresion_Click"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="24,624,0,0" Stroke="Black" VerticalAlignment="Top" Width="270"/>
-        <Label x:Name="label1" Content="Trygonometria:&#xD;&#xA;" HorizontalAlignment="Left" Margin="24,266,0,0" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1"/>
-        <Button x:Name="Sine" Content="sin" HorizontalAlignment="Left" Margin="29,297,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="Cosine" Content="cos" HorizontalAlignment="Left" Margin="76,297,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="Tangent" Content="tan" HorizontalAlignment="Left" Margin="123,297,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="Cotangent" Content="cot" HorizontalAlignment="Left" Margin="170,297,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="aSine" Content="asin" HorizontalAlignment="Left" Margin="29,327,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="aCosine" Content="acos" HorizontalAlignment="Left" Margin="76,327,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="aTangent" Content="atan" HorizontalAlignment="Left" Margin="123,327,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="aCotangent" Content="acot" HorizontalAlignment="Left" Margin="170,327,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="SineH" Content="sinh" HorizontalAlignment="Left" Margin="29,357,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="CosineH" Content="cosh" HorizontalAlignment="Left" Margin="76,357,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="TangentH" Content="tanh" HorizontalAlignment="Left" Margin="123,357,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Button x:Name="CotangentH" Content="coth" HorizontalAlignment="Left" Margin="170,357,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="24,399,0,0" Stroke="Black" VerticalAlignment="Top" Width="270"/>
+
+        <ListBox x:Name="Function_list" HorizontalAlignment="Left" Height="348" Margin="24,271,0,0" VerticalAlignment="Top" Width="270">
+            <ListBoxItem x:Name="TrigonometryTab" Height="125" >
+                <Grid Height="125" Width="248">
+                    <Button x:Name="Trigonometry" Content="-" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
+                    <Label x:Name="TrigonometryLabel" Content="Trygonometria:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Button x:Name="Sine1" Content="sin" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Cosine1" Content="cos" HorizontalAlignment="Left" Margin="57,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Tangent1" Content="tan" HorizontalAlignment="Left" Margin="104,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Cotangent1" Content="cot" HorizontalAlignment="Left" Margin="151,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="aSine1" Content="asin" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="aCosine1" Content="acos" HorizontalAlignment="Left" Margin="57,61,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="aTangent1" Content="atan" HorizontalAlignment="Left" Margin="104,61,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="aCotangent1" Content="acot" HorizontalAlignment="Left" Margin="151,61,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" RenderTransformOrigin="2.119,1.6"/>
+                    <Button x:Name="SineH1" Content="sinh" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="CosineH1" Content="cosh" HorizontalAlignment="Left" Margin="57,91,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="TangentH1" Content="tanh" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="CotangentH1" Content="coth" HorizontalAlignment="Left" Margin="151,91,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+
+
+                </Grid>
+            </ListBoxItem>
+            <ListBoxItem x:Name="StatisticTab" Height="125" >
+                <Grid Height="117" Width="248">
+                    <Button x:Name="Statistic" Content="-" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
+                    <Label x:Name="StatisticLabel" Content="Statystyka:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Button x:Name="minimum1" Content="min" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="maximum1" Content="max" HorizontalAlignment="Left" Margin="57,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="NawiasKO2" Content="{}{" HorizontalAlignment="Left" Margin="104,31,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
+                    <Button x:Name="NawiasKZ2" Content="}" HorizontalAlignment="Left" Margin="132,31,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
+                    <Button x:Name="factorial2" Content="!" HorizontalAlignment="Left" Margin="160,31,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
+
+                </Grid>
+            </ListBoxItem>
+            <ListBoxItem x:Name="StandardTab" Height="125" >
+                <Grid Height="116" Width="248">
+                    <Button x:Name="Standard" Content="-" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
+                    <Label x:Name="StandardLabel" Content="Standardowe:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Button x:Name="Xvariable2" Content="x" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Yvariable2" Content="y" HorizontalAlignment="Left" Margin="57,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Zvariable2" Content="z" HorizontalAlignment="Left" Margin="104,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
+                    <Button x:Name="nawiasO2" Content="(" HorizontalAlignment="Left" Margin="151,31,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
+                    <Button x:Name="nawiasZ2" Content=")" HorizontalAlignment="Left" Margin="179,31,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
+
+                </Grid>
+            </ListBoxItem>
+        </ListBox>
     </Grid>
 </Controls:MetroWindow>
 
