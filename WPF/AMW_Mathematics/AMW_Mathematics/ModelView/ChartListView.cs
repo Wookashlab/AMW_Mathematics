@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace AMW_Mathematics.ModelView
+{
+    public class ChartListView
+    {
+        private string labelChartValue { get; set; }
+        private string typeChart { get; set; }
+        public string LabelChartValue
+        {
+            get
+            {
+                return this.labelChartValue;
+            }
+            set
+            {
+                this.labelChartValue = value;
+            }
+        }
+    }
+}

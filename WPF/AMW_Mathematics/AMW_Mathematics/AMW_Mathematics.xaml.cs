@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MaximaSharp;
+using AMW_Mathematics.ModelView;
 namespace AMW_Mathematics
 {
     /// <summary>
@@ -22,10 +23,14 @@ namespace AMW_Mathematics
     public partial class MainWindow : MetroWindow
     {
         private Dictionary<string, string> SymbolsAndValues;
+        private ViewPlot ViewPlot = new ViewPlot();
         public MainWindow()
         {
             InitializeComponent();
-            SymbolsAndValues = new Dictionary<string, string>(); 
+            SymbolsAndValues = new Dictionary<string, string>();
+            List<ChartListView> DataListView = new List<ChartListView>();
+            DataListView.Add(new ChartListView { LabelChartValue = "1" });
+            ChartListFunction.Items.Add(DataListView);
         }
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) 
         {
@@ -159,6 +164,18 @@ namespace AMW_Mathematics
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + wartosc+"(";
+        }
+        private void PlotChart_Click(object sender, RoutedEventArgs e)
+        {
+            ViewPlot = new ViewPlot();
+            DataContext = ViewPlot;
+        }
+
+        private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
+        {
+            List<ChartListView> DataListView = new List<ChartListView>();
+            DataListView.Add(new ChartListView { LabelChartValue = "2" });
+            ChartListFunction.Items.Add(DataListView);
         }
     }
 }

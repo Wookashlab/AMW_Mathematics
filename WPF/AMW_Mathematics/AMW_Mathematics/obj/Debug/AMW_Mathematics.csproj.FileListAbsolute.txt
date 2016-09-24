@@ -55,3 +55,14 @@ D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.x
 D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
 D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
 D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml

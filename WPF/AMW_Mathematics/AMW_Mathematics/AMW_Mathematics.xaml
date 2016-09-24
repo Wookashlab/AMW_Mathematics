@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AMW_Mathematics"
+        xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="AMW Mathematics" Height="855" Width="1217" ResizeMode="NoResize"
         BorderThickness="0" 
@@ -75,8 +76,6 @@
                         <GroupBox x:Name="groupBox3" Header="Zestawy Danych" HorizontalAlignment="Left" Margin="258,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
                             <Button x:Name="button4" Content="Zestaw&#xD;&#xA;Danych" HorizontalAlignment="Left" Margin="19,10,0,0" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" VerticalAlignment="Top"/>
                         </GroupBox>
-
-
                     </Grid>
                 </TabItem>
                 <TabItem Header="Widok">
@@ -99,13 +98,11 @@
                                 <Button x:Name="button5_Copy2" Content="100%" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
                             </Grid>
                         </GroupBox>
-
                     </Grid>
                 </TabItem>
             </TabControl>
             <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" BorderBrush="AliceBlue" BorderThickness="6">
                 <TabItem Margin="0,0,-4,-2" Header="Arkusz">
-
                     <Grid Margin="0,0,-11,-11">
                         <ListBox x:Name="ResultList" Margin="10,10,10,160" FontSize="22"/>
                         <GroupBox x:Name="groupBox5" Header="" HorizontalAlignment="Left" Margin="10,427,0,0" VerticalAlignment="Top" Height="139" Width="840">
@@ -116,11 +113,54 @@
                                 <Button x:Name="ConfirmExpresion" Content="Wprowadź" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
                             </Grid>
                         </GroupBox>
-
                     </Grid>
                 </TabItem>
-                <TabItem Header="Wykresy">
+                <TabItem x:Name="ChartBox" Header="Wykresy">
+                    <Grid>
+                        <Grid Margin="10,16,611,118" >
+                            <TextBlock FontSize="16" Margin="44,10,58,407">Równania i Funkcje</TextBlock>
+                            <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="120,36,22,376">
+                                <ComboBoxItem Content="Liniowy"/>
+                                <ComboBoxItem Content="Kołowy"/>
+                            </ComboBox>
+                            <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,36,127,376">
+                                <ComboBoxItem Content="2D" />
+                                <ComboBoxItem Content="3D"/>
+                            </ComboBox>
+                            <ListView x:Name="ChartListFunction" Margin="10,67,10,45">
+                                <ListView.Resources>
+                                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </Style>
+                                </ListView.Resources>
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Label Width="50" Content="{Binding LabelChartValue}" Margin="0,10"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBox Width="120" Margin="0,10"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            <Button x:Name="PlotChart" Content="Graph" HorizontalAlignment="Left" Margin="175,403,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click"/>
+                            <Button x:Name="AddExpresionToPlot" Content="Add" HorizontalAlignment="Left" Margin="0,403,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="AddExpresionToPlot_Click"/>
+                            <Button x:Name="button9" Content="Remove" HorizontalAlignment="Left" Margin="62,403,0,0" VerticalAlignment="Top" Width="75"/>
+                        </Grid>
+                        <TabControl Margin="257,10,10,10">
+                            <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="10,0,42,10"/>
+                        </TabControl>
 
+                    </Grid>
                 </TabItem>
                 <TabControl x:Name="tabControl2" Height="100" Width="100">
                     <TabItem Header="TabItem">
@@ -130,9 +170,7 @@
                         <Grid Background="#FFE5E5E5"/>
                     </TabItem>
                 </TabControl>
-
             </TabControl>
-
         </Grid>
         <Button x:Name="button8" Content="Plik" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-0.045,0.6"/>
         <Image x:Name="image" Source="img/AMW.png" HorizontalAlignment="Left" Height="618" Margin="-11,208,0,0" VerticalAlignment="Top" Width="364"/>
