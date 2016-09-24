@@ -4,16 +4,21 @@
 winexe
 C#
 .cs
-C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\
 AMW_Mathematics
 none
 false
 DEBUG;TRACE
-C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\App.xaml
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\App.xaml
 2935694810
 
+<<<<<<< HEAD
 13445743968
 69-972425059
+=======
+11-1152395352
+16-912556093
+>>>>>>> origin/master
 Logo.xaml;AMW_Mathematics.xaml;
 
 True
