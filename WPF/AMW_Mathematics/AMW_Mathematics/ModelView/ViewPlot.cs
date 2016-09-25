@@ -16,13 +16,12 @@ namespace AMW_Mathematics.ModelView
             get { return plotModel; }
             set { plotModel = value; OnPropertyChanged("PlotModel"); }
         }
-        public ViewPlot()
+        public ViewPlot(List<DataToChart> ReturFunctionValueToChart)
         {
             PlotModel = new PlotModel();
             SetUpModel();
-            LoadData();
+            LoadData(ReturFunctionValueToChart);
         }
-
         private readonly List<OxyColor> colors = new List<OxyColor>
                                             {
                                                 OxyColors.Green,
@@ -56,14 +55,8 @@ namespace AMW_Mathematics.ModelView
             PlotModel.Axes.Add(valueAxis);
         }
 
-        private void LoadData()
+        private void LoadData(List<DataToChart> DataToChart)
         {
-            List<DataToChart> DataToChart = new List<DataToChart>();
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 0.12 });
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 1.12 });
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 2.12 });
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 3.12 });
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 4.12 });
             var lineSerie = new LineSeries
             {
                 StrokeThickness = 2,

@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MaximaSharp;
 using AMW_Mathematics.ModelView;
+using System.Data;
+
 namespace AMW_Mathematics
 {
     /// <summary>
@@ -22,20 +24,18 @@ namespace AMW_Mathematics
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
+        private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Dictionary<string, string> SymbolsAndValues;
-        private ViewPlot ViewPlot = new ViewPlot();
-       
+        private ViewPlot ViewPlot;
         public MainWindow()
         {
             InitializeComponent();
             SymbolsAndValues = new Dictionary<string, string>();
-            List<ChartListView> DataListView = new List<ChartListView>();
-            DataListView.Add(new ChartListView { LabelChartValue = "1" });
-            ChartListFunction.Items.Add(DataListView);
+            List<ChartListView> DataListView = new List<ChartListView>(); //osobna klasa jeszcze nie wiem jaka :-)
+            DataListView.Add(new ChartListView { LabelChartValue = "1" }); //osobna klasa jeszcze nie wiem jaka :-)
+            ChartListFunction.Items.Add(DataListView);  //osobna klasa jeszcze nie wiem jaka :-)
+            DataSetChLV.Height = 20;  //osobna klasa jeszcze nie wiem jaka :-)
         }
-       
-     
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) 
         {
             string Expresion = ExpressionField.Text;
@@ -47,6 +47,7 @@ namespace AMW_Mathematics
             ResultList.Items.Add(Expresion);
             ExpressionField.Clear();
         }
+
         private string SaveValuesOfVariables(string Expresion)
         {
             if (Expresion.Contains(":=") == true) //sprawdzenie wyrażenie ma stworzyć zmienna
@@ -59,6 +60,7 @@ namespace AMW_Mathematics
             else return Expresion;
 
         }
+
         private string AddToNumberDot(string Expresion)
         {
            string pom = "";
@@ -129,6 +131,7 @@ namespace AMW_Mathematics
            }
            return Expresion;
         }
+
         private string CheckVariablesinExpresion(string Expresion)
         {
             if (Expresion.Contains(":=") != true)
@@ -140,8 +143,6 @@ namespace AMW_Mathematics
             }
             return Expresion;
         }
-
-
 
         private void Keyboard_Click(object sender, RoutedEventArgs e)       //funckja wprowadzająca cyfry i znaki z kalwiatury "telefonu" #Ł
         {
@@ -170,11 +171,42 @@ namespace AMW_Mathematics
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(),klawisz.Content.ToString());
         }
+
         private void PlotChart_Click(object sender, RoutedEventArgs e)
         {
-            ViewPlot = new ViewPlot();
+            var _ListBox = ChartListFunction as ListBox;
+            string value;
+            foreach(var _ListBoxItem in _ListBox.Items)
+            {
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);
+                var _Children = AllChildren(_Container);
+                var _Name = "FunctionTextBox";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                value = _Control.Text;
+            }
+            List<DataToChart> DataToChart = new List<DataToChart>();
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 0.12 });
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 1.12 });
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 2.12 });
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 3.12 });
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 4.12 });
+            ViewPlot = new ViewPlot(DataToChart);
+            
             DataContext = ViewPlot;
-        }
+        }//trzeba dokonczyc
+
+        public List<Control> AllChildren(DependencyObject parent)
+        {
+            var _List = new List<Control> { };
+            for(int i = 0; i < VisualTreeHelper.GetChildrenCount(parent);i++)
+            {
+                var _Child = VisualTreeHelper.GetChild(parent, i);
+                if (_Child is Control)
+                    _List.Add(_Child as Control);
+                _List.AddRange(AllChildren(_Child));
+            }
+            return _List;
+        }//trzeba dokonczyc
 
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
         {
@@ -205,6 +237,20 @@ namespace AMW_Mathematics
             klawisz.Content = keyboard.Mark(klawisz.Content.ToString());   //zmiana znaku + na - i vice versa #Ł
         }
 
-    
+        private void ShowElementListViewCharts(object sender, RoutedEventArgs e)
+        {
+            var keysender = (Button)sender; //pobranie nazwy przycisku danej karty
+            switch(keysender.Name) //sprawdzenie który przycisk został wciśnięty i na podstawie tego wyświetlenie odpowiednich pól w liście ListViewChart #M
+            {
+                case "DataSetChB": 
+                    EqualizationAndFunctionsChLV.Height = 20;
+                    DataSetChLV.Height = 428;
+                    break;
+                case "EqualizationAndFunctionsChB":
+                    EqualizationAndFunctionsChLV.Height = 428;
+                    DataSetChLV.Height = 20;
+                    break;
+            }
+        } //po wciśnięciu + otwiera kartę w liście ListViewChart #M
     }
 }
