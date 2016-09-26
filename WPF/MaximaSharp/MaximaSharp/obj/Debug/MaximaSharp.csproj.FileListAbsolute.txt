@@ -13,3 +13,8 @@ C:\Users\MaciejH\Desktop\MaximaSharp-master\MaximaSharp\bin\Debug\MaximaSharp.pd
 C:\Users\MaciejH\Desktop\MaximaSharp-master\MaximaSharp\obj\Debug\MaximaSharp.csprojResolveAssemblyReference.cache
 C:\Users\MaciejH\Desktop\MaximaSharp-master\MaximaSharp\obj\Debug\MaximaSharp.dll
 C:\Users\MaciejH\Desktop\MaximaSharp-master\MaximaSharp\obj\Debug\MaximaSharp.pdb
+C:\Users\MaciejH\Desktop\WPF\MaximaSharp\MaximaSharp\bin\Debug\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\WPF\MaximaSharp\MaximaSharp\bin\Debug\MaximaSharp.pdb
+C:\Users\MaciejH\Desktop\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.csprojResolveAssemblyReference.cache
+C:\Users\MaciejH\Desktop\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.pdb
