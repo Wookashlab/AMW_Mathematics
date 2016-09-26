@@ -170,6 +170,9 @@ namespace AMW_Mathematics
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(),klawisz.Content.ToString());
+            TipBox.Text = klawisz.ToolTip.ToString();
+            TipBox.Foreground = Brushes.Green;
+            
         }
 
         private void PlotChart_Click(object sender, RoutedEventArgs e)
@@ -219,17 +222,26 @@ namespace AMW_Mathematics
             int wartosc;
             var klawisz = (Button)sender;
             if (klawisz.Content.ToString() == "-") wartosc = 27;            //ustalnie czy karta ma być zmniejszona czy zwiększona #Ł
-            else wartosc = 125;
+            else wartosc = 150;
             switch (keyboard.ShowHide(klawisz.Name.ToString()))             //zmiana szerokości odpowiedniej karty (mozna poszerzyć o nowe) #Ł
             {
                 case 1:
-                    TrigonometryTab.Height = wartosc;
+                    CalculusTab.Height = wartosc;
                     break;
                 case 2:
                     StatisticTab.Height = wartosc;
                     break;
-                default:
+                case 3:
+                    TrigonometryTab.Height = wartosc;
+                    break;
+                case 4:
+                    LinearAlgebraTab.Height = wartosc;
+                    break;
+                case 5:
                     StandardTab.Height = wartosc;
+                    break;
+                case 6:
+                    FavoriteTab.Height = wartosc;
                     break;
 
             }

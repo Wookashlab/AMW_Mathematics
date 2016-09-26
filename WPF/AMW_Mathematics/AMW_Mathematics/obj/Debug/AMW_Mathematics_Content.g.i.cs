@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/cofnij.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/pochodna.png")]
 
 
