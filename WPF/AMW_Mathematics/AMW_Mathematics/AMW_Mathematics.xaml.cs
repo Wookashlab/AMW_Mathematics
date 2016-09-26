@@ -181,6 +181,7 @@ namespace AMW_Mathematics
             var _ListBox = ChartListFunction as ListBox;
             foreach(var _ListBoxItem in _ListBox.Items)
             {
+<<<<<<< HEAD
                 var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                           //wprowadzenie do zmiennej _Container elementu ListView #M
                 var _Children = AllChildren(_Container);                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                 var _Name = "FunctionTextBox";
@@ -192,10 +193,31 @@ namespace AMW_Mathematics
             DataContext = ViewPlot;
         }
         public List<Control> AllChildren(DependencyObject parent) 
+=======
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);
+                var _Children = AllChildren(_Container);
+                var _Name = "FunctionTextBox";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                value = _Control.Text;
+            }
+            List<DataToChart> DataToChart = new List<DataToChart>();
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 0.12 });
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 1.12 });
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 2.12 });
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 3.12 });
+            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 4.12 });
+            ViewPlot = new ViewPlot(DataToChart);
+            
+            DataContext = ViewPlot;
+        }//trzeba dokonczyc
+
+        public List<Control> AllChildren(DependencyObject parent)
+>>>>>>> parent of c646cbe... Komentarze :-)
         {
             var _List = new List<Control> { };
-            for(int i = 0; i < VisualTreeHelper.GetChildrenCount(parent);i++) 
+            for(int i = 0; i < VisualTreeHelper.GetChildrenCount(parent);i++)
             {
+<<<<<<< HEAD
                 var _Child = VisualTreeHelper.GetChild(parent, i);                  //wprowadzenie do zmiennej dziecka Elementu ListView #M
                 if (_Child is Control)                                              //sprawdzenie czy jest dziecko jest kontrolką #M
                     _List.Add(_Child as Control);                                   //Jeśli tak dodananie go do listy #M
@@ -203,6 +225,15 @@ namespace AMW_Mathematics
             }
             return _List;                                                           //zwrócenie listy Kontrolek ListView #M
         }                                                                           //funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
+=======
+                var _Child = VisualTreeHelper.GetChild(parent, i);
+                if (_Child is Control)
+                    _List.Add(_Child as Control);
+                _List.AddRange(AllChildren(_Child));
+            }
+            return _List;
+        }//trzeba dokonczyc
+>>>>>>> parent of c646cbe... Komentarze :-)
 
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
         {
