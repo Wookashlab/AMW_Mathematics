@@ -176,7 +176,9 @@
                         <Grid Margin="10,16,611,118" />
                         <TabControl Margin="257,10,10,10">
                             <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="10,0,42,10"/>
+                            <Button x:Name="button7" Content="Button" Height="100" Width="75"/>
                         </TabControl>
+                        <Button x:Name="button10" Content="Button" Margin="385,0,399,544" Click="button10_Click"/>
 
                     </Grid>
                 </TabItem>

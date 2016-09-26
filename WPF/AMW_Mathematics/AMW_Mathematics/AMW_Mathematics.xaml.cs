@@ -27,14 +27,16 @@ namespace AMW_Mathematics
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Dictionary<string, string> SymbolsAndValues;
         private ViewPlot ViewPlot;
+        private DataToChart DataToCharts;
         public MainWindow()
         {
             InitializeComponent();
             SymbolsAndValues = new Dictionary<string, string>();
-            List<ChartListView> DataListView = new List<ChartListView>(); //osobna klasa jeszcze nie wiem jaka :-)
-            DataListView.Add(new ChartListView { LabelChartValue = "1" }); //osobna klasa jeszcze nie wiem jaka :-)
-            ChartListFunction.Items.Add(DataListView);  //osobna klasa jeszcze nie wiem jaka :-)
-            DataSetChLV.Height = 20;  //osobna klasa jeszcze nie wiem jaka :-)
+            DataToCharts = new DataToChart();                                   //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
+            List<ChartListView> DataListView = new List<ChartListView>();       //osobna klasa jeszcze nie wiem jaka :-)
+            DataListView.Add(new ChartListView { LabelChartValue = "1" });      //osobna klasa jeszcze nie wiem jaka :-)
+            ChartListFunction.Items.Add(DataListView);                          //osobna klasa jeszcze nie wiem jaka :-)
+            DataSetChLV.Height = 20;                                            //osobna klasa jeszcze nie wiem jaka :-)
         }
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) 
         {
@@ -61,7 +63,7 @@ namespace AMW_Mathematics
 
         }
 
-        private string AddToNumberDot(string Expresion)
+        public string AddToNumberDot(string Expresion)
         {
            string pom = "";
            for(int i = 0; i < Expresion.Length; i++)
@@ -171,47 +173,44 @@ namespace AMW_Mathematics
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(),klawisz.Content.ToString());
         }
-
+        List<DataToChart> DataToChartList = new List<DataToChart>();
         private void PlotChart_Click(object sender, RoutedEventArgs e)
         {
+            DataToChartList.Clear();
+            List<string> ListFunction = new List<string>(); 
             var _ListBox = ChartListFunction as ListBox;
-            string value;
             foreach(var _ListBoxItem in _ListBox.Items)
             {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem); //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Container); //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                var _Children = AllChildren(_Container);                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                 var _Name = "FunctionTextBox";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name); //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                value = _Control.Text;
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
+                ListFunction.Add(_Control.Text);                                                                            //dodanie do listy funkcji występującej w TextBox #M
             }
-            List<DataToChart> DataToChart = new List<DataToChart>();
-            DataToChart.Add(new DataToChart { Axis = 90, Ayis = 5 });
-            DataToChart.Add(new DataToChart { Axis = 92, Ayis = 6 });
-            DataToChart.Add(new DataToChart { Axis = 95, Ayis = 7 });
-            DataToChart.Add(new DataToChart { Axis = 97, Ayis = 8 });
-            DataToChart.Add(new DataToChart { Axis = 99, Ayis = 9 });
-            ViewPlot = new ViewPlot(DataToChart);           
+            DataToChartList = DataToCharts.CountYwithX(ListFunction, DataToChartList, DataToCharts, new MainWindow(), -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            ViewPlot = new ViewPlot(DataToChartList);
             DataContext = ViewPlot;
-        }//trzeba dokonczyc
-
+        }
         public List<Control> AllChildren(DependencyObject parent) 
         {
             var _List = new List<Control> { };
             for(int i = 0; i < VisualTreeHelper.GetChildrenCount(parent);i++) 
             {
-                var _Child = VisualTreeHelper.GetChild(parent, i); //wprowadzenie do zmiennej dziecka Elementu ListView #M
-                if (_Child is Control) //sprawdzenie czy jest dziecko jest kontrolką #M
-                    _List.Add(_Child as Control); //Jeśli tak dodananie go do listy #M
-                _List.AddRange(AllChildren(_Child)); //Rekurencyjne sprawdzenie czy dziecko ListView nie ma dzieci które też są kontrolkami #M
+                var _Child = VisualTreeHelper.GetChild(parent, i);                  //wprowadzenie do zmiennej dziecka Elementu ListView #M
+                if (_Child is Control)                                              //sprawdzenie czy jest dziecko jest kontrolką #M
+                    _List.Add(_Child as Control);                                   //Jeśli tak dodananie go do listy #M
+                _List.AddRange(AllChildren(_Child));                                //Rekurencyjne sprawdzenie czy dziecko ListView nie ma dzieci które też są kontrolkami #M
             }
-            return _List; //zwrócenie listy Kontrolek ListView #M
-        }//funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
+            return _List;                                                           //zwrócenie listy Kontrolek ListView #M
+        }                                                                           //funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
 
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
         {
             List<ChartListView> DataListView = new List<ChartListView>();
             DataListView.Add(new ChartListView { LabelChartValue = "2" });
             ChartListFunction.Items.Add(DataListView);
+          //  ViewPlot.UpdateModel();
+          //  Plot.InvalidatePlot(true);
         }
 
         private void Tab_Click(object sender, RoutedEventArgs e)            //funckja po wciśnieciu + lub - na karcie #Ł
@@ -251,5 +250,23 @@ namespace AMW_Mathematics
                     break;
             }
         } //po wciśnięciu + otwiera kartę w liście ListViewChart #M
+
+        private void button10_Click(object sender, RoutedEventArgs e) //do poprawienia
+        {
+            List<string> ListFunction = new List<string>();
+            var _ListBox = ChartListFunction as ListBox;
+            foreach (var _ListBoxItem in _ListBox.Items)
+            {
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                var _Children = AllChildren(_Container);                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                var _Name = "FunctionTextBox";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
+                ListFunction.Add(_Control.Text);                                                                            //dodanie do listy funkcji występującej w TextBox #M
+            }
+            ListFunction.Reverse();
+            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(),-20,20); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            ViewPlot = new ViewPlot(DataToChartList);
+            DataContext = ViewPlot;
+        }
     }
 }
