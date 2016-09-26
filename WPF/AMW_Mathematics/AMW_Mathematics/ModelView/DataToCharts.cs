@@ -10,7 +10,7 @@ namespace AMW_Mathematics.ModelView
     public class DataToChart //klasa umożiwa ładowanie punktów danej funkcji do wykresu #M
     {
         public List<string> ListVariablesToChart;
-         public DataToChart()
+        public DataToChart()
         {
             ListVariablesToChart = new List<string>();
             ListVariablesToChart.Add("x");
@@ -18,7 +18,7 @@ namespace AMW_Mathematics.ModelView
         public string SeriesID { get; set; }//akcelerator get; set; umożliwia dostep do właściwości Ayis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
         public double Ayis { get; set; } //akcelerator get; set; umożliwia dostep do właściwości Ayis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
         public double Axis { get; set; } //akcelerator get; set; umożliwia dostep do właściwości Axis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
-        public List<DataToChart> CountYwithX(List<string> ListFunction, List<DataToChart> DataToChartList, DataToChart DataToCharts, MainWindow Main,int zoomi, int zoomj)
+        public List<DataToChart> CountYwithX(List<string> ListFunction, List<DataToChart> DataToChartList, DataToChart DataToCharts, MainWindow Main, int zoomi, int zoomj)
         {
             foreach (var f in ListFunction)
             {
@@ -42,7 +42,7 @@ namespace AMW_Mathematics.ModelView
         {
             foreach (var f in ListFunction)
             {
-                for (double i = -6.1; i > zoomi ; i = i - 0.1)
+                for (double i = -6.1; i > zoomi; i = i - 0.1)
                 {
                     string v = "";
                     foreach (var vari in DataToCharts.ListVariablesToChart)
@@ -53,7 +53,7 @@ namespace AMW_Mathematics.ModelView
                     v = Main.AddToNumberDot(v);
                     v = Maxima.Eval(v);
                     v = v.Replace(".", ",");
-                    DataToChartList.Insert(0,(new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }));
+                    DataToChartList.Insert(0, (new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }));
                 }
                 for (double i = 6; i < zoomj; i = i + 0.1)
                 {

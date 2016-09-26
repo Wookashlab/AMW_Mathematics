@@ -8,7 +8,7 @@ using OxyPlot.Series;
 
 namespace AMW_Mathematics.ModelView
 {
-    public class ViewPlot: INotifyPropertyChanged
+    public class ViewPlot : INotifyPropertyChanged
     {
         private PlotModel plotModel;
         public PlotModel PlotModel                                          //użycie akceleratorów get; set; w celu uzyskania dostępu do prywatnego pola plotMode. Wlłaściwość PlotModel jest publiczna dzieki temu możeby bindować w XAML prawatną zmienną plotMode                             // 

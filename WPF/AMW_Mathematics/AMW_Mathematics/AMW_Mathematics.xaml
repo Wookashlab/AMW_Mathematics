@@ -158,7 +158,7 @@
                                     <Button x:Name="PlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click"/>
                                 </Grid>
                             </ListViewItem>
-                            <ListViewItem  x:Name="DataSetChLV" Height="83" Width="247">                              
+                            <ListViewItem  x:Name="DataSetChLV" Height="83" Width="247">
                                 <Grid>
                                     <Button x:Name="DataSetChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
                                     <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Ustaw Dane</TextBlock>

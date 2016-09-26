@@ -38,12 +38,12 @@ namespace AMW_Mathematics
             ChartListFunction.Items.Add(DataListView);                          //osobna klasa jeszcze nie wiem jaka :-)
             DataSetChLV.Height = 20;                                            //osobna klasa jeszcze nie wiem jaka :-)
         }
-        private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) 
+        private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
             string Expresion = ExpressionField.Text;
             Expresion = SaveValuesOfVariables(Expresion);
             Expresion = CheckVariablesinExpresion(Expresion);
-            if(Expresion.Contains(":=")==false) Expresion = AddToNumberDot(Expresion);
+            if (Expresion.Contains(":=") == false) Expresion = AddToNumberDot(Expresion);
             Expresion = Maxima.Eval(Expresion);
             Expresion = Expresion.Replace(":=", " = ");
             ResultList.Items.Add(Expresion);
@@ -65,13 +65,13 @@ namespace AMW_Mathematics
 
         public string AddToNumberDot(string Expresion)
         {
-           string pom = "";
-           for(int i = 0; i < Expresion.Length; i++)
-           {
-               if(Char.IsNumber(Expresion[i]) == true)
-               {
-                   for(int j = i; j < Expresion.Length; j++)
-                   {
+            string pom = "";
+            for (int i = 0; i < Expresion.Length; i++)
+            {
+                if (Char.IsNumber(Expresion[i]) == true)
+                {
+                    for (int j = i; j < Expresion.Length; j++)
+                    {
                         if (Char.IsNumber(Expresion[j]) != true && Expresion[j] != '.')
                         {
                             if (pom.Length == 1)
@@ -83,11 +83,11 @@ namespace AMW_Mathematics
                             }
                             else
                             {
-                                if (pom.Contains(".")!= true)
+                                if (pom.Contains(".") != true)
                                 {
                                     Expresion = Expresion.Insert(j, ".0");
                                     pom = "";
-                                    i = j+2;
+                                    i = j + 2;
                                     break;
                                 }
                                 else
@@ -101,12 +101,12 @@ namespace AMW_Mathematics
                         else
                         {
                             pom = pom + Expresion[j];
-                        }           
+                        }
                         if (i + 1 == Expresion.Length)
                         {
                             if (pom.Length == 1)
                             {
-                                Expresion = Expresion.Insert(j+1, ".0");
+                                Expresion = Expresion.Insert(j + 1, ".0");
                                 i = i + 2;
                                 pom = "";
                                 break;
@@ -115,7 +115,7 @@ namespace AMW_Mathematics
                             {
                                 if (pom.Contains(".") != true)
                                 {
-                                    Expresion = Expresion.Insert(j+1, ".0");
+                                    Expresion = Expresion.Insert(j + 1, ".0");
                                     pom = "";
                                     i = j + 2;
                                     break;
@@ -128,10 +128,10 @@ namespace AMW_Mathematics
                                 }
                             }
                         }
-                   }
-               }
-           }
-           return Expresion;
+                    }
+                }
+            }
+            return Expresion;
         }
 
         private string CheckVariablesinExpresion(string Expresion)
@@ -171,18 +171,16 @@ namespace AMW_Mathematics
         {
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
-            ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(),klawisz.Content.ToString());
+            ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
         }
         List<DataToChart> DataToChartList = new List<DataToChart>();
         private void PlotChart_Click(object sender, RoutedEventArgs e)
         {
             DataToChartList.Clear();
-            List<string> ListFunction = new List<string>(); 
+            List<string> ListFunction = new List<string>();
             var _ListBox = ChartListFunction as ListBox;
-            foreach(var _ListBoxItem in _ListBox.Items)
+            foreach (var _ListBoxItem in _ListBox.Items)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                           //wprowadzenie do zmiennej _Container elementu ListView #M
                 var _Children = AllChildren(_Container);                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                 var _Name = "FunctionTextBox";
@@ -193,41 +191,11 @@ namespace AMW_Mathematics
             ViewPlot = new ViewPlot(DataToChartList);
             DataContext = ViewPlot;
         }
-        public List<Control> AllChildren(DependencyObject parent) 
-=======
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);
-                var _Children = AllChildren(_Container);
-                var _Name = "FunctionTextBox";
-=======
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);
-                var _Children = AllChildren(_Container);
-                var _Name = "FunctionTextBox";
->>>>>>> parent of c646cbe... Komentarze :-)
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                value = _Control.Text;
-            }
-            List<DataToChart> DataToChart = new List<DataToChart>();
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 0.12 });
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 1.12 });
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 2.12 });
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 3.12 });
-            DataToChart.Add(new DataToChart { Axis = 0.21, Ayis = 4.12 });
-            ViewPlot = new ViewPlot(DataToChart);
-            
-            DataContext = ViewPlot;
-        }//trzeba dokonczyc
-
         public List<Control> AllChildren(DependencyObject parent)
-<<<<<<< HEAD
->>>>>>> parent of c646cbe... Komentarze :-)
-=======
->>>>>>> parent of c646cbe... Komentarze :-)
         {
             var _List = new List<Control> { };
-            for(int i = 0; i < VisualTreeHelper.GetChildrenCount(parent);i++)
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 var _Child = VisualTreeHelper.GetChild(parent, i);                  //wprowadzenie do zmiennej dziecka Elementu ListView #M
                 if (_Child is Control)                                              //sprawdzenie czy jest dziecko jest kontrolką #M
                     _List.Add(_Child as Control);                                   //Jeśli tak dodananie go do listy #M
@@ -235,32 +203,14 @@ namespace AMW_Mathematics
             }
             return _List;                                                           //zwrócenie listy Kontrolek ListView #M
         }                                                                           //funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
-=======
-                var _Child = VisualTreeHelper.GetChild(parent, i);
-                if (_Child is Control)
-                    _List.Add(_Child as Control);
-                _List.AddRange(AllChildren(_Child));
-            }
-            return _List;
-        }//trzeba dokonczyc
->>>>>>> parent of c646cbe... Komentarze :-)
-=======
-                var _Child = VisualTreeHelper.GetChild(parent, i);
-                if (_Child is Control)
-                    _List.Add(_Child as Control);
-                _List.AddRange(AllChildren(_Child));
-            }
-            return _List;
-        }//trzeba dokonczyc
->>>>>>> parent of c646cbe... Komentarze :-)
 
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
         {
             List<ChartListView> DataListView = new List<ChartListView>();
             DataListView.Add(new ChartListView { LabelChartValue = "2" });
             ChartListFunction.Items.Add(DataListView);
-          //  ViewPlot.UpdateModel();
-          //  Plot.InvalidatePlot(true);
+            //  ViewPlot.UpdateModel();
+            //  Plot.InvalidatePlot(true);
         }
 
         private void Tab_Click(object sender, RoutedEventArgs e)            //funckja po wciśnieciu + lub - na karcie #Ł
@@ -288,9 +238,9 @@ namespace AMW_Mathematics
         private void ShowElementListViewCharts(object sender, RoutedEventArgs e)
         {
             var keysender = (Button)sender; //pobranie nazwy przycisku danej karty
-            switch(keysender.Name) //sprawdzenie który przycisk został wciśnięty i na podstawie tego wyświetlenie odpowiednich pól w liście ListViewChart #M
+            switch (keysender.Name) //sprawdzenie który przycisk został wciśnięty i na podstawie tego wyświetlenie odpowiednich pól w liście ListViewChart #M
             {
-                case "DataSetChB": 
+                case "DataSetChB":
                     EqualizationAndFunctionsChLV.Height = 20;
                     DataSetChLV.Height = 428;
                     break;
@@ -314,7 +264,7 @@ namespace AMW_Mathematics
                 ListFunction.Add(_Control.Text);                                                                            //dodanie do listy funkcji występującej w TextBox #M
             }
             ListFunction.Reverse();
-            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(),-20,20); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), -20, 20); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
             ViewPlot = new ViewPlot(DataToChartList);
             DataContext = ViewPlot;
         }
