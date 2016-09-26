@@ -182,6 +182,7 @@ namespace AMW_Mathematics
             foreach(var _ListBoxItem in _ListBox.Items)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                           //wprowadzenie do zmiennej _Container elementu ListView #M
                 var _Children = AllChildren(_Container);                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                 var _Name = "FunctionTextBox";
@@ -197,6 +198,11 @@ namespace AMW_Mathematics
                 var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);
                 var _Children = AllChildren(_Container);
                 var _Name = "FunctionTextBox";
+=======
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);
+                var _Children = AllChildren(_Container);
+                var _Name = "FunctionTextBox";
+>>>>>>> parent of c646cbe... Komentarze :-)
                 var _Control = (TextBox)_Children.First(c => c.Name == _Name);
                 value = _Control.Text;
             }
@@ -212,11 +218,15 @@ namespace AMW_Mathematics
         }//trzeba dokonczyc
 
         public List<Control> AllChildren(DependencyObject parent)
+<<<<<<< HEAD
+>>>>>>> parent of c646cbe... Komentarze :-)
+=======
 >>>>>>> parent of c646cbe... Komentarze :-)
         {
             var _List = new List<Control> { };
             for(int i = 0; i < VisualTreeHelper.GetChildrenCount(parent);i++)
             {
+<<<<<<< HEAD
 <<<<<<< HEAD
                 var _Child = VisualTreeHelper.GetChild(parent, i);                  //wprowadzenie do zmiennej dziecka Elementu ListView #M
                 if (_Child is Control)                                              //sprawdzenie czy jest dziecko jest kontrolką #M
@@ -225,6 +235,15 @@ namespace AMW_Mathematics
             }
             return _List;                                                           //zwrócenie listy Kontrolek ListView #M
         }                                                                           //funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
+=======
+                var _Child = VisualTreeHelper.GetChild(parent, i);
+                if (_Child is Control)
+                    _List.Add(_Child as Control);
+                _List.AddRange(AllChildren(_Child));
+            }
+            return _List;
+        }//trzeba dokonczyc
+>>>>>>> parent of c646cbe... Komentarze :-)
 =======
                 var _Child = VisualTreeHelper.GetChild(parent, i);
                 if (_Child is Control)
