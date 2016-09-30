@@ -75,13 +75,17 @@ namespace AMW_Mathematics.ModelView
                 {
                     if (d.Axis >= 0)
                     {
-                        lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));
+                       // if(d.Ayis > 0)
+                      //  {
+                            lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));
+                        //}
                     }
                 }
                 foreach (var d in data)
                 {
                     if (d.Axis <= 0)
                     {
+                       // if(d.Ayis < 0)
                         lineSeries1.Points.Add(new DataPoint(d.Axis, d.Ayis));
                     }
                 }
@@ -92,9 +96,8 @@ namespace AMW_Mathematics.ModelView
                 i++;
             }
         }
-        public void UpdateModelZoomIN(List<DataToChart> DataToChart)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
+        public int UpdateModelZoomIN(List<DataToChart> DataToChart, int i)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
-            int i = 0;
             var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList(); //grupowanie listy DataToChart po Seri #M
             foreach (var data in dataPerSeries)
             {
@@ -132,6 +135,7 @@ namespace AMW_Mathematics.ModelView
                 }
                 i = i + 2;
             }
+            return i;
         }
         public void UpdateModelZoomOUT(List<DataToChart> DataToChart, int max, int min, double zoommin)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
@@ -166,7 +170,7 @@ namespace AMW_Mathematics.ModelView
                 }
                 if (lineSeres1 != null)
                 {
-                    //  data.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
+                    //data.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
                     var cos1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
                     for (int j = 0; j < cos1.Count; j++)
                     {

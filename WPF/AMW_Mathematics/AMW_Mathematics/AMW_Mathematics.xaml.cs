@@ -183,6 +183,7 @@ namespace AMW_Mathematics
             ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
         }
         List<string> ListFunction = new List<string>();
+        List<string> ListFunction1 = new List<string>();
         private void PlotChart_Click(object sender, RoutedEventArgs e)
         {
             List<DataToChart> DataToChartList = new List<DataToChart>();
@@ -197,7 +198,7 @@ namespace AMW_Mathematics
                 var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
                 ListFunction.Add(_Control.Text);                                                                            //dodanie do listy funkcji występującej w TextBox #M
             }
-            DataToChartList = DataToCharts.CountYwithX(ListFunction, DataToChartList, DataToCharts, new MainWindow(), -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts, new MainWindow(), -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
             ViewPlot = new ViewPlot(DataToChartList);
             DataContext = ViewPlot;
             zoomin.zoomi = 7;
@@ -206,6 +207,7 @@ namespace AMW_Mathematics
             zoomin.endminzoom = 0.05;
             zoomin.countzoom = 0.01;
             zoomin.roundtozoom = 2;
+            DataToCharts.zoommax = 0;
         }
         public List<Control> AllChildren(DependencyObject parent)
         {
@@ -270,40 +272,58 @@ namespace AMW_Mathematics
         {
 
             List<DataToChart> DataToChartList = new List<DataToChart>();
-            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
-            ViewPlot.UpdateModelZoomIN(DataToChartList);
+            DataToChartList = DataToCharts.CountYwithXWithUpdataTwoLine(ListFunction1, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            int i = ViewPlot.UpdateModelZoomIN(DataToChartList, 0);
+            Plot.InvalidatePlot(true);
+            DataToChartList.Clear();
+            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            ViewPlot.UpdateModelZoomIN(DataToChartList, i);
             Plot.InvalidatePlot(true);
             zoomin.zoomj = zoomin.zoomj - 1;
             zoomin.zoomi = zoomin.zoomi + 1;
-            var helpzomm = zoomin.startminzoom;
-            zoomin.startminzoom = zoomin.endminzoom;
-            zoomin.endminzoom = helpzomm / 10;
-            if (zoomin.startminzoom.ToString().Contains("1") == true)
+            if (DataToCharts.zoommax == 0)
             {
-                zoomin.countzoom = zoomin.countzoom / 10;
-                zoomin.roundtozoom++;
+                var helpzomm = zoomin.startminzoom;
+                zoomin.startminzoom = zoomin.endminzoom;
+                zoomin.endminzoom = helpzomm / 10;
+                if (zoomin.startminzoom.ToString().Contains("1") == true)
+                {
+                    zoomin.countzoom = zoomin.countzoom / 10;
+                    zoomin.roundtozoom++;
+                }
             }
         }
         private void ZoomOut_Click(object sender, RoutedEventArgs e)
         {
-            zoomin.zoomj = zoomin.zoomj + 1;
-            zoomin.zoomi = zoomin.zoomi - 1;
-            var helpzomm = zoomin.endminzoom;
-            zoomin.endminzoom = zoomin.startminzoom;
-            zoomin.startminzoom = helpzomm * 10;
-            if (zoomin.startminzoom.ToString().Contains("1") != true)
-            {
-                zoomin.countzoom = zoomin.countzoom * 10;
-                zoomin.roundtozoom--;
-            }
             List<DataToChart> DataToChartList = new List<DataToChart>();
-            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
-            if ( zoomin.countzoom <= 0.01) ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, zoomin.startminzoom);
-            else ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, 0);
+            if (zoomin.endminzoom < 0.5)
+            {
+                if (DataToCharts.zoommax == 0)
+                {
+                    var helpzomm = zoomin.endminzoom;
+                    zoomin.endminzoom = zoomin.startminzoom;
+                    zoomin.startminzoom = helpzomm * 10;
+                }
+                zoomin.zoomj = zoomin.zoomj + 1;
+                zoomin.zoomi = zoomin.zoomi - 1;
+                if (zoomin.startminzoom.ToString().Contains("1") != true)
+                {
+                    zoomin.countzoom = zoomin.countzoom * 10;
+                    zoomin.roundtozoom--;
+                }
+                DataToChartList = DataToCharts.CountYwithXWithUpdataTwoLine(ListFunction1, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
 
-
-            Plot.InvalidatePlot(true); ;
+                Plot.InvalidatePlot(true);
+                if (DataToCharts.zoommax > 0)
+                {
+                    DataToCharts.zoommax = DataToCharts.zoommax - 2;
+                    ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, 0.0);
+                }
+                else ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, zoomin.startminzoom);
+            }
+            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, 0.0);
+            Plot.InvalidatePlot(true);
         }
-
     }
 }
