@@ -16,18 +16,27 @@ using MahApps.Metro.Controls;
 using MaximaSharp;
 using AMW_Mathematics.ModelView;
 using System.Data;
-
 namespace AMW_Mathematics
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    public class ZoomIN
+    {
+        public int zoomj { get; set; }
+        public int zoomi { get; set; }
+        public double startminzoom { get; set; }
+        public double endminzoom { get; set; }
+        public double countzoom { get; set; }
+        public int roundtozoom { get; set; }
+    }
     public partial class MainWindow : MetroWindow
     {
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Dictionary<string, string> SymbolsAndValues;
         private ViewPlot ViewPlot;
         private DataToChart DataToCharts;
+        private ZoomIN zoomin = new ZoomIN();
         public MainWindow()
         {
             InitializeComponent();
@@ -173,11 +182,12 @@ namespace AMW_Mathematics
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
         }
-        List<DataToChart> DataToChartList = new List<DataToChart>();
+        List<string> ListFunction = new List<string>();
         private void PlotChart_Click(object sender, RoutedEventArgs e)
         {
+            List<DataToChart> DataToChartList = new List<DataToChart>();
             DataToChartList.Clear();
-            List<string> ListFunction = new List<string>();
+            ListFunction.Clear();
             var _ListBox = ChartListFunction as ListBox;
             foreach (var _ListBoxItem in _ListBox.Items)
             {
@@ -190,6 +200,12 @@ namespace AMW_Mathematics
             DataToChartList = DataToCharts.CountYwithX(ListFunction, DataToChartList, DataToCharts, new MainWindow(), -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
             ViewPlot = new ViewPlot(DataToChartList);
             DataContext = ViewPlot;
+            zoomin.zoomi = 7;
+            zoomin.zoomj = -7;
+            zoomin.startminzoom = 0.1;
+            zoomin.endminzoom = 0.05;
+            zoomin.countzoom = 0.01;
+            zoomin.roundtozoom = 2;
         }
         public List<Control> AllChildren(DependencyObject parent)
         {
@@ -250,23 +266,44 @@ namespace AMW_Mathematics
                     break;
             }
         } //po wciśnięciu + otwiera kartę w liście ListViewChart #M
-
-        private void button10_Click(object sender, RoutedEventArgs e) //do poprawienia
+        private void ZoomIN_Click(object sender, RoutedEventArgs e) //do poprawienia
         {
-            List<string> ListFunction = new List<string>();
-            var _ListBox = ChartListFunction as ListBox;
-            foreach (var _ListBoxItem in _ListBox.Items)
+
+            List<DataToChart> DataToChartList = new List<DataToChart>();
+            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            ViewPlot.UpdateModelZoomIN(DataToChartList);
+            Plot.InvalidatePlot(true);
+            zoomin.zoomj = zoomin.zoomj - 1;
+            zoomin.zoomi = zoomin.zoomi + 1;
+            var helpzomm = zoomin.startminzoom;
+            zoomin.startminzoom = zoomin.endminzoom;
+            zoomin.endminzoom = helpzomm / 10;
+            if (zoomin.startminzoom.ToString().Contains("1") == true)
             {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Container);                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                var _Name = "FunctionTextBox";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                ListFunction.Add(_Control.Text);                                                                            //dodanie do listy funkcji występującej w TextBox #M
+                zoomin.countzoom = zoomin.countzoom / 10;
+                zoomin.roundtozoom++;
             }
-            ListFunction.Reverse();
-            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), -20, 20); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
-            ViewPlot = new ViewPlot(DataToChartList);
-            DataContext = ViewPlot;
         }
+        private void ZoomOut_Click(object sender, RoutedEventArgs e)
+        {
+            zoomin.zoomj = zoomin.zoomj + 1;
+            zoomin.zoomi = zoomin.zoomi - 1;
+            var helpzomm = zoomin.endminzoom;
+            zoomin.endminzoom = zoomin.startminzoom;
+            zoomin.startminzoom = helpzomm * 10;
+            if (zoomin.startminzoom.ToString().Contains("1") != true)
+            {
+                zoomin.countzoom = zoomin.countzoom * 10;
+                zoomin.roundtozoom--;
+            }
+            List<DataToChart> DataToChartList = new List<DataToChart>();
+            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            if ( zoomin.countzoom <= 0.01) ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, zoomin.startminzoom);
+            else ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, 0);
+
+
+            Plot.InvalidatePlot(true); ;
+        }
+
     }
 }

@@ -178,8 +178,8 @@
                             <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="10,0,42,10"/>
                             <Button x:Name="button7" Content="Button" Height="100" Width="75"/>
                         </TabControl>
-                        <Button x:Name="button10" Content="Button" Margin="385,0,399,544" Click="button10_Click"/>
-
+                        <Button x:Name="ZoomIn" Content="Przybliż" Margin="385,0,399,544" Click="ZoomIN_Click"/>
+                        <Button x:Name="ZoomOut" Content="Oddal" Margin="490,0,294,544" Click="ZoomOut_Click"/>
                     </Grid>
                 </TabItem>
                 <TabControl x:Name="tabControl2" Height="100" Width="100">

@@ -55,37 +55,139 @@ namespace AMW_Mathematics.ModelView
                 var lineSerie = new LineSeries
                 {
                     StrokeThickness = 2,
-                    MarkerSize = 3,
+                    MarkerSize = 1,
                     MarkerStroke = colors[i],
                     MarkerType = MarkerType.None,
                     CanTrackerInterpolatePoints = false,
                     Title = string.Format("Seria " + i),
                     Smooth = false,
                 };
-                data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
+                var lineSeries1 = new LineSeries
+                {
+                    StrokeThickness = 2,
+                    MarkerSize = 1,
+                    MarkerStroke = colors[i],
+                    MarkerType = MarkerType.None,
+                    CanTrackerInterpolatePoints = false,
+                    Smooth = false,
+                };
+                foreach (var d in data)
+                {
+                    if (d.Axis >= 0)
+                    {
+                        lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));
+                    }
+                }
+                foreach (var d in data)
+                {
+                    if (d.Axis <= 0)
+                    {
+                        lineSeries1.Points.Add(new DataPoint(d.Axis, d.Ayis));
+                    }
+                }
+                lineSerie.Color = colors[i];
+                lineSeries1.Color = colors[i];
+                PlotModel.Series.Add(lineSeries1);
                 PlotModel.Series.Add(lineSerie);                                                 //Dodanie do modelu wykresu nowej seri #M
                 i++;
             }
         }
-        public void UpdateModel(List<DataToChart> DataToChart)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
+        public void UpdateModelZoomIN(List<DataToChart> DataToChart)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
             int i = 0;
             var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList(); //grupowanie listy DataToChart po Seri #M
             foreach (var data in dataPerSeries)
             {
-                var lineSerie = new LineSeries
+                var lineSerie = PlotModel.Series[i] as LineSeries;
+                var lineSeres1 = PlotModel.Series[i + 1] as LineSeries;
+                if (lineSerie != null)
                 {
-                    StrokeThickness = 2,
-                    MarkerSize = 3,
-                    MarkerStroke = colors[i],
-                    MarkerType = MarkerType.None,
-                    CanTrackerInterpolatePoints = false,
-                    Title = string.Format("Seria " + i),
-                    Smooth = false,
-                };
-                data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                PlotModel.Series.Add(lineSerie); // Dodanie do modelu wykresu nowej seri #M
-                i++;
+                    foreach (var d in data)
+                    {
+                        if (d.Axis < 0)
+                        {
+                            lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));
+                        }
+                    }
+                    //data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
+                    var cos = lineSerie.Points.OrderBy(m => m.X).ToList();
+
+                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);
+                    cos.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y)));
+
+                }
+                if (lineSeres1 != null)
+                {
+                    foreach (var d in data)
+                    {
+                        if (d.Axis > 0)
+                        {
+                            lineSeres1.Points.Add(new DataPoint(d.Axis, d.Ayis));
+                        }
+                    }
+                    // data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
+                    var cos1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
+                    lineSeres1.Points.RemoveRange(0, lineSeres1.Points.Count);
+                    cos1.ToList().ForEach(k => lineSeres1.Points.Add(new DataPoint(k.X, k.Y)));
+                }
+                i = i + 2;
+            }
+        }
+        public void UpdateModelZoomOUT(List<DataToChart> DataToChart, int max, int min, double zoommin)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
+        {
+            int i = 0;
+            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList(); //grupowanie listy DataToChart po Seri #M
+            foreach (var data in dataPerSeries)
+            {
+                var lineSerie = PlotModel.Series[i] as LineSeries;
+                var lineSeres1 = PlotModel.Series[i + 1] as LineSeries;
+                if (lineSerie != null)
+                {
+                    // data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
+                    var cos = lineSerie.Points.OrderBy(m => m.X).ToList();
+                    for (int j = 0; j < cos.Count; j++)
+                    {
+                        if (cos[j].X < min)
+                        {
+                            cos.Remove(cos[j]);
+                            j = -1;
+                        }
+                    }
+                    for (int j = 0; j < cos.Count; j++)
+                    {
+                        if (cos[j].X > -zoommin)
+                        {
+                            cos.Remove(cos[j]);
+                            j = -1;
+                        }
+                    }
+                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);
+                    cos.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y)));
+                }
+                if (lineSeres1 != null)
+                {
+                    //  data.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
+                    var cos1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
+                    for (int j = 0; j < cos1.Count; j++)
+                    {
+                        if (cos1[j].X > max)
+                        {
+                            cos1.Remove(cos1[j]);
+                            j = -1;
+                        }
+                    }
+                    for (int j = 0; j < cos1.Count; j++)
+                    {
+                        if (cos1[j].X < zoommin)
+                        {
+                            cos1.Remove(cos1[j]);
+                            j = -1;
+                        }
+                    }
+                    lineSeres1.Points.RemoveRange(0, lineSeres1.Points.Count);
+                    cos1.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.X, d.Y)));
+                }
+                i = i + 2;
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
