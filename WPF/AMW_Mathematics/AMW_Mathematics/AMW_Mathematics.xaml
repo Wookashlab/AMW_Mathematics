@@ -98,88 +98,106 @@
                         </GroupBox>
                     </Grid>
                 </TabItem>
-            </TabControl>
-            <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" BorderBrush="AliceBlue" BorderThickness="6">
-                <TabItem Margin="0,0,-4,-2" Header="Arkusz">
-                    <Grid Margin="0,0,-11,-11">
-                        <ListBox x:Name="ResultList" Margin="10,10,10,160" FontSize="22"/>
-                        <GroupBox x:Name="groupBox5" Header="" HorizontalAlignment="Left" Margin="10,427,0,0" VerticalAlignment="Top" Height="139" Width="840">
-                            <Grid FocusManager.FocusedElement="{Binding ElementName=ExpressionField}">
-                                <TextBox x:Name="ExpressionField" HorizontalAlignment="Left" Height="65" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" FontSize="18" TabIndex="0"/>
-                                <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" TextWrapping="Wrap" Text="Wpisz wyrażenie i naciśnij Wprowadź" VerticalAlignment="Top" Width="808"/>
-                                <Button x:Name="Clear" Content="Wyczyść" HorizontalAlignment="Left" Margin="743,5,0,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
-                                <Button x:Name="ConfirmExpresion" Content="Wprowadź" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
-                            </Grid>
-                        </GroupBox>
-                    </Grid>
+                <TabItem x:Name="FormatujOverLap"  VerticalAlignment="Top" Header="Formatuj">
+                    <GroupBox x:Name="groupBox6" Header="Skalowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,5" Width="141">
+                        <Grid>
+                            <Button x:Name="ZoomIn" Content="Oddal"  Click="ZoomIN_Click" Margin="30,49,0,10" HorizontalAlignment="Left" Width="69" />
+                            <Button x:Name="ZoomOut" Content="Przybliż"  Click="ZoomOut_Click" Margin="30,10,0,49" HorizontalAlignment="Left" Width="69"/>
+                        </Grid>
+                    </GroupBox>
                 </TabItem>
-                <TabItem x:Name="ChartBox" Header="Wykresy">
+            </TabControl>
+            <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" >
+                <TabItem Margin="0,0,-4,-2" Header="Arkusz">
+                    <TabControl BorderBrush="AliceBlue" BorderThickness="6" >
+                        <Grid Margin="0,0,-11,-11">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="135*"/>
+                            <ColumnDefinition Width="739*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox x:Name="ResultList" Margin="10,10,10,160" FontSize="22" Grid.ColumnSpan="2"/>
+                            <GroupBox x:Name="groupBox5" Header="" HorizontalAlignment="Left" Margin="10,418,0,0" VerticalAlignment="Top" Height="139" Width="840" Grid.ColumnSpan="2">
+                                <Grid FocusManager.FocusedElement="{Binding ElementName=ExpressionField}">
+                                    <TextBox x:Name="ExpressionField" HorizontalAlignment="Left" Height="65" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" FontSize="18" TabIndex="0"/>
+                                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" TextWrapping="Wrap" Text="Wpisz wyrażenie i naciśnij Wprowadź" VerticalAlignment="Top" Width="808"/>
+                                    <Button x:Name="Clear" Content="Wyczyść" HorizontalAlignment="Left" Margin="743,5,0,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
+                                    <Button x:Name="ConfirmExpresion" Content="Wprowadź" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabControl>
+                </TabItem>
+                <TabItem x:Name="ChartsOverLap" Header="Wykresy" >
                     <Grid>
-                        <ListView Margin="0,0,606,0">
-                            <ListViewItem x:Name="EqualizationAndFunctionsChLV" Width="247" Height="428">
-                                <Grid>
-                                    <Button x:Name="EqualizationAndFunctionsChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                    <TextBlock FontSize="16" Margin="40,1,57,0" Height="22" VerticalAlignment="Top">Równania i Funkcje</TextBlock>
-                                    <ComboBox Width="100" SelectedIndex="0" Margin="15,31,132,0" Height="26" VerticalAlignment="Top">
-                                        <ComboBoxItem Content="2D" />
-                                        <ComboBoxItem Content="3D"/>
-                                    </ComboBox>
-                                    <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,20,0" VerticalAlignment="Top">
-                                        <ComboBoxItem Content="Liniowy"/>
-                                        <ComboBoxItem Content="Kołowy"/>
-                                    </ComboBox>
-                                    <ListView x:Name="ChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
-                                        <ListView.Resources>
-                                            <Style TargetType="{x:Type GridViewColumnHeader}">
-                                                <Setter Property="Visibility" Value="Collapsed" />
-                                            </Style>
-                                        </ListView.Resources>
-                                        <ListView.View>
-                                            <GridView  x:Name="ChartListFunctionGrid">
-                                                <GridViewColumn>
-                                                    <GridViewColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <Label Width="50" Content="{Binding LabelChartValue}" Margin="0,10"/>
-                                                        </DataTemplate>
-                                                    </GridViewColumn.CellTemplate>
-                                                </GridViewColumn>
-                                                <GridViewColumn>
-                                                    <GridViewColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <TextBox x:Name="FunctionTextBox" Width="120" Margin="0,10"/>
-                                                        </DataTemplate>
-                                                    </GridViewColumn.CellTemplate>
-                                                </GridViewColumn>
-                                            </GridView>
-                                        </ListView.View>
-                                    </ListView>
-                                    <Button x:Name="AddExpresionToPlot" Content="Add" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" Click="AddExpresionToPlot_Click" VerticalAlignment="Top"/>
-                                    <Button x:Name="button9" Content="Remove" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76"/>
-                                    <Button x:Name="PlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click"/>
-                                </Grid>
-                            </ListViewItem>
-                            <ListViewItem  x:Name="DataSetChLV" Height="83" Width="247">
-                                <Grid>
-                                    <Button x:Name="DataSetChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                    <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Ustaw Dane</TextBlock>
-                                    <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
-                                        <ComboBoxItem Content="2D" />
-                                        <ComboBoxItem Content="3D"/>
-                                    </ComboBox>
-                                    <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,15,0" VerticalAlignment="Top">
-                                        <ComboBoxItem Content="Liniowy"/>
-                                        <ComboBoxItem Content="Kołowy"/>
-                                    </ComboBox>
-                                </Grid>
-                            </ListViewItem>
-                        </ListView>
-                        <Grid Margin="10,16,611,118" />
-                        <TabControl Margin="257,10,10,10">
-                            <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="10,0,42,10"/>
-                            <Button x:Name="button7" Content="Button" Height="100" Width="75"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="28*"/>
+                            <ColumnDefinition Width="815*"/>
+                        </Grid.ColumnDefinitions>
+                        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,0,611,0" Grid.ColumnSpan="3">
+                            <ListView HorizontalAlignment="Left" Width="251">
+
+                                <ListViewItem x:Name="EqualizationAndFunctionsChLV" Width="247" Height="428">
+                                    <Grid>
+                                        <Button x:Name="EqualizationAndFunctionsChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
+                                        <TextBlock FontSize="16" Margin="40,1,57,0" Height="22" VerticalAlignment="Top">Równania i Funkcje</TextBlock>
+                                        <ComboBox Width="100" SelectedIndex="0" Margin="15,31,132,0" Height="26" VerticalAlignment="Top">
+                                            <ComboBoxItem Content="2D" />
+                                            <ComboBoxItem Content="3D"/>
+                                        </ComboBox>
+                                        <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,20,0" VerticalAlignment="Top">
+                                            <ComboBoxItem Content="Liniowy"/>
+                                            <ComboBoxItem Content="Kołowy"/>
+                                        </ComboBox>
+                                        <ListView x:Name="ChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
+                                            <ListView.Resources>
+                                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </Style>
+                                            </ListView.Resources>
+                                            <ListView.View>
+                                                <GridView  x:Name="ChartListFunctionGrid">
+                                                    <GridViewColumn>
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Label Width="50" Content="{Binding LabelChartValue}" Margin="0,10"/>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                    <GridViewColumn>
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBox x:Name="FunctionTextBox" Width="120" Margin="0,10"/>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                        <Button x:Name="AddExpresionToPlot" Content="Add" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" Click="AddExpresionToPlot_Click" VerticalAlignment="Top"/>
+                                        <Button x:Name="RemoveFunctionFromChart" Content="Remove" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" Click="RemoveFunctionFromChart_Click"/>
+                                        <Button x:Name="PlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click"/>
+                                    </Grid>
+                                </ListViewItem>
+                                <ListViewItem  x:Name="DataSetChLV" Height="83" Width="247">
+                                    <Grid>
+                                        <Button x:Name="DataSetChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
+                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Ustaw Dane</TextBlock>
+                                        <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
+                                            <ComboBoxItem Content="2D" />
+                                            <ComboBoxItem Content="3D"/>
+                                        </ComboBox>
+                                        <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,15,0" VerticalAlignment="Top">
+                                            <ComboBoxItem Content="Liniowy"/>
+                                            <ComboBoxItem Content="Kołowy"/>
+                                        </ComboBox>
+                                    </Grid>
+                                </ListViewItem>
+                            </ListView>
                         </TabControl>
-                        <Button x:Name="ZoomIn" Content="Przybliż" Margin="385,0,399,544" Click="ZoomIN_Click"/>
-                        <Button x:Name="ZoomOut" Content="Oddal" Margin="490,0,294,544" Click="ZoomOut_Click"/>
+                        <TabControl Margin="209,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
+                            <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3"/>
+                        </TabControl>
                     </Grid>
                 </TabItem>
                 <TabControl x:Name="tabControl2" Height="100" Width="100">

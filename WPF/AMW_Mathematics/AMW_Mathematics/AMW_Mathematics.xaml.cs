@@ -36,14 +36,16 @@ namespace AMW_Mathematics
         private Dictionary<string, string> SymbolsAndValues;
         private ViewPlot ViewPlot;
         private DataToChart DataToCharts;
+        private ChartListView chartlist = new ChartListView();
         private ZoomIN zoomin = new ZoomIN();
         public MainWindow()
         {
+            chartlist.CountFunction = "1";
             InitializeComponent();
             SymbolsAndValues = new Dictionary<string, string>();
             DataToCharts = new DataToChart();                                   //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
             List<ChartListView> DataListView = new List<ChartListView>();       //osobna klasa jeszcze nie wiem jaka :-)
-            DataListView.Add(new ChartListView { LabelChartValue = "1" });      //osobna klasa jeszcze nie wiem jaka :-)
+            DataListView.Add(new ChartListView { LabelChartValue = chartlist.CountFunction });      //osobna klasa jeszcze nie wiem jaka :-)
             ChartListFunction.Items.Add(DataListView);                          //osobna klasa jeszcze nie wiem jaka :-)
             DataSetChLV.Height = 20;                                            //osobna klasa jeszcze nie wiem jaka :-)
         }
@@ -182,13 +184,17 @@ namespace AMW_Mathematics
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
         }
+
         List<string> ListFunction = new List<string>();
+
         List<string> ListFunction1 = new List<string>();
+
         private void PlotChart_Click(object sender, RoutedEventArgs e)
         {
             List<DataToChart> DataToChartList = new List<DataToChart>();
             DataToChartList.Clear();
             ListFunction.Clear();
+            ListFunction1.Clear();
             var _ListBox = ChartListFunction as ListBox;
             foreach (var _ListBoxItem in _ListBox.Items)
             {
@@ -209,6 +215,7 @@ namespace AMW_Mathematics
             zoomin.roundtozoom = 2;
             DataToCharts.zoommax = 0;
         }
+
         public List<Control> AllChildren(DependencyObject parent)
         {
             var _List = new List<Control> { };
@@ -224,11 +231,22 @@ namespace AMW_Mathematics
 
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
         {
+            chartlist.CountFunction = (int.Parse(chartlist.CountFunction) + 1 ).ToString();
             List<ChartListView> DataListView = new List<ChartListView>();
-            DataListView.Add(new ChartListView { LabelChartValue = "2" });
+            DataListView.Add(new ChartListView { LabelChartValue = chartlist.CountFunction });
             ChartListFunction.Items.Add(DataListView);
             //  ViewPlot.UpdateModel();
             //  Plot.InvalidatePlot(true);
+        }
+
+        private void RemoveFunctionFromChart_Click(object sender, RoutedEventArgs e)
+        {
+            if (ChartListFunction.Items.Count > 1)
+            {
+                var item = ChartListFunction.Items[ChartListFunction.Items.Count - 1];
+                ChartListFunction.Items.Remove(item);
+            }
+            chartlist.CountFunction = (int.Parse(chartlist.CountFunction) - 1).ToString();
         }
 
         private void Tab_Click(object sender, RoutedEventArgs e)            //funckja po wciśnieciu + lub - na karcie #Ł
@@ -268,6 +286,7 @@ namespace AMW_Mathematics
                     break;
             }
         } //po wciśnięciu + otwiera kartę w liście ListViewChart #M
+
         private void ZoomIN_Click(object sender, RoutedEventArgs e) //do poprawienia
         {
 

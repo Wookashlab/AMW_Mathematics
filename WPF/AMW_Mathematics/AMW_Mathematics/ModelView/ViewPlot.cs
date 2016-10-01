@@ -59,7 +59,7 @@ namespace AMW_Mathematics.ModelView
                     MarkerStroke = colors[i],
                     MarkerType = MarkerType.None,
                     CanTrackerInterpolatePoints = false,
-                    Title = string.Format("Seria " + i),
+                    Title = string.Format(data.Key),
                     Smooth = false,
                 };
                 var lineSeries1 = new LineSeries
