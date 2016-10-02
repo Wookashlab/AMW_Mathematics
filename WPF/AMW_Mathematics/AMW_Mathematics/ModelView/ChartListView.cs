@@ -13,7 +13,6 @@ namespace AMW_Mathematics.ModelView
     {
         private string labelChartValue { get; set; }
         private string typeChart { get; set; }
-        public string CountFunction { get; set; }
         public string LabelChartValue
         {
             get
