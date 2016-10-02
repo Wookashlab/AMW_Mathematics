@@ -86,6 +86,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VariableWindow.xaml.cs">
+      <DependentUpon>VariableWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Logo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,6 +109,10 @@
       <DependentUpon>AMW_Mathematics.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="VariableWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelView\ChartListView.cs" />
@@ -170,6 +177,30 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Klawiatura\Funkcje\pochodna1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Klawiatura\Funkcje\pochodna.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Klawiatura\Funkcje\pochodna2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Klawiatura\Funkcje\całka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Klawiatura\Funkcje\granica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Klawiatura\Funkcje\całkaO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Klawiatura\Funkcje\square_root_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Klawiatura\Funkcje\square_root_x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
