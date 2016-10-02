@@ -27,6 +27,7 @@ namespace AMW_Mathematics
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Dictionary<string, string> SymbolsAndValues;
         private ViewPlot ViewPlot;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +36,8 @@ namespace AMW_Mathematics
             DataListView.Add(new ChartListView { LabelChartValue = "1" }); //osobna klasa jeszcze nie wiem jaka :-)
             ChartListFunction.Items.Add(DataListView);  //osobna klasa jeszcze nie wiem jaka :-)
             DataSetChLV.Height = 20;  //osobna klasa jeszcze nie wiem jaka :-)
+            Maxima.Eval("load (\"functs\")");                                       //załadowanie functs(potrzebne do kilku funkcji #Ł
+            
         }
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e) 
         {
@@ -221,27 +224,27 @@ namespace AMW_Mathematics
         {
             int wartosc;
             var klawisz = (Button)sender;
-            if (klawisz.Content.ToString() == "-") wartosc = 27;            //ustalnie czy karta ma być zmniejszona czy zwiększona #Ł
-            else wartosc = 150;
+            if (klawisz.Content.ToString() == "-") wartosc = -1;            //ustalnie czy karta ma być zmniejszona czy zwiększona #Ł
+            else wartosc = 1;
             switch (keyboard.ShowHide(klawisz.Name.ToString()))             //zmiana szerokości odpowiedniej karty (mozna poszerzyć o nowe) #Ł
             {
                 case 1:
-                    CalculusTab.Height = wartosc;
+                    CalculusTab.Height = 66 + wartosc * 39;
                     break;
                 case 2:
-                    StatisticTab.Height = wartosc;
+                    StatisticTab.Height = 90 + wartosc * 63;
                     break;
                 case 3:
-                    TrigonometryTab.Height = wartosc;
+                    TrigonometryTab.Height = 90 + wartosc * 63;
                     break;
                 case 4:
-                    LinearAlgebraTab.Height = wartosc;
+                    LinearAlgebraTab.Height = 90 + wartosc * 63;
                     break;
                 case 5:
-                    StandardTab.Height = wartosc;
+                    StandardTab.Height = 120 + wartosc * 93;
                     break;
                 case 6:
-                    FavoriteTab.Height = wartosc;
+                    FavoriteTab.Height = 90 + wartosc * 63;
                     break;
 
             }
@@ -263,5 +266,11 @@ namespace AMW_Mathematics
                     break;
             }
         } //po wciśnięciu + otwiera kartę w liście ListViewChart #M
+
+        private void Variable_Click(object sender, RoutedEventArgs e)               //Okno zmiennych (tymczasowe) #Ł
+        {
+            VariableWindow test = new VariableWindow();
+            test.Show();
+        }
     }
 }

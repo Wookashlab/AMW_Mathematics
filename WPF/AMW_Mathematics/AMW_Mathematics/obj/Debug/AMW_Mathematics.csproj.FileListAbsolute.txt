@@ -95,3 +95,5 @@ D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematic
 D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
 D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
 D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\VariableWindow.g.cs
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\VariableWindow.baml

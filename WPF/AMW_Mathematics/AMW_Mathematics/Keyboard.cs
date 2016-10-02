@@ -56,20 +56,44 @@ namespace AMW_Mathematics
                     return "-";
             }
         }
-        public string Other(string name)
+        public string Other(string name)                    //obsługa funkcji złożonych #Ł
         {
             switch (name)
             {
-                case "Derivative3":
-                    return "diff(";
-                case "DerivativeS3":
+                case "Derivative3":                         //pochodna #Ł
+                    return "diff(";                        
+                case "DerivativeS3":                        //pochodna drugiego stopnia #Ł          
                     return "diff(,2)";
-                case "Integrate3":
+                case "Integrate3":                          //całka #Ł
                     return "integrate(";
-                case "IntegrateO3":
+                case "IntegrateO3":                         //całka oznaczona #Ł
                     return "integrate(,x,,)";
-
-
+                case "Infinity3":                           //nieskończoność #Ł
+                    return "inf";
+                case "Addition3":                           // suma(sigma) #Ł
+                    return "sum(,i,,";
+                case "Multiplication3":                     //iloczyn (pi) #Ł
+                    return "product(,i,,";
+                case "Sort3":                               //sortowanie liczb #Ł
+                    return "sort([";
+                case "Absolute3":                           //wartość bezwzględna #Ł
+                    return "abs(";
+                case "Logarithm3":                          //logartym o podstawie 10 #Ł
+                    return "log()/log(10)";
+                case "LogarithmN3":                         //logarytm o podstawie e #Ł
+                    return "log(";
+                case "Pi3":                                 //liczba pi #Ł
+                    return "%pi";
+                case "SquareRoot3":                          //pierwiastek kwadratowy #Ł
+                    return "sqrt(";
+                case "Fraction3":                            // ułamek zwykły #Ł
+                    return "/";
+                case "LessE3":                               // mniejsze-równe #Ł
+                    return "<=";
+                case "MoreE3":                                // większe-równe #Ł
+                    return ">=";
+                case "Nequal3":                             //nierówność #Ł
+                    return "#";
             }
             return "DODAJ DO OTHER";
         }
