@@ -40,7 +40,7 @@ namespace AMW_Mathematics
                 this.Close();
             }
         }
-        
+
 
     }
 }

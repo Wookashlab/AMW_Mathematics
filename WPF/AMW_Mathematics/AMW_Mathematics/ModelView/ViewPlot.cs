@@ -16,13 +16,13 @@ namespace AMW_Mathematics.ModelView
             get { return plotModel; }
             set { plotModel = value; OnPropertyChanged("PlotModel"); }
         }
-        public ViewPlot(List<DataToChart> ReturFunctionValueToChart) //konstruktor klasy ViewPlot wykona się podczas stworzenia nowego obiektu kalsy ViewPlot #M
+        public ViewPlot(List<DataToChart> ReturFunctionValueToChart)        //konstruktor klasy ViewPlot wykona się podczas stworzenia nowego obiektu kalsy ViewPlot #M
         {
-            PlotModel = new PlotModel();                            //Stworznie nowego obiektu kalsy PlotModel #M
-            SetUpModel();                                           //metoda odpowiada za ustawienie podstawoych parametrów wykresu #M
+            PlotModel = new PlotModel();                                    //Stworznie nowego obiektu kalsy PlotModel #M
+            SetUpModel();                                                   //metoda odpowiada za ustawienie podstawoych parametrów wykresu #M
             LoadData(ReturFunctionValueToChart);
         }
-        private readonly List<OxyColor> colors = new List<OxyColor>//Lista kolorów będąca wykorzystystana do wyświetlenia przebiegu różnych funkcji na jednym wykresie #M
+        private readonly List<OxyColor> colors = new List<OxyColor>         //Lista kolorów będąca wykorzystystana do wyświetlenia przebiegu różnych funkcji na jednym wykresie #M
                                             {
                                                 OxyColors.Green,
                                                 OxyColors.IndianRed,
@@ -33,7 +33,7 @@ namespace AMW_Mathematics.ModelView
                                                 OxyColors.Violet,
                                                 OxyColors.Yellow
                                             };
-        private void SetUpModel()                                   //ustawienie parametrów wykresu takich jak: (legenda ramka, tło, oś x, oś y ), dla obiektu klasy PlotModel #M
+        private void SetUpModel()                                           //ustawienie parametrów wykresu takich jak: (legenda ramka, tło, oś x, oś y ), dla obiektu klasy PlotModel #M
         {
             PlotModel.LegendTitle = "Legenda";
             PlotModel.LegendOrientation = LegendOrientation.Horizontal;
@@ -50,9 +50,9 @@ namespace AMW_Mathematics.ModelView
         {
             int i = 0;
             var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();                  //grupowanie listy DataToChart po Seri #M
-            foreach (var data in dataPerSeries)
-            {
-                var lineSerie = new LineSeries
+            foreach (var data in dataPerSeries)                                                 //pętla dodająca dane do seri. Podzielenie danych na dwie serie w zależności od osi X dzięki temu unikniemy wystąpienia lini gdy funkcja nie ma miejsca zerowego.   #M               
+            {                                                                                   // (Funkcja powinna dodatkow mieć możliwość rozgraniczenia po Y) #M
+                var lineSerie = new LineSeries                                                  //deklaracja serii oraz ustalenie dla niej: markerów ich wielkości i koloru serii #M
                 {
                     StrokeThickness = 2,
                     MarkerSize = 1,
@@ -62,7 +62,7 @@ namespace AMW_Mathematics.ModelView
                     Title = string.Format(data.Key),
                     Smooth = false,
                 };
-                var lineSeries1 = new LineSeries
+                var lineSeries1 = new LineSeries                                                //deklaracja drugiej serii oraz ustalenie dla niej: markerów ich wielkości i koloru serii #M
                 {
                     StrokeThickness = 2,
                     MarkerSize = 1,
@@ -71,41 +71,31 @@ namespace AMW_Mathematics.ModelView
                     CanTrackerInterpolatePoints = false,
                     Smooth = false,
                 };
-                foreach (var d in data)
+                foreach (var d in data)                                                         //pętla dodająca do odpowiedniej serii punkty w zależności od poniższego warunku #M 
                 {
-                    if (d.Axis >= 0)
-                    {
-                       // if(d.Ayis > 0)
-                      //  {
-                            lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));
-                        //}
-                    }
+                    if (d.Axis >= 0) lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));       //warunek gdy x jest wiekszy od 0 dodajemy punkty do serii pierwszej #M 
                 }
-                foreach (var d in data)
+                foreach (var d in data)                                                         //pętla dodająca do odpowieniej serii punkty w zależności od poniższego warunku #M
                 {
-                    if (d.Axis <= 0)
-                    {
-                       // if(d.Ayis < 0)
-                        lineSeries1.Points.Add(new DataPoint(d.Axis, d.Ayis));
-                    }
+                    if (d.Axis <= 0) lineSeries1.Points.Add(new DataPoint(d.Axis, d.Ayis));     //gdy warunek jest spełniony i x jest mniejsze od 0 to do serii dodajemy punkty #M      
                 }
-                lineSerie.Color = colors[i];
+                lineSerie.Color = colors[i];                                                    //Dodajemy kolor do serii wybrany z listy color w zależności od obiegu pętli #M
                 lineSeries1.Color = colors[i];
-                PlotModel.Series.Add(lineSeries1);
-                PlotModel.Series.Add(lineSerie);                                                 //Dodanie do modelu wykresu nowej seri #M
+                PlotModel.Series.Add(lineSeries1);                                               //Dodanie do modelu wyresu nowej serii #M
+                PlotModel.Series.Add(lineSerie);                                                 //Dodanie do modelu wykresu nowej serii #M
                 i++;
             }
         }
         public int UpdateModelZoomIN(List<DataToChart> DataToChart, int i)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
-            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList(); //grupowanie listy DataToChart po Seri #M
+            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();          //grupowanie listy DataToChart po Seri #M
             foreach (var data in dataPerSeries)
             {
-                var lineSerie = PlotModel.Series[i] as LineSeries;
-                var lineSeres1 = PlotModel.Series[i + 1] as LineSeries;
+                var lineSerie = PlotModel.Series[i] as LineSeries;                      //stworzneie obiektu LineSeries sczytanie dwóch serii ponieważ wykres funkcji podzielony jest na dwie serie  #M
+                var lineSeres1 = PlotModel.Series[i + 1] as LineSeries;                 //stworzenie obiektu LineSeires 
                 if (lineSerie != null)
                 {
-                    foreach (var d in data)
+                    foreach (var d in data)                                             //pętla taka sama jak przy generowaniu wykresu sprawdzajaca, do której serii dany punkt ma pójść #M
                     {
                         if (d.Axis < 0)
                         {
@@ -113,13 +103,12 @@ namespace AMW_Mathematics.ModelView
                         }
                     }
                     //data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var cos = lineSerie.Points.OrderBy(m => m.X).ToList();
-
-                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);
-                    cos.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y)));
+                    var listpom = lineSerie.Points.OrderBy(m => m.X).ToList();         //przypisanie do zmiennnej listpom seri punktow pogrupowanych po X #M
+                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);           //usunięci z lineSerie wszystkich punktów #M
+                    listpom.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y))); //dodanie do lineSerie punktów z listy listpom które zostały już pogrupowane operacja ta jest potrzebna żeby punkty były wykreślane w dpowiedniej kolejności #M
 
                 }
-                if (lineSeres1 != null)
+                if (lineSeres1 != null)                                                //operacja na tej serii analogiczna do operacjii wykonanej na serii powyższej
                 {
                     foreach (var d in data)
                     {
@@ -129,67 +118,67 @@ namespace AMW_Mathematics.ModelView
                         }
                     }
                     // data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var cos1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
+                    var listpom1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
                     lineSeres1.Points.RemoveRange(0, lineSeres1.Points.Count);
-                    cos1.ToList().ForEach(k => lineSeres1.Points.Add(new DataPoint(k.X, k.Y)));
+                    listpom1.ToList().ForEach(k => lineSeres1.Points.Add(new DataPoint(k.X, k.Y)));
                 }
-                i = i + 2;
+                i = i + 2;                                                             //zwiekszenei licznika o 2 żeby przejść do wykresu nastepnej funkcji #M
             }
-            return i;
+            return i;                                                                  //liczba funkcji ktora została już powiekszona. Powiększanie zaczyna się od funkcji, ktore nie mają miejsc zerowcych i zwracana jest ich ilość po to aby wiedzieć od jakiego elementu zaczać powiększanie funkcji, które mają miejsca zerowe #M 
         }
         public void UpdateModelZoomOUT(List<DataToChart> DataToChart, int max, int min, double zoommin)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
             int i = 0;
-            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList(); //grupowanie listy DataToChart po Seri #M
+            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();                                       //grupowanie listy DataToChart po Seri #M
             foreach (var data in dataPerSeries)
             {
-                var lineSerie = PlotModel.Series[i] as LineSeries;
+                var lineSerie = PlotModel.Series[i] as LineSeries;                                                   //kolejny raz podział na dwie serie #M
                 var lineSeres1 = PlotModel.Series[i + 1] as LineSeries;
                 if (lineSerie != null)
                 {
                     // data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var cos = lineSerie.Points.OrderBy(m => m.X).ToList();
-                    for (int j = 0; j < cos.Count; j++)
+                    var listpom = lineSerie.Points.OrderBy(m => m.X).ToList();                                      //pogrupowanie punktów danej serii i załadowanie ich do listy  #M
+                    for (int j = 0; j < listpom.Count; j++)
                     {
-                        if (cos[j].X < min)
+                        if (listpom[j].X < min)                                                                     //pętla zmniejszająca ilość elementów na wyresie o wartość min wartość min jest to wartość osi X jaka ma wystąpić po zmniejszeniu #M
                         {
-                            cos.Remove(cos[j]);
+                            listpom.Remove(listpom[j]);
                             j = -1;
                         }
                     }
-                    for (int j = 0; j < cos.Count; j++)
+                    for (int j = 0; j < listpom.Count; j++)                                                        //pętla zmniejszająca ilość elementów na wyresie o wartość min wartość min jest to wartość osi X jaka ma wystąpić po zmniejszeniu #M
                     {
-                        if (cos[j].X > -zoommin)
+                        if (listpom[j].X > -zoommin)
                         {
-                            cos.Remove(cos[j]);
+                            listpom.Remove(listpom[j]);
                             j = -1;
                         }
                     }
-                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);
-                    cos.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y)));
+                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);                                    //usunięcie z serii wszystkich elementow #M
+                    listpom.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y)));               //dodanie do seri elementów o wcześniej zmniejszonej ilośći #M
                 }
-                if (lineSeres1 != null)
+                if (lineSeres1 != null)                                                                         //analogiczna operacja jak wyżej dla drugiej cześci wykresy #M
                 {
                     //data.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var cos1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
-                    for (int j = 0; j < cos1.Count; j++)
+                    var listpom1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
+                    for (int j = 0; j < listpom1.Count; j++)
                     {
-                        if (cos1[j].X > max)
+                        if (listpom1[j].X > max)
                         {
-                            cos1.Remove(cos1[j]);
+                            listpom1.Remove(listpom1[j]);
                             j = -1;
                         }
                     }
-                    for (int j = 0; j < cos1.Count; j++)
+                    for (int j = 0; j < listpom1.Count; j++)
                     {
-                        if (cos1[j].X < zoommin)
+                        if (listpom1[j].X < zoommin)
                         {
-                            cos1.Remove(cos1[j]);
+                            listpom1.Remove(listpom1[j]);
                             j = -1;
                         }
                     }
                     lineSeres1.Points.RemoveRange(0, lineSeres1.Points.Count);
-                    cos1.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.X, d.Y)));
+                    listpom1.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.X, d.Y)));
                 }
                 i = i + 2;
             }

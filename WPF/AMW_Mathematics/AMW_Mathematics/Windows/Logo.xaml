@@ -16,7 +16,7 @@
         <Behaviours:BorderlessWindowBehavior/>
     </i:Interaction.Behaviors>
     <Grid Margin="0,0,0,-8">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="230" VerticalAlignment="Top" Width="561" Source="img/AMWM_logo(T).png" Margin="10,10,0,0"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="230" VerticalAlignment="Top" Width="561"  Margin="10,10,0,0" Source="/AMW_Mathematics;component/img/AMWM_logo(T).png"/>
         <Label x:Name="label" Content="2015-2016 || Maciej Hein, Łukasz Labuda" HorizontalAlignment="Left" Margin="10,245,0,0" VerticalAlignment="Top"/>
 
     </Grid>

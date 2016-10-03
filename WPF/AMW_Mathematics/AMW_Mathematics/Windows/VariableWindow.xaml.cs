@@ -11,13 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace AMW_Mathematics
 {
     /// <summary>
     /// Interaction logic for VariableWindow.xaml
     /// </summary>
-    public partial class VariableWindow : Window
+    public partial class VariableWindow : MetroWindow
     {
         public string Variable;
         public VariableWindow()

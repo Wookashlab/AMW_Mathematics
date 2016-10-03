@@ -86,13 +86,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="VariableWindow.xaml.cs">
+    <Compile Include="ModelView\Expression.cs" />
+    <Compile Include="ModelView\ZoomIN.cs" />
+    <Compile Include="Windows\Logo.xaml.cs">
+      <DependentUpon>Logo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\VariableWindow.xaml.cs">
       <DependentUpon>VariableWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Logo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="AMW_Mathematics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,15 +102,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Keyboard.cs" />
-    <Compile Include="Logo.xaml.cs">
-      <DependentUpon>Logo.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ModelView\Keyboard.cs" />
     <Compile Include="AMW_Mathematics.xaml.cs">
       <DependentUpon>AMW_Mathematics.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="VariableWindow.xaml">
+    <Page Include="Windows\Logo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\VariableWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,6 +190,7 @@
     <Resource Include="img\Klawiatura\Funkcje\square_root_256.png" />
     <Resource Include="img\Klawiatura\Funkcje\square_root_x.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
