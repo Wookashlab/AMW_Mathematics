@@ -48,6 +48,7 @@ namespace AMW_Mathematics
             DataListView.Add(new ChartListView { LabelChartValue = chartlist.CountFunction });      //osobna klasa jeszcze nie wiem jaka :-)
             ChartListFunction.Items.Add(DataListView);                          //osobna klasa jeszcze nie wiem jaka :-)
             DataSetChLV.Height = 20;                                            //osobna klasa jeszcze nie wiem jaka :-)
+            Maxima.Eval("load (\"functs\")");                                       //załadowanie functs(potrzebne do kilku funkcji #Ł
         }
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
@@ -183,6 +184,8 @@ namespace AMW_Mathematics
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
+            TipBox.Text = klawisz.ToolTip.ToString();
+            TipBox.Foreground = Brushes.Green;
         }
 
         List<string> ListFunction = new List<string>();
@@ -214,6 +217,7 @@ namespace AMW_Mathematics
             zoomin.countzoom = 0.01;
             zoomin.roundtozoom = 2;
             DataToCharts.zoommax = 0;
+         
         }
 
         public List<Control> AllChildren(DependencyObject parent)
@@ -253,24 +257,32 @@ namespace AMW_Mathematics
         {
             int wartosc;
             var klawisz = (Button)sender;
-            if (klawisz.Content.ToString() == "-") wartosc = 27;            //ustalnie czy karta ma być zmniejszona czy zwiększona #Ł
-            else wartosc = 125;
+            if (klawisz.Content.ToString() == "-") wartosc = -1;            //ustalnie czy karta ma być zmniejszona czy zwiększona #Ł
+            else wartosc = 1;
             switch (keyboard.ShowHide(klawisz.Name.ToString()))             //zmiana szerokości odpowiedniej karty (mozna poszerzyć o nowe) #Ł
             {
                 case 1:
-                    TrigonometryTab.Height = wartosc;
+                    CalculusTab.Height = 66 + wartosc * 39;
                     break;
                 case 2:
-                    StatisticTab.Height = wartosc;
+                    StatisticTab.Height = 90 + wartosc * 63;
                     break;
-                default:
-                    StandardTab.Height = wartosc;
+                case 3:
+                    TrigonometryTab.Height = 90 + wartosc * 63;
+                    break;
+                case 4:
+                    LinearAlgebraTab.Height = 90 + wartosc * 63;
+                    break;
+                case 5:
+                    StandardTab.Height = 120 + wartosc * 93;
+                    break;
+                case 6:
+                    FavoriteTab.Height = 90 + wartosc * 63;
                     break;
 
             }
             klawisz.Content = keyboard.Mark(klawisz.Content.ToString());   //zmiana znaku + na - i vice versa #Ł
         }
-
         private void ShowElementListViewCharts(object sender, RoutedEventArgs e)
         {
             var keysender = (Button)sender; //pobranie nazwy przycisku danej karty
@@ -343,6 +355,25 @@ namespace AMW_Mathematics
             DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
             ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, 0.0);
             Plot.InvalidatePlot(true);
+        }
+
+        private void Variable_Click(object sender, RoutedEventArgs e)
+        {
+            VariableWindow variable = new VariableWindow();
+            variable.Show();
+        }
+
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)                //Obsługa zmian karty Arkusz<>Wykresy #Ł
+        {
+            if (worksheetTab.IsSelected)
+            {
+                FormatujOverLap.Visibility = System.Windows.Visibility.Collapsed;
+                HomeTab.IsSelected = true;
+                
+            }
+            if (ChartsOverLap.IsSelected)
+                FormatujOverLap.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

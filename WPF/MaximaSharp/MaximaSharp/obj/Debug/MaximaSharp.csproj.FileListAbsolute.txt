@@ -13,3 +13,8 @@ C:\Users\MaciejH\Desktop\MaximaSharp-master\MaximaSharp\bin\Debug\MaximaSharp.pd
 C:\Users\MaciejH\Desktop\MaximaSharp-master\MaximaSharp\obj\Debug\MaximaSharp.csprojResolveAssemblyReference.cache
 C:\Users\MaciejH\Desktop\MaximaSharp-master\MaximaSharp\obj\Debug\MaximaSharp.dll
 C:\Users\MaciejH\Desktop\MaximaSharp-master\MaximaSharp\obj\Debug\MaximaSharp.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\MaximaSharp\MaximaSharp\bin\Debug\MaximaSharp.dll
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\MaximaSharp\MaximaSharp\bin\Debug\MaximaSharp.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.csprojResolveAssemblyReference.cache
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.dll
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.pdb
