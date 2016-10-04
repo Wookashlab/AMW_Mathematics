@@ -31,6 +31,7 @@ namespace AMW_Mathematics
         private ZoomIN zoomin = new ZoomIN();
         List<string> ListFunction = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
         List<string> ListFunction1 = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
+        int c;
         public MainWindow()
         {
             chartlist.CountFunction = "1";
