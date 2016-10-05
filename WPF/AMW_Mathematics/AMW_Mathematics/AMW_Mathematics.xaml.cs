@@ -23,6 +23,7 @@ namespace AMW_Mathematics
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private GraphingHelp HelperGraphing = new GraphingHelp();                                 //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Expression phrase = new Expression();                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
         private ViewPlot ViewPlot;
@@ -41,18 +42,24 @@ namespace AMW_Mathematics
             ChartListFunction.Items.Add(DataListView);                          //osobna klasa jeszcze nie wiem jaka :-)
             DataSetChLV.Height = 20;                                            //osobna klasa jeszcze nie wiem jaka :-)
             Maxima.Eval("load (\"functs\")");                                   //załadowanie functs do Maximy(potrzebne do kilku funkcji) #Ł
+            
         }
 
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
-            string Expresion = ExpressionField.Text;
-            Expresion = phrase.SaveValuesOfVariables(Expresion, ExpressionField);
-            Expresion = phrase.CheckVariablesinExpresion(Expresion);
-            if (Expresion.Contains(":=") == false) Expresion = phrase.AddToNumberDot(Expresion);
-            Expresion = Maxima.Eval(Expresion);
-            Expresion = Expresion.Replace(":=", " = ");
-            ResultList.Items.Add(Expresion);
-            ExpressionField.Clear();
+            if (ExpressionField.Text != "")
+            {
+                string Expresion = ExpressionField.Text;
+                Expresion = phrase.SaveValuesOfVariables(Expresion, ExpressionField);
+                Expresion = phrase.CheckVariablesinExpresion(Expresion);
+                if (Expresion.Contains(":=") == false) Expresion = phrase.AddToNumberDot(Expresion);
+                Expresion = Maxima.Eval(Expresion);
+                Expresion = Expresion.Replace(":=", " = ");
+                ResultList.Items.Add(ExpressionField.Text + "=\n" + Expresion);
+                ResultList.SelectedIndex= ResultList.Items.Count - 1;               //zaznaczenie ostatniego działąnia po wyliczeniu #Ł
+                ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);     //scrollowanie listboxa do ostatniego itemu #Ł
+                ExpressionField.Clear();
+            }
         }
 
         private void Keyboard_Click(object sender, RoutedEventArgs e)               //Funckja wprowadzająca cyfry i znaki z kalwiatury "telefonu" #Ł
@@ -87,6 +94,8 @@ namespace AMW_Mathematics
         
         private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
         {
+
+            GraphHelpGrid.Visibility = Visibility.Hidden;        //     HELP - GRAPHING
             List<DataToChart> DataToChartList = new List<DataToChart>();
             DataToChartList.Clear();
             ListFunction.Clear();
@@ -260,12 +269,30 @@ namespace AMW_Mathematics
         {
             if (worksheetTab.IsSelected)
             {
-                FormatujOverLap.Visibility = System.Windows.Visibility.Collapsed;
+                FormatujOverLap.Visibility = Visibility.Collapsed;
                 HomeTab.IsSelected = true;
-                
+                HelperGraphing.RownaniaFunkcje2d();
+                GraphHelpGrid.DataContext = HelperGraphing;          // HELP -GRAPHING
+               
             }
             if (ChartsOverLap.IsSelected)
-                FormatujOverLap.Visibility = System.Windows.Visibility.Visible;
+            {
+                FormatujOverLap.Visibility = Visibility.Visible;
+                
+            }
+               
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)                         //Funkcja obsługująca usuwanie pozycji z listy Result #Ł
+        {
+            ResultList.Items.Remove(ResultList.SelectedItem);
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)                           //Funkcja obsługjąca edycję wprowadzonych danych #Ł
+        {
+            string[] partExpression;
+            partExpression = ResultList.SelectedItem.ToString().Split('=');
+            ExpressionField.Text = partExpression[0];
         }
     }
 }

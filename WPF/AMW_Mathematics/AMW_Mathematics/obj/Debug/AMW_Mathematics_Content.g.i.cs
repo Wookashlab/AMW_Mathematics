@@ -8,13 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/ca%c5%82ka.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/ca%c5%82kao.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/granica.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/pochodna.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/pochodna1.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/pochodna2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/square_root_256.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/square_root_x.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/help_page_sign.png")]
 
 

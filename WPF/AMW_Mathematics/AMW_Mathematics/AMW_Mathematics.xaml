@@ -111,11 +111,11 @@
                 <TabItem x:Name="worksheetTab" Margin="0,0,-4,-2" Header="Arkusz">
                     <TabControl BorderBrush="AliceBlue" BorderThickness="6" >
                         <Grid Margin="0,0,-11,-11">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="135*"/>
-                            <ColumnDefinition Width="739*"/>
-                        </Grid.ColumnDefinitions>
-                        <ListBox x:Name="ResultList" Margin="10,10,10,160" FontSize="22" Grid.ColumnSpan="2"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="135*"/>
+                                <ColumnDefinition Width="739*"/>
+                            </Grid.ColumnDefinitions>
+                            <ListBox x:Name="ResultList" Margin="10,40,10,160" FontSize="22" Grid.ColumnSpan="2"/>
                             <GroupBox x:Name="groupBox5" Header="" HorizontalAlignment="Left" Margin="10,418,0,0" VerticalAlignment="Top" Height="139" Width="840" Grid.ColumnSpan="2">
                                 <Grid FocusManager.FocusedElement="{Binding ElementName=ExpressionField}">
                                     <TextBox x:Name="ExpressionField" HorizontalAlignment="Left" Height="65" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" FontSize="18" TabIndex="0"/>
@@ -124,23 +124,27 @@
                                     <Button x:Name="ConfirmExpresion" Content="Wprowadź" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
                                 </Grid>
                             </GroupBox>
+                            <Button x:Name="Edit" Content="Edytuj" HorizontalAlignment="Left" Margin="566,10,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
+                            <Button x:Name="Delete" Content="Usuń" HorizontalAlignment="Left" Margin="649,10,0,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
                         </Grid>
                     </TabControl>
                 </TabItem>
                 <TabItem x:Name="ChartsOverLap" Header="Wykresy" >
+                    
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="30*"/>
                             <ColumnDefinition Width="28*"/>
                             <ColumnDefinition Width="815*"/>
                         </Grid.ColumnDefinitions>
+                        
                         <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,0,611,0" Grid.ColumnSpan="3">
                             <ListView HorizontalAlignment="Left" Width="251">
 
                                 <ListViewItem x:Name="EqualizationAndFunctionsChLV" Width="247" Height="428">
                                     <Grid>
                                         <Button x:Name="EqualizationAndFunctionsChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,57,0" Height="22" VerticalAlignment="Top">Równania i Funkcje</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,57,0" Height="22" VerticalAlignment="Top" Foreground="#FF41B1E1">Równania i Funkcje</TextBlock>
                                         <ComboBox Width="100" SelectedIndex="0" Margin="15,31,132,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
                                             <ComboBoxItem Content="3D"/>
@@ -182,7 +186,7 @@
                                 <ListViewItem  x:Name="DataSetChLV" Height="83" Width="247">
                                     <Grid>
                                         <Button x:Name="DataSetChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Ustaw Dane</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top" Foreground="#FF41B1E1">Ustaw Dane</TextBlock>
                                         <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
                                             <ComboBoxItem Content="3D"/>
@@ -195,8 +199,15 @@
                                 </ListViewItem>
                             </ListView>
                         </TabControl>
+                        
                         <TabControl Margin="209,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
-                            <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3"/>
+                            <Grid Name="GraphHelpGrid" >
+                                <Image Source="img/help_page_sign.png" Margin="497,0,0,491" />
+                                <TextBlock x:Name="TitleTxt" Text="{Binding Title}" Foreground="#FF41B1E1" FontWeight="Bold" FontSize="24" Margin="0,26,0,503" />
+                                <TextBlock x:Name="SubTitleTxt" Text="{Binding SubTitle}" Foreground="#FF5996B0" FontSize="20" Margin="0,76,0,453" FontWeight="Bold" />
+                                <TextBlock x:Name="MainHelpTxt" Text="{Binding MainHelp}" FontSize="16" Margin="0,133,0,10" />
+                            </Grid>
+                            <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3" />
                         </TabControl>
                     </Grid>
                 </TabItem>
@@ -364,6 +375,7 @@
                 </Grid>
             </ListBoxItem>
         </ListBox>
+        
     </Grid>
 </Controls:MetroWindow>
 

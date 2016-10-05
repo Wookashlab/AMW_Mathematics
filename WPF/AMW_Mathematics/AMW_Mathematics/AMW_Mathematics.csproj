@@ -87,6 +87,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ModelView\Expression.cs" />
+    <Compile Include="ModelView\GraphingHelp.cs" />
     <Compile Include="ModelView\ZoomIN.cs" />
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
@@ -190,7 +191,9 @@
     <Resource Include="img\Klawiatura\Funkcje\square_root_256.png" />
     <Resource Include="img\Klawiatura\Funkcje\square_root_x.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="img\help_page_sign.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
