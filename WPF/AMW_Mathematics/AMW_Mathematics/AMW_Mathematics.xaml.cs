@@ -23,7 +23,6 @@ namespace AMW_Mathematics
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private GraphingHelp HelperGraphing = new GraphingHelp();                                 //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Expression phrase = new Expression();                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
         private ViewPlot ViewPlot;
@@ -200,10 +199,36 @@ namespace AMW_Mathematics
                 case "DataSetChB":
                     DataSetChLV.Height = 428;
                     EqualizationAndFunctionsChLV.Height = 20;
-                    DataSetChLV.Height = 428;
+                    ParametricChLV.Height = 20;
+                    InequalitiesChLV.Height = 20;
+                    TraceChLV.Height = 20;
                     break;
                 case "EqualizationAndFunctionsChB":
                     EqualizationAndFunctionsChLV.Height = 428;
+                    DataSetChLV.Height = 20;
+                    ParametricChLV.Height = 20;
+                    InequalitiesChLV.Height = 20;
+                    TraceChLV.Height = 20;
+                    break;
+                case "ParametricChB":
+                    ParametricChLV.Height = 428;
+                    EqualizationAndFunctionsChLV.Height = 20;
+                    DataSetChLV.Height = 20;
+                    InequalitiesChLV.Height = 20;
+                    TraceChLV.Height = 20;
+                    break;
+                case "InequalitiesChB":
+                    InequalitiesChLV.Height = 428;
+                    ParametricChLV.Height = 20;
+                    EqualizationAndFunctionsChLV.Height = 20;
+                    DataSetChLV.Height = 20;
+                    TraceChLV.Height = 20;
+                    break;
+                case "TraceChB":
+                    TraceChLV.Height = 74;
+                    InequalitiesChLV.Height = 20;
+                    ParametricChLV.Height = 20;
+                    EqualizationAndFunctionsChLV.Height = 20;
                     DataSetChLV.Height = 20;
                     break;
             }
@@ -279,9 +304,7 @@ namespace AMW_Mathematics
             {
                 FormatujOverLap.Visibility = System.Windows.Visibility.Collapsed;
                 HomeTab.IsSelected = true;
-                HelperGraphing.RownaniaFunkcje2d();
-                GraphHelpGrid.DataContext = HelperGraphing;          // HELP -GRAPHING
-               
+
             }
             if (ChartsOverLap.IsSelected)
                 FormatujOverLap.Visibility = System.Windows.Visibility.Visible;
