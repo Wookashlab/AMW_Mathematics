@@ -86,9 +86,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ModelView\Expression.cs" />
-    <Compile Include="ModelView\GraphingHelp.cs" />
-    <Compile Include="ModelView\ZoomIN.cs" />
+    <Compile Include="ModelView\ChartListViewInequalities.cs" />
+    <Compile Include="ModelView\ChartListViewParametric.cs" />
+    <Compile Include="ModelView\ChartListViewPoint.cs" />
+    <Compile Include="Function\Expression.cs" />
+    <Compile Include="Model\ZoomIN.cs" />
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
     </Compile>
@@ -103,7 +105,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ModelView\Keyboard.cs" />
+    <Compile Include="Function\Keyboard.cs" />
     <Compile Include="AMW_Mathematics.xaml.cs">
       <DependentUpon>AMW_Mathematics.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -118,8 +120,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelView\ChartListView.cs" />
-    <Compile Include="ModelView\DataToCharts.cs" />
+    <Compile Include="ModelView\ChartListViewLine.cs" />
+    <Compile Include="Model\DataToChartsLine.cs" />
     <Compile Include="ModelView\ViewPlot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -191,9 +193,7 @@
     <Resource Include="img\Klawiatura\Funkcje\square_root_256.png" />
     <Resource Include="img\Klawiatura\Funkcje\square_root_x.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\help_page_sign.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

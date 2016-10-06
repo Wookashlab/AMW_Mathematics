@@ -16,7 +16,7 @@ namespace AMW_Mathematics.ModelView
             get { return plotModel; }
             set { plotModel = value; OnPropertyChanged("PlotModel"); }
         }
-        public ViewPlot(List<DataToChart> ReturFunctionValueToChart)        //konstruktor klasy ViewPlot wykona się podczas stworzenia nowego obiektu kalsy ViewPlot #M
+        public ViewPlot(List<DataToChartsLine> ReturFunctionValueToChart)        //konstruktor klasy ViewPlot wykona się podczas stworzenia nowego obiektu kalsy ViewPlot #M
         {
             PlotModel = new PlotModel();                                    //Stworznie nowego obiektu kalsy PlotModel #M
             SetUpModel();                                                   //metoda odpowiada za ustawienie podstawoych parametrów wykresu #M
@@ -46,7 +46,7 @@ namespace AMW_Mathematics.ModelView
             var valueAxis = new LinearAxis() { Position = AxisPosition.Left, MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, Title = "Y" };
             PlotModel.Axes.Add(valueAxis);
         }
-        private void LoadData(List<DataToChart> DataToChart)                                    //Metoda odpowiedzialna za: załadowanie danych do wykresu, ustawienie koloru wykresu jego markerów i legendy #M
+        private void LoadData(List<DataToChartsLine> DataToChart)                                    //Metoda odpowiedzialna za: załadowanie danych do wykresu, ustawienie koloru wykresu jego markerów i legendy #M
         {
             int i = 0;
             var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();                  //grupowanie listy DataToChart po Seri #M
@@ -86,7 +86,7 @@ namespace AMW_Mathematics.ModelView
                 i++;
             }
         }
-        public int UpdateModelZoomIN(List<DataToChart> DataToChart, int i)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
+        public int UpdateModelZoomIN(List<DataToChartsLine> DataToChart, int i)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
             var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();          //grupowanie listy DataToChart po Seri #M
             foreach (var data in dataPerSeries)
@@ -126,7 +126,7 @@ namespace AMW_Mathematics.ModelView
             }
             return i;                                                                  //liczba funkcji ktora została już powiekszona. Powiększanie zaczyna się od funkcji, ktore nie mają miejsc zerowcych i zwracana jest ich ilość po to aby wiedzieć od jakiego elementu zaczać powiększanie funkcji, które mają miejsca zerowe #M 
         }
-        public void UpdateModelZoomOUT(List<DataToChart> DataToChart, int max, int min, double zoommin)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
+        public void UpdateModelZoomOUT(List<DataToChartsLine> DataToChart, int max, int min, double zoommin)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
             int i = 0;
             var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();                                       //grupowanie listy DataToChart po Seri #M

@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace AMW_Mathematics.ModelView
 {
-    public class ChartListView //Klasa opodiwada za załadowanie numeru numeru funkcji oraz typu wykresu do bindowanych pól ListView w XAML #M
+    public class ChartListViewLine //Klasa opodiwada za załadowanie numeru numeru funkcji oraz typu wykresu do bindowanych pól ListView w XAML #M
     {
         private string labelChartValue { get; set; }
         private string typeChart { get; set; }

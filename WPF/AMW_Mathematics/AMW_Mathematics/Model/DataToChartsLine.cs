@@ -7,11 +7,11 @@ using MaximaSharp;
 
 namespace AMW_Mathematics.ModelView
 {
-    public class DataToChart //klasa umożiwa ładowanie punktów danej funkcji do wykresu #M
+    public class DataToChartsLine //klasa umożiwa ładowanie punktów danej funkcji do wykresu #M
     {
         public List<string> ListVariablesToChart;
         private Expression phrase = new Expression();
-        public DataToChart()
+        public DataToChartsLine()
         {
             ListVariablesToChart = new List<string>();
             ListVariablesToChart.Add("x");
@@ -19,7 +19,7 @@ namespace AMW_Mathematics.ModelView
         public string SeriesID { get; set; }//akcelerator get; set; umożliwia dostep do właściwości Ayis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
         public double Ayis { get; set; } //akcelerator get; set; umożliwia dostep do właściwości Ayis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
         public double Axis { get; set; } //akcelerator get; set; umożliwia dostep do właściwości Axis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
-        public List<DataToChart> CountYwithX(List<string> ListFunction1, List<string> ListFunction, List<DataToChart> DataToChartList, DataToChart DataToCharts, MainWindow Main, int zoomi, int zoomj)
+        public List<DataToChartsLine> CountYwithX(List<string> ListFunction1, List<string> ListFunction, List<DataToChartsLine> DataToChartList, DataToChartsLine DataToCharts, MainWindow Main, int zoomi, int zoomj)
         {
             bool IFunction1 = false;                                                                                                                        //deklaracja zmiennej sprawdzającej do ktorej listy mają zostać dodane funkcje 
             for (int j = 0; j < ListFunction.Count; j++)                                                                                                    //Pelta sprawdza czy wykres posiada miejsca zerowe czy też nie, w zależności czy posia czy nie funkcja ladowana jest do odpowiedniej listy #M
@@ -75,7 +75,7 @@ namespace AMW_Mathematics.ModelView
                     {
                         v = Maxima.Eval(v);
                         v = v.Replace(".", ",");
-                        DataToChartList.Add(new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }); //dodanie do listy wygenerowanego punktu 
+                        DataToChartList.Add(new DataToChartsLine { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }); //dodanie do listy wygenerowanego punktu 
                     }
                     //}
                 }
@@ -94,12 +94,12 @@ namespace AMW_Mathematics.ModelView
                     int index = v.IndexOf("/");
                     v = Maxima.Eval(v);
                     v = v.Replace(".", ",");
-                    DataToChartList.Add(new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) });
+                    DataToChartList.Add(new DataToChartsLine { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) });
                 }
             }
             return DataToChartList;                                                                                                                         //zwrócenie listy punktów obliczonyych funkcji wraz z nazwami funkcji gdzie później są one grupowane #M
         }
-        public List<DataToChart> CountYwithXWithUpdata(List<string> ListFunction, List<DataToChart> DataToChartList, DataToChart DataToCharts, MainWindow Main, double zoomistart, double zoomjstart, int zoomi, int zoomj)
+        public List<DataToChartsLine> CountYwithXWithUpdata(List<string> ListFunction, List<DataToChartsLine> DataToChartList, DataToChartsLine DataToCharts, MainWindow Main, double zoomistart, double zoomjstart, int zoomi, int zoomj)
         {
             foreach (var f in ListFunction)                                                                                                                         //metoda zwiększająca lub zmniejszająca liczbę punktów na wykresie #M
             {
@@ -114,7 +114,7 @@ namespace AMW_Mathematics.ModelView
                     v = phrase.AddToNumberDot(v);
                     v = Maxima.Eval(v);                                                                                                                             //zapisanie wyniku maximi do zmiennej v czyli defakto zapisanie wyniku funcji o zadanym x #M
                     v = v.Replace(".", ",");
-                    DataToChartList.Add((new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }));          //dodanei do listy punktów obliczonej funkcji #M
+                    DataToChartList.Add((new DataToChartsLine { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }));          //dodanei do listy punktów obliczonej funkcji #M
                 }
                 for (double i = zoomjstart; i < zoomj; i = i + 0.1)                                                                                                 //analogicznie jak w przypadku powyższym tylko że dla wartości X ujemnych #M                                                                 
                 {
@@ -127,12 +127,12 @@ namespace AMW_Mathematics.ModelView
                     v = phrase.AddToNumberDot(v);
                     v = Maxima.Eval(v);
                     v = v.Replace(".", ",");
-                    DataToChartList.Add(new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) });
+                    DataToChartList.Add(new DataToChartsLine { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) });
                 }
             }
             return DataToChartList;                                                                                                                                 //zwrócenie listy wygenerowanych punktow dla funkcji #M
         }
-        public List<DataToChart> CountYwithXWithUpdataTwoLine(List<string> ListFunction, List<DataToChart> DataToChartList, DataToChart DataToCharts, MainWindow Main, double zoomistart, double zoomjstart, int zoomi, int zoomj, double startminim, double endminim, double countzoom, int roundtozoom)
+        public List<DataToChartsLine> CountYwithXWithUpdataTwoLine(List<string> ListFunction, List<DataToChartsLine> DataToChartList, DataToChartsLine DataToCharts, MainWindow Main, double zoomistart, double zoomjstart, int zoomi, int zoomj, double startminim, double endminim, double countzoom, int roundtozoom)
         {                                                                                                                                                           //funkcja zwiekszająca lub zmiejszająca wykresy funkcji, która nie ma przecięcia z osią X #M
             foreach (var f in ListFunction)
             {
@@ -149,7 +149,7 @@ namespace AMW_Mathematics.ModelView
                     {
                         v = Maxima.Eval(v);
                         v = v.Replace(".", ",");
-                        DataToChartList.Add((new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }));      //dodanie wygenerowanego punktu do listy #M
+                        DataToChartList.Add((new DataToChartsLine { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }));      //dodanie wygenerowanego punktu do listy #M
                     }
                 }
                 for (double i = zoomjstart; i < zoomj; i = i + 0.1)                                                                                                 //ustalenie pętli do wygenerowania określonej liczby punktów #M dla X mniejszego od 0 #M
@@ -165,7 +165,7 @@ namespace AMW_Mathematics.ModelView
                     {
                         v = Maxima.Eval(v);
                         v = v.Replace(".", ",");
-                        DataToChartList.Add((new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }));      //dodanie wygenerowanego punktu do listy #M
+                        DataToChartList.Add((new DataToChartsLine { SeriesID = f, Axis = (double.Parse(Math.Round(i, 1).ToString())), Ayis = (double.Parse(v)) }));      //dodanie wygenerowanego punktu do listy #M
                     }
                 }
                 if (endminim > 5E-05 && zoommax == 0)                                                                                                               //ustalenie minimalnego pułapu X i maxymanlnego pułapu Y #M
@@ -181,7 +181,7 @@ namespace AMW_Mathematics.ModelView
                         v = phrase.AddToNumberDot(v);
                         v = Maxima.Eval(v);
                         v = v.Replace(".", ",");
-                        DataToChartList.Add((new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, roundtozoom).ToString())), Ayis = (double.Parse(v)) }));
+                        DataToChartList.Add((new DataToChartsLine { SeriesID = f, Axis = (double.Parse(Math.Round(i, roundtozoom).ToString())), Ayis = (double.Parse(v)) }));
                     }
                     for (double i = -startminim; i < -endminim; i = i + countzoom)
                     {
@@ -194,7 +194,7 @@ namespace AMW_Mathematics.ModelView
                         v = phrase.AddToNumberDot(v);
                         v = Maxima.Eval(v);
                         v = v.Replace(".", ",");
-                        DataToChartList.Add(new DataToChart { SeriesID = f, Axis = (double.Parse(Math.Round(i, roundtozoom).ToString())), Ayis = (double.Parse(v)) });
+                        DataToChartList.Add(new DataToChartsLine { SeriesID = f, Axis = (double.Parse(Math.Round(i, roundtozoom).ToString())), Ayis = (double.Parse(v)) });
                     }
                 }
                 else
