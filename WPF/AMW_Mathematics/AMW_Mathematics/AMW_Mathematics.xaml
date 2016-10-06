@@ -202,7 +202,7 @@
                         <TabControl Margin="209,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
                             <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3" />
                         </TabControl>
-                        <Grid Name="GraphHelpGrid" Margin="229,10,10,10" Grid.Column="2" >
+                        <Grid Name="GraphHelpGrid" Margin="229,10,10,-10" Grid.Column="2" >
                             <Image Source="img/help_page_sign.png" Margin="496,3,10,503" />
                             <TextBlock x:Name="TitleTxt" Text="{Binding Title}" Foreground="#FF41B1E1" FontWeight="Bold" FontSize="24" Margin="0,26,0,503" />
                             <TextBlock x:Name="SubTitleTxt" Text="{Binding SubTitle}" Foreground="#FF5996B0" FontSize="20" Margin="0,76,0,453" FontWeight="Bold" />
