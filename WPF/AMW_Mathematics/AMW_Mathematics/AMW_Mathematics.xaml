@@ -186,7 +186,7 @@
                                 <ListViewItem  x:Name="DataSetChLV" Height="83" Width="247">
                                     <Grid>
                                         <Button x:Name="DataSetChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top" Foreground="#FF41B1E1">Ustaw Dane</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top" Foreground="#FF41B1E1">Zestaw Danych</TextBlock>
                                         <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
                                             <ComboBoxItem Content="3D"/>

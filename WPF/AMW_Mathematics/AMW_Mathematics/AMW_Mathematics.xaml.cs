@@ -23,7 +23,8 @@ namespace AMW_Mathematics
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private GraphingHelp HelperGraphing = new GraphingHelp();                                 //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
+        private GraphingHelp HelpWzory = new GraphingHelp(1);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
+        private GraphingHelp HelpZestawy = new GraphingHelp(2);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Expression phrase = new Expression();                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
         private ViewPlot ViewPlot;
@@ -192,10 +193,12 @@ namespace AMW_Mathematics
                 case "DataSetChB":
                     EqualizationAndFunctionsChLV.Height = 20;
                     DataSetChLV.Height = 428;
+                    GraphHelpGrid.DataContext = HelpZestawy;
                     break;
                 case "EqualizationAndFunctionsChB":
                     EqualizationAndFunctionsChLV.Height = 428;
                     DataSetChLV.Height = 20;
+                    GraphHelpGrid.DataContext = HelpWzory;
                     break;
             }
         } 
@@ -271,8 +274,7 @@ namespace AMW_Mathematics
             {
                 FormatujOverLap.Visibility = Visibility.Collapsed;
                 HomeTab.IsSelected = true;
-                HelperGraphing.RownaniaFunkcje2d();
-                GraphHelpGrid.DataContext = HelperGraphing;          // HELP -GRAPHING
+                GraphHelpGrid.DataContext = HelpWzory;          // HELP -GRAPHING
                
             }
             if (ChartsOverLap.IsSelected)
