@@ -23,6 +23,8 @@ namespace AMW_Mathematics
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private GraphingHelp HelpWzory = new GraphingHelp(1);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
+        private GraphingHelp HelpZestawy = new GraphingHelp(2);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Expression phrase = new Expression();                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
         private ViewPlot ViewPlot;
@@ -103,6 +105,7 @@ namespace AMW_Mathematics
 
         private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
         {
+            GraphHelpGrid.Visibility = Visibility.Hidden;
             List<DataToChartsLine> DataToChartList = new List<DataToChartsLine>();
             DataToChartList.Clear();
             ListFunction.Clear();
@@ -202,6 +205,7 @@ namespace AMW_Mathematics
                     ParametricChLV.Height = 20;
                     InequalitiesChLV.Height = 20;
                     TraceChLV.Height = 20;
+                    GraphHelpGrid.DataContext = HelpZestawy;
                     break;
                 case "EqualizationAndFunctionsChB":
                     EqualizationAndFunctionsChLV.Height = 428;
@@ -209,6 +213,7 @@ namespace AMW_Mathematics
                     ParametricChLV.Height = 20;
                     InequalitiesChLV.Height = 20;
                     TraceChLV.Height = 20;
+                    GraphHelpGrid.DataContext = HelpWzory;
                     break;
                 case "ParametricChB":
                     ParametricChLV.Height = 428;
@@ -304,10 +309,23 @@ namespace AMW_Mathematics
             {
                 FormatujOverLap.Visibility = System.Windows.Visibility.Collapsed;
                 HomeTab.IsSelected = true;
+                GraphHelpGrid.DataContext = HelpWzory;
 
             }
             if (ChartsOverLap.IsSelected)
                 FormatujOverLap.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)                         //Funkcja obsługująca usuwanie pozycji z listy Result #Ł
+        {
+            ResultList.Items.Remove(ResultList.SelectedItem);
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)                           //Funkcja obsługjąca edycję wprowadzonych danych #Ł
+        {
+            string[] partExpression;
+            partExpression = ResultList.SelectedItem.ToString().Split('=');
+            ExpressionField.Text = partExpression[0];
         }
     }
 }

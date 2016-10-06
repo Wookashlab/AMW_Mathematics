@@ -90,6 +90,7 @@
     <Compile Include="ModelView\ChartListViewParametric.cs" />
     <Compile Include="ModelView\ChartListViewPoint.cs" />
     <Compile Include="Function\Expression.cs" />
+    <Compile Include="ModelView\GraphingHelp.cs" />
     <Compile Include="Model\ZoomIN.cs" />
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
