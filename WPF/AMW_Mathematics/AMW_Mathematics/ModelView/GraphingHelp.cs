@@ -16,7 +16,7 @@ namespace AMW_Mathematics.ModelView
         {
             Title = "Pomoc do zakładki \"Wyrkesy\"";
             SubTitle = "Wzory i równania 2D - układ kartezjański";
-            MainHelp = "Wprowadź równanie lub funkcj, którą chcesz narysować.\n\nPrzykłady\nx + y = 3\nx = a · y ^ 2\ny ^ 2 = x ^ 2 + 2x - 1";
+            MainHelp = "Wprowadź równanie lub funkcj, którą chcesz narysować.\n\nPrzykłady\ny = x + 3\ny = sqrt(x^2 + 2)\ny = x ^ 2 + 2x - 1 - 2";
         }
     }
 }
