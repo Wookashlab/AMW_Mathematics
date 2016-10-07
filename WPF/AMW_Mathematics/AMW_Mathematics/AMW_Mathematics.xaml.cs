@@ -33,6 +33,7 @@ namespace AMW_Mathematics
         private ZoomIN zoomin = new ZoomIN();
         List<string> ListFunction = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
         List<string> ListFunction1 = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
+        List<DataToChartsLine> DataToChartList = new List<DataToChartsLine>();
         public MainWindow()
         {
             chartlist.CountFunction = "1";
@@ -105,8 +106,6 @@ namespace AMW_Mathematics
 
         private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
         {
-            GraphHelpGrid.Visibility = Visibility.Hidden;
-            List<DataToChartsLine> DataToChartList = new List<DataToChartsLine>();
             DataToChartList.Clear();
             ListFunction.Clear();
             ListFunction1.Clear();
@@ -119,7 +118,7 @@ namespace AMW_Mathematics
                 var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
                 ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
             }
-            DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts, new MainWindow(), -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+            DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts, -6, 6, 0.1, 2); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
             ViewPlot = new ViewPlot(DataToChartList);
             DataContext = ViewPlot;
             zoomin.zoomi = 7;                                                                                                                //poniżej ustawione zostały poarametry potrzebne do generowania kolejnnych puntow wykresu funkcji #M                                                                                                              
@@ -240,28 +239,29 @@ namespace AMW_Mathematics
         }
         private void ZoomIN_Click(object sender, RoutedEventArgs e)                 //Funkcja zmniejszająca wykres #M
         {
-
-            List<DataToChartsLine> DataToChartList = new List<DataToChartsLine>();                                                                                                                                                                                                               //stworzenie listy punktow funkcji ktora będzie przekazywana do modelu wykresy #M
-            DataToChartList = DataToCharts.CountYwithXWithUpdataTwoLine(ListFunction1, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
-            int i = ViewPlot.UpdateModelZoomIN(DataToChartList, 0);                                                                                                                                                                                                                    //przekazanie do modelu wartości funkcji podzielonch na dwa wykresy nie przecinającego osi X #M                                                                                                              
-            Plot.InvalidatePlot(true);//odświerzenei wykresu 
-            DataToChartList.Clear();
-            DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi);                                                                                        //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
-            ViewPlot.UpdateModelZoomIN(DataToChartList, i);                                                                                                                                                                                                                             //przekazanie do modelu wartości funkcji X #M                             
-            Plot.InvalidatePlot(true);
-            zoomin.zoomj = zoomin.zoomj - 1;                                                                                                                                                                                                                                            //zwiększenei punktów startowych dla przy kolejnym zwiększani wykresu #M 
-            zoomin.zoomi = zoomin.zoomi + 1;                                                                                                                                                                                                                                            //zwiększenei punktów startowych dla przy kolejnym zwiększani wykresu #M 
-            if (DataToCharts.zoommax == 0)                                                                                                                                                                                                                                              //zmniejszanie począwszy od 0.1 tak długo aż zoommax będzie różny od 0 oznacza to że półap zmniejszania X osiągnał swoją wartość końcową i nie da go bardzej pomniejszyć 
+            for (int i = 0; i <= ViewPlot.PlotModel.Series.Count; i++)
             {
-                var helpzomm = zoomin.startminzoom;
-                zoomin.startminzoom = zoomin.endminzoom;                                                                                                                                                                                                                                //ustalenie początku zwiększania dla X mniejszych od 0.1 #M
-                zoomin.endminzoom = helpzomm / 10;                                                                                                                                                                                                                                      //ustalenie końca zwiększania dla X mniejszych od 0.1 #M
-                if (zoomin.startminzoom.ToString().Contains("1") == true)                                                                                                                                                                                                               //warunek odpowiedzialny za ustalenie skali o ile ma się zwiększać X w danym obiegu pętli #M
-                {
-                    zoomin.countzoom = zoomin.countzoom / 10;                                                                                                                                                                                                                           //zmniejszenie skali zwiększania X #M
-                    zoomin.roundtozoom++;
-                }
+                ViewPlot.PlotModel.Series.RemoveAt(0);
             }
+            Plot.InvalidatePlot(true);
+
+            var series = DataToCharts.PD.GroupBy(m => m.Key);
+            foreach(var data in series)
+            {
+
+            }
+            DataToChartList.Clear();
+            DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts, -1 - 0.11, 0 + 0.11, 0.01, 3);
+            ViewPlot.UpdateModelZoomIN(DataToChartList);
+            Plot.InvalidatePlot(true);
+            DataToChartList.Clear();
+            DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts, -6, -1, 0.1, 3);
+            ViewPlot.UpdateModelZoomIN(DataToChartList);
+            Plot.InvalidatePlot(true);
+            DataToChartList.Clear();
+            DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts, 0 + 0.1, 6, 0.1, 3);
+            ViewPlot.UpdateModelZoomIN(DataToChartList);
+            Plot.InvalidatePlot(true);
         }
 
         private void ZoomOut_Click(object sender, RoutedEventArgs e)

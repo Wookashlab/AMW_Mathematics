@@ -49,82 +49,52 @@ namespace AMW_Mathematics.ModelView
         private void LoadData(List<DataToChartsLine> DataToChart)                                    //Metoda odpowiedzialna za: załadowanie danych do wykresu, ustawienie koloru wykresu jego markerów i legendy #M
         {
             int i = 0;
-            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();                  //grupowanie listy DataToChart po Seri #M
-            foreach (var data in dataPerSeries)                                                 //pętla dodająca dane do seri. Podzielenie danych na dwie serie w zależności od osi X dzięki temu unikniemy wystąpienia lini gdy funkcja nie ma miejsca zerowego.   #M               
-            {                                                                                   // (Funkcja powinna dodatkow mieć możliwość rozgraniczenia po Y) #M
-                var lineSerie = new LineSeries                                                  //deklaracja serii oraz ustalenie dla niej: markerów ich wielkości i koloru serii #M
+            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).GroupBy(k => k.Key.Replace("#", "")).ToList();                  //grupowanie listy DataToChart po Seri #M
+            foreach (var f in dataPerSeries)
+            {
+                foreach (var series in f)
                 {
-                    StrokeThickness = 2,
-                    MarkerSize = 1,
-                    MarkerStroke = colors[i],
-                    MarkerType = MarkerType.None,
-                    CanTrackerInterpolatePoints = false,
-                    Title = string.Format(data.Key),
-                    Smooth = false,
-                };
-                var lineSeries1 = new LineSeries                                                //deklaracja drugiej serii oraz ustalenie dla niej: markerów ich wielkości i koloru serii #M
-                {
-                    StrokeThickness = 2,
-                    MarkerSize = 1,
-                    MarkerStroke = colors[i],
-                    MarkerType = MarkerType.None,
-                    CanTrackerInterpolatePoints = false,
-                    Smooth = false,
-                };
-                foreach (var d in data)                                                         //pętla dodająca do odpowiedniej serii punkty w zależności od poniższego warunku #M 
-                {
-                    if (d.Axis >= 0) lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));       //warunek gdy x jest wiekszy od 0 dodajemy punkty do serii pierwszej #M 
+                    var lineSerie = new LineSeries
+                    {
+                        StrokeThickness = 2,
+                        MarkerSize = 1,
+                        MarkerStroke = colors[i],
+                        MarkerType = MarkerType.None,
+                        CanTrackerInterpolatePoints = false,
+                        Smooth = false,
+                    };
+                    series.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis)));
+                    lineSerie.Color = colors[i];                                                    //Dodajemy kolor do serii wybrany z listy color w zależności od obiegu pętli #M
+                    PlotModel.Series.Add(lineSerie);                                                 //Dodanie do modelu wykresu nowej serii #M
                 }
-                foreach (var d in data)                                                         //pętla dodająca do odpowieniej serii punkty w zależności od poniższego warunku #M
-                {
-                    if (d.Axis <= 0) lineSeries1.Points.Add(new DataPoint(d.Axis, d.Ayis));     //gdy warunek jest spełniony i x jest mniejsze od 0 to do serii dodajemy punkty #M      
-                }
-                lineSerie.Color = colors[i];                                                    //Dodajemy kolor do serii wybrany z listy color w zależności od obiegu pętli #M
-                lineSeries1.Color = colors[i];
-                PlotModel.Series.Add(lineSeries1);                                               //Dodanie do modelu wyresu nowej serii #M
-                PlotModel.Series.Add(lineSerie);                                                 //Dodanie do modelu wykresu nowej serii #M
+                PlotModel.Series[PlotModel.Series.Count - 1].Title = string.Format(f.Key);
                 i++;
             }
         }
-        public int UpdateModelZoomIN(List<DataToChartsLine> DataToChart, int i)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
+        public void UpdateModelZoomIN(List<DataToChartsLine> DataToChart)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
-            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();          //grupowanie listy DataToChart po Seri #M
-            foreach (var data in dataPerSeries)
+            int i = 0;
+            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).GroupBy(k => k.Key.Replace("#", "")).ToList();                  //grupowanie listy DataToChart po Seri #M
+            foreach (var f in dataPerSeries)
             {
-                var lineSerie = PlotModel.Series[i] as LineSeries;                      //stworzneie obiektu LineSeries sczytanie dwóch serii ponieważ wykres funkcji podzielony jest na dwie serie  #M
-                var lineSeres1 = PlotModel.Series[i + 1] as LineSeries;                 //stworzenie obiektu LineSeires 
-                if (lineSerie != null)
+                foreach (var series in f)
                 {
-                    foreach (var d in data)                                             //pętla taka sama jak przy generowaniu wykresu sprawdzajaca, do której serii dany punkt ma pójść #M
+                    var lineSerie = new LineSeries
                     {
-                        if (d.Axis < 0)
-                        {
-                            lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));
-                        }
-                    }
-                    //data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var listpom = lineSerie.Points.OrderBy(m => m.X).ToList();         //przypisanie do zmiennnej listpom seri punktow pogrupowanych po X #M
-                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);           //usunięci z lineSerie wszystkich punktów #M
-                    listpom.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y))); //dodanie do lineSerie punktów z listy listpom które zostały już pogrupowane operacja ta jest potrzebna żeby punkty były wykreślane w dpowiedniej kolejności #M
-
+                        StrokeThickness = 2,
+                        MarkerSize = 1,
+                        MarkerStroke = colors[i],
+                        MarkerType = MarkerType.None,
+                        CanTrackerInterpolatePoints = false,
+                        Smooth = false,
+                    };
+                    series.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis)));
+                    lineSerie.Color = colors[i];                                                    //Dodajemy kolor do serii wybrany z listy color w zależności od obiegu pętli #M
+                    PlotModel.Series.Add(lineSerie);                                                 //Dodanie do modelu wykresu nowej serii #M
                 }
-                if (lineSeres1 != null)                                                //operacja na tej serii analogiczna do operacjii wykonanej na serii powyższej
-                {
-                    foreach (var d in data)
-                    {
-                        if (d.Axis > 0)
-                        {
-                            lineSeres1.Points.Add(new DataPoint(d.Axis, d.Ayis));
-                        }
-                    }
-                    // data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var listpom1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
-                    lineSeres1.Points.RemoveRange(0, lineSeres1.Points.Count);
-                    listpom1.ToList().ForEach(k => lineSeres1.Points.Add(new DataPoint(k.X, k.Y)));
-                }
-                i = i + 2;                                                             //zwiekszenei licznika o 2 żeby przejść do wykresu nastepnej funkcji #M
+                PlotModel.Series[PlotModel.Series.Count - 1].Title = string.Format(f.Key);
+                i++;
             }
-            return i;                                                                  //liczba funkcji ktora została już powiekszona. Powiększanie zaczyna się od funkcji, ktore nie mają miejsc zerowcych i zwracana jest ich ilość po to aby wiedzieć od jakiego elementu zaczać powiększanie funkcji, które mają miejsca zerowe #M 
         }
         public void UpdateModelZoomOUT(List<DataToChartsLine> DataToChart, int max, int min, double zoommin)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
