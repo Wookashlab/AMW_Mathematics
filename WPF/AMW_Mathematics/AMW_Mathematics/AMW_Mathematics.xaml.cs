@@ -64,14 +64,19 @@ namespace AMW_Mathematics
 
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
-            string Expresion = ExpressionField.Text;
-            Expresion = phrase.SaveValuesOfVariables(Expresion, ExpressionField);
-            Expresion = phrase.CheckVariablesinExpresion(Expresion);
-            if (Expresion.Contains(":=") == false) Expresion = phrase.AddToNumberDot(Expresion);
-            Expresion = Maxima.Eval(Expresion);
-            Expresion = Expresion.Replace(":=", " = ");
-            ResultList.Items.Add(Expresion);
-            ExpressionField.Clear();
+            if (ExpressionField.Text != "")
+            {
+                string Expresion = ExpressionField.Text;
+                Expresion = phrase.SaveValuesOfVariables(Expresion, ExpressionField);
+                Expresion = phrase.CheckVariablesinExpresion(Expresion);
+                if (Expresion.Contains(":=") == false) Expresion = phrase.AddToNumberDot(Expresion);
+                Expresion = Maxima.Eval(Expresion);
+                Expresion = Expresion.Replace(":=", " = ");
+                ResultList.Items.Add(ExpressionField.Text + "=\n" +Expresion);
+                ResultList.SelectedIndex= ResultList.Items.Count - 1;
+                ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);
+                ExpressionField.Clear();
+            }
         }
 
         private void Keyboard_Click(object sender, RoutedEventArgs e)               //Funckja wprowadzająca cyfry i znaki z kalwiatury "telefonu" #Ł
@@ -99,13 +104,21 @@ namespace AMW_Mathematics
         {
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
-            ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
-            TipBox.Text = klawisz.ToolTip.ToString();
-            TipBox.Foreground = Brushes.Green;
+            if (worksheetTab.IsSelected)                                            //Wprowadzanie wartości przycisku na zakładce "Arkusz" #Ł
+            {
+                ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
+                TipBox.Text = klawisz.ToolTip.ToString();
+                TipBox.Foreground = Brushes.Green;
+            }
+            if (ChartsOverLap.IsSelected) { 
+                //Gdzie ma wprowadzić wartość w zakładce "wykresy" #Ł
+            }
+            
         }
 
         private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
         {
+            GraphHelpGrid.Visibility = Visibility.Hidden;
             DataToChartList.Clear();
             ListFunction.Clear();
             ListFunction1.Clear();
