@@ -10,9 +10,7 @@
         Title="AMW Mathematics" Height="855" Width="1217" ResizeMode="NoResize"
         BorderThickness="0" 
         GlowBrush="Black" Icon="img/AppLogo.png"
-        xmlns:l="System.windows.forms."
-                      xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl"
-                      >
+        xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl">
     <Grid>
         <Grid>
             <TabControl SelectedIndex="1" x:Name="tabControl" Margin="0,0,0,638" BorderBrush="AliceBlue" BorderThickness="6">
@@ -20,7 +18,7 @@
                 </TabItem>
                 <TabItem x:Name="HomeTab"  VerticalAlignment="Top" Header="Narzędzia główne">
                     <Grid Margin="0,0,18,10" >
-                        <GroupBox x:Name="groupBox" Header="Schowek" HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="198" Margin="5,0,0,0">
+                        <GroupBox x:Name="groupBox" Header="Schowek" HorizontalAlignment="Left" Width="198" Margin="5,0,0,0">
                             <Grid Margin="0,0,0,-11">
                                 <Button x:Name="button" Content="Cofnij" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
                                 <Button x:Name="button_Copy" Content="Przywróc" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75"/>
@@ -29,8 +27,8 @@
                                 <Button x:Name="button_Copy3" Content="Wklej" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top" Width="75"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy" Header="Liczby i kąty" HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="471" Margin="208,0,0,0">
-                            <Grid>
+                        <GroupBox x:Name="groupBox_Copy" Header="Liczby i kąty" HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
+                            <Grid Height="81" VerticalAlignment="Top">
                                 <RadioButton x:Name="radioButton" Content="Liczby rzeczywiste" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933"/>
                                 <RadioButton x:Name="radioButton2" Content="Liczby zespolone" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933"/>
                                 <RadioButton x:Name="radioButton_Copy" Content="Stopnie" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
@@ -48,7 +46,7 @@
 
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy1" Header="Narzędzia" HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="428" Margin="684,0,0,0">
+                        <GroupBox x:Name="groupBox_Copy1" Header="Narzędzia" HorizontalAlignment="Left" Width="428" Margin="684,0,0,0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="18*"/>
@@ -101,12 +99,24 @@
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="FormatujOverLap"  VerticalAlignment="Top" Header="Formatuj" Margin="637,0,-637,0"  >
-                    <GroupBox x:Name="groupBox6" Header="Skalowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,5,0,5" Width="141">
-                        <Grid>
-                            <Button x:Name="ZoomIn" Content="Oddal"  Click="ZoomIN_Click" Margin="30,49,0,10" HorizontalAlignment="Left" Width="69" />
-                            <Button x:Name="ZoomOut" Content="Przybliż"  Click="ZoomOut_Click" Margin="30,10,0,49" HorizontalAlignment="Left" Width="69"/>
-                        </Grid>
-                    </GroupBox>
+                    <Grid>
+                        <GroupBox x:Name="groupBox6" Header="Skalowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5" Width="180">
+                            <Grid>
+                                <Button x:Name="ZoomOut" Content="Oddal"  Click="ZoomOut_Click" Margin="10,46,0,10" HorizontalAlignment="Left" Width="69" />
+                                <Button x:Name="ZoomIn" Content="Przybliż"  Click="ZoomIN_Click" Margin="10,10,0,46" HorizontalAlignment="Left" Width="69"/>
+                                <TextBox x:Name="ZoomOutSeries" Text="x,y" Margin="102,46,0,0" HorizontalAlignment="Left" Width="56" Height="26" VerticalAlignment="Top"/>
+                                <TextBox x:Name="ZoomInSeries" Text="x,y" Margin="102,0,0,46" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="56"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox x:Name="groupBox7" Header="Pozycjonowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="185,5,0,0" Width="180">
+                            <Grid>
+                                <Button x:Name="ChartLineTopPosition" Content="Góra"  Margin="58,0,0,56" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.878,0.92" Click="ChartLineTopPosition_Click"/>
+                                <Button x:Name="ChartLineDownPosition" Content="Dół" Margin="58,56,0,0" HorizontalAlignment="Left" Width="50" Click="ChartLineDownPosition_Click"  />
+                                <Button x:Name="ChartLineLeftPosition" Content="Lewo" Margin="2,30,0,26" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.538,0.36" Click="ChartLineLeftPosition_Click"  />
+                                <Button x:Name="ChartLineRightPosition" Content="Prawo"  Margin="114,30,0,26" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.927,0.6" Click="ChartLineRightPosition_Click"/>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
                 </TabItem>
             </TabControl>
             <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" SelectionChanged="TabControl_SelectionChanged" >
@@ -342,18 +352,18 @@
                                 </ListViewItem>
                             </ListView>
                         </TabControl>
-                        <TabControl Margin="209,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
-                            <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3" />
+                        <TabControl Margin="218,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
+                            <!--<oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3" />-->
+                            <WindowsFormsHost x:Name="expPlotterControl" Visibility="Hidden">
+                                <WinForms:ExpressionPlotter x:Name="expPlotter"></WinForms:ExpressionPlotter>
+                            </WindowsFormsHost>
                         </TabControl>
                         <Grid Name="GraphHelpGrid" Margin="229,10,10,10" Grid.Column="2" >
-                            <Image Source="img/help_page_sign.png" Margin="496,3,10,503" />
+                            <Image Source="img/help_page_sign.png" Margin="484,3,10,483" />
                             <TextBlock x:Name="TitleTxt" Text="{Binding Title}" Foreground="#FF41B1E1" FontWeight="Bold" FontSize="24" Margin="0,26,0,503" />
                             <TextBlock x:Name="SubTitleTxt" Text="{Binding SubTitle}" Foreground="#FF5996B0" FontSize="20" Margin="0,76,0,453" FontWeight="Bold" />
                             <TextBlock x:Name="MainHelpTxt" Text="{Binding MainHelp}" FontSize="16" Margin="0,133,0,10" />
                         </Grid>
-                        <WindowsFormsHost Margin="229,10,10,10" Grid.Column="2">
-                            <WinForms:ExpressionPlotter x:Name="expPlotter"></WinForms:ExpressionPlotter>
-                        </WindowsFormsHost>
                     </Grid>
                 </TabItem>
                 <TabControl x:Name="tabControl2" Height="100" Width="100">

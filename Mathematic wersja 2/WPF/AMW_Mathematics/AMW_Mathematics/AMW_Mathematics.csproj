@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelView\ChartLineView.cs" />
     <Compile Include="ModelView\ChartListViewInequalities.cs" />
     <Compile Include="ModelView\ChartListViewParametric.cs" />
     <Compile Include="ModelView\ChartListViewPoint.cs" />
