@@ -109,7 +109,8 @@ namespace ExpressionPlotterControl
                 {
                     while (char.IsDigit(textInternal[i]) || textInternal[i] == '.')
                         i++;
-                    dOperand = Convert.ToDouble(textInternal.Substring(startIndex, i - startIndex));
+                    string toConvert = textInternal.Substring(startIndex, i - startIndex).Replace('.', ',');
+                    dOperand = Convert.ToDouble(toConvert);
                     i--;
                 }
                 //if found an operator
