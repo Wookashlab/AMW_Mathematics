@@ -28,17 +28,20 @@ namespace AMW_Mathematics
         private GraphingHelp HelpZestawy = new GraphingHelp(2);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Expreson phrase = new Expreson();                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
-        private ViewPlot ViewPlot;
-        private DataToChartsLine DataToCharts;
+        private ChartPointView ViewPlot;
+        private DataToPointChartView DataToCharts;
         private ChartListViewLine chartlist = new ChartListViewLine();
         List<string> ListFunction = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
-        List<DataToChartsLine> DataToChartList = new List<DataToChartsLine>();
+        List<string> ListFunction1 = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
+        List<DataToPointChartView> DataToChartList = new List<DataToPointChartView>();
         ChartLineView ChartLineWiew = new ChartLineView();
+        private ZoomInChartPoint zoomin = new ZoomInChartPoint();
+        private string typechart;
         public MainWindow()
         {
             chartlist.CountFunction = "1";
             InitializeComponent();
-            DataToCharts = new DataToChartsLine();                                                       //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
+            DataToCharts = new DataToPointChartView();                                                       //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
             List<ChartListViewLine> DataListView = new List<ChartListViewLine>();                           //osobna klasa jeszcze nie wiem jaka :-)
             DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });      //osobna klasa jeszcze nie wiem jaka :-)
             ChartListFunction.Items.Add(DataListView);                                                  //osobna klasa jeszcze nie wiem jaka :-)
@@ -121,25 +124,56 @@ namespace AMW_Mathematics
         bool ToogleGridLineView = true;
         private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
         {
-            GraphHelpGrid.Visibility = Visibility.Hidden;
-            expPlotterControl.Visibility = Visibility.Visible;
-            DataToChartList.Clear();
-            ListFunction.Clear();
-            
-            var _ListBox = ChartListFunction as ListBox;
-            foreach (var _ListBoxItem in _ListBox.Items)
+
+            var chartbutton = (Button)sender;
+            switch (chartbutton.Name)
             {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                var _Name = "FunctionTextBox";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                ListFunction.Add(_Control.Text);
-                //dodanie do listy funkcji występującej w TextBox #M
-               
-            };
-            ChartLineWiew.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunction, ToogleGridLineView);
-            ToogleGridLineView = false;
-          
+                case "PlotChart":
+                    GraphHelpGrid.Visibility = Visibility.Hidden;
+                    expPlotterControl.Visibility = Visibility.Visible;
+                    DataToChartList.Clear();
+                    ListFunction.Clear();
+                    var _ListBox = ChartListFunction as ListBox;
+                    foreach (var _ListBoxItem in _ListBox.Items)
+                    {
+                        var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                        var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                        var _Name = "FunctionTextBox";
+                        var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
+                        ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
+                    };
+                    ChartLineWiew.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunction, ToogleGridLineView);
+                    ToogleGridLineView = false;
+                    typechart = "line";
+                    break;
+                case "PointPlotChart":
+                    expPlotterControl.Visibility = Visibility.Hidden;
+                    //List<DataToChartsLine> DataToChartList = new List<DataToChartsLine>();
+                    DataToChartList.Clear();
+                    ListFunction.Clear();
+                    ListFunction1.Clear();
+                    _ListBox = ChartListFunction as ListBox;
+                    foreach (var _ListBoxItem in _ListBox.Items)
+                    {
+                        var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                        var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                        var _Name = "FunctionTextBox";
+                        var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
+                        ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
+                    }
+                    DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts, new MainWindow(), -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+                    ViewPlot = new ChartPointView(DataToChartList);
+                    DataContext = ViewPlot;
+                    zoomin.zoomi = 7;                                                                                                                //poniżej ustawione zostały poarametry potrzebne do generowania kolejnnych puntow wykresu funkcji #M                                                                                                              
+                    zoomin.zoomj = -7;
+                    zoomin.startminzoom = 0.1;
+                    zoomin.endminzoom = 0.05;
+                    zoomin.countzoom = 0.01;
+                    zoomin.roundtozoom = 2;
+                    DataToCharts.zoommax = 0;
+                    typechart = "point";
+                    break;
+            }
         }
         public List<Control> AllChildren(DependencyObject parent)                   //Funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
         {
@@ -249,11 +283,76 @@ namespace AMW_Mathematics
         }
         private void ZoomIN_Click(object sender, RoutedEventArgs e)                 //Funkcja zmniejszająca wykres #M
         {
-            ChartLineWiew.ButtonZoomIn(expPlotter, ZoomInSeries);
+            switch (typechart)
+            {
+                case "line":
+                    ChartLineWiew.ButtonZoomIn(expPlotter, ZoomInSeries);
+                    break;
+                case "point":
+                    List<DataToPointChartView> DataToChartList = new List<DataToPointChartView>();                                                                                                                                                                                                               //stworzenie listy punktow funkcji ktora będzie przekazywana do modelu wykresy #M
+                    DataToChartList = DataToCharts.CountYwithXWithUpdataTwoLine(ListFunction1, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+                    int i = ViewPlot.UpdateModelZoomIN(DataToChartList, 0);                                                                                                                                                                                                                    //przekazanie do modelu wartości funkcji podzielonch na dwa wykresy nie przecinającego osi X #M                                                                                                              
+                    Plot.InvalidatePlot(true);//odświerzenei wykresu 
+                    DataToChartList.Clear();
+                    DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi);                                                                                        //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+                    ViewPlot.UpdateModelZoomIN(DataToChartList, i);                                                                                                                                                                                                                             //przekazanie do modelu wartości funkcji X #M                             
+                    Plot.InvalidatePlot(true);
+                    zoomin.zoomj = zoomin.zoomj - 1;                                                                                                                                                                                                                                            //zwiększenei punktów startowych dla przy kolejnym zwiększani wykresu #M 
+                    zoomin.zoomi = zoomin.zoomi + 1;                                                                                                                                                                                                                                            //zwiększenei punktów startowych dla przy kolejnym zwiększani wykresu #M 
+                    if (DataToCharts.zoommax == 0)                                                                                                                                                                                                                                              //zmniejszanie począwszy od 0.1 tak długo aż zoommax będzie różny od 0 oznacza to że półap zmniejszania X osiągnał swoją wartość końcową i nie da go bardzej pomniejszyć 
+                    {
+                        var helpzomm = zoomin.startminzoom;
+                        zoomin.startminzoom = zoomin.endminzoom;                                                                                                                                                                                                                                //ustalenie początku zwiększania dla X mniejszych od 0.1 #M
+                        zoomin.endminzoom = helpzomm / 10;                                                                                                                                                                                                                                      //ustalenie końca zwiększania dla X mniejszych od 0.1 #M
+                        if (zoomin.startminzoom.ToString().Contains("1") == true)                                                                                                                                                                                                               //warunek odpowiedzialny za ustalenie skali o ile ma się zwiększać X w danym obiegu pętli #M
+                        {
+                            zoomin.countzoom = zoomin.countzoom / 10;                                                                                                                                                                                                                           //zmniejszenie skali zwiększania X #M
+                            zoomin.roundtozoom++;
+                        }
+                    }
+                    break;
+            }
+
         }
         private void ZoomOut_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineWiew.ButtonZoomOut(expPlotter, ZoomOutSeries);
+            switch (typechart)
+            {
+                case "line":
+                    ChartLineWiew.ButtonZoomOut(expPlotter, ZoomOutSeries);
+                    break;
+                case "point":
+                    List<DataToPointChartView> DataToChartList = new List<DataToPointChartView>();
+                    if (zoomin.endminzoom < 0.5)                                                        //dzięki warunkowi określam 
+                    {
+                        if (DataToCharts.zoommax == 0)                                                  //warunek sprawdzający czy możliwe jest jeszcze pomniejszenie 0.1 X #M
+                        {
+                            var helpzomm = zoomin.endminzoom;
+                            zoomin.endminzoom = zoomin.startminzoom;
+                            zoomin.startminzoom = helpzomm * 10;
+                        }
+                        zoomin.zoomj = zoomin.zoomj + 1;                                                                                                                                                                                                                                            //zwiększanie X #M
+                        zoomin.zoomi = zoomin.zoomi - 1;                                                                                                                                                                                                                                           //zwiększanie X #<
+                        if (zoomin.startminzoom.ToString().Contains("1") != true)                                                                                                                                                                                                                  //warunek sprawdzający czy należy zmienić zakres w pomniejszaniu mniejszym od 0.1 #M
+                        {
+                            zoomin.countzoom = zoomin.countzoom * 10;
+                            zoomin.roundtozoom--;
+                        }
+                        DataToChartList = DataToCharts.CountYwithXWithUpdataTwoLine(ListFunction1, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi, zoomin.startminzoom, zoomin.endminzoom, zoomin.countzoom, zoomin.roundtozoom); //generowanie punktów dla funkcji która nie przechodzi przez oś X #M
+
+                        Plot.InvalidatePlot(true);                                                                                                                                                                                                                                                 //odświerzanie wykresu #M
+                        if (DataToCharts.zoommax > 0)                                                                                                                                                                                                                                              //sprawdzenie czy licznik pomniejszania jest większy od 0 jeśl jest to należy aktualizować wykres bez parametrów pomniejszających skale x o <0.1 i od liczniaka odjąc 2 dzięki czemu dla funkcji nie przekraczający X Y nie wzrośnie nam do bardzo dużych liczb #M
+                        {
+                            DataToCharts.zoommax = DataToCharts.zoommax - 2;
+                            ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, 0.0);
+                        }
+                        else ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, zoomin.startminzoom);                                                                                                                                                                 //gdy wartość x będzie już mieściła się w przedziałach x < 0.1 to oznacza że można zacząc pomniejszania z uwzględnienie pomniejszania o < 0.1 #M
+                    }
+                    DataToChartList = DataToCharts.CountYwithXWithUpdata(ListFunction, DataToChartList, DataToCharts, new MainWindow(), zoomin.zoomj + 1, zoomin.zoomi - 1, zoomin.zoomj, zoomin.zoomi);                                                                                            //aktualizwanie wykresu który przecina oś X #M
+                    ViewPlot.UpdateModelZoomOUT(DataToChartList, zoomin.zoomi - 1, zoomin.zoomj + 1, 0.0);                                                                                                                                                                                          //aktualizwanie wykresu o wygenerowane punkty #M
+                    Plot.InvalidatePlot(true);
+                    break;
+            }
         }
         private void ChartLineTopPosition_Click(object sender, RoutedEventArgs e)
         {

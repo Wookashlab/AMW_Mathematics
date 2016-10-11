@@ -95,7 +95,7 @@
     <Compile Include="ModelView\ChartListViewPoint.cs" />
     <Compile Include="Function\Expreson.cs" />
     <Compile Include="ModelView\GraphingHelp.cs" />
-    <Compile Include="Model\ZoomIN.cs" />
+    <Compile Include="Model\ZoomInChartPoint.cs" />
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
     </Compile>
@@ -126,8 +126,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelView\ChartListViewLine.cs" />
-    <Compile Include="Model\DataToChartsLine.cs" />
-    <Compile Include="ModelView\ViewPlot.cs" />
+    <Compile Include="Model\DataToPointChartView.cs" />
+    <Compile Include="ModelView\ChartPointView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

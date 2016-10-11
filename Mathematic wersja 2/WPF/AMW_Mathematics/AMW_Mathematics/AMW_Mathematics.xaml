@@ -239,7 +239,7 @@
                                         </ListView>
                                         <Button x:Name="PointAddExpresionToPlot" Content="Dodaj" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top"/>
                                         <Button x:Name="PointRemoveFunctionFromChart" Content="Usuń" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" />
-                                        <Button x:Name="PointPlotChart" Content="Rysuj" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" />
+                                        <Button x:Name="PointPlotChart" Content="Rysuj" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click" />
                                     </Grid>
                                 </ListViewItem>
                                 <ListViewItem  x:Name="ParametricChLV" Height="28" Width="247">
@@ -353,7 +353,9 @@
                             </ListView>
                         </TabControl>
                         <TabControl Margin="218,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
-                            <!--<oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3" />-->
+                            <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3" />
+                        </TabControl>
+                        <TabControl Margin="218,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
                             <WindowsFormsHost x:Name="expPlotterControl" Visibility="Hidden">
                                 <WinForms:ExpressionPlotter x:Name="expPlotter"></WinForms:ExpressionPlotter>
                             </WindowsFormsHost>

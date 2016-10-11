@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AMW_Mathematics.ModelView
 {
-    class ZoomIN
+    class ZoomInChartPoint
     {
         public int zoomj { get; set; }
         public int zoomi { get; set; }
