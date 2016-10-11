@@ -5,6 +5,7 @@ using System.Linq;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using System.Windows.Controls;
 
 namespace AMW_Mathematics.ModelView
 {
@@ -35,125 +36,104 @@ namespace AMW_Mathematics.ModelView
                                             };
         private void SetUpModel()                                           //ustawienie parametrów wykresu takich jak: (legenda ramka, tło, oś x, oś y ), dla obiektu klasy PlotModel #M
         {
-            PlotModel.LegendTitle = "Legenda";
-            PlotModel.LegendOrientation = LegendOrientation.Horizontal;
-            PlotModel.LegendPlacement = LegendPlacement.Outside;
-            PlotModel.LegendPosition = LegendPosition.TopRight;
-            PlotModel.LegendBackground = OxyColor.FromAColor(200, OxyColors.White);
-            PlotModel.LegendBorder = OxyColors.Black;
-            var dateAxis = new LinearAxis() { Position = AxisPosition.Bottom, MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, IntervalLength = 80, Title = "X" };
+            var dateAxis = new LinearAxis() { Position = AxisPosition.Bottom, MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, IntervalLength = 80};
             PlotModel.Axes.Add(dateAxis);
-            var valueAxis = new LinearAxis() { Position = AxisPosition.Left, MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, Title = "Y" };
+            var valueAxis = new LinearAxis() { Position = AxisPosition.Left, MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot };
             PlotModel.Axes.Add(valueAxis);
         }
         private void LoadData(List<DataToPointChartView> DataToChart)                                    //Metoda odpowiedzialna za: załadowanie danych do wykresu, ustawienie koloru wykresu jego markerów i legendy #M
         {
-            int i = 0;
             var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();                  //grupowanie listy DataToChart po Seri #M
             foreach (var data in dataPerSeries)                                                 //pętla dodająca dane do seri. Podzielenie danych na dwie serie w zależności od osi X dzięki temu unikniemy wystąpienia lini gdy funkcja nie ma miejsca zerowego.   #M               
             {
                 var scatterSeries = new ScatterSeries { MarkerType = MarkerType.Circle };           // (Funkcja powinna dodatkow mieć możliwość rozgraniczenia po Y) #M
                 data.ToList().ForEach(d => scatterSeries.Points.Add(new ScatterPoint(d.Axis, d.Ayis, 5, 200)));
                 PlotModel.Series.Add(scatterSeries);                                                 //Dodanie do modelu wykresu nowej serii #M
-                i++;
             }
         }
-        public int UpdateModelZoomIN(List<DataToPointChartView> DataToChart, int i)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
-        {
-            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();          //grupowanie listy DataToChart po Seri #M
-            foreach (var data in dataPerSeries)
+        public void UpdateModelZoomIn(OxyPlot.Wpf.PlotView e, TextBox ZoomInSeries)
+        { 
+            if (ZoomInSeries.Text == "x")
             {
-                var lineSerie = PlotModel.Series[i] as LineSeries;                      //stworzneie obiektu LineSeries sczytanie dwóch serii ponieważ wykres funkcji podzielony jest na dwie serie  #M
-                var lineSeres1 = PlotModel.Series[i + 1] as LineSeries;                 //stworzenie obiektu LineSeires 
-                if (lineSerie != null)
+                if (PlotModel.Axes[0].ActualMinimum <= -1 && PlotModel.Axes[0].ActualMaximum >= 1)
                 {
-                    foreach (var d in data)                                             //pętla taka sama jak przy generowaniu wykresu sprawdzajaca, do której serii dany punkt ma pójść #M
-                    {
-                        if (d.Axis < 0)
-                        {
-                            lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis));
-                        }
-                    }
-                    //data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var listpom = lineSerie.Points.OrderBy(m => m.X).ToList();         //przypisanie do zmiennnej listpom seri punktow pogrupowanych po X #M
-                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);           //usunięci z lineSerie wszystkich punktów #M
-                    listpom.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y))); //dodanie do lineSerie punktów z listy listpom które zostały już pogrupowane operacja ta jest potrzebna żeby punkty były wykreślane w dpowiedniej kolejności #M
-
+                    PlotModel.Axes[0].Minimum = PlotModel.Axes[0].ActualMinimum + 1;
+                    PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum - 1;
                 }
-                if (lineSeres1 != null)                                                //operacja na tej serii analogiczna do operacjii wykonanej na serii powyższej
-                {
-                    foreach (var d in data)
-                    {
-                        if (d.Axis > 0)
-                        {
-                            lineSeres1.Points.Add(new DataPoint(d.Axis, d.Ayis));
-                        }
-                    }
-                    // data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var listpom1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
-                    lineSeres1.Points.RemoveRange(0, lineSeres1.Points.Count);
-                    listpom1.ToList().ForEach(k => lineSeres1.Points.Add(new DataPoint(k.X, k.Y)));
-                }
-                i = i + 2;                                                             //zwiekszenei licznika o 2 żeby przejść do wykresu nastepnej funkcji #M
             }
-            return i;                                                                  //liczba funkcji ktora została już powiekszona. Powiększanie zaczyna się od funkcji, ktore nie mają miejsc zerowcych i zwracana jest ich ilość po to aby wiedzieć od jakiego elementu zaczać powiększanie funkcji, które mają miejsca zerowe #M 
+            if (ZoomInSeries.Text.ToString() == "y")
+            {
+                if (PlotModel.Axes[1].ActualMinimum <= -1 && PlotModel.Axes[1].ActualMaximum >= 1)
+                {
+                    PlotModel.Axes[1].Minimum = PlotModel.Axes[1].ActualMinimum + 1;
+                    PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum - 1;
+                }
+            }
+            if (ZoomInSeries.Text.ToString() == "x,y" || ZoomInSeries.Text.ToString() == "y,x")
+            {
+                if (PlotModel.Axes[1].ActualMinimum <= -1 && PlotModel.Axes[1].ActualMaximum >= 1)
+                {
+                    PlotModel.Axes[1].Minimum = PlotModel.Axes[1].ActualMinimum + 1;
+                    PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum - 1;
+                }
+                if (PlotModel.Axes[0].ActualMinimum <= -1 && PlotModel.Axes[1].ActualMaximum >= 1)
+                {
+                    PlotModel.Axes[0].Minimum = PlotModel.Axes[0].ActualMinimum + 1;
+                    PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum - 1;
+                }
+            }
+            e.ResetAllAxes();
+            e.InvalidatePlot(true);
         }
-        public void UpdateModelZoomOUT(List<DataToPointChartView> DataToChart, int max, int min, double zoommin)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
+        public void UpdateModelZoomOut(OxyPlot.Wpf.PlotView e, TextBox ZoomOutSeries)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
-            int i = 0;
-            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();                                       //grupowanie listy DataToChart po Seri #M
-            foreach (var data in dataPerSeries)
+            if (ZoomOutSeries.Text == "x")
             {
-                var lineSerie = PlotModel.Series[i] as LineSeries;                                                   //kolejny raz podział na dwie serie #M
-                var lineSeres1 = PlotModel.Series[i + 1] as LineSeries;
-                if (lineSerie != null)
-                {
-                    // data.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var listpom = lineSerie.Points.OrderBy(m => m.X).ToList();                                      //pogrupowanie punktów danej serii i załadowanie ich do listy  #M
-                    for (int j = 0; j < listpom.Count; j++)
-                    {
-                        if (listpom[j].X < min)                                                                     //pętla zmniejszająca ilość elementów na wyresie o wartość min wartość min jest to wartość osi X jaka ma wystąpić po zmniejszeniu #M
-                        {
-                            listpom.Remove(listpom[j]);
-                            j = -1;
-                        }
-                    }
-                    for (int j = 0; j < listpom.Count; j++)                                                        //pętla zmniejszająca ilość elementów na wyresie o wartość min wartość min jest to wartość osi X jaka ma wystąpić po zmniejszeniu #M
-                    {
-                        if (listpom[j].X > -zoommin)
-                        {
-                            listpom.Remove(listpom[j]);
-                            j = -1;
-                        }
-                    }
-                    lineSerie.Points.RemoveRange(0, lineSerie.Points.Count);                                    //usunięcie z serii wszystkich elementow #M
-                    listpom.ToList().ForEach(d => lineSerie.Points.Add(new DataPoint(d.X, d.Y)));               //dodanie do seri elementów o wcześniej zmniejszonej ilośći #M
-                }
-                if (lineSeres1 != null)                                                                         //analogiczna operacja jak wyżej dla drugiej cześci wykresy #M
-                {
-                    //data.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.Axis, d.Ayis))); //dodanie do parametru Points w klasie LineSeres punktów x, y odpowiadającym danej funckji #M
-                    var listpom1 = lineSeres1.Points.OrderBy(m => m.X).ToList();
-                    for (int j = 0; j < listpom1.Count; j++)
-                    {
-                        if (listpom1[j].X > max)
-                        {
-                            listpom1.Remove(listpom1[j]);
-                            j = -1;
-                        }
-                    }
-                    for (int j = 0; j < listpom1.Count; j++)
-                    {
-                        if (listpom1[j].X < zoommin)
-                        {
-                            listpom1.Remove(listpom1[j]);
-                            j = -1;
-                        }
-                    }
-                    lineSeres1.Points.RemoveRange(0, lineSeres1.Points.Count);
-                    listpom1.ToList().ForEach(d => lineSeres1.Points.Add(new DataPoint(d.X, d.Y)));
-                }
-                i = i + 2;
+                PlotModel.Axes[0].Minimum = PlotModel.Axes[0].ActualMinimum - 1;
+                PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum + 1;
             }
+            if (ZoomOutSeries.Text.ToString() == "y")
+            {
+                PlotModel.Axes[1].Minimum = PlotModel.Axes[1].ActualMinimum - 1;
+                PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum + 1;
+            }
+            if (ZoomOutSeries.Text.ToString() == "x,y" || ZoomOutSeries.Text.ToString() == "y,x")
+            {
+                PlotModel.Axes[1].Minimum = PlotModel.Axes[1].ActualMinimum - 1;
+                PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum + 1;
+                PlotModel.Axes[0].Minimum = PlotModel.Axes[0].ActualMinimum - 1;
+                PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum + 1;
+            }
+            e.ResetAllAxes();
+            e.InvalidatePlot(true);
+        }
+        public void MoveUPChart(OxyPlot.Wpf.PlotView e)
+        {
+            PlotModel.Axes[1].Minimum = PlotModel.Axes[1].ActualMinimum + 1;
+            PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum + 1;
+            e.ResetAllAxes();
+            e.InvalidatePlot(true);
+        }
+        public void MoveDownChart(OxyPlot.Wpf.PlotView e)
+        {
+            PlotModel.Axes[1].Minimum = PlotModel.Axes[1].ActualMinimum - 1;
+            PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum - 1;
+            e.ResetAllAxes();
+            e.InvalidatePlot(true);
+        }
+        public void MoveLeftChart(OxyPlot.Wpf.PlotView e)
+        {
+            PlotModel.Axes[0].Minimum = PlotModel.Axes[0].ActualMinimum - 1;
+            PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum - 1;
+            e.ResetAllAxes();
+            e.InvalidatePlot(true);
+        }
+        public void MoveRightChart(OxyPlot.Wpf.PlotView e)
+        {
+            PlotModel.Axes[0].Minimum = PlotModel.Axes[0].ActualMinimum + 1;
+            PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum + 1;
+            e.ResetAllAxes();
+            e.InvalidatePlot(true);
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName) //metoda odpowiedzialna jest za wykrycie zdarzenia aktualizacji wykresu #M
