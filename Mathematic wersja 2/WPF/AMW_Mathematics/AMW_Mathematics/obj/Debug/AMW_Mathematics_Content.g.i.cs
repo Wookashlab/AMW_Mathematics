@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/help_page_sign.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/minimalizuj.png")]
 
 

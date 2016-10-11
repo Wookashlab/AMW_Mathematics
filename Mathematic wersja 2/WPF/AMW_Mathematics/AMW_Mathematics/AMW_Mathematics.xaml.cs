@@ -83,6 +83,8 @@ namespace AMW_Mathematics
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
             ExpressionField.Text = ExpressionField.Text + wartosc;
+            ExpressionField.Focus();
+            ExpressionField.SelectionStart = ExpressionField.Text.Length;
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)                  //Funckja czyszcząca okno wprowadzania #Ł
@@ -95,6 +97,8 @@ namespace AMW_Mathematics
             if (ExpressionField.Text.Length > 0)
             {
                 ExpressionField.Text = ExpressionField.Text.Substring(0, ExpressionField.Text.Length - 1);
+                ExpressionField.Focus();
+                ExpressionField.SelectionStart = ExpressionField.Text.Length;
             }
         }
         private void Function_Click(object sender, RoutedEventArgs e)               //Funckja do prowadznie funckji z klawiatury "telefonu" #Ł
@@ -106,6 +110,8 @@ namespace AMW_Mathematics
                 ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
                 TipBox.Text = klawisz.ToolTip.ToString();
                 TipBox.Foreground = Brushes.Green;
+                ExpressionField.Focus();
+                ExpressionField.SelectionStart = ExpressionField.Text.Length;
             }
             if (ChartsOverLap.IsSelected)
             {
@@ -119,6 +125,7 @@ namespace AMW_Mathematics
             expPlotterControl.Visibility = Visibility.Visible;
             DataToChartList.Clear();
             ListFunction.Clear();
+            
             var _ListBox = ChartListFunction as ListBox;
             foreach (var _ListBoxItem in _ListBox.Items)
             {
@@ -126,10 +133,13 @@ namespace AMW_Mathematics
                 var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                 var _Name = "FunctionTextBox";
                 var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
+                ListFunction.Add(_Control.Text);
+                //dodanie do listy funkcji występującej w TextBox #M
+               
             };
             ChartLineWiew.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunction, ToogleGridLineView);
             ToogleGridLineView = false;
+          
         }
         public List<Control> AllChildren(DependencyObject parent)                   //Funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
         {
@@ -142,6 +152,7 @@ namespace AMW_Mathematics
                 _List.AddRange(AllChildren(_Child));                                //Rekurencyjne sprawdzenie czy dziecko ListView nie ma dzieci które też są kontrolkami #M
             }
             return _List;                                                           //zwrócenie listy Kontrolek ListView #M
+            
         }
 
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
@@ -277,7 +288,13 @@ namespace AMW_Mathematics
 
             }
             if (ChartsOverLap.IsSelected)
+            {
                 FormatujOverLap.Visibility = System.Windows.Visibility.Visible;
+                GraphHelpGrid.Visibility = Visibility.Visible;
+                expPlotterControl.Visibility = Visibility.Hidden;
+
+            }
+
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)                         //Funkcja obsługująca usuwanie pozycji z listy Result #Ł
@@ -290,6 +307,42 @@ namespace AMW_Mathematics
             string[] partExpression;
             partExpression = ResultList.SelectedItem.ToString().Split('=');
             ExpressionField.Text = partExpression[0];
+
+        }
+
+        private void kMin_MouseDown(object sender, MouseButtonEventArgs e)                  //Klawisz minimalizacji na klawiaturze #Ł
+        {
+            if (Calculus.Content.ToString() == "-")
+            {
+                CalculusTab.Height = 27;
+                Calculus.Content = keyboard.Mark(Calculus.Content.ToString());
+            }
+            if (Statistic.Content.ToString() == "-")
+            {
+                StatisticTab.Height = 27;
+                Statistic.Content = keyboard.Mark(Statistic.Content.ToString());
+            }
+            if (Trigonometry.Content.ToString() == "-")
+            {
+                TrigonometryTab.Height = 27;
+                Trigonometry.Content = keyboard.Mark(Trigonometry.Content.ToString());
+            }
+            if (LinearAlgebra.Content.ToString() == "-")
+            {
+                LinearAlgebraTab.Height = 27;
+                LinearAlgebra.Content = keyboard.Mark(LinearAlgebra.Content.ToString());
+            }
+            if (Standard.Content.ToString() == "-")
+            {
+                StandardTab.Height = 27;
+                Standard.Content = keyboard.Mark(Standard.Content.ToString());
+            }
+            if (Favorite.Content.ToString() == "-")
+            {
+                FavoriteTab.Height = 27;
+                Favorite.Content = keyboard.Mark(Favorite.Content.ToString());
+            }
+
 
         }
     }
