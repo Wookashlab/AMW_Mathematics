@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMW_Mathematics", "AMW_Mathematics\AMW_Mathematics.csproj", "{15463A62-124A-4744-8E4A-498E8FABB0DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximaSharp", "..\MaximaSharp\MaximaSharp\MaximaSharp.csproj", "{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionPlotterControl", "..\ExpressionPlotterControl\ExpressionPlotterControl\ExpressionPlotterControl.csproj", "{523E68CB-7636-4729-B5AF-7FF1FAA60F23}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AMW Mathematics", "AMW Mathematics\AMW Mathematics.vdproj", "{7BDCE2EB-274F-4765-8A1E-EE626D3655D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15463A62-124A-4744-8E4A-498E8FABB0DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15463A62-124A-4744-8E4A-498E8FABB0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15463A62-124A-4744-8E4A-498E8FABB0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15463A62-124A-4744-8E4A-498E8FABB0DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB92EA20-C7F1-4330-9E1A-2C06EC24E587}.Release|Any CPU.Build.0 = Release|Any CPU
+		{523E68CB-7636-4729-B5AF-7FF1FAA60F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{523E68CB-7636-4729-B5AF-7FF1FAA60F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{523E68CB-7636-4729-B5AF-7FF1FAA60F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{523E68CB-7636-4729-B5AF-7FF1FAA60F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BDCE2EB-274F-4765-8A1E-EE626D3655D2}.Debug|Any CPU.ActiveCfg = Debug
+		{7BDCE2EB-274F-4765-8A1E-EE626D3655D2}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,235 @@
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\MainWindow.g.cs
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\MainWindow.baml
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.g.cs
+D:\Programowanie\PracaIn\AMW_Mathematics\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.baml
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.g.cs
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.baml
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.dll
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
+D:\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.dll
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.pdb
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.xml
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.pdb
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.g.cs
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Logo.baml
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+C:\Users\MaciejH\Desktop\PracaInżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+C:\Users\MaciejH\Desktop\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+C:\Users\MaciejH\Desktop\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+C:\Users\MaciejH\Desktop\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.dll
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.dll
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.dll
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.xml
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.pdb
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.g.cs
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.g.cs
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.baml
+D:\Programowanie\Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.baml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.baml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.baml
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.dll
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.dll
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.dll
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.xml
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.baml
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.baml
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+D:\Programowanie\W razie W\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\ExpressionPlotterControl.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\ExpressionPlotterControl.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\ExpressionPlotterControl.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\ExpressionPlotterControl.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.baml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.baml
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\ExpressionPlotterControl.dll
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.dll
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.dll
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.dll
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\ExpressionPlotterControl.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.xml
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.pdb
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.baml
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\VariableWindow.baml
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+D:\Programowanie\W razie W\AMW_Mathematics\Mathematic wersja 2\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
+D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
