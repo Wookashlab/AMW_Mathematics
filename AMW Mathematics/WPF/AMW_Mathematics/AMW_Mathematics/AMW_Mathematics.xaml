@@ -10,7 +10,7 @@
         Title="AMW Mathematics" Height="855" Width="1217" ResizeMode="NoResize"
         BorderThickness="0" 
         GlowBrush="Black" Icon="img/AppLogo.png"
-        xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl">
+        xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid>
             <TabControl SelectedIndex="1" x:Name="tabControl" Margin="0,0,0,638" BorderBrush="AliceBlue" BorderThickness="6">
@@ -161,7 +161,7 @@
                                         </ComboBox>
                                         <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,20,0" VerticalAlignment="Top">
                                             <ComboBoxItem Content="Kartezjański"/>
-                                            <ComboBoxItem Content="Biegunowy"/>
+                                            <ComboBoxItem Content="Biegunowy[WIP]"/>
                                         </ComboBox>
                                         <ListView x:Name="ChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -203,7 +203,7 @@
                                         </ComboBox>
                                         <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,15,0" VerticalAlignment="Top">
                                             <ComboBoxItem Content="Kartezjański"/>
-                                            <ComboBoxItem Content="Biegunowy"/>
+                                            <ComboBoxItem Content="Biegunowy[WIP"/>
                                         </ComboBox>
                                         <ListView x:Name="PointChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -230,7 +230,7 @@
                                                     <GridViewColumn>
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <Button Style="{DynamicResource MetroCircleButtonStyle}" Height="30" Width="30">-</Button>
+                                                                <Button Style="{DynamicResource MetroCircleButtonStyle}" Height="30" Width="30" Click="Button_Click" FontSize="15">...</Button>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
@@ -435,7 +435,7 @@
                 <Grid Height="153" Width="248">
 
                     <Button x:Name="Statistic" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="StatisticLabel" Content="Statystyka:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="StatisticLabel" Content="Statystyka:   [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
                     <Button x:Name="NawiasKO2" Content="{}{" ToolTip="Otwierający nawais klamrowy. Np. {2,3,4}" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
                     <Button x:Name="NawiasKZ2" Content="}" ToolTip="Zamykający nawais klamrowy. Np. {2,3,4}" HorizontalAlignment="Left" Margin="38,30,0,0" VerticalAlignment="Top" Width="24" Height="18" Click="Function_Click"/>
                     <Button x:Name="Sort3" Content="sort" ToolTip="Sortowanie listy w kolejności rosnącej. Np. sort([2,1,6,3])" HorizontalAlignment="Left" Margin="67,31,0,0" VerticalAlignment="Top" Width="40" Height="18" Click="Function_Click"/>
@@ -531,7 +531,7 @@
             <ListBoxItem x:Name="FavoriteTab" Height="27" >
                 <Grid Height="153" Width="248">
                     <Button x:Name="Favorite" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="FavoriteLabel" Content="Ulubione:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="FavoriteLabel" Content="Ulubione:     [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
                 </Grid>
             </ListBoxItem>
         </ListBox>
@@ -565,14 +565,79 @@
                StaysOpen="False">
 
             <Border Width="96" 
-                    Height="163"
+                    Height="192"
                     Background="#FF41B1E1">
                 <Grid>
+                    
                     <Button x:Name="New" Content="Nowy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
                     <Button x:Name="New_Copy" Content="Otwórz" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75"/>
                     <Button x:Name="New_Copy1" Content="Zapisz" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top" Width="75"/>
                     <Button x:Name="New_Copy2" Content="Zapisz jako" HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" Width="75"/>
                     <Button x:Name="New_Copy3" Content="Zakończ" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Label x:Name="label3" Content="[WIP]" HorizontalAlignment="Left" Margin="26,160,0,0" VerticalAlignment="Top"/>
+
+                </Grid>
+
+            </Border>
+        </Popup>
+        <Popup Name="DataSetsPopOut"
+               Placement="Relative"
+               IsOpen="False"
+               StaysOpen="False">
+
+            <Border Width="270" 
+                    Height="195"
+                    Background="#FF41B1E1">
+                <Grid>
+                    <Label x:Name="label1" Content="x" HorizontalAlignment="Left" Margin="84,0,0,0" VerticalAlignment="Top" FontSize="20"/>
+                    <Label x:Name="label2" Content="y     [WIP]" HorizontalAlignment="Left" Margin="168,0,0,0" VerticalAlignment="Top" FontSize="20"/>
+                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="124" Margin="10,37,0,0" VerticalAlignment="Top" Width="250">
+                        <ListBoxItem Height="31">
+                            <Grid Height="38">
+                                <Label x:Name="Label1" Content="1"/>
+                                <TextBox x:Name="x1" HorizontalAlignment="Left" Height="23" Margin="23,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                                <TextBox x:Name="y1" HorizontalAlignment="Left" Height="23" Margin="123,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                            </Grid>
+                        </ListBoxItem>
+                        <ListBoxItem Height="31">
+                            <Grid Height="38">
+                                <Label x:Name="Label2" Content="2"/>
+                                <TextBox x:Name="x2" HorizontalAlignment="Left" Height="23" Margin="23,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                                <TextBox x:Name="y2" HorizontalAlignment="Left" Height="23" Margin="123,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                            </Grid>
+                        </ListBoxItem>
+                        <ListBoxItem Height="31">
+                            <Grid Height="38">
+                                <Label x:Name="Label3" Content="3"/>
+                                <TextBox x:Name="x3" HorizontalAlignment="Left" Height="23" Margin="23,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                                <TextBox x:Name="y3" HorizontalAlignment="Left" Height="23" Margin="123,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                            </Grid>
+                        </ListBoxItem>
+                        <ListBoxItem Height="31">
+                            <Grid Height="38">
+                                <Label x:Name="Label4" Content="4"/>
+                                <TextBox x:Name="x4" HorizontalAlignment="Left" Height="23" Margin="23,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                                <TextBox x:Name="y4" HorizontalAlignment="Left" Height="23" Margin="123,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                            </Grid>
+                        </ListBoxItem>
+                        <ListBoxItem Height="31">
+                            <Grid Height="38">
+                                <Label x:Name="Label5" Content="5"/>
+                                <TextBox x:Name="x5" HorizontalAlignment="Left" Height="23" Margin="23,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                                <TextBox x:Name="y5" HorizontalAlignment="Left" Height="23" Margin="123,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                            </Grid>
+                        </ListBoxItem>
+                        <ListBoxItem Height="31">
+                            <Grid Height="38">
+                                <Label x:Name="Label6" Content="6"/>
+                                <TextBox x:Name="x6" HorizontalAlignment="Left" Height="23" Margin="23,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                                <TextBox x:Name="y6" HorizontalAlignment="Left" Height="23" Margin="123,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                            </Grid>
+                        </ListBoxItem>
+                    </ListBox>
+                    <Button x:Name="DataSetOk" Content="OK" HorizontalAlignment="Left" Margin="155,166,0,0" VerticalAlignment="Top" Width="50"/>
+                    <Button x:Name="DataSetCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="210,166,0,0" VerticalAlignment="Top" Width="50" Click="DataSetCancel_Click"/>
+                    <Button x:Name="DataSetClear" Content="Wyczyść" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" Width="61"/>
 
                 </Grid>
 

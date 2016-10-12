@@ -35,6 +35,11 @@ namespace MaximaSharp
 
             Process.StandardInput.WriteLine(string.Format("{0}$ grind({1});", string.Join("$", Functions), expr.ToLower()));
             var result = Process.StandardOutput.ReadLine();
+            if (result.Contains("incorrect"))                   //Sprawdzenie czy nie wystąpił błąd pisowni #Ł
+            {
+                Eval("1.0+1.0");                                //"Przeczyszczenie maximy #Ł
+                return "error!syntax";                          //Zwrócenie błędu #Ł
+            }
             while (!result.EndsWith("$"))
                 result += Process.StandardOutput.ReadLine();
             Process.StandardOutput.ReadLine();

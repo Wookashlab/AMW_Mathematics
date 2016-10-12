@@ -75,6 +75,20 @@ namespace AMW_Mathematics
                 if (Expresion.Contains(":=") == false) Expresion = phrase.AddToNumberDot(Expresion);
                 Expresion = Maxima.Eval(Expresion);
                 Expresion = Expresion.Replace(":=", " = ");
+                if (Expresion.Contains("error"))
+                {
+                    if (Expresion.Contains("syntax"))
+                    {
+                        System.Windows.MessageBox.Show("Wystąpił błąd w składni wyrażenia popraw działanie i spróbuj ponownie", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+
+                if (Expresion.Contains("rat"))
+                {
+                    string [] rat = Expresion.Split('=');
+                    Expresion = rat.Last()+"     [WIP]";
+                }
                 ResultList.Items.Add(ExpressionField.Text + "=\n" + Expresion);
                 ResultList.SelectedIndex = ResultList.Items.Count - 1;
                 ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);
@@ -413,7 +427,7 @@ namespace AMW_Mathematics
 
         }
 
-        private void Variable_Click(object sender, RoutedEventArgs e)
+        private void Variable_Click(object sender, RoutedEventArgs e)                   //Funkcja wywołania popout-u z zmeinnymi #Ł
         {
             VariablesPopOut.IsOpen = true;
             var point = Mouse.GetPosition(Application.Current.MainWindow);
@@ -421,12 +435,25 @@ namespace AMW_Mathematics
             VariablesPopOut.VerticalOffset = point.Y-20;
         }
 
-        private void Menu_Click(object sender, RoutedEventArgs e)
+        private void Menu_Click(object sender, RoutedEventArgs e)                      //Funkcja wywołania popout-u z menu #Ł
         {
             MenuPopOut.IsOpen = true;
             var point = Mouse.GetPosition(Application.Current.MainWindow);
             MenuPopOut.HorizontalOffset = point.X-10;
             MenuPopOut.VerticalOffset = point.Y - 20;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)                 //Funkcja wywołania popout-u z zestawem danych #Ł
+        {
+            DataSetsPopOut.IsOpen = true;
+            var point = Mouse.GetPosition(Application.Current.MainWindow);
+            DataSetsPopOut.HorizontalOffset = point.X - 10;
+            DataSetsPopOut.VerticalOffset = point.Y - 20;
+        }
+
+        private void DataSetCancel_Click(object sender, RoutedEventArgs e)          //Funkcja obsługująca Anuluj na popoucie DataSets #Ł
+        {
+            DataSetsPopOut.IsOpen = false;
         }
     }
 }

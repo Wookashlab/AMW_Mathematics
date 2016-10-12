@@ -63,7 +63,7 @@ namespace AMW_Mathematics
                 case "Derivative3":                         //pochodna #Ł
                     return "diff(";
                 case "DerivativeS3":                        //pochodna drugiego stopnia #Ł          
-                    return "diff(,2)";
+                    return "diff(,,2)";
                 case "Integrate3":                          //całka #Ł
                     return "integrate(";
                 case "IntegrateO3":                         //całka oznaczona #Ł
