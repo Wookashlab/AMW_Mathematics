@@ -99,9 +99,6 @@
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\VariableWindow.xaml.cs">
-      <DependentUpon>VariableWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="AMW_Mathematics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -116,10 +113,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\Logo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\VariableWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

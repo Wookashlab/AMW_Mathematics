@@ -19,7 +19,7 @@ namespace AMW_Mathematics.ModelView
         public string SeriesID { get; set; }//akcelerator get; set; umożliwia dostep do właściwości Ayis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
         public double Ayis { get; set; } //akcelerator get; set; umożliwia dostep do właściwości Ayis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
         public double Axis { get; set; } //akcelerator get; set; umożliwia dostep do właściwości Axis w klasie DataToChart potrzebnej do ładowania danych do wykresu #M
-        public List<DataToPointChartView> CountYwithX(List<string> ListFunction1, List<string> ListFunction, List<DataToPointChartView> DataToChartList, DataToPointChartView DataToCharts, MainWindow Main, int zoomi, int zoomj)
+        public List<DataToPointChartView> CountYwithX(List<string> ListFunction1, List<string> ListFunction, List<DataToPointChartView> DataToChartList, DataToPointChartView DataToCharts, int zoomi, int zoomj)
         {
             bool IFunction1 = false;                                                                                                                        //deklaracja zmiennej sprawdzającej do ktorej listy mają zostać dodane funkcje 
             for (int j = 0; j < ListFunction.Count; j++)                                                                                                    //Pelta sprawdza czy wykres posiada miejsca zerowe czy też nie, w zależności czy posia czy nie funkcja ladowana jest do odpowiedniej listy #M
@@ -99,7 +99,7 @@ namespace AMW_Mathematics.ModelView
             }
             return DataToChartList;                                                                                                                         //zwrócenie listy punktów obliczonyych funkcji wraz z nazwami funkcji gdzie później są one grupowane #M
         }
-        public List<DataToPointChartView> CountYwithXWithUpdata(List<string> ListFunction, List<DataToPointChartView> DataToChartList, DataToPointChartView DataToCharts, MainWindow Main, double zoomistart, double zoomjstart, int zoomi, int zoomj)
+        public List<DataToPointChartView> CountYwithXWithUpdata(List<string> ListFunction, List<DataToPointChartView> DataToChartList, DataToPointChartView DataToCharts, double zoomistart, double zoomjstart, int zoomi, int zoomj)
         {
             foreach (var f in ListFunction)                                                                                                                         //metoda zwiększająca lub zmniejszająca liczbę punktów na wykresie #M
             {
@@ -132,7 +132,7 @@ namespace AMW_Mathematics.ModelView
             }
             return DataToChartList;                                                                                                                                 //zwrócenie listy wygenerowanych punktow dla funkcji #M
         }
-        public List<DataToPointChartView> CountYwithXWithUpdataTwoLine(List<string> ListFunction, List<DataToPointChartView> DataToChartList, DataToPointChartView DataToCharts, MainWindow Main, double zoomistart, double zoomjstart, int zoomi, int zoomj, double startminim, double endminim, double countzoom, int roundtozoom)
+        public List<DataToPointChartView> CountYwithXWithUpdataTwoLine(List<string> ListFunction, List<DataToPointChartView> DataToChartList, DataToPointChartView DataToCharts, double zoomistart, double zoomjstart, int zoomi, int zoomj, double startminim, double endminim, double countzoom, int roundtozoom)
         {                                                                                                                                                           //funkcja zwiekszająca lub zmiejszająca wykresy funkcji, która nie ma przecięcia z osią X #M
             foreach (var f in ListFunction)
             {

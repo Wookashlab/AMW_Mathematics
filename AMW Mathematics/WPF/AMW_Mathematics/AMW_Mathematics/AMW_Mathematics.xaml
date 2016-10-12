@@ -18,7 +18,7 @@
                 </TabItem>
                 <TabItem x:Name="HomeTab"  VerticalAlignment="Top" Header="Narzędzia główne">
                     <Grid Margin="0,0,18,10" >
-                        <GroupBox x:Name="groupBox" Header="Schowek" HorizontalAlignment="Left" Width="198" Margin="5,0,0,0">
+                        <GroupBox x:Name="groupBox" Header="Schowek [WIP]" HorizontalAlignment="Left" Width="198" Margin="5,0,0,0">
                             <Grid Margin="0,0,0,-11">
                                 <Button x:Name="button" Content="Cofnij" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
                                 <Button x:Name="button_Copy" Content="Przywróc" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75"/>
@@ -27,7 +27,7 @@
                                 <Button x:Name="button_Copy3" Content="Wklej" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top" Width="75"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy" Header="Liczby i kąty" HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
+                        <GroupBox x:Name="groupBox_Copy" Header="Liczby i kąty [WIP]" HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
                             <Grid Height="81" VerticalAlignment="Top">
                                 <RadioButton x:Name="radioButton" Content="Liczby rzeczywiste" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933"/>
                                 <RadioButton x:Name="radioButton2" Content="Liczby zespolone" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933"/>
@@ -46,7 +46,7 @@
 
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy1" Header="Narzędzia" HorizontalAlignment="Left" Width="428" Margin="684,0,0,0">
+                        <GroupBox x:Name="groupBox_Copy1" Header="Narzędzia [WIP]" HorizontalAlignment="Left" Width="428" Margin="684,0,0,0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="18*"/>
@@ -65,32 +65,32 @@
                 <TabItem Header="Wstaw">
 
                     <Grid Margin="0,0,0,-107">
-                        <GroupBox x:Name="groupBox1" Header="Macierze" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
+                        <GroupBox x:Name="groupBox1" Header="Macierze [WIP]" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
                             <Button x:Name="button2" Content="Matryca" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50"/>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox2" Header="Zmienne" HorizontalAlignment="Left" Margin="134,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
+                        <GroupBox x:Name="groupBox2" Header="Zmienne [WIP]" HorizontalAlignment="Left" Margin="134,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
                             <Button x:Name="button3" Content="Zmienna" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50"/>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox3" Header="Zestawy Danych" HorizontalAlignment="Left" Margin="258,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
-                            <Button x:Name="button4" Content="Zestaw&#xD;&#xA;Danych" HorizontalAlignment="Left" Margin="19,10,0,0" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" VerticalAlignment="Top"/>
+                        <GroupBox x:Name="groupBox3" Header="Zestawy Danych [WiP]" HorizontalAlignment="Left" Margin="258,5,0,0" VerticalAlignment="Top" Height="120" Width="145">
+                            <Button x:Name="button4" Content="Zestaw&#xD;&#xA;Danych" HorizontalAlignment="Left" Margin="29,10,0,0" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" VerticalAlignment="Top"/>
                         </GroupBox>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Widok">
                     <Grid Margin="0,0,0,-106">
-                        <GroupBox x:Name="groupBox4" Header="Widok" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
+                        <GroupBox x:Name="groupBox4" Header="Widok [WIP]" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
                                 <Button x:Name="button5" Content="Skórki" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
                                 <Button x:Name="button5_Copy" Content="Schemat&#xD;&#xA;Kolorów" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox4_Copy" Header="Pokazanie" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
+                        <GroupBox x:Name="groupBox4_Copy" Header="Pokazanie [WIP]" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
                                 <Button x:Name="button6" Content="Kalkulator" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
                                 <Button x:Name="button5_Copy1" Content="Przechowane&#xD;&#xA;Zmienne" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox4_Copy1" Header="Powiększenie" HorizontalAlignment="Left" Margin="436,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
+                        <GroupBox x:Name="groupBox4_Copy1" Header="Powiększenie [WIP]" HorizontalAlignment="Left" Margin="436,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
                                 <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="89" Height="19"/>
                                 <Button x:Name="button5_Copy2" Content="100%" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
@@ -132,7 +132,7 @@
                             <GroupBox x:Name="groupBox5" Header="" HorizontalAlignment="Left" Margin="10,418,0,0" VerticalAlignment="Top" Height="139" Width="840" Grid.ColumnSpan="2">
                                 <Grid FocusManager.FocusedElement="{Binding ElementName=ExpressionField}">
                                     <TextBox x:Name="ExpressionField" HorizontalAlignment="Left" Height="65" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" FontSize="18" TabIndex="0"/>
-                                    <TextBox x:Name="TipBox" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" TextWrapping="Wrap" Text="Wpisz wyrażenie i naciśnij Wprowadź" VerticalAlignment="Top" Width="808"/>
+                                    <TextBox x:Name="TipBox" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" TextWrapping="Wrap" Text="Wprowadź wyrażenie i naciśnij Wprowadź" VerticalAlignment="Top" Width="808"/>
                                     <Button x:Name="Clear" Content="Wyczyść" HorizontalAlignment="Left" Margin="743,5,0,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
                                     <Button x:Name="ConfirmExpresion" Content="Wprowadź" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
                                 </Grid>
@@ -160,8 +160,8 @@
                                             <ComboBoxItem Content="3D"/>
                                         </ComboBox>
                                         <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,20,0" VerticalAlignment="Top">
-                                            <ComboBoxItem Content="Liniowy"/>
-                                            <ComboBoxItem Content="Kołowy"/>
+                                            <ComboBoxItem Content="Kartezjański"/>
+                                            <ComboBoxItem Content="Biegunowy"/>
                                         </ComboBox>
                                         <ListView x:Name="ChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -196,14 +196,14 @@
                                 <ListViewItem  x:Name="DataSetChLV" Height="24" Width="247">
                                     <Grid>
                                         <Button x:Name="DataSetChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Ustaw Dane</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Zestawy danych</TextBlock>
                                         <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
                                             <ComboBoxItem Content="3D"/>
                                         </ComboBox>
                                         <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,15,0" VerticalAlignment="Top">
-                                            <ComboBoxItem Content="Liniowy"/>
-                                            <ComboBoxItem Content="Kołowy"/>
+                                            <ComboBoxItem Content="Kartezjański"/>
+                                            <ComboBoxItem Content="Biegunowy"/>
                                         </ComboBox>
                                         <ListView x:Name="PointChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -245,7 +245,7 @@
                                 <ListViewItem  x:Name="ParametricChLV" Height="28" Width="247">
                                     <Grid>
                                         <Button x:Name="ParametricChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Parametric</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Parametric [WIP]</TextBlock>
                                         <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
                                             <ComboBoxItem Content="3D"/>
@@ -302,7 +302,7 @@
                                 <ListViewItem  x:Name="InequalitiesChLV" Height="26" Width="247">
                                     <Grid>
                                         <Button x:Name="InequalitiesChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Inequalities</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Inequalities [WIP]</TextBlock>
                                         <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
                                         </ComboBox>
@@ -343,7 +343,7 @@
                                 <ListViewItem  x:Name="TraceChLV" Height="28" Width="247">
                                     <Grid>
                                         <Button x:Name="TraceChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Graph Controls</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Graph Controls [WiP]</TextBlock>
                                         <Button x:Name="TraceStartPlot" Content="Start" HorizontalAlignment="Left" Margin="65,41,0,0" Width="45" Height="20" VerticalAlignment="Top"/>
                                         <Button x:Name="TraceSPauseChart" Content="Pauza" HorizontalAlignment="Left" Margin="115,41,0,0" VerticalAlignment="Top" Width="44" />
                                         <Button x:Name="TraceStopChart" Content="Stop" HorizontalAlignment="Left" Margin="164,41,0,0" VerticalAlignment="Top" Width="42" Height="20" />
@@ -378,7 +378,7 @@
                 </TabControl>
             </TabControl>
         </Grid>
-        <Button x:Name="Menu" Content="Plik" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-0.045,0.6"/>
+        <Button x:Name="Menu" Content="Plik" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-0.045,0.6" Click="Menu_Click"/>
         <Image x:Name="image" Source="img/AMW.png" HorizontalAlignment="Left" Height="618" Margin="-11,208,0,0" VerticalAlignment="Top" Width="364"/>
         <Button x:Name="k7" Content="7" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
         <Button x:Name="k8" Content="8" HorizontalAlignment="Left" Margin="98,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
@@ -478,7 +478,7 @@
             <ListBoxItem x:Name="LinearAlgebraTab" Height="27" >
                 <Grid Height="153" Width="248">
                     <Button x:Name="LinearAlgebra" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="LinearAlgebraLabel" Content="Algebra liniowa:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="LinearAlgebraLabel" Content="Algebra liniowa: [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
 
 
                 </Grid>
@@ -518,11 +518,12 @@
                     <Button x:Name="Fraction3" ToolTip="Ułamek. Np. 3/4" Content="c/d" HorizontalAlignment="Left" Margin="163,152,0,52" Width="35" Height="18" Click="Function_Click"/>
                     <Button x:Name="Is1" ToolTip="Sprawdzenie czy wartość jest prawdziwa. Np. is(2>3)" Content="is" HorizontalAlignment="Left" Margin="203,152,0,52" Width="35" Height="18" Click="Function_Click"/>
                     <Button x:Name="LessE3" ToolTip="Mniejsze lub równe. Np. 3&lt;=4" Content="≤" HorizontalAlignment="Left" Margin="10,182,0,22" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Less2" ToolTip="Mniejsze. Np. 3&lt;5" Content="&lt;" HorizontalAlignment="Left" Margin="45,182,0,22" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="More2" ToolTip="Więcej. Np. 5>3" Content=">" HorizontalAlignment="Left" Margin="80,182,0,22" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="MoreE3" ToolTip="Mniejsze lub równe. Np. 3&lt;=4" Content="≥" HorizontalAlignment="Left" Margin="115,182,0,22" Width="30" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Less2" ToolTip="Mniejsze. Np. 3&lt;5" Content="&lt;" HorizontalAlignment="Left" Margin="45,184,0,23" Width="30" Height="18" Click="Function_Click"/>
+                    <Button x:Name="More2" ToolTip="Więcej. Np. 5>3" Content=">" HorizontalAlignment="Left" Margin="80,184,0,23" Width="30" Height="18" Click="Function_Click"/>
+                    <Button x:Name="MoreE3" ToolTip="Mniejsze lub równe. Np. 3&lt;=4" Content="≥" HorizontalAlignment="Left" Margin="115,184,0,23" Width="30" Height="18" Click="Function_Click"/>
                     <Button x:Name="Equal2" ToolTip="Równość. Np. x+x=3" Content="=" HorizontalAlignment="Left" Margin="150,182,0,22" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Nequal3" ToolTip="Nierówność. Np. x+x#3" Content="≠" HorizontalAlignment="Left" Margin="185,182,0,22" Width="30" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Nequal3" ToolTip="Nierówność. Np. x+x#3" Content="≠" HorizontalAlignment="Left" Margin="185,184,0,23" Width="25" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Impute2" ToolTip="Nierówność. Np. x+x#3" Content=":=" HorizontalAlignment="Left" Margin="215,184,0,23" Width="30" Height="18" Click="Function_Click"/>
 
                 </Grid>
             </ListBoxItem>
@@ -534,6 +535,49 @@
                 </Grid>
             </ListBoxItem>
         </ListBox>
+        <Popup Name="VariablesPopOut"
+               Placement="Relative"
+               IsOpen="False"
+               StaysOpen="False">
+
+            <Border Width="144" 
+                    Height="101"
+                    Background="#FF41B1E1">
+                <Grid>
+                    <Button x:Name="varA2" Content="a" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie a"/>
+                    <Button x:Name="varB2" Content="b" HorizontalAlignment="Left" Margin="53,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie b"/>
+                    <Button x:Name="varC2" Content="c" HorizontalAlignment="Left" Margin="96,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie c"/>
+                    <Button x:Name="varD2" Content="d" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie d"/>
+                    <Button x:Name="varE2" Content="e" HorizontalAlignment="Left" Margin="53,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie e"/>
+                    <Button x:Name="varF2" Content="f" HorizontalAlignment="Left" Margin="96,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie f"/>
+                    <Button x:Name="varG2" Content="g" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie g"/>
+                    <Button x:Name="varH2" Content="h" HorizontalAlignment="Left" Margin="53,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie h"/>
+                    <Button x:Name="varI2" Content="i" HorizontalAlignment="Left" Margin="96,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie i"/>
+
+                </Grid>
+
+            </Border>
+        </Popup>
+
+        <Popup Name="MenuPopOut"
+               Placement="Relative"
+               IsOpen="False"
+               StaysOpen="False">
+
+            <Border Width="96" 
+                    Height="163"
+                    Background="#FF41B1E1">
+                <Grid>
+                    <Button x:Name="New" Content="Nowy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="New_Copy" Content="Otwórz" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="New_Copy1" Content="Zapisz" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="New_Copy2" Content="Zapisz jako" HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="New_Copy3" Content="Zakończ" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75"/>
+
+                </Grid>
+
+            </Border>
+        </Popup>
     </Grid>
 </Controls:MetroWindow>
 

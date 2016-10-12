@@ -37,6 +37,7 @@ namespace AMW_Mathematics
         ChartLineView ChartLineWiew = new ChartLineView();
         private ZoomInChartPoint zoomin = new ZoomInChartPoint();
         private string typechart;
+        public string betweenWindows = "";
         public MainWindow()
         {
             chartlist.CountFunction = "1";
@@ -78,6 +79,8 @@ namespace AMW_Mathematics
                 ResultList.SelectedIndex = ResultList.Items.Count - 1;
                 ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);
                 ExpressionField.Clear();
+                TipBox.Text = "Wprowadź wyrażenie i naciśnij Wprowadź";
+                TipBox.Foreground = Brushes.Black;
             }
         }
 
@@ -93,6 +96,8 @@ namespace AMW_Mathematics
         private void Clear_Click(object sender, RoutedEventArgs e)                  //Funckja czyszcząca okno wprowadzania #Ł
         {
             ExpressionField.Text = "";
+            TipBox.Text = "Wprowadź wyrażenie i naciśnij Wprowadź";
+            TipBox.Foreground = Brushes.Black;
         }
 
         private void kBack_MouseDown(object sender, MouseButtonEventArgs e)         //Funckja cofająca z klawiatury "telefonu" #Ł
@@ -108,6 +113,7 @@ namespace AMW_Mathematics
         {
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
+            VariablesPopOut.IsOpen = false;
             if (worksheetTab.IsSelected)                                            //Wprowadzanie wartości przycisku na zakładce "Arkusz" #Ł
             {
                 ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
@@ -118,6 +124,17 @@ namespace AMW_Mathematics
             }
             if (ChartsOverLap.IsSelected)
             {
+                var _ListBox = ChartListFunction as ListBox;
+                foreach (var _ListBoxItem in _ListBox.Items)
+                {
+                    var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                    var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                    var _Name = "FunctionTextBox";
+                    var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
+                    ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
+                    _Control.Text = _Control.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
+                };
+
                 //Gdzie ma wprowadzić wartość w zakładce "wykresy" #Ł
             }
         }
@@ -161,7 +178,7 @@ namespace AMW_Mathematics
                         var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
                         ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
                     }
-                    DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts, new MainWindow(), -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
+                    DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts,  -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
                     ViewPlot = new ChartPointView(DataToChartList);
                     DataContext = ViewPlot;
                     zoomin.zoomi = 7;                                                                                                                //poniżej ustawione zostały poarametry potrzebne do generowania kolejnnych puntow wykresu funkcji #M                                                                                                              
@@ -327,12 +344,7 @@ namespace AMW_Mathematics
             ViewPlot.MoveLeftChart(Plot);
         }
 
-        private void Variable_Click(object sender, RoutedEventArgs e)               //Funkcja otwierająca okno z nowymi zmiennymi #Ł
-        {
-            VariableWindow variable = new VariableWindow();
-            variable.Show();
-        }
-
+       
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)   //Funkcja obsługująca zmiane karty Arkusz<>Wykresy #Ł
         {
             if (worksheetTab.IsSelected)
@@ -399,6 +411,22 @@ namespace AMW_Mathematics
             }
 
 
+        }
+
+        private void Variable_Click(object sender, RoutedEventArgs e)
+        {
+            VariablesPopOut.IsOpen = true;
+            var point = Mouse.GetPosition(Application.Current.MainWindow);
+            VariablesPopOut.HorizontalOffset = point.X;
+            VariablesPopOut.VerticalOffset = point.Y-20;
+        }
+
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            MenuPopOut.IsOpen = true;
+            var point = Mouse.GetPosition(Application.Current.MainWindow);
+            MenuPopOut.HorizontalOffset = point.X-10;
+            MenuPopOut.VerticalOffset = point.Y - 20;
         }
     }
 }
