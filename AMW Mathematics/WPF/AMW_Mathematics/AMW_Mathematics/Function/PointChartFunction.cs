@@ -17,7 +17,7 @@ namespace AMW_Mathematics.Function
                 var f = function.Replace("{", "");
                 f = f.Replace("}", "");
                 f = f.Insert(f.Length, ",");
-                GetData(DataToChartPoint, f, FunctionId);
+                if(f.Length > 1) GetData(DataToChartPoint, f, FunctionId);
                 FunctionId++;
             }
 

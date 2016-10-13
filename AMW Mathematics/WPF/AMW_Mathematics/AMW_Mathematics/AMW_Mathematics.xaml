@@ -230,14 +230,14 @@
                                                     <GridViewColumn>
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <Button Style="{DynamicResource MetroCircleButtonStyle}" Height="30" Width="30" Click="Button_Click" FontSize="15">...</Button>
+                                                                <Button Style="{DynamicResource MetroCircleButtonStyle}" Height="30" Width="30" Click="Button_Click" FontSize="15" Tag="{Binding Index}">...</Button>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <Button x:Name="PointAddExpresionToPlot" Content="Dodaj" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top"/>
+                                        <Button x:Name="PointAddExpresionToPlot" Content="Dodaj" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top" Click="AddExpresionToPlot_Click"/>
                                         <Button x:Name="PointRemoveFunctionFromChart" Content="Usuń" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" />
                                         <Button x:Name="PointPlotChart" Content="Rysuj" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click" />
                                     </Grid>
@@ -602,7 +602,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <Button x:Name="DataSetOk" Content="OK" HorizontalAlignment="Left" Margin="150,168,0,0" VerticalAlignment="Top" Width="50"/>
+                    <Button x:Name="DataSetOk" Content="OK" HorizontalAlignment="Left" Margin="150,168,0,0" VerticalAlignment="Top" Width="50" Click="DataSetOk_Click"/>
                     <Button x:Name="DataSetCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="205,168,0,0" VerticalAlignment="Top" Width="50" Click="DataSetCancel_Click"/>
                     <Button x:Name="DataSetClear" Content="Wyczyść" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="61"/>
 

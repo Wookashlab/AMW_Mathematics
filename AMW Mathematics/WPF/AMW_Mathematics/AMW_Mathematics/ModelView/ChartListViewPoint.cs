@@ -9,6 +9,7 @@ namespace AMW_Mathematics.ModelView
     class ChartListViewPoint
     {
         private string labelChartPointValue { get; set; }
+        public int Index { get; set; }
         public string LabelChartPointValue
         {
             get

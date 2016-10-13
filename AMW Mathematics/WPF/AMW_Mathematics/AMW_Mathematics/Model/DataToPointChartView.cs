@@ -12,5 +12,6 @@ namespace AMW_Mathematics.ModelView
         public double dataX { get; set; }//zmienna zabezpiczająca przed zbyt dużym zwiekszaniem się wartości Y na wykresie w momencie gdy jest zbyt duża #M 
         public double dataY { get; set; }
         public int functionId { get; set; }
+        public int CountFunction { get; set; }
     }
 }

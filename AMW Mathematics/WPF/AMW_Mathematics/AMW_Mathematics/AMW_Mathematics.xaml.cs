@@ -31,7 +31,7 @@ namespace AMW_Mathematics
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
         private Expreson phrase = new Expreson();                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
         private ChartPointView ViewPlot;
-        private DataToPointChartView DataToCharts;
+        private DataToPointChartView DataToCharts = new DataToPointChartView();
         private ChartListViewLine chartlist = new ChartListViewLine();
         List<string> ListFunctionLine = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
         List<string> ListFunctionPoint = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
@@ -43,22 +43,21 @@ namespace AMW_Mathematics
         public MainWindow()
         {
             chartlist.CountFunction = "1";
-            InitializeComponent();
-            DataToCharts = new DataToPointChartView();                                                       //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
+            DataToCharts.CountFunction = 1;
+            InitializeComponent();                                                 //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
             List<ChartListViewLine> DataListView = new List<ChartListViewLine>();                           //osobna klasa jeszcze nie wiem jaka :-)
             DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });      //osobna klasa jeszcze nie wiem jaka :-)
             ChartListFunction.Items.Add(DataListView);                                                  //osobna klasa jeszcze nie wiem jaka :-)
+            PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = DataToCharts.CountFunction.ToString(), Index = DataToCharts.CountFunction });
             DataSetChLV.Height = 20;                                                                    //osobna klasa jeszcze nie wiem jaka :-)
             ParametricChLV.Height = 20;
             InequalitiesChLV.Height = 20;
             TraceChLV.Height = 20;
             Maxima.Eval("load (\"functs\")");                                                           //załadowanie functs do Maximy(potrzebne do kilku funkcji) #Ł
-
-
-            List<ChartListViewPoint> DataToViewPoint = new List<ChartListViewPoint>();                  //dodanie wartości do zakładmi Ustaw Dane
-            DataToViewPoint.Add(new ChartListViewPoint { LabelChartPointValue = "1" });
-            PointChartListFunction.Items.Add(DataToViewPoint);
-
+            for (int i = 1; i < 2; i++)
+            {
+                
+            }
             List<ChartListViewParametric> DataToViewParametric = new List<ChartListViewParametric>();
             DataToViewParametric.Add(new ChartListViewParametric { LabelChartParametricValue = "1" });
             ParametricChartListFunction.Items.Add(DataToViewParametric);
@@ -71,9 +70,7 @@ namespace AMW_Mathematics
             {
                 ListChartPointW.Items.Add(new ListPointChartView { ContentLabel = i.ToString(), XName = "X" + "i", YName = "Y" + i });
             }           
-        }
-          
-           
+        }        
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
             if (ExpressionField.Text != "")
@@ -219,13 +216,23 @@ namespace AMW_Mathematics
             return _List;                                                           //zwrócenie listy Kontrolek ListView #M
             
         }
-
+       
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
         {
-            chartlist.CountFunction = (int.Parse(chartlist.CountFunction) + 1).ToString();
-            List<ChartListViewLine> DataListView = new List<ChartListViewLine>();
-            DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });
-            ChartListFunction.Items.Add(DataListView);
+            Button buttonclicked = ((Button)sender);
+            switch(buttonclicked.Name)
+            {
+                case "PointAddExpresionToPlot":
+                    DataToCharts.CountFunction = DataToCharts.CountFunction + 1;
+                    PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = DataToCharts.CountFunction.ToString(), Index = DataToCharts.CountFunction });
+                    break;
+                case "AddExpresionToPlot":
+                    chartlist.CountFunction = (int.Parse(chartlist.CountFunction) + 1).ToString();
+                    List<ChartListViewLine> DataListView = new List<ChartListViewLine>();
+                    DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });
+                    ChartListFunction.Items.Add(DataListView);
+                    break;
+            }
         }
 
         private void RemoveFunctionFromChart_Click(object sender, RoutedEventArgs e)
@@ -442,18 +449,86 @@ namespace AMW_Mathematics
             MenuPopOut.HorizontalOffset = point.X-10;
             MenuPopOut.VerticalOffset = point.Y - 20;
         }
-
+        int indextextboxpointlist;
         private void Button_Click(object sender, RoutedEventArgs e)                 //Funkcja wywołania popout-u z zestawem danych #Ł
         {
             DataSetsPopOut.IsOpen = true;
             var point = Mouse.GetPosition(Application.Current.MainWindow);
             DataSetsPopOut.HorizontalOffset = point.X - 10;
             DataSetsPopOut.VerticalOffset = point.Y - 20;
+            Button buttonclicked = ((Button)sender);
+            indextextboxpointlist = int.Parse(buttonclicked.Tag.ToString()) - 1;
+
+            List<TextBox> ListTextBox = new List<TextBox>();
+            var _ListBox = PointChartListFunction as ListBox;
+            foreach (var _ListBoxItem in _ListBox.Items)
+            {
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                var _Name = "PointFunctionTextBox";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                ListTextBox.Add(_Control);                                                                                         //dodanie do listy funkcji występującej w TextBox #M
+            }
+            List<DataToPointChartView> DataToChartPoint;
+            DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), new List<string>() { ListTextBox[indextextboxpointlist].Text });
+            List<TextBox> ListTextboxInPomList = new List<TextBox>();
+            var _ListBoxs = ListChartPointW as ListBox;
+            foreach (var _ListBoxItems in _ListBoxs.Items)
+            {
+                var _Containers = _ListBoxs.ItemContainerGenerator.ContainerFromItem(_ListBoxItems);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                var _Children = AllChildren(_Containers);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                var _Name = "XValue";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                _Control.Text = "";
+                ListTextboxInPomList.Add(_Control);
+                _Name = "YValue";
+                _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                _Control.Text = "";//dodanie do listy funkcji występującej w TextBox #M
+                ListTextboxInPomList.Add(_Control);
+            }
+            int i = 0;
+            foreach (var Point in DataToChartPoint)
+            {
+                ListTextboxInPomList[i].Text = Point.dataX.ToString();
+                ListTextboxInPomList[i + 1].Text = Point.dataY.ToString();
+                i = i + 2;
+            }
         }
 
         private void DataSetCancel_Click(object sender, RoutedEventArgs e)          //Funkcja obsługująca Anuluj na popoucie DataSets #Ł
         {
             DataSetsPopOut.IsOpen = false;
+        }
+
+        private void DataSetOk_Click(object sender, RoutedEventArgs e)
+        {
+            List<TextBox> ListTextBox = new List<TextBox>();
+            string function = "{";
+            var _ListBox = ListChartPointW as ListBox;
+            foreach (var _ListBoxItem in _ListBox.Items)
+            {
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                var _Name = "XValue";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                if(_Control.Text != "") function += "{" + _Control.Text + ",";
+                _Name = "YValue";
+                _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                if (_Control.Text != "") function += _Control.Text + "}" + ",";                                //dodanie do listy funkcji występującej w TextBox #M
+            }
+            int index= function.LastIndexOf(",");
+            function = function.Remove(index, 1);
+            function = function + "}";
+            _ListBox = PointChartListFunction as ListBox;
+            foreach (var _ListBoxItem in _ListBox.Items)
+            {
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                var _Name = "PointFunctionTextBox";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                ListTextBox.Add(_Control);                                                                                         //dodanie do listy funkcji występującej w TextBox #M
+            }
+            ListTextBox[indextextboxpointlist].Text = function;
         }
     }
 }
