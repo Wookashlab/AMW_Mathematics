@@ -89,13 +89,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Function\PointChartFunction.cs" />
     <Compile Include="ModelView\ChartLineView.cs" />
     <Compile Include="ModelView\ChartListViewInequalities.cs" />
     <Compile Include="ModelView\ChartListViewParametric.cs" />
     <Compile Include="ModelView\ChartListViewPoint.cs" />
     <Compile Include="Function\Expreson.cs" />
     <Compile Include="ModelView\GraphingHelp.cs" />
-    <Compile Include="Model\ZoomInChartPoint.cs" />
+    <Compile Include="ModelView\ListPointChartView.cs" />
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
     </Compile>

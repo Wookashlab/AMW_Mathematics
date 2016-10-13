@@ -43,11 +43,11 @@ namespace AMW_Mathematics.ModelView
         }
         private void LoadData(List<DataToPointChartView> DataToChart)                                    //Metoda odpowiedzialna za: załadowanie danych do wykresu, ustawienie koloru wykresu jego markerów i legendy #M
         {
-            var dataPerSeries = DataToChart.GroupBy(m => m.SeriesID).ToList();                  //grupowanie listy DataToChart po Seri #M
+            var dataPerSeries = DataToChart.GroupBy(m => m.functionId).ToList();                  //grupowanie listy DataToChart po Seri #M
             foreach (var data in dataPerSeries)                                                 //pętla dodająca dane do seri. Podzielenie danych na dwie serie w zależności od osi X dzięki temu unikniemy wystąpienia lini gdy funkcja nie ma miejsca zerowego.   #M               
             {
                 var scatterSeries = new ScatterSeries { MarkerType = MarkerType.Circle };           // (Funkcja powinna dodatkow mieć możliwość rozgraniczenia po Y) #M
-                data.ToList().ForEach(d => scatterSeries.Points.Add(new ScatterPoint(d.Axis, d.Ayis, 5, 200)));
+                data.ToList().ForEach(d => scatterSeries.Points.Add(new ScatterPoint(d.dataX,d.dataY, 5, 200)));
                 PlotModel.Series.Add(scatterSeries);                                                 //Dodanie do modelu wykresu nowej serii #M
             }
         }

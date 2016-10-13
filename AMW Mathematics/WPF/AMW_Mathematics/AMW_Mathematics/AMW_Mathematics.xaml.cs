@@ -17,6 +17,8 @@ using MaximaSharp;
 using AMW_Mathematics.ModelView;
 using System.Data;
 using ExpressionPlotterControl;
+using AMW_Mathematics.Function;
+
 namespace AMW_Mathematics
 {
     /// <summary>
@@ -31,11 +33,11 @@ namespace AMW_Mathematics
         private ChartPointView ViewPlot;
         private DataToPointChartView DataToCharts;
         private ChartListViewLine chartlist = new ChartListViewLine();
-        List<string> ListFunction = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
-        List<string> ListFunction1 = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
+        List<string> ListFunctionLine = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
+        List<string> ListFunctionPoint = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
         List<DataToPointChartView> DataToChartList = new List<DataToPointChartView>();
-        ChartLineView ChartLineWiew = new ChartLineView();
-        private ZoomInChartPoint zoomin = new ZoomInChartPoint();
+        ChartLineView ChartLineView = new ChartLineView();
+        PointChartFunction pointchartfunction = new PointChartFunction();
         private string typechart;
         public string betweenWindows = "";
         public MainWindow()
@@ -64,7 +66,14 @@ namespace AMW_Mathematics
             List<ChartListViewInequalities> DataToViewInequalities = new List<ChartListViewInequalities>();
             DataToViewInequalities.Add(new ChartListViewInequalities { LabelChartInequalitiesValue = "1" });
             InequalitiesChartListFunction.Items.Add(DataToViewInequalities);
+
+            for (int i = 1; i < 21; i++)
+            {
+                ListChartPointW.Items.Add(new ListPointChartView { ContentLabel = i.ToString(), XName = "X" + "i", YName = "Y" + i });
+            }           
         }
+          
+           
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
             if (ExpressionField.Text != "")
@@ -145,7 +154,7 @@ namespace AMW_Mathematics
                     var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                     var _Name = "FunctionTextBox";
                     var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                    ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
+                    ListFunctionLine.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
                     _Control.Text = _Control.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
                 };
 
@@ -162,8 +171,7 @@ namespace AMW_Mathematics
                 case "PlotChart":
                     GraphHelpGrid.Visibility = Visibility.Hidden;
                     expPlotterControl.Visibility = Visibility.Visible;
-                    DataToChartList.Clear();
-                    ListFunction.Clear();
+                    ListFunctionLine.Clear();
                     var _ListBox = ChartListFunction as ListBox;
                     foreach (var _ListBoxItem in _ListBox.Items)
                     {
@@ -171,37 +179,29 @@ namespace AMW_Mathematics
                         var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                         var _Name = "FunctionTextBox";
                         var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                        ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
+                        ListFunctionLine.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
                     };
-                    ChartLineWiew.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunction, ToogleGridLineView);
+                    ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, ToogleGridLineView);
                     ToogleGridLineView = false;
                     typechart = "line";
                     break;
                 case "PointPlotChart":
+                    GraphHelpGrid.Visibility = Visibility.Hidden;
                     expPlotterControl.Visibility = Visibility.Hidden;
-                    //List<DataToChartsLine> DataToChartList = new List<DataToChartsLine>();
-                    DataToChartList.Clear();
-                    ListFunction.Clear();
-                    ListFunction1.Clear();
-                    _ListBox = ChartListFunction as ListBox;
+                    ListFunctionPoint.Clear();
+                    List<DataToPointChartView> DataToChartPoint;
+                    _ListBox = PointChartListFunction as ListBox;
                     foreach (var _ListBoxItem in _ListBox.Items)
                     {
                         var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
                         var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                        var _Name = "FunctionTextBox";
+                        var _Name = "PointFunctionTextBox";
                         var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                        ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
+                        ListFunctionPoint.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
                     }
-                    DataToChartList = DataToCharts.CountYwithX(ListFunction1, ListFunction, DataToChartList, DataToCharts,  -6, 6); //zwrócenie do listy obliczonych wartości funkcji w zdanym x #M
-                    ViewPlot = new ChartPointView(DataToChartList);
+                    DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), ListFunctionPoint);
+                    ViewPlot = new ChartPointView(DataToChartPoint);
                     DataContext = ViewPlot;
-                    zoomin.zoomi = 7;                                                                                                                //poniżej ustawione zostały poarametry potrzebne do generowania kolejnnych puntow wykresu funkcji #M                                                                                                              
-                    zoomin.zoomj = -7;
-                    zoomin.startminzoom = 0.1;
-                    zoomin.endminzoom = 0.05;
-                    zoomin.countzoom = 0.01;
-                    zoomin.roundtozoom = 2;
-                    DataToCharts.zoommax = 0;
                     typechart = "point";
                     break;
             }
@@ -317,7 +317,7 @@ namespace AMW_Mathematics
             switch (typechart)
             {
                 case "line":
-                    ChartLineWiew.ButtonZoomIn(expPlotter, ZoomInSeries);
+                    ChartLineView.ButtonZoomIn(expPlotter, ZoomInSeries);
                     break;
                 case "point":
                     ViewPlot.UpdateModelZoomIn(Plot,ZoomInSeries);                                                                                                                                                                                                                             //przekazanie do modelu wartości funkcji X #M                             
@@ -329,7 +329,7 @@ namespace AMW_Mathematics
             switch (typechart)
             {
                 case "line":
-                    ChartLineWiew.ButtonZoomOut(expPlotter, ZoomOutSeries);
+                    ChartLineView.ButtonZoomOut(expPlotter, ZoomOutSeries);
                     break;
                 case "point":
                     ViewPlot.UpdateModelZoomOut(Plot, ZoomOutSeries);
@@ -338,23 +338,23 @@ namespace AMW_Mathematics
         }
         private void ChartLineTopPosition_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineWiew.MoveUPChart(expPlotter);
+            ChartLineView.MoveUPChart(expPlotter);
             //ViewPlot.MoveUPChart(Plot);
 
         }
         private void ChartLineDownPosition_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineWiew.MoveDownChart(expPlotter);
+            ChartLineView.MoveDownChart(expPlotter);
             //ViewPlot.MoveDownChart(Plot);
         }
         private void ChartLineRightPosition_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineWiew.MoveRightChart(expPlotter);
+            ChartLineView.MoveRightChart(expPlotter);
             //ViewPlot.MoveRightChart(Plot);
         }
         private void ChartLineLeftPosition_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineWiew.MoveLeftChart(expPlotter);
+            ChartLineView.MoveLeftChart(expPlotter);
             //ViewPlot.MoveLeftChart(Plot);
         }
 
