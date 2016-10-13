@@ -339,23 +339,23 @@ namespace AMW_Mathematics
         private void ChartLineTopPosition_Click(object sender, RoutedEventArgs e)
         {
             ChartLineWiew.MoveUPChart(expPlotter);
-            ViewPlot.MoveUPChart(Plot);
+            //ViewPlot.MoveUPChart(Plot);
 
         }
         private void ChartLineDownPosition_Click(object sender, RoutedEventArgs e)
         {
             ChartLineWiew.MoveDownChart(expPlotter);
-            ViewPlot.MoveDownChart(Plot);
+            //ViewPlot.MoveDownChart(Plot);
         }
         private void ChartLineRightPosition_Click(object sender, RoutedEventArgs e)
         {
             ChartLineWiew.MoveRightChart(expPlotter);
-            ViewPlot.MoveRightChart(Plot);
+            //ViewPlot.MoveRightChart(Plot);
         }
         private void ChartLineLeftPosition_Click(object sender, RoutedEventArgs e)
         {
             ChartLineWiew.MoveLeftChart(expPlotter);
-            ViewPlot.MoveLeftChart(Plot);
+            //ViewPlot.MoveLeftChart(Plot);
         }
 
        

@@ -33,3 +33,8 @@ D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\Maxim
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.csprojResolveAssemblyReference.cache
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.dll
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\bin\Debug\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\bin\Debug\MaximaSharp.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.csprojResolveAssemblyReference.cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.pdb
