@@ -457,35 +457,13 @@ namespace AMW_Mathematics
             DataSetsPopOut.HorizontalOffset = point.X - 10;
             DataSetsPopOut.VerticalOffset = point.Y - 20;
             Button buttonclicked = ((Button)sender);
-            indextextboxpointlist = int.Parse(buttonclicked.Tag.ToString()) - 1;
-
+            indextextboxpointlist = int.Parse(buttonclicked.Tag.ToString()) - 1;     
             List<TextBox> ListTextBox = new List<TextBox>();
-            var _ListBox = PointChartListFunction as ListBox;
-            foreach (var _ListBoxItem in _ListBox.Items)
-            {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                var _Name = "PointFunctionTextBox";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                ListTextBox.Add(_Control);                                                                                         //dodanie do listy funkcji występującej w TextBox #M
-            }
+            ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox","","", ListTextBox,"First");
             List<DataToPointChartView> DataToChartPoint;
             DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), new List<string>() { ListTextBox[indextextboxpointlist].Text });
             List<TextBox> ListTextboxInPomList = new List<TextBox>();
-            var _ListBoxs = ListChartPointW as ListBox;
-            foreach (var _ListBoxItems in _ListBoxs.Items)
-            {
-                var _Containers = _ListBoxs.ItemContainerGenerator.ContainerFromItem(_ListBoxItems);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Containers);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                var _Name = "XValue";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                _Control.Text = "";
-                ListTextboxInPomList.Add(_Control);
-                _Name = "YValue";
-                _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                _Control.Text = "";//dodanie do listy funkcji występującej w TextBox #M
-                ListTextboxInPomList.Add(_Control);
-            }
+            ListTextboxInPomList = pointchartfunction.FindBox(ListChartPointW,"", "XValue", "YValue", ListTextboxInPomList, "Second");
             int i = 0;
             foreach (var Point in DataToChartPoint)
             {
@@ -494,40 +472,16 @@ namespace AMW_Mathematics
                 i = i + 2;
             }
         }
-
         private void DataSetCancel_Click(object sender, RoutedEventArgs e)          //Funkcja obsługująca Anuluj na popoucie DataSets #Ł
         {
             DataSetsPopOut.IsOpen = false;
         }
-
         private void DataSetOk_Click(object sender, RoutedEventArgs e)
         {
             List<TextBox> ListTextBox = new List<TextBox>();
             string function = "{";
-            var _ListBox = ListChartPointW as ListBox;
-            foreach (var _ListBoxItem in _ListBox.Items)
-            {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                var _Name = "XValue";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                if(_Control.Text != "") function += "{" + _Control.Text + ",";
-                _Name = "YValue";
-                _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                if (_Control.Text != "") function += _Control.Text + "}" + ",";                                //dodanie do listy funkcji występującej w TextBox #M
-            }
-            int index= function.LastIndexOf(",");
-            function = function.Remove(index, 1);
-            function = function + "}";
-            _ListBox = PointChartListFunction as ListBox;
-            foreach (var _ListBoxItem in _ListBox.Items)
-            {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                var _Name = "PointFunctionTextBox";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                ListTextBox.Add(_Control);                                                                                         //dodanie do listy funkcji występującej w TextBox #M
-            }
+            function = pointchartfunction.FindFunctionInBox(ListChartPointW,function);
+            ListTextBox = pointchartfunction.FindBox(PointChartListFunction,"PointFunctionTextBox", "", "", ListTextBox, "First");
             ListTextBox[indextextboxpointlist].Text = function;
         }
     }
