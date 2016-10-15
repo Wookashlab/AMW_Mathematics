@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Function\FunctionToAllPlot.cs" />
     <Compile Include="Function\PointChartFunction.cs" />
     <Compile Include="ModelView\ChartLineView.cs" />
     <Compile Include="ModelView\ChartListViewInequalities.cs" />

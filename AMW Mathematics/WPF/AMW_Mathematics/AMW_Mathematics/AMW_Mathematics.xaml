@@ -10,7 +10,7 @@
         Title="AMW Mathematics" Height="855" Width="1217" ResizeMode="NoResize"
         BorderThickness="0" 
         GlowBrush="Black" Icon="img/AppLogo.png"
-        xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl" WindowStartupLocation="CenterScreen">
+        xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
         <Grid>
             <TabControl SelectedIndex="1" x:Name="tabControl" Margin="0,0,0,638" BorderBrush="AliceBlue" BorderThickness="6">

@@ -112,7 +112,7 @@ namespace GraphPlotter
         private void Graph_Load(object sender, EventArgs e)
         {
             this.expPlotter.MouseMove += new MouseEventHandler(ExpPlotter_OnMouseMove);
-            this.expPlotter.MouseWheel += new MouseEventHandler(ExpPlotter_OnMouseWheel);
+            //this.expPlotter.MouseWheel += new MouseEventHandler(ExpPlotter_OnMouseWheel);
             this.lblSensitivity.Text = "";
         }
 

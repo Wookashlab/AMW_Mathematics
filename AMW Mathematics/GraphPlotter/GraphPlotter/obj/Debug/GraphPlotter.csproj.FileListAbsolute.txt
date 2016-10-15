@@ -9,3 +9,14 @@ C:\Users\MaciejH\Desktop\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.Proper
 C:\Users\MaciejH\Desktop\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.csproj.GenerateResource.Cache
 C:\Users\MaciejH\Desktop\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.exe
 C:\Users\MaciejH\Desktop\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.exe
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\bin\Debug\GraphPlotter.exe
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\bin\Debug\GraphPlotter.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\bin\Debug\ExpressionPlotterControl.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\bin\Debug\ExpressionPlotterControl.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.csprojResolveAssemblyReference.cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.Main.resources
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.Graph.resources
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.Properties.Resources.resources
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\GraphPlotter\GraphPlotter\obj\Debug\GraphPlotter.csproj.GenerateResource.Cache

@@ -27,19 +27,39 @@ namespace AMW_Mathematics
     public partial class MainWindow : MetroWindow
     {
         private GraphingHelp HelpWzory = new GraphingHelp(1);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
+
         private GraphingHelp HelpZestawy = new GraphingHelp(2);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
+
         private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
+
         private Expreson phrase = new Expreson();                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
+
         private ChartPointView ViewPlot;
+
         private DataToPointChartView DataToCharts = new DataToPointChartView();
+
         private ChartListViewLine chartlist = new ChartListViewLine();
-        List<string> ListFunctionLine = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
-        List<string> ListFunctionPoint = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
-        List<DataToPointChartView> DataToChartList = new List<DataToPointChartView>();
-        ChartLineView ChartLineView = new ChartLineView();
-        PointChartFunction pointchartfunction = new PointChartFunction();
+
+        private List<string> ListFunctionLine = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
+
+        private List<string> ListFunctionPoint = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
+
+        private List<DataToPointChartView> DataToChartList = new List<DataToPointChartView>();
+
+        private ChartLineView ChartLineView = new ChartLineView();
+
+        private  PointChartFunction pointchartfunction = new PointChartFunction();
+
+        private FunctionToAllPlot functiontoallpolot = new FunctionToAllPlot();
+
         private string typechart;
-        public string betweenWindows = "";
+
+        private string betweenWindows = "";
+
+        bool ToogleGridLineView = true;
+
+        private int indextextboxpointlist;
+
         public MainWindow()
         {
             chartlist.CountFunction = "1";
@@ -54,10 +74,6 @@ namespace AMW_Mathematics
             InequalitiesChLV.Height = 20;
             TraceChLV.Height = 20;
             Maxima.Eval("load (\"functs\")");                                                           //załadowanie functs do Maximy(potrzebne do kilku funkcji) #Ł
-            for (int i = 1; i < 2; i++)
-            {
-                
-            }
             List<ChartListViewParametric> DataToViewParametric = new List<ChartListViewParametric>();
             DataToViewParametric.Add(new ChartListViewParametric { LabelChartParametricValue = "1" });
             ParametricChartListFunction.Items.Add(DataToViewParametric);
@@ -70,7 +86,13 @@ namespace AMW_Mathematics
             {
                 ListChartPointW.Items.Add(new ListPointChartView { ContentLabel = i.ToString(), XName = "X" + "i", YName = "Y" + i });
             }           
-        }        
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            expPlotter.MouseWheel += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseWheel);
+        }
+
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
             if (ExpressionField.Text != "")
@@ -129,6 +151,7 @@ namespace AMW_Mathematics
                 ExpressionField.SelectionStart = ExpressionField.Text.Length;
             }
         }
+
         private void Function_Click(object sender, RoutedEventArgs e)               //Funckja do prowadznie funckji z klawiatury "telefonu" #Ł
         {
             var klawisz = (Button)sender;
@@ -144,21 +167,11 @@ namespace AMW_Mathematics
             }
             if (ChartsOverLap.IsSelected)
             {
-                var _ListBox = ChartListFunction as ListBox;
-                foreach (var _ListBoxItem in _ListBox.Items)
-                {
-                    var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                    var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                    var _Name = "FunctionTextBox";
-                    var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                    ListFunctionLine.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
-                    _Control.Text = _Control.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
-                };
-
+                ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", keyboard, klawisz, true);
                 //Gdzie ma wprowadzić wartość w zakładce "wykresy" #Ł
             }
         }
-        bool ToogleGridLineView = true;
+
         private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
         {
 
@@ -169,15 +182,7 @@ namespace AMW_Mathematics
                     GraphHelpGrid.Visibility = Visibility.Hidden;
                     expPlotterControl.Visibility = Visibility.Visible;
                     ListFunctionLine.Clear();
-                    var _ListBox = ChartListFunction as ListBox;
-                    foreach (var _ListBoxItem in _ListBox.Items)
-                    {
-                        var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                        var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                        var _Name = "FunctionTextBox";
-                        var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                        ListFunctionLine.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
-                    };
+                    ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);
                     ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, ToogleGridLineView);
                     ToogleGridLineView = false;
                     typechart = "line";
@@ -187,15 +192,7 @@ namespace AMW_Mathematics
                     expPlotterControl.Visibility = Visibility.Hidden;
                     ListFunctionPoint.Clear();
                     List<DataToPointChartView> DataToChartPoint;
-                    _ListBox = PointChartListFunction as ListBox;
-                    foreach (var _ListBoxItem in _ListBox.Items)
-                    {
-                        var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                        var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                        var _Name = "PointFunctionTextBox";
-                        var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                        ListFunctionPoint.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
-                    }
+                    ListFunctionPoint = functiontoallpolot.AddFunctionToList(PointChartListFunction, ListFunctionPoint, "PointFunctionTextBox", new Keyboard(), new Button(), false);
                     DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), ListFunctionPoint);
                     ViewPlot = new ChartPointView(DataToChartPoint);
                     DataContext = ViewPlot;
@@ -203,20 +200,7 @@ namespace AMW_Mathematics
                     break;
             }
         }
-        public List<Control> AllChildren(DependencyObject parent)                   //Funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
-        {
-            var _List = new List<Control> { };
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
-            {
-                var _Child = VisualTreeHelper.GetChild(parent, i);                  //wprowadzenie do zmiennej dziecka Elementu ListView #M
-                if (_Child is Control)                                              //sprawdzenie czy jest dziecko jest kontrolką #M
-                    _List.Add(_Child as Control);                                   //Jeśli tak dodananie go do listy #M
-                _List.AddRange(AllChildren(_Child));                                //Rekurencyjne sprawdzenie czy dziecko ListView nie ma dzieci które też są kontrolkami #M
-            }
-            return _List;                                                           //zwrócenie listy Kontrolek ListView #M
-            
-        }
-       
+
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
         {
             Button buttonclicked = ((Button)sender);
@@ -275,6 +259,7 @@ namespace AMW_Mathematics
             }
             klawisz.Content = keyboard.Mark(klawisz.Content.ToString());   //zmiana znaku + na - i vice versa #Ł
         }
+
         private void ShowElementListViewCharts(object sender, RoutedEventArgs e)    //Funckja po wciśnięciu + otwiera kartę w liście ListViewChart #M
         {
             var keysender = (Button)sender; //pobranie nazwy przycisku danej karty
@@ -319,6 +304,7 @@ namespace AMW_Mathematics
                     break;
             }
         }
+
         private void ZoomIN_Click(object sender, RoutedEventArgs e)                 //Funkcja zmniejszająca wykres #M
         {
             switch (typechart)
@@ -331,6 +317,7 @@ namespace AMW_Mathematics
                     break;
             }
         }
+
         private void ZoomOut_Click(object sender, RoutedEventArgs e)
         {
             switch (typechart)
@@ -343,29 +330,32 @@ namespace AMW_Mathematics
                     break;
             }
         }
+
         private void ChartLineTopPosition_Click(object sender, RoutedEventArgs e)
         {
             ChartLineView.MoveUPChart(expPlotter);
             //ViewPlot.MoveUPChart(Plot);
 
         }
+
         private void ChartLineDownPosition_Click(object sender, RoutedEventArgs e)
         {
             ChartLineView.MoveDownChart(expPlotter);
             //ViewPlot.MoveDownChart(Plot);
         }
+
         private void ChartLineRightPosition_Click(object sender, RoutedEventArgs e)
         {
             ChartLineView.MoveRightChart(expPlotter);
             //ViewPlot.MoveRightChart(Plot);
         }
+
         private void ChartLineLeftPosition_Click(object sender, RoutedEventArgs e)
         {
             ChartLineView.MoveLeftChart(expPlotter);
             //ViewPlot.MoveLeftChart(Plot);
         }
 
-       
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)   //Funkcja obsługująca zmiane karty Arkusz<>Wykresy #Ł
         {
             if (worksheetTab.IsSelected)
@@ -430,8 +420,6 @@ namespace AMW_Mathematics
                 FavoriteTab.Height = 27;
                 Favorite.Content = keyboard.Mark(Favorite.Content.ToString());
             }
-
-
         }
 
         private void Variable_Click(object sender, RoutedEventArgs e)                   //Funkcja wywołania popout-u z zmeinnymi #Ł
@@ -449,7 +437,7 @@ namespace AMW_Mathematics
             MenuPopOut.HorizontalOffset = point.X-10;
             MenuPopOut.VerticalOffset = point.Y - 20;
         }
-        int indextextboxpointlist;
+
         private void Button_Click(object sender, RoutedEventArgs e)                 //Funkcja wywołania popout-u z zestawem danych #Ł
         {
             DataSetsPopOut.IsOpen = true;
@@ -472,10 +460,12 @@ namespace AMW_Mathematics
                 i = i + 2;
             }
         }
+
         private void DataSetCancel_Click(object sender, RoutedEventArgs e)          //Funkcja obsługująca Anuluj na popoucie DataSets #Ł
         {
             DataSetsPopOut.IsOpen = false;
         }
+
         private void DataSetOk_Click(object sender, RoutedEventArgs e)
         {
             List<TextBox> ListTextBox = new List<TextBox>();
@@ -483,6 +473,15 @@ namespace AMW_Mathematics
             function = pointchartfunction.FindFunctionInBox(ListChartPointW,function);
             ListTextBox = pointchartfunction.FindBox(PointChartListFunction,"PointFunctionTextBox", "", "", ListTextBox, "First");
             ListTextBox[indextextboxpointlist].Text = function;
+        }
+
+        private void ExpPlotter_OnMouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+                expPlotter.ZoomIn();
+            else if (e.Delta < 0)
+                expPlotter.ZoomOut();
+            expPlotter.Refresh();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace AMW_Mathematics.Function
 {
     class PointChartFunction
     {
+        private FunctionToAllPlot functiontoplot = new FunctionToAllPlot();
         public List<DataToPointChartView> DataListFunction(List<DataToPointChartView> DataToChartPoint, List<string> ListFunctionPoint)
         {
             int FunctionId = 0;
@@ -26,7 +27,7 @@ namespace AMW_Mathematics.Function
 
             return DataToChartPoint;
         }
-        public List<DataToPointChartView> GetData(List<DataToPointChartView> DataToChartPoint, String function, int FunctionId)
+        private List<DataToPointChartView> GetData(List<DataToPointChartView> DataToChartPoint, String function, int FunctionId)
         {
             var f = function;
             int index = f.IndexOf(",");
@@ -57,7 +58,7 @@ namespace AMW_Mathematics.Function
                     foreach (var _ListBoxItem in _ListBox.Items)
                     {
                         var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                        var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                        var _Children = functiontoplot.AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                         var _Name = name;
                         var _Control = (TextBox)_Children.First(c => c.Name == _Name);
                         ListTextBox.Add(_Control);                                                                                         //dodanie do listy funkcji występującej w TextBox #M
@@ -68,7 +69,7 @@ namespace AMW_Mathematics.Function
                     foreach (var _ListBoxItems in _ListBoxs.Items)
                     {
                         var _Containers = _ListBoxs.ItemContainerGenerator.ContainerFromItem(_ListBoxItems);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                        var _Children = AllChildren(_Containers);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                        var _Children = functiontoplot.AllChildren(_Containers);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                         var _Name = namex;
                         var _Control = (TextBox)_Children.First(c => c.Name == _Name);
                         _Control.Text = "";
@@ -89,7 +90,7 @@ namespace AMW_Mathematics.Function
             foreach (var _ListBoxItem in _ListBox.Items)
             {
                 var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                var _Children = functiontoplot.AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                 var _Name = "XValue";
                 var _Control = (TextBox)_Children.First(c => c.Name == _Name);
                 if (_Control.Text != "") function += "{" + _Control.Text + ",";
@@ -101,19 +102,6 @@ namespace AMW_Mathematics.Function
             function = function.Remove(index, 1);
             function = function + "}";
             return function;
-        }
-        public List<Control> AllChildren(DependencyObject parent)                   //Funkcja wyszukuje wszysktie kontrolki znajdujące się w danej Liście #M
-        {
-            var _List = new List<Control> { };
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
-            {
-                var _Child = VisualTreeHelper.GetChild(parent, i);                  //wprowadzenie do zmiennej dziecka Elementu ListView #M
-                if (_Child is Control)                                              //sprawdzenie czy jest dziecko jest kontrolką #M
-                    _List.Add(_Child as Control);                                   //Jeśli tak dodananie go do listy #M
-                _List.AddRange(AllChildren(_Child));                                //Rekurencyjne sprawdzenie czy dziecko ListView nie ma dzieci które też są kontrolkami #M
-            }
-            return _List;                                                           //zwrócenie listy Kontrolek ListView #M
-
         }
     }
 }
