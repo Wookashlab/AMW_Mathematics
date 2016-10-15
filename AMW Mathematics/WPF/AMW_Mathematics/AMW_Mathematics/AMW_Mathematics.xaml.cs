@@ -521,6 +521,22 @@ namespace AMW_Mathematics
                 expPlotter.ZoomOut();
             expPlotter.Refresh();
         }
-        
+        System.Windows.Forms.ToolTip toltip = new System.Windows.Forms.ToolTip();
+        bool showtooltip = true;
+        private void Chart_Click(object sender, EventArgs e)
+        {
+            if (showtooltip == true)
+            {
+                toltip.Show("X = \nY= ", expPlotter);
+                showtooltip = false;
+            }
+            else
+            {
+                toltip.Hide(expPlotter);
+                showtooltip = true;
+            }
+        }
+
+
     }
 }
