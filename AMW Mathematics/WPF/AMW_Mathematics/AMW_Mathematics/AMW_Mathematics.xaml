@@ -159,9 +159,9 @@
                                             <ComboBoxItem Content="2D" />
                                             <ComboBoxItem Content="3D"/>
                                         </ComboBox>
-                                        <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,20,0" VerticalAlignment="Top">
-                                            <ComboBoxItem Content="Kartezjański"/>
-                                            <ComboBoxItem Content="Biegunowy[WIP]"/>
+                                        <ComboBox x:Name="LineTypeChart" Width="100" SelectedIndex="0" Height="26" Margin="127,31,20,0" VerticalAlignment="Top">
+                                            <ComboBoxItem  Content="Kartezjański"/>
+                                            <ComboBoxItem Content="Biegunowy"/>
                                         </ComboBox>
                                         <ListView x:Name="ChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>

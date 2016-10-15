@@ -54,7 +54,7 @@ namespace AMW_Mathematics
 
         private string typechart;
 
-        private string betweenWindows = "";
+        private string WhichGraphZoom = "";
 
         bool ToogleGridLineView = true;
 
@@ -174,18 +174,28 @@ namespace AMW_Mathematics
 
         private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
         {
-
+           
             var chartbutton = (Button)sender;
             switch (chartbutton.Name)
             {
                 case "PlotChart":
+                    
                     GraphHelpGrid.Visibility = Visibility.Hidden;
                     expPlotterControl.Visibility = Visibility.Visible;
                     ListFunctionLine.Clear();
                     ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);
-                    ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, ToogleGridLineView);
-                    ToogleGridLineView = false;
+                    if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Kartezjański")
+                    {
+                        ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, ToogleGridLineView, false);
+                        ToogleGridLineView = false;
+                    }
+                    else
+                    {
+                        ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, false, true);
+                    }
+                    
                     typechart = "line";
+                    WhichGraphZoom = "PlotChart";
                     break;
                 case "PointPlotChart":
                     GraphHelpGrid.Visibility = Visibility.Hidden;
@@ -197,6 +207,7 @@ namespace AMW_Mathematics
                     ViewPlot = new ChartPointView(DataToChartPoint);
                     DataContext = ViewPlot;
                     typechart = "point";
+                    WhichGraphZoom = "PointPlotChart";
                     break;
             }
         }
@@ -333,27 +344,54 @@ namespace AMW_Mathematics
 
         private void ChartLineTopPosition_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineView.MoveUPChart(expPlotter);
-            //ViewPlot.MoveUPChart(Plot);
-
+            switch(WhichGraphZoom)
+            {
+                case "PlotChart":
+                    ChartLineView.MoveUPChart(expPlotter);
+                    break;
+                case "PointPlotChart":
+                    ViewPlot.MoveUPChart(Plot);
+                    break;
+            }
         }
 
         private void ChartLineDownPosition_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineView.MoveDownChart(expPlotter);
-            //ViewPlot.MoveDownChart(Plot);
+            switch (WhichGraphZoom)
+            {
+                case "PlotChart":
+                    ChartLineView.MoveDownChart(expPlotter);
+                    break;
+                case "PointPlotChart":
+                    ViewPlot.MoveDownChart(Plot);
+                    break;
+            }
         }
 
         private void ChartLineRightPosition_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineView.MoveRightChart(expPlotter);
-            //ViewPlot.MoveRightChart(Plot);
+            switch (WhichGraphZoom)
+            {
+                case "PlotChart":
+                    ChartLineView.MoveRightChart(expPlotter);
+                    break;
+                case "PointPlotChart":
+                    ViewPlot.MoveRightChart(Plot);
+                    break;
+            }
         }
 
         private void ChartLineLeftPosition_Click(object sender, RoutedEventArgs e)
         {
-            ChartLineView.MoveLeftChart(expPlotter);
-            //ViewPlot.MoveLeftChart(Plot);
+            switch (WhichGraphZoom)
+            {
+                case "PlotChart":
+                    ChartLineView.MoveLeftChart(expPlotter);
+                    break;
+                case "PointPlotChart":
+                    ViewPlot.MoveLeftChart(Plot);
+                    break;
+            }
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)   //Funkcja obsługująca zmiane karty Arkusz<>Wykresy #Ł
@@ -483,5 +521,6 @@ namespace AMW_Mathematics
                 expPlotter.ZoomOut();
             expPlotter.Refresh();
         }
+        
     }
 }

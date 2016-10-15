@@ -31,7 +31,15 @@ namespace AMW_Mathematics.Function
         {
             var f = function;
             int index = f.IndexOf(",");
-            double x = double.Parse(f.Substring(0, index));
+            double x = 0;
+            try
+            {
+               x  = double.Parse(f.Substring(0, index));
+            }
+            catch
+            {
+                return new List<DataToPointChartView>();
+            }         
             f = f.Remove(0, index + 1);
             index = f.IndexOf(",");
             double y = 0;
@@ -41,7 +49,6 @@ namespace AMW_Mathematics.Function
             }
             catch
             {
-
                 return new List<DataToPointChartView>();
             }
             f = f.Remove(0, index + 1);
@@ -86,22 +93,29 @@ namespace AMW_Mathematics.Function
 
         public string FindFunctionInBox(ListView ListChartPointW, string function)
         {
-            var _ListBox = ListChartPointW as ListBox;
-            foreach (var _ListBoxItem in _ListBox.Items)
+            try
             {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = functiontoplot.AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
-                var _Name = "XValue";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                if (_Control.Text != "") function += "{" + _Control.Text + ",";
-                _Name = "YValue";
-                _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                if (_Control.Text != "") function += _Control.Text + "}" + ",";                                //dodanie do listy funkcji występującej w TextBox #M
+                var _ListBox = ListChartPointW as ListBox;
+                foreach (var _ListBoxItem in _ListBox.Items)
+                {
+                    var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
+                    var _Children = functiontoplot.AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                    var _Name = "XValue";
+                    var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                    if (_Control.Text != "") function += "{" + _Control.Text + ",";
+                    _Name = "YValue";
+                    _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                    if (_Control.Text != "") function += _Control.Text + "}" + ",";                                //dodanie do listy funkcji występującej w TextBox #M
+                }
+                int index = function.LastIndexOf(",");
+                function = function.Remove(index, 1);
+                function = function + "}";
+                return function;
             }
-            int index = function.LastIndexOf(",");
-            function = function.Remove(index, 1);
-            function = function + "}";
-            return function;
+            catch
+            {
+                return function;
+            }
         }
     }
 }

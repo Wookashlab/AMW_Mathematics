@@ -41,12 +41,19 @@ namespace AMW_Mathematics.ModelView
                 e.PolarSensitivity = sensitivity;
             }
         }
-        public void DrawChartLine(ExpressionPlotter e, double startx, double endx, double starty, double endy, List<string> FunctionList, bool ToogleGridS)
+        public void DrawChartLine(ExpressionPlotter e, double startx, double endx, double starty, double endy, List<string> FunctionList, bool ToogleGridS, bool Type)
         {
             SetRange(e, startx, endx, starty, endy);
             SetDivisions(e, (int)5, (int)5);
             SetPenWidth(e, (int)2);
-            SetMode(e, GraphMode.Rectangular, 50);
+            if(Type == true)
+            {
+                e.GraphMode = GraphMode.Polar;
+            }
+            else
+            {
+                SetMode(e, GraphMode.Rectangular, 50);
+            }   
             e.DisplayText = false;
             if (ToogleGridS == true) e.ToggleGrids();
             e.RemoveAllExpressions();
