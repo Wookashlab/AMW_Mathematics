@@ -18,6 +18,7 @@ using AMW_Mathematics.ModelView;
 using System.Data;
 using ExpressionPlotterControl;
 using AMW_Mathematics.Function;
+using AMW_Mathematics.Model;
 
 namespace AMW_Mathematics
 {
@@ -36,7 +37,7 @@ namespace AMW_Mathematics
 
         private ChartPointView ViewPlot;
 
-        private DataToPointChartView DataToCharts = new DataToPointChartView();
+        private DataToPointChartView datatopointchartview = new DataToPointChartView();
 
         private ChartListViewLine chartlist = new ChartListViewLine();
 
@@ -48,27 +49,27 @@ namespace AMW_Mathematics
 
         private ChartLineView ChartLineView = new ChartLineView();
 
-        private  PointChartFunction pointchartfunction = new PointChartFunction();
+        private PointChartFunction pointchartfunction = new PointChartFunction();
 
         private FunctionToAllPlot functiontoallpolot = new FunctionToAllPlot();
 
-        private string typechart;
+        private DataToLineChartView datatolinechartview = new DataToLineChartView();
 
-        private string WhichGraphZoom = "";
+        private DataToPointList datatopointlist = new DataToPointList();
 
-        bool ToogleGridLineView = true;
+        private DataToChart datatochart = new DataToChart();
 
-        private int indextextboxpointlist;
+        System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();
 
         public MainWindow()
         {
             chartlist.CountFunction = "1";
-            DataToCharts.CountFunction = 1;
+            datatopointchartview.CountFunction = 1;
             InitializeComponent();                                                 //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
             List<ChartListViewLine> DataListView = new List<ChartListViewLine>();                           //osobna klasa jeszcze nie wiem jaka :-)
             DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });      //osobna klasa jeszcze nie wiem jaka :-)
             ChartListFunction.Items.Add(DataListView);                                                  //osobna klasa jeszcze nie wiem jaka :-)
-            PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = DataToCharts.CountFunction.ToString(), Index = DataToCharts.CountFunction });
+            PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction });
             DataSetChLV.Height = 20;                                                                    //osobna klasa jeszcze nie wiem jaka :-)
             ParametricChLV.Height = 20;
             InequalitiesChLV.Height = 20;
@@ -85,11 +86,17 @@ namespace AMW_Mathematics
             for (int i = 1; i < 21; i++)
             {
                 ListChartPointW.Items.Add(new ListPointChartView { ContentLabel = i.ToString(), XName = "X" + "i", YName = "Y" + i });
-            }           
+            }
+
+            datatolinechartview.ShowTooltip = true;
+            datatolinechartview.ToogleGridLineView = true;
+            datatochart.WhichGraphZoom = "";
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            ComplexNumber comp = new ComplexNumber();
+            expPlotter.MouseMove += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseMove);
             expPlotter.MouseWheel += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseWheel);
         }
 
@@ -114,8 +121,8 @@ namespace AMW_Mathematics
 
                 if (Expresion.Contains("rat"))
                 {
-                    string [] rat = Expresion.Split('=');
-                    Expresion = rat.Last()+"     [WIP]";
+                    string[] rat = Expresion.Split('=');
+                    Expresion = rat.Last() + "     [WIP]";
                 }
                 ResultList.Items.Add(ExpressionField.Text + "=\n" + Expresion);
                 ResultList.SelectedIndex = ResultList.Items.Count - 1;
@@ -174,28 +181,28 @@ namespace AMW_Mathematics
 
         private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
         {
-           
+
             var chartbutton = (Button)sender;
             switch (chartbutton.Name)
             {
                 case "PlotChart":
-                    
+
                     GraphHelpGrid.Visibility = Visibility.Hidden;
                     expPlotterControl.Visibility = Visibility.Visible;
                     ListFunctionLine.Clear();
                     ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);
                     if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Kartezjański")
                     {
-                        ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, ToogleGridLineView, false);
-                        ToogleGridLineView = false;
+                        ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);
+                        datatolinechartview.ToogleGridLineView = false;
                     }
                     else
                     {
                         ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, false, true);
                     }
-                    
-                    typechart = "line";
-                    WhichGraphZoom = "PlotChart";
+
+                    datatolinechartview.TypeChart = "line";
+                    datatochart.WhichGraphZoom = "PlotChart";
                     break;
                 case "PointPlotChart":
                     GraphHelpGrid.Visibility = Visibility.Hidden;
@@ -206,8 +213,8 @@ namespace AMW_Mathematics
                     DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), ListFunctionPoint);
                     ViewPlot = new ChartPointView(DataToChartPoint);
                     DataContext = ViewPlot;
-                    typechart = "point";
-                    WhichGraphZoom = "PointPlotChart";
+                    datatolinechartview.TypeChart = "point";
+                    datatochart.WhichGraphZoom = "PointPlotChart";
                     break;
             }
         }
@@ -215,11 +222,11 @@ namespace AMW_Mathematics
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
         {
             Button buttonclicked = ((Button)sender);
-            switch(buttonclicked.Name)
+            switch (buttonclicked.Name)
             {
                 case "PointAddExpresionToPlot":
-                    DataToCharts.CountFunction = DataToCharts.CountFunction + 1;
-                    PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = DataToCharts.CountFunction.ToString(), Index = DataToCharts.CountFunction });
+                    datatopointchartview.CountFunction = datatopointchartview.CountFunction + 1;
+                    PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction });
                     break;
                 case "AddExpresionToPlot":
                     chartlist.CountFunction = (int.Parse(chartlist.CountFunction) + 1).ToString();
@@ -318,20 +325,20 @@ namespace AMW_Mathematics
 
         private void ZoomIN_Click(object sender, RoutedEventArgs e)                 //Funkcja zmniejszająca wykres #M
         {
-            switch (typechart)
+            switch (datatolinechartview.TypeChart)
             {
                 case "line":
                     ChartLineView.ButtonZoomIn(expPlotter, ZoomInSeries);
                     break;
                 case "point":
-                    ViewPlot.UpdateModelZoomIn(Plot,ZoomInSeries);                                                                                                                                                                                                                             //przekazanie do modelu wartości funkcji X #M                             
+                    ViewPlot.UpdateModelZoomIn(Plot, ZoomInSeries);                                                                                                                                                                                                                             //przekazanie do modelu wartości funkcji X #M                             
                     break;
             }
         }
 
         private void ZoomOut_Click(object sender, RoutedEventArgs e)
         {
-            switch (typechart)
+            switch (datatolinechartview.TypeChart)
             {
                 case "line":
                     ChartLineView.ButtonZoomOut(expPlotter, ZoomOutSeries);
@@ -344,7 +351,7 @@ namespace AMW_Mathematics
 
         private void ChartLineTopPosition_Click(object sender, RoutedEventArgs e)
         {
-            switch(WhichGraphZoom)
+            switch (datatochart.WhichGraphZoom)
             {
                 case "PlotChart":
                     ChartLineView.MoveUPChart(expPlotter);
@@ -357,7 +364,7 @@ namespace AMW_Mathematics
 
         private void ChartLineDownPosition_Click(object sender, RoutedEventArgs e)
         {
-            switch (WhichGraphZoom)
+            switch (datatochart.WhichGraphZoom)
             {
                 case "PlotChart":
                     ChartLineView.MoveDownChart(expPlotter);
@@ -370,7 +377,7 @@ namespace AMW_Mathematics
 
         private void ChartLineRightPosition_Click(object sender, RoutedEventArgs e)
         {
-            switch (WhichGraphZoom)
+            switch (datatochart.WhichGraphZoom)
             {
                 case "PlotChart":
                     ChartLineView.MoveRightChart(expPlotter);
@@ -383,7 +390,7 @@ namespace AMW_Mathematics
 
         private void ChartLineLeftPosition_Click(object sender, RoutedEventArgs e)
         {
-            switch (WhichGraphZoom)
+            switch (datatochart.WhichGraphZoom)
             {
                 case "PlotChart":
                     ChartLineView.MoveLeftChart(expPlotter);
@@ -465,14 +472,14 @@ namespace AMW_Mathematics
             VariablesPopOut.IsOpen = true;
             var point = Mouse.GetPosition(Application.Current.MainWindow);
             VariablesPopOut.HorizontalOffset = point.X;
-            VariablesPopOut.VerticalOffset = point.Y-20;
+            VariablesPopOut.VerticalOffset = point.Y - 20;
         }
 
         private void Menu_Click(object sender, RoutedEventArgs e)                      //Funkcja wywołania popout-u z menu #Ł
         {
             MenuPopOut.IsOpen = true;
             var point = Mouse.GetPosition(Application.Current.MainWindow);
-            MenuPopOut.HorizontalOffset = point.X-10;
+            MenuPopOut.HorizontalOffset = point.X - 10;
             MenuPopOut.VerticalOffset = point.Y - 20;
         }
 
@@ -483,13 +490,13 @@ namespace AMW_Mathematics
             DataSetsPopOut.HorizontalOffset = point.X - 10;
             DataSetsPopOut.VerticalOffset = point.Y - 20;
             Button buttonclicked = ((Button)sender);
-            indextextboxpointlist = int.Parse(buttonclicked.Tag.ToString()) - 1;     
+            datatopointlist.IndexTextBox = int.Parse(buttonclicked.Tag.ToString()) - 1;
             List<TextBox> ListTextBox = new List<TextBox>();
-            ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox","","", ListTextBox,"First");
+            ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox", "", "", ListTextBox, "First");
             List<DataToPointChartView> DataToChartPoint;
-            DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), new List<string>() { ListTextBox[indextextboxpointlist].Text });
+            DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), new List<string>() { ListTextBox[datatopointlist.IndexTextBox].Text });
             List<TextBox> ListTextboxInPomList = new List<TextBox>();
-            ListTextboxInPomList = pointchartfunction.FindBox(ListChartPointW,"", "XValue", "YValue", ListTextboxInPomList, "Second");
+            ListTextboxInPomList = pointchartfunction.FindBox(ListChartPointW, "", "XValue", "YValue", ListTextboxInPomList, "Second");
             int i = 0;
             foreach (var Point in DataToChartPoint)
             {
@@ -508,9 +515,9 @@ namespace AMW_Mathematics
         {
             List<TextBox> ListTextBox = new List<TextBox>();
             string function = "{";
-            function = pointchartfunction.FindFunctionInBox(ListChartPointW,function);
-            ListTextBox = pointchartfunction.FindBox(PointChartListFunction,"PointFunctionTextBox", "", "", ListTextBox, "First");
-            ListTextBox[indextextboxpointlist].Text = function;
+            function = pointchartfunction.FindFunctionInBox(ListChartPointW, function);
+            ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox", "", "", ListTextBox, "First");
+            ListTextBox[datatopointlist.IndexTextBox].Text = function;
         }
 
         private void ExpPlotter_OnMouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -521,22 +528,53 @@ namespace AMW_Mathematics
                 expPlotter.ZoomOut();
             expPlotter.Refresh();
         }
-        System.Windows.Forms.ToolTip toltip = new System.Windows.Forms.ToolTip();
-        bool showtooltip = true;
+
         private void Chart_Click(object sender, EventArgs e)
         {
-            if (showtooltip == true)
+            if (datatolinechartview.ShowTooltip == true)
             {
-                toltip.Show("X = \nY= ", expPlotter);
-                showtooltip = false;
+                TooltipToLineChart.ReshowDelay = 0;
+                TooltipToLineChart.InitialDelay = 0;
+                TooltipToLineChart.OwnerDraw = true;
+                TooltipToLineChart.Draw += new System.Windows.Forms.DrawToolTipEventHandler(toolTip1_Draw);
+                TooltipToLineChart.Popup += new System.Windows.Forms.PopupEventHandler(toolTip1_Popup);
+                datatolinechartview.TooltipData = "X = " + datatolinechartview.currentX + " \nY = " + datatolinechartview.currentY;
+                TooltipToLineChart.Show(datatolinechartview.TooltipData, expPlotter);
+                datatolinechartview.ShowTooltip = false;
             }
             else
             {
-                toltip.Hide(expPlotter);
-                showtooltip = true;
+                TooltipToLineChart.Hide(expPlotter);
+                datatolinechartview.ShowTooltip = true;
             }
         }
 
+        private void ExpPlotter_OnMouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            datatolinechartview.currentX = (e.X - expPlotter.Width / 2) * expPlotter.ScaleX / expPlotter.Width * 2.25 + expPlotter.ForwardX;
+            datatolinechartview.currentY = (expPlotter.Height / 2 - e.Y) * expPlotter.ScaleY / expPlotter.Height * 2.25 + expPlotter.ForwardY;
+            if (this.expPlotter.GraphMode == GraphMode.Polar)
+            {
+                double r = ChartLineView.GetR(datatolinechartview.currentX, datatolinechartview.currentY);
+                double theta = ChartLineView.GetTheta(datatolinechartview.currentX, datatolinechartview.currentY);
+                datatolinechartview.currentX = r;
+                datatolinechartview.currentY = theta;
+            }
+            datatolinechartview.currentX = Math.Round(datatolinechartview.currentX, 3);
+            datatolinechartview.currentY = Math.Round(datatolinechartview.currentY, 3);
+        }
 
+        private void toolTip1_Popup(object sender, System.Windows.Forms.PopupEventArgs e)
+        {
+            e.ToolTipSize = System.Windows.Forms.TextRenderer.MeasureText(datatolinechartview.TooltipData, new System.Drawing.Font("Arial", 13.0f));
+        }
+
+        private void toolTip1_Draw(object sender, System.Windows.Forms.DrawToolTipEventArgs e)
+        {
+            System.Drawing.Font f = new System.Drawing.Font("Arial", 13.0f);
+            e.DrawBackground();
+            e.DrawBorder();
+            e.Graphics.DrawString(e.ToolTipText, f, System.Drawing.Brushes.Black, new System.Drawing.PointF(2, 2));
+        }
     }
 }

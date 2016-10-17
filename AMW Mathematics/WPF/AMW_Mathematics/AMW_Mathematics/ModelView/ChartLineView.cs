@@ -46,14 +46,14 @@ namespace AMW_Mathematics.ModelView
             SetRange(e, startx, endx, starty, endy);
             SetDivisions(e, (int)5, (int)5);
             SetPenWidth(e, (int)2);
-            if(Type == true)
+            if (Type == true)
             {
                 e.GraphMode = GraphMode.Polar;
             }
             else
             {
                 SetMode(e, GraphMode.Rectangular, 50);
-            }   
+            }
             e.DisplayText = false;
             if (ToogleGridS == true) e.ToggleGrids();
             e.RemoveAllExpressions();
@@ -115,5 +115,30 @@ namespace AMW_Mathematics.ModelView
             expPlotter.MoveRight(1);
             expPlotter.Refresh();
         }
+        public double GetR(double X, double Y)
+        {
+            return Math.Sqrt(X * X + Y * Y);
+        }
+        public double GetTheta(double X, double Y)
+        {
+            double dTheta;
+            if (X == 0)
+            {
+                if (Y > 0)
+                    dTheta = Math.PI / 2;
+                else
+                    dTheta = -Math.PI / 2;
+            }
+            else
+                dTheta = Math.Atan(Y / X);
+
+            //actual range of theta is from 0 to 2PI
+            if (X < 0)
+                dTheta = dTheta + Math.PI;
+            else if (Y < 0)
+                dTheta = dTheta + 2 * Math.PI;
+            return dTheta;
+        }
+
     }
 }

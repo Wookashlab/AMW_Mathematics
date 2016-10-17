@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Function\ComplexNumber.cs" />
     <Compile Include="Function\FunctionToAllPlot.cs" />
     <Compile Include="Function\PointChartFunction.cs" />
     <Compile Include="ModelView\ChartLineView.cs" />
@@ -98,6 +99,9 @@
     <Compile Include="Function\Expreson.cs" />
     <Compile Include="ModelView\GraphingHelp.cs" />
     <Compile Include="ModelView\ListPointChartView.cs" />
+    <Compile Include="Model\DataToChart.cs" />
+    <Compile Include="Model\DataToLineChartView.cs" />
+    <Compile Include="Model\DataToPointList.cs" />
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
     </Compile>
