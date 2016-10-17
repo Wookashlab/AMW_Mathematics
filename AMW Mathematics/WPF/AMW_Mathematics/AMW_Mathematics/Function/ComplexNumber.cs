@@ -95,8 +95,13 @@ namespace AMW_Mathematics.Function
         }
         private List<ExpresionComplexPart> SumComplex(double partcone, double partrone, double partctwo, double partrtwo, int index, List<ExpresionComplexPart> expresioncomplexpartlist)
         {
-            double complexc = partcone + partctwo;
-            double complexr = partrone + partrtwo;
+            var expresionone = expresioncomplexpartlist.FindLast(m => m.Operator == "+");
+            int ind = expresioncomplexpartlist.IndexOf(expresionone);
+            var expresiontwo = expresioncomplexpartlist[ind + 1];
+            double complexc = expresionone.ExpresionPartC + expresiontwo.ExpresionPartC;
+            double complexr =
+            //double complexc = partcone + partctwo;
+           // double complexr = partrone + partrtwo;
             expresioncomplexpartlist.Remove(expresioncomplexpartlist[index]);
             expresioncomplexpartlist[index].ExpresionPartC = complexc;
             expresioncomplexpartlist[index].ExpresionPartR = complexr;
