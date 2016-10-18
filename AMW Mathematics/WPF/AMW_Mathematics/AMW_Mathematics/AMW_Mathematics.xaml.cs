@@ -193,7 +193,8 @@ namespace AMW_Mathematics
                     ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);
                     if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Kartezjański")
                     {
-                        ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);
+                        double ys = FindRoundMiddle(ListFunctionLine[0]);
+                        ChartLineView.DrawChartLine(expPlotter, -5, 5, ys-5, ys+5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);
                         datatolinechartview.ToogleGridLineView = false;
                     }
                     else
@@ -585,5 +586,18 @@ namespace AMW_Mathematics
         {
 
         }
+        public double FindRoundMiddle(string expression)                                        //Funkcja znajdująca środek wykresu #Ł
+        {
+            if (expression.Contains(":=") == false) expression = phrase.AddToNumberDot(expression);         //dopisanie do wyrażenia .0 #Ł
+            if (Maxima.Eval("limit("+expression+",x,0)").Contains("infinity"))                              //sprawdzenie czy nie próbujemy dzielić przez 0 #Ł
+                expression = expression.Replace("x", "(1.0)");                                              //jeżeli tak to zminiamy wartość na 1 #Ł
+            else expression = expression.Replace("x", "(0.0)");                                             //jeżeli nie to zostajmey z wartością 0 #Ł
+            if (expression.Contains(":=") == false) expression= phrase.AddToNumberDot(expression);          //dopisanie do wyrażenia .0 #Ł
+            expression = Maxima.Eval(expression);                                                           //obliczenie wyrażenia dla podanej wartości #Ł
+            double result = double.Parse(expression.Replace('.', ','));                                     //zamiana kropek na przecinki (maxima->double)#Ł
+            result = Math.Round(result);                                                                    //zaokrąglenie wyniku #Ł
+            return result;                                                                                  //zwrócenie wyniku #Ł
+        }
+
     }
 }
