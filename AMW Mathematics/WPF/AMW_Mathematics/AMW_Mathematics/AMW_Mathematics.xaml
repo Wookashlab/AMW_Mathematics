@@ -7,8 +7,8 @@
         xmlns:local="clr-namespace:AMW_Mathematics"
         xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="AMW Mathematics" Height="855" Width="1217" ResizeMode="NoResize"
-        BorderThickness="0" 
+        Title="AMW Mathematics" Height="855" Width="1217" ResizeMode="CanMinimize"
+        BorderThickness="1" 
         GlowBrush="Black" Icon="img/AppLogo.png"
         xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
@@ -604,7 +604,7 @@
                     </ListView>
                     <Button x:Name="DataSetOk" Content="OK" HorizontalAlignment="Left" Margin="150,168,0,0" VerticalAlignment="Top" Width="50" Click="DataSetOk_Click"/>
                     <Button x:Name="DataSetCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="205,168,0,0" VerticalAlignment="Top" Width="50" Click="DataSetCancel_Click"/>
-                    <Button x:Name="DataSetClear" Content="Wyczyść" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="61"/>
+                    <Button x:Name="DataSetClear" Content="Wyczyść" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="61" Click="DataSetClear_Click"/>
 
                 </Grid>
 

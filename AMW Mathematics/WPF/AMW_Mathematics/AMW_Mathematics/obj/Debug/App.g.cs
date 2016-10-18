@@ -75,6 +75,8 @@ namespace AMW_Mathematics {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
         public static void Main() {
+            SplashScreen splashScreen = new SplashScreen("img/splashscreenv4.png");
+            splashScreen.Show(true);
             AMW_Mathematics.App app = new AMW_Mathematics.App();
             app.InitializeComponent();
             app.Run();

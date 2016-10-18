@@ -102,7 +102,7 @@ namespace AMW_Mathematics.Function
             double complexr =
             //double complexc = partcone + partctwo;
            // double complexr = partrone + partrtwo;
-            expresioncomplexpartlist.Remove(expresioncomplexpartlist[index]);
+            //expresioncomplexpartlist.Remove(expresioncomplexpartlist[index]);    //<------------ !!!!!!!!!!!!!!!
             expresioncomplexpartlist[index].ExpresionPartC = complexc;
             expresioncomplexpartlist[index].ExpresionPartR = complexr;
             return expresioncomplexpartlist;

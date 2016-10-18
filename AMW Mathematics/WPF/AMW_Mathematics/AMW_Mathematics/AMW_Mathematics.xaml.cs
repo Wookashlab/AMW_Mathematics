@@ -91,6 +91,7 @@ namespace AMW_Mathematics
             datatolinechartview.ShowTooltip = true;
             datatolinechartview.ToogleGridLineView = true;
             datatochart.WhichGraphZoom = "";
+            InitializeComponent();
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
@@ -174,8 +175,7 @@ namespace AMW_Mathematics
             }
             if (ChartsOverLap.IsSelected)
             {
-                ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", keyboard, klawisz, true);
-                //Gdzie ma wprowadzić wartość w zakładce "wykresy" #Ł
+                 ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", keyboard, klawisz, true);
             }
         }
 
@@ -207,6 +207,7 @@ namespace AMW_Mathematics
                 case "PointPlotChart":
                     GraphHelpGrid.Visibility = Visibility.Hidden;
                     expPlotterControl.Visibility = Visibility.Hidden;
+                    Plot.Visibility = Visibility.Visible;
                     ListFunctionPoint.Clear();
                     List<DataToPointChartView> DataToChartPoint;
                     ListFunctionPoint = functiontoallpolot.AddFunctionToList(PointChartListFunction, ListFunctionPoint, "PointFunctionTextBox", new Keyboard(), new Button(), false);
@@ -412,7 +413,9 @@ namespace AMW_Mathematics
             }
             if (ChartsOverLap.IsSelected)
             {
+                ShowElementListViewCharts(this.EqualizationAndFunctionsChB, null);
                 FormatujOverLap.Visibility = System.Windows.Visibility.Visible;
+                Plot.Visibility = Visibility.Hidden;
                 GraphHelpGrid.Visibility = Visibility.Visible;
                 expPlotterControl.Visibility = Visibility.Hidden;
 
@@ -518,6 +521,7 @@ namespace AMW_Mathematics
             function = pointchartfunction.FindFunctionInBox(ListChartPointW, function);
             ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox", "", "", ListTextBox, "First");
             ListTextBox[datatopointlist.IndexTextBox].Text = function;
+            DataSetsPopOut.IsOpen = false;
         }
 
         private void ExpPlotter_OnMouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -575,6 +579,11 @@ namespace AMW_Mathematics
             e.DrawBackground();
             e.DrawBorder();
             e.Graphics.DrawString(e.ToolTipText, f, System.Drawing.Brushes.Black, new System.Drawing.PointF(2, 2));
+        }
+
+        private void DataSetClear_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
