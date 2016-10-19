@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using MahApps.Metro;
 using MaximaSharp;
 using AMW_Mathematics.ModelView;
 using System.Data;
@@ -60,8 +61,10 @@ namespace AMW_Mathematics
         private DataToChart datatochart = new DataToChart();
 
         System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();
+        public string theme { get; set; }
+          public string background { get; set; }
 
-        public MainWindow()
+public MainWindow()
         {
             InitializeApplication();
             InitializeComponent();
@@ -787,6 +790,70 @@ namespace AMW_Mathematics
                 foreach (var item in ListFunctionPoint) ToSave.Add(item);
                 Serialization.ConcurrentSerializer<List<string>>.Serialize(filename, ToSave);
             }
+        }
+
+        private void ThemaMenu_Click(object sender, RoutedEventArgs e)                                  //Otwarcie PopOutu ThemeMenu #Ł
+        {
+            ThemePopOut.IsOpen = true;
+            var point = Mouse.GetPosition(Application.Current.MainWindow);
+            ThemePopOut.HorizontalOffset = point.X - 10;
+            ThemePopOut.VerticalOffset = point.Y - 20;
+
+        }
+
+        private void ColorAccept_Click(object sender, RoutedEventArgs e)                             //Zmiana koloru programu #Ł       
+        {
+            String themeColor="", themeBackground="";
+            themeColor = SelectedColor.SelectedItem.ToString().Remove(0, 37);
+            themeBackground = SelectedTheme.SelectedItem.ToString().Remove(0, 37);
+            ThemePopOut.IsOpen = false;
+            switch (themeColor)
+            {
+                case "Red":
+                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    break;
+                case "Blue":
+                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    break;
+                case "Green":
+                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    break;
+                case "Orange":
+                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    break;
+                    case "Pink":
+                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    break;
+                case "Brown":
+                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    break;
+
+            }
+
+
+
+
+            Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);       
+            ThemeManager.ChangeAppStyle(Application.Current,
+                                     ThemeManager.GetAccent(themeColor),ThemeManager.GetAppTheme(themeBackground));
         }
     }
 }

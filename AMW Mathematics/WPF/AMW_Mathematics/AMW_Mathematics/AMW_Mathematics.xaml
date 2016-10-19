@@ -35,7 +35,7 @@
                                 <RadioButton x:Name="radioButton_Copy1" Content="Radiany" HorizontalAlignment="Left" Margin="143,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
                                 <RadioButton x:Name="radioButton_Copy2" Content="Grady" HorizontalAlignment="Left" Margin="143,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
                                 <Label x:Name="label" Content="Miejsca dziesiętne:" HorizontalAlignment="Left" Margin="219,4,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.158,-0.154"/>
-                                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" Width="120">
+                                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
                                     <ListBoxItem Content="Nie ustalony"/>
                                     <ListBoxItem Content="0"/>
                                     <ListBoxItem Content="1"/>
@@ -81,7 +81,7 @@
                         <GroupBox x:Name="groupBox4" Header="Widok [WIP]" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
                                 <Button x:Name="button5" Content="Skórki" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
-                                <Button x:Name="button5_Copy" Content="Schemat&#xD;&#xA;Kolorów" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
+                                <Button x:Name="ThemaMenu" Content="Schemat&#xD;&#xA;Kolorów" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="ThemaMenu_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox x:Name="groupBox4_Copy" Header="Pokazanie [WIP]" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
@@ -547,7 +547,7 @@
                IsOpen="False"
                StaysOpen="False">
 
-            <Border Width="144" 
+            <Border x:Name="VariablesPopOutBorder" Width="144" 
                     Height="101"
                     Background="#FF41B1E1">
                 <Grid>
@@ -565,14 +565,13 @@
 
             </Border>
         </Popup>
-
         <Popup Name="MenuPopOut"
                Placement="Relative"
                IsOpen="False"
                StaysOpen="False">
 
-            <Border Width="96" 
-                    Height="192"
+            <Border x:Name="MenuPopOutBorder" Width="96" 
+                    Height="165"
                     Background="#FF41B1E1">
                 <Grid>
                     <Button x:Name="New" Content="Nowy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="NewProject_Click"/>
@@ -580,7 +579,6 @@
                     <Button x:Name="Save" Content="Zapisz" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top" Width="75" Click="Sava_Click"/>
                     <Button x:Name="SaveAs" Content="Zapisz jako" HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" Width="75" Click="SaveAs_Click"/>
                     <Button x:Name="Exit" Content="Zakończ" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75" Click="AplicationExit_Click"/>
-                    <Label x:Name="label3" Content="[WIP]" HorizontalAlignment="Left" Margin="26,160,0,0" VerticalAlignment="Top"/>
                 </Grid>
 
             </Border>
@@ -590,7 +588,7 @@
                IsOpen="False"
                StaysOpen="False">
 
-            <Border Width="270" 
+            <Border x:Name="DataSetsPopOutBorder" Width="270" 
                     Height="207"
                     Background="#FF41B1E1">
                 <Grid>
@@ -614,6 +612,38 @@
                 </Grid>
             </Border>
         </Popup>
+        <Popup Name="ThemePopOut"
+               Placement="Relative"
+               IsOpen="False"
+               StaysOpen="False">
+
+            <Border x:Name="ThemePopOutBorder" Width="285" 
+                    Height="168"
+                    Background="#FF41B1E1">
+                <Grid>
+                    
+                    <Label x:Name="Kolor" Content="Kolor akcentu:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label1_Copy" Content="Motyw:" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="SelectedColor" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+                        <ListBoxItem Content="Blue" IsSelected="True" Width="110"/>
+                        <ListBoxItem Content="Red" IsSelected="True" Width="110"/>
+                        <ListBoxItem Content="Green" IsSelected="True" Width="110"/>
+                        <ListBoxItem Content="Orange" IsSelected="True" Width="110"/>
+                        <ListBoxItem Content="Pink" IsSelected="True" Width="110"/>
+                        <ListBoxItem Content="Brown" IsSelected="True" Width="110"/>
+                    </ComboBox>
+                    <ComboBox x:Name="SelectedTheme" HorizontalAlignment="Left" Margin="155,41,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+                        <ListBoxItem Content="BaseLight" Width="110"/>
+                        <ListBoxItem Content="BaseDark" Width="110"/>
+                    </ComboBox>
+                    <Button x:Name="ColorAccept" Content="Zapisz" HorizontalAlignment="Left" Margin="200,133,0,0" VerticalAlignment="Top" Width="75" Click="ColorAccept_Click"/>
+
+
+
+                </Grid>
+            </Border>
+        </Popup>
+
     </Grid>
 </Controls:MetroWindow>
 
