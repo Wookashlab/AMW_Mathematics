@@ -29,8 +29,8 @@
                         </GroupBox>
                         <GroupBox x:Name="groupBox_Copy" Header="Liczby i kąty [WIP]" HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
                             <Grid Height="81" VerticalAlignment="Top">
-                                <RadioButton x:Name="radioButton" Content="Liczby rzeczywiste" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933"/>
-                                <RadioButton x:Name="radioButton2" Content="Liczby zespolone" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933"/>
+                                <RadioButton x:Name="RealNumber" Content="Liczby rzeczywiste" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="RealNumber_Checked"/>
+                                <RadioButton x:Name="ComplexNumber" Content="Liczby zespolone" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="ComplexNumber_Checked"/>
                                 <RadioButton x:Name="radioButton_Copy" Content="Stopnie" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
                                 <RadioButton x:Name="radioButton_Copy1" Content="Radiany" HorizontalAlignment="Left" Margin="143,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
                                 <RadioButton x:Name="radioButton_Copy2" Content="Grady" HorizontalAlignment="Left" Margin="143,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
@@ -404,6 +404,13 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="24,624,0,0" Stroke="Black" VerticalAlignment="Top" Width="270"/>
 
         <ListBox x:Name="Function_list" HorizontalAlignment="Left" Height="348" Margin="24,271,0,0" VerticalAlignment="Top" Width="270">
+
+            <ListBoxItem x:Name="ComplexTab" Height="27">
+                <Grid Height="105" Width="248">
+                    <Button x:Name="Complex" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
+                    <Label x:Name="ComplexLabel" Content="Liczby zespolone:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                </Grid>
+            </ListBoxItem>
 
             <ListBoxItem x:Name="CalculusTab" Height="27" >
                 <Grid Height="105" Width="248">

@@ -91,6 +91,7 @@ namespace AMW_Mathematics
             datatolinechartview.ShowTooltip = true;
             datatolinechartview.ToogleGridLineView = true;
             datatochart.WhichGraphZoom = "";
+            RealNumber.IsChecked = true;                                       //Włączenie trybu "Liczby rzeczywiste" #Ł
             InitializeComponent();
         }
 
@@ -103,8 +104,16 @@ namespace AMW_Mathematics
 
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
+            
             if (ExpressionField.Text != "")
             {
+                if ((bool)RealNumber.IsChecked)
+                    if (ExpressionField.Text.Contains("%i"))
+                    {
+                        System.Windows.MessageBox.Show("Podane wyrażenie zawiera liczby złożone mimo tego, że jesteś w trybie liczb rzeczywistych. Zmień wyrażenie lub tryb i spróbuj ponownie", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
                 string Expresion = ExpressionField.Text;
                 Expresion = phrase.SaveValuesOfVariables(Expresion, ExpressionField);
                 Expresion = phrase.CheckVariablesinExpresion(Expresion);
@@ -125,7 +134,7 @@ namespace AMW_Mathematics
                     string[] rat = Expresion.Split('=');
                     Expresion = rat.Last() + "     [WIP]";
                 }
-                ResultList.Items.Add(ExpressionField.Text + "=\n" + Expresion);
+                ResultList.Items.Add("Wejście: " +phrase.AddToNumberDot(ExpressionField.Text) + "\nWyjście: " + Expresion);
                 ResultList.SelectedIndex = ResultList.Items.Count - 1;
                 ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);
                 ExpressionField.Clear();
@@ -274,6 +283,9 @@ namespace AMW_Mathematics
                     break;
                 case 6:
                     FavoriteTab.Height = 90 + wartosc * 63;
+                    break;
+                case 7:
+                    ComplexTab.Height = 66 + wartosc * 39;
                     break;
 
             }
@@ -432,8 +444,11 @@ namespace AMW_Mathematics
         private void Edit_Click(object sender, RoutedEventArgs e)                           //Funkcja obsługjąca edycję wprowadzonych danych #Ł
         {
             string[] partExpression;
-            partExpression = ResultList.SelectedItem.ToString().Split('=');
-            ExpressionField.Text = partExpression[0];
+            string[] split = new string[] { "\n" };
+            partExpression = ResultList.SelectedItem.ToString().Split(split, StringSplitOptions.RemoveEmptyEntries);
+            ExpressionField.Text = partExpression[0].Remove(0,9);
+            ExpressionField.Focus();
+            ExpressionField.SelectionStart = ExpressionField.Text.Length;
 
         }
 
@@ -468,6 +483,11 @@ namespace AMW_Mathematics
             {
                 FavoriteTab.Height = 27;
                 Favorite.Content = keyboard.Mark(Favorite.Content.ToString());
+            }
+            if (Complex.Content.ToString() == "-")
+            {
+                ComplexTab.Height = 27;
+                Complex.Content = keyboard.Mark(Complex.Content.ToString());
             }
         }
 
@@ -599,5 +619,15 @@ namespace AMW_Mathematics
             return result;                                                                                  //zwrócenie wyniku #Ł
         }
 
+        private void ComplexNumber_Checked(object sender, RoutedEventArgs e)
+        {
+            ComplexTab.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void RealNumber_Checked(object sender, RoutedEventArgs e)
+        {
+           
+                ComplexTab.Visibility = System.Windows.Visibility.Collapsed;
+        }
     }
 }

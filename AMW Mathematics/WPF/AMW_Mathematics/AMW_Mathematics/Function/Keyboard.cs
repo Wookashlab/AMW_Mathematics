@@ -43,6 +43,9 @@ namespace AMW_Mathematics
                     return 5;
                 case "Favorite":                            //Ulubione
                     return 6;
+                case "Complex":                             //Liczby zespolone
+                    return 7;
+
             }
             return 0;
         }
