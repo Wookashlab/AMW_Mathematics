@@ -361,10 +361,11 @@
                             </WindowsFormsHost>
                         </TabControl>
                         <Grid Name="GraphHelpGrid" Margin="229,10,10,10" Grid.Column="2" >
-                            <Image Source="img/help_page_sign.png" Margin="484,3,10,483" />
+                            
                             <TextBlock x:Name="TitleTxt" Text="{Binding Title}" Foreground="#FF41B1E1" FontWeight="Bold" FontSize="24" Margin="0,26,0,503" />
                             <TextBlock x:Name="SubTitleTxt" Text="{Binding SubTitle}" Foreground="#FF5996B0" FontSize="20" Margin="0,76,0,453" FontWeight="Bold" />
                             <TextBlock x:Name="MainHelpTxt" Text="{Binding MainHelp}" FontSize="16" Margin="0,133,0,10" />
+                            <Image Source="img/help_page_sign.png" Margin="484,3,10,483" />
                         </Grid>
                     </Grid>
                 </TabItem>
@@ -405,17 +406,27 @@
 
         <ListBox x:Name="Function_list" HorizontalAlignment="Left" Height="348" Margin="24,271,0,0" VerticalAlignment="Top" Width="270">
 
-            <ListBoxItem x:Name="ComplexTab" Height="27">
-                <Grid Height="105" Width="248">
-                    <Button x:Name="Complex" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="ComplexLabel" Content="Liczby zespolone:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+            <ListBoxItem x:Name="ComplexTab" Height="155">
+                <Grid Height="168" >
+                    <Button x:Name="Complex" Content="-" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
+                    <Label x:Name="ComplexLabel" Content="Liczby zespolone:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Margin="30,0,0,0"/>
+                    <Button x:Name="ComplexAbsolute3" Content="|z|" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="30" ToolTip="Moduł liczby zespolonej. Np. cabs(1+%i)" Click="Function_Click" Height="28"/>
+                    <Button x:Name="ImaginaryUnit2" Content="%i" HorizontalAlignment="Left" Margin="93,31,0,0" VerticalAlignment="Top" Width="30" ToolTip="Jednosta urojona" Click="Function_Click" Height="28"/>
+                    <Button x:Name="RealPart3" Content="częśc rzeczywista" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Część rzeczywista liczby zespolonej. Np. realpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
+                    <Button x:Name="ImaginaryPart3" Content="częśc uruojona" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Część urojona liczby zespolonej. Np. imgagpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
+                    <Button x:Name="Conjugate3"  HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="43" ToolTip="Sprzężenie zwrotne liczby zespolonej. Np. conjugate(1+%i)" Click="Function_Click">
+                        <Image Source="img/Klawiatura/Funkcje/sprzężenie.png" />
+                    </Button>
+                    <Button x:Name="ComplexArg1" Content="carg" HorizontalAlignment="Left" Margin="128,31,0,0" VerticalAlignment="Top" Width="38" ToolTip="Argument liczby zespolonej. Np. carg(1+%i)" Click="Function_Click" Height="28"/>
+                    <Button x:Name="Rect_Polar3" Content="postać algebraiczna &gt; wykładniczą" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="228" ToolTip="Zamiana liczby zespolonej z postaci algebranicznej na wyjkładniczą. Np. polarform(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
+                    <Button x:Name="Polar_Rect3" Content="postać wykładnicza &gt;algebraiczna" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="228" ToolTip="Zamiana liczby zespolonej z postaci wykładniczej na algebraiczną. Np. rectform(sqrt(5)*%e^(%i*atan(2)))" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
                 </Grid>
             </ListBoxItem>
 
             <ListBoxItem x:Name="CalculusTab" Height="27" >
-                <Grid Height="105" Width="248">
+                <Grid Height="105" >
                     <Button x:Name="Calculus" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="CalculusLabel" Content="Rachunek różniczkowy:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="CalculusLabel" Content="Rachunek różniczkowy:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136"  Margin="30,0,0,0"/>
                     <Button x:Name="Derivative3" ToolTip="Pochodna wyrażenia. Np. diff(x^2,x)"  HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="46" Height="38" Click="Function_Click">
                         <Image Source="img/Klawiatura/Funkcje/pochodna.png" Height="28" Width="40" />
                     </Button>
@@ -439,10 +450,10 @@
             </ListBoxItem>
 
             <ListBoxItem x:Name="StatisticTab" Height="27" >
-                <Grid Height="153" Width="248">
+                <Grid Height="153" >
 
                     <Button x:Name="Statistic" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="StatisticLabel" Content="Statystyka:   [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="StatisticLabel" Content="Statystyka:   [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Margin="30,0,0,0"/>
                     <Button x:Name="NawiasKO2" Content="{}{" ToolTip="Otwierający nawais klamrowy. Np. {2,3,4}" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
                     <Button x:Name="NawiasKZ2" Content="}" ToolTip="Zamykający nawais klamrowy. Np. {2,3,4}" HorizontalAlignment="Left" Margin="38,30,0,0" VerticalAlignment="Top" Width="24" Height="18" Click="Function_Click"/>
                     <Button x:Name="Sort3" Content="sort" ToolTip="Sortowanie listy w kolejności rosnącej. Np. sort([2,1,6,3])" HorizontalAlignment="Left" Margin="67,31,0,0" VerticalAlignment="Top" Width="40" Height="18" Click="Function_Click"/>
@@ -462,9 +473,9 @@
             </ListBoxItem>
 
             <ListBoxItem x:Name="TrigonometryTab" Height="27" >
-                <Grid Height="153" Width="248">
+                <Grid Height="153" >
                     <Button x:Name="Trigonometry" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="TrigonometryLabel" Content="Trygonometria:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="TrigonometryLabel" Content="Trygonometria:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104"  Margin="30,0,0,0"/>
                     <Button x:Name="Sine1" ToolTip="Sinus liczby. Np. sin(45)" Content="sin" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
                     <Button x:Name="Cosine1" ToolTip="Cosinus liczby. Np. cos(45)" Content="cos" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
                     <Button x:Name="Tangent1" ToolTip="Tangens liczby. Np. tan(45)" Content="tan" HorizontalAlignment="Left" Margin="160,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
@@ -483,18 +494,18 @@
             </ListBoxItem>
 
             <ListBoxItem x:Name="LinearAlgebraTab" Height="27" >
-                <Grid Height="153" Width="248">
+                <Grid Height="153">
                     <Button x:Name="LinearAlgebra" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="LinearAlgebraLabel" Content="Algebra liniowa: [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="LinearAlgebraLabel" Content="Algebra liniowa: [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Margin="30,0,0,0"/>
 
 
                 </Grid>
             </ListBoxItem>
 
             <ListBoxItem x:Name="StandardTab" Height="213" >
-                <Grid Height="232" Width="248">
+                <Grid Height="232">
                     <Button x:Name="Standard" Content="-" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="StandardLabel" Content="Standardowe:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="StandardLabel" Content="Standardowe:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104"  Margin="30,0,0,0"/>
                     <Button x:Name="Xvariable2" ToolTip="Zmienna o nazwie x. Np. x:=." Content="x" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
                     <Button x:Name="Yvariable2" ToolTip="Zmienna o nazwie y. Np. y:=." Content="y" HorizontalAlignment="Left" Margin="57,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
                     <Button x:Name="Zvariable2" ToolTip="Zmienna o nazwie z. Np. z:=." Content="z" HorizontalAlignment="Left" Margin="104,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
@@ -523,10 +534,10 @@
                     <Button x:Name="Or2" ToolTip="Logiczny operator - or. Np. true or false" Content="or" HorizontalAlignment="Left" Margin="93,152,0,52" Width="25" Height="18" Click="Function_Click"/>
                     <Button x:Name="Not2" ToolTip="Logiczny operator - not. Np. not true" Content="not" HorizontalAlignment="Left" Margin="123,152,0,52" Width="35" Height="18" Click="Function_Click"/>
                     <Button x:Name="Fraction3" ToolTip="Ułamek. Np. 3/4" Content="c/d" HorizontalAlignment="Left" Margin="163,152,0,52" Width="35" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Is1" ToolTip="Sprawdzenie czy wartość jest prawdziwa. Np. is(2>3)" Content="is" HorizontalAlignment="Left" Margin="203,152,0,52" Width="35" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Is1" ToolTip="Sprawdzenie czy wartość jest prawdziwa. Np. is(2&gt;3)" Content="is" HorizontalAlignment="Left" Margin="203,152,0,52" Width="35" Height="18" Click="Function_Click"/>
                     <Button x:Name="LessE3" ToolTip="Mniejsze lub równe. Np. 3&lt;=4" Content="≤" HorizontalAlignment="Left" Margin="10,182,0,22" Width="30" Height="18" Click="Function_Click"/>
                     <Button x:Name="Less2" ToolTip="Mniejsze. Np. 3&lt;5" Content="&lt;" HorizontalAlignment="Left" Margin="45,184,0,23" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="More2" ToolTip="Więcej. Np. 5>3" Content=">" HorizontalAlignment="Left" Margin="80,184,0,23" Width="30" Height="18" Click="Function_Click"/>
+                    <Button x:Name="More2" ToolTip="Więcej. Np. 5&gt;3" Content="&gt;" HorizontalAlignment="Left" Margin="80,184,0,23" Width="30" Height="18" Click="Function_Click"/>
                     <Button x:Name="MoreE3" ToolTip="Mniejsze lub równe. Np. 3&lt;=4" Content="≥" HorizontalAlignment="Left" Margin="115,184,0,23" Width="30" Height="18" Click="Function_Click"/>
                     <Button x:Name="Equal2" ToolTip="Równość. Np. x+x=3" Content="=" HorizontalAlignment="Left" Margin="150,182,0,22" Width="30" Height="18" Click="Function_Click"/>
                     <Button x:Name="Nequal3" ToolTip="Nierówność. Np. x+x#3" Content="≠" HorizontalAlignment="Left" Margin="185,184,0,23" Width="25" Height="18" Click="Function_Click"/>
@@ -536,9 +547,9 @@
             </ListBoxItem>
 
             <ListBoxItem x:Name="FavoriteTab" Height="27" >
-                <Grid Height="153" Width="248">
+                <Grid Height="153" >
                     <Button x:Name="Favorite" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="FavoriteLabel" Content="Ulubione:     [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
+                    <Label x:Name="FavoriteLabel" Content="Ulubione:     [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150"  Margin="30,0,0,0"/>
                 </Grid>
             </ListBoxItem>
         </ListBox>
@@ -593,7 +604,7 @@
                     Background="#FF41B1E1">
                 <Grid>
                     <Label x:Name="label1" Content="x" HorizontalAlignment="Left" Margin="84,0,0,0" VerticalAlignment="Top" FontSize="18"/>
-                    <Label x:Name="label2" Content="y     [WIP]" HorizontalAlignment="Left" Margin="168,0,0,0" VerticalAlignment="Top" FontSize="18"/>
+                    <Label x:Name="label2" Content="y" HorizontalAlignment="Left" Margin="168,0,0,0" VerticalAlignment="Top" FontSize="18"/>
                     <ListView x:Name="ListChartPointW" HorizontalAlignment="Left" Height="124" Margin="10,37,0,0" VerticalAlignment="Top" Width="250">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -618,10 +629,10 @@
                StaysOpen="False">
 
             <Border x:Name="ThemePopOutBorder" Width="285" 
-                    Height="168"
+                    Height="143"
                     Background="#FF41B1E1">
                 <Grid>
-                    
+
                     <Label x:Name="Kolor" Content="Kolor akcentu:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="label1_Copy" Content="Motyw:" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="SelectedColor" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
@@ -636,7 +647,7 @@
                         <ListBoxItem Content="BaseLight" Width="110"/>
                         <ListBoxItem Content="BaseDark" Width="110"/>
                     </ComboBox>
-                    <Button x:Name="ColorAccept" Content="Zapisz" HorizontalAlignment="Left" Margin="200,133,0,0" VerticalAlignment="Top" Width="75" Click="ColorAccept_Click"/>
+                    <Button x:Name="ColorAccept" Content="Zapisz" HorizontalAlignment="Left" Margin="200,108,0,0" VerticalAlignment="Top" Width="75" Click="ColorAccept_Click"/>
 
 
 

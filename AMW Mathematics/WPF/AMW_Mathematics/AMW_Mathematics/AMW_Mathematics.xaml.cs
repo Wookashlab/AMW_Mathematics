@@ -291,7 +291,7 @@ public MainWindow()
                     FavoriteTab.Height = 90 + wartosc * 63;
                     break;
                 case 7:
-                    ComplexTab.Height = 66 + wartosc * 39;
+                    ComplexTab.Height = 91 + wartosc * 64;
                     break;
 
             }
@@ -625,15 +625,17 @@ public MainWindow()
             return result;                                                                                  //zwrócenie wyniku #Ł
         }
 
-        private void ComplexNumber_Checked(object sender, RoutedEventArgs e)
+        private void ComplexNumber_Checked(object sender, RoutedEventArgs e)                    //Funkcja uruchamiająca tryb Liczyb rzeczywiste #Ł
         {
-            ComplexTab.Visibility = System.Windows.Visibility.Visible;
+            ComplexTab.Visibility = System.Windows.Visibility.Visible;                          //wyświetlenie pasku funkcji na kalkulatroze "Liczby zespolone #Ł
+            System.Windows.MessageBox.Show("Jesteś teraz w trybie liczb zespolonych. Jednostkę urujoną w naszym programie oznacza się poprzez użycie zwrotu \"%i\" Np. 2+3*%i", "Tryb liczb zespoloncyh", MessageBoxButton.OK, MessageBoxImage.Question);
+            
         }
 
-        private void RealNumber_Checked(object sender, RoutedEventArgs e)
+        private void RealNumber_Checked(object sender, RoutedEventArgs e)                       //Funkcja uruchamiająca tryb liczby zespolone #Ł
         {
 
-            ComplexTab.Visibility = System.Windows.Visibility.Collapsed;
+            ComplexTab.Visibility = System.Windows.Visibility.Collapsed;                    // ukrycie pasku funkcji na kalkulatorze "Liczby zespolone" #Ł
         }
         private void NewProject_Click(object sender, RoutedEventArgs e)
         {
@@ -817,33 +819,33 @@ public MainWindow()
                     break;
                 case "Blue":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
                     break;
                 case "Green":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
                     break;
                 case "Orange":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
                     break;
                     case "Pink":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
                     break;
                 case "Brown":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
+                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
+                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
                     break;
 
             }
