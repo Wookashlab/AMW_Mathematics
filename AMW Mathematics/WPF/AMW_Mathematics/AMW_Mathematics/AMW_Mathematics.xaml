@@ -181,7 +181,7 @@
                                                     <GridViewColumn>
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <TextBox x:Name="FunctionTextBox" Width="120" Margin="0,10"/>
+                                                                <TextBox x:Name="FunctionTextBox" Text="{Binding TextInChartPlot}" Width="120" Margin="0,10"/>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
@@ -223,7 +223,7 @@
                                                     <GridViewColumn>
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <TextBox x:Name="PointFunctionTextBox" Width="120" Margin="0,10"/>
+                                                                <TextBox x:Name="PointFunctionTextBox" Text="{Binding TextBoxText}" Width="120" Margin="0,10"/>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
@@ -405,20 +405,10 @@
 
         <ListBox x:Name="Function_list" HorizontalAlignment="Left" Height="348" Margin="24,271,0,0" VerticalAlignment="Top" Width="270">
 
-            <ListBoxItem x:Name="ComplexTab" Height="151">
-                <Grid Height="151" >
-                    <Button x:Name="Complex" Content="-" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
+            <ListBoxItem x:Name="ComplexTab" Height="27">
+                <Grid Height="105" Width="248">
+                    <Button x:Name="Complex" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
                     <Label x:Name="ComplexLabel" Content="Liczby zespolone:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Foreground="#FF41B1E1" Margin="30,0,0,0"/>
-                    <Button x:Name="ComplexAbsolute3" Content="|z|" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="30" ToolTip="Moduł liczby zespolonej. Np. cabs(1+%i)" Click="Function_Click" Height="28"/>
-                    <Button x:Name="ImaginaryUnit2" Content="%i" HorizontalAlignment="Left" Margin="93,26,0,0" VerticalAlignment="Top" Width="30" ToolTip="Jednosta urojona" Click="Function_Click" Height="28"/>
-                    <Button x:Name="RealPart3" Content="częśc rzeczywista" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Width="110" ToolTip="Część rzeczywista liczby zespolonej. Np. realpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
-                    <Button x:Name="ImaginaryPart3" Content="częśc uruojona" HorizontalAlignment="Left" Margin="128,59,0,0" VerticalAlignment="Top" Width="110" ToolTip="Część urojona liczby zespolonej. Np. imgagpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
-                    <Button x:Name="Conjugate3"  HorizontalAlignment="Left" Margin="45,26,0,0" VerticalAlignment="Top" Width="43" ToolTip="Sprzężenie zwrotne liczby zespolonej. Np. conjugate(1+%i)" Click="Function_Click">
-                        <Image Source="img/Klawiatura/Funkcje/sprzężenie.png" />
-                    </Button>
-                    <Button x:Name="ComplexArg1" Content="carg" HorizontalAlignment="Left" Margin="128,26,0,0" VerticalAlignment="Top" Width="38" ToolTip="Argument liczby zespolonej. Np. carg(1+%i)" Click="Function_Click" Height="28"/>
-                    <Button x:Name="Rect_Polar3" Content="postać algebraiczna &gt; wykładniczą" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="228" ToolTip="Zamiana liczby zespolonej z postaci algebranicznej na wyjkładniczą. Np. polarform(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
-                    <Button x:Name="Polar_Rect3" Content="postać wykładnicza &gt;algebraiczna" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="228" ToolTip="Zamiana liczby zespolonej z postaci wykładniczej na algebraiczną. Np. rectform(sqrt(5)*%e^(%i*atan(2)))" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
                 </Grid>
             </ListBoxItem>
 
@@ -585,14 +575,12 @@
                     Height="192"
                     Background="#FF41B1E1">
                 <Grid>
-
-                    <Button x:Name="New" Content="Nowy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="New_Copy" Content="Otwórz" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="New_Copy1" Content="Zapisz" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="New_Copy2" Content="Zapisz jako" HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="New_Copy3" Content="Zakończ" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="New" Content="Nowy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="NewProject_Click"/>
+                    <Button x:Name="OpenProject" Content="Otwórz" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Click="OpenProject_Click"/>
+                    <Button x:Name="Save" Content="Zapisz" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top" Width="75" Click="Sava_Click"/>
+                    <Button x:Name="SaveAs" Content="Zapisz jako" HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" Width="75" Click="SaveAs_Click"/>
+                    <Button x:Name="Exit" Content="Zakończ" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75" Click="AplicationExit_Click"/>
                     <Label x:Name="label3" Content="[WIP]" HorizontalAlignment="Left" Margin="26,160,0,0" VerticalAlignment="Top"/>
-
                 </Grid>
 
             </Border>
@@ -624,7 +612,6 @@
                     <Button x:Name="DataSetClear" Content="Wyczyść" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="61" Click="DataSetClear_Click"/>
 
                 </Grid>
-
             </Border>
         </Popup>
     </Grid>

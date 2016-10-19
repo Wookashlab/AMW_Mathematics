@@ -10,6 +10,7 @@ namespace AMW_Mathematics.ModelView
     {
         private string labelChartPointValue { get; set; }
         public int Index { get; set; }
+        public string TextBoxText { get; set; }
         public string LabelChartPointValue
         {
             get

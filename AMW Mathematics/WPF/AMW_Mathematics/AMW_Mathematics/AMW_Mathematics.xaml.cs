@@ -63,6 +63,11 @@ namespace AMW_Mathematics
 
         public MainWindow()
         {
+            InitializeApplication();
+            InitializeComponent();
+        }
+        public void InitializeApplication()
+        {
             chartlist.CountFunction = "1";
             datatopointchartview.CountFunction = 1;
             InitializeComponent();                                                 //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
@@ -92,9 +97,7 @@ namespace AMW_Mathematics
             datatolinechartview.ToogleGridLineView = true;
             datatochart.WhichGraphZoom = "";
             RealNumber.IsChecked = true;                                       //Włączenie trybu "Liczby rzeczywiste" #Ł
-            InitializeComponent();
         }
-
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             ComplexNumber comp = new ComplexNumber();
@@ -104,7 +107,7 @@ namespace AMW_Mathematics
 
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (ExpressionField.Text != "")
             {
                 if ((bool)RealNumber.IsChecked)
@@ -134,7 +137,7 @@ namespace AMW_Mathematics
                     string[] rat = Expresion.Split('=');
                     Expresion = rat.Last() + "     [WIP]";
                 }
-                ResultList.Items.Add("Wejście: " +phrase.AddToNumberDot(ExpressionField.Text) + "\nWyjście: " + Expresion);
+                ResultList.Items.Add("Wejście: " + phrase.AddToNumberDot(ExpressionField.Text) + "\nWyjście: " + Expresion);
                 ResultList.SelectedIndex = ResultList.Items.Count - 1;
                 ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);
                 ExpressionField.Clear();
@@ -184,7 +187,7 @@ namespace AMW_Mathematics
             }
             if (ChartsOverLap.IsSelected)
             {
-                 ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", keyboard, klawisz, true);
+                ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", keyboard, klawisz, true);
             }
         }
 
@@ -203,7 +206,7 @@ namespace AMW_Mathematics
                     if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Kartezjański")
                     {
                         double ys = FindRoundMiddle(ListFunctionLine[0]);
-                        ChartLineView.DrawChartLine(expPlotter, -5, 5, ys-5, ys+5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);
+                        ChartLineView.DrawChartLine(expPlotter, -5, 5, ys - 5, ys + 5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);
                         datatolinechartview.ToogleGridLineView = false;
                     }
                     else
@@ -285,7 +288,7 @@ namespace AMW_Mathematics
                     FavoriteTab.Height = 90 + wartosc * 63;
                     break;
                 case 7:
-                    ComplexTab.Height = 89 + wartosc * 62;
+                    ComplexTab.Height = 66 + wartosc * 39;
                     break;
 
             }
@@ -446,7 +449,7 @@ namespace AMW_Mathematics
             string[] partExpression;
             string[] split = new string[] { "\n" };
             partExpression = ResultList.SelectedItem.ToString().Split(split, StringSplitOptions.RemoveEmptyEntries);
-            ExpressionField.Text = partExpression[0].Remove(0,9);
+            ExpressionField.Text = partExpression[0].Remove(0, 9);
             ExpressionField.Focus();
             ExpressionField.SelectionStart = ExpressionField.Text.Length;
 
@@ -609,27 +612,181 @@ namespace AMW_Mathematics
         public double FindRoundMiddle(string expression)                                        //Funkcja znajdująca środek wykresu #Ł
         {
             if (expression.Contains(":=") == false) expression = phrase.AddToNumberDot(expression);         //dopisanie do wyrażenia .0 #Ł
-            if (Maxima.Eval("limit("+expression+",x,0)").Contains("infinity"))                              //sprawdzenie czy nie próbujemy dzielić przez 0 #Ł
+            if (Maxima.Eval("limit(" + expression + ",x,0)").Contains("infinity"))                              //sprawdzenie czy nie próbujemy dzielić przez 0 #Ł
                 expression = expression.Replace("x", "(1.0)");                                              //jeżeli tak to zminiamy wartość na 1 #Ł
             else expression = expression.Replace("x", "(0.0)");                                             //jeżeli nie to zostajmey z wartością 0 #Ł
-            if (expression.Contains(":=") == false) expression= phrase.AddToNumberDot(expression);          //dopisanie do wyrażenia .0 #Ł
+            if (expression.Contains(":=") == false) expression = phrase.AddToNumberDot(expression);          //dopisanie do wyrażenia .0 #Ł
             expression = Maxima.Eval(expression);                                                           //obliczenie wyrażenia dla podanej wartości #Ł
             double result = double.Parse(expression.Replace('.', ','));                                     //zamiana kropek na przecinki (maxima->double)#Ł
             result = Math.Round(result);                                                                    //zaokrąglenie wyniku #Ł
             return result;                                                                                  //zwrócenie wyniku #Ł
         }
 
-        private void ComplexNumber_Checked(object sender, RoutedEventArgs e)                    //Funkcja uruchamiająca tryb Liczyb rzeczywiste #Ł
+        private void ComplexNumber_Checked(object sender, RoutedEventArgs e)
         {
-            ComplexTab.Visibility = System.Windows.Visibility.Visible;                          //ukrycie pasku funkcji na kalkulatorze "Liczby zespolone" #Ł
-            System.Windows.MessageBox.Show("Jesteś teraz w trybie liczb zespolonych. Jednostkę urujoną w naszym programie oznacza się poprzez użycie zwrotu \"%i\" Np. 2+3*%i", "Tryb liczb zespoloncyh", MessageBoxButton.OK, MessageBoxImage.Question);
-
+            ComplexTab.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void RealNumber_Checked(object sender, RoutedEventArgs e)                       //Funkcja uruchamiająca tryb liczby zespolone #Ł
+        private void RealNumber_Checked(object sender, RoutedEventArgs e)
         {
-           
-                ComplexTab.Visibility = System.Windows.Visibility.Collapsed;                    //wyświetlenie pasku funkcji na kalkulatroze "Liczby zespolone #Ł
+
+            ComplexTab.Visibility = System.Windows.Visibility.Collapsed;
+        }
+        private void NewProject_Click(object sender, RoutedEventArgs e)
+        {
+            ResultList.Items.Clear();
+            ChartListFunction.Items.Clear();
+            PointChartListFunction.Items.Clear();
+            ParametricChartListFunction.Items.Clear();
+            InequalitiesChartListFunction.Items.Clear();
+            expPlotter.RestoreDefaults();
+            LineTypeChart.SelectedItem = LineTypeChart.Items[0];
+            if (Calculus.Content.ToString() == "-")
+            {
+                CalculusTab.Height = 27;
+                Calculus.Content = keyboard.Mark(Calculus.Content.ToString());
+            }
+            if (Statistic.Content.ToString() == "-")
+            {
+                StatisticTab.Height = 27;
+                Statistic.Content = keyboard.Mark(Statistic.Content.ToString());
+            }
+            if (Trigonometry.Content.ToString() == "-")
+            {
+                TrigonometryTab.Height = 27;
+                Trigonometry.Content = keyboard.Mark(Trigonometry.Content.ToString());
+            }
+            if (LinearAlgebra.Content.ToString() == "-")
+            {
+                LinearAlgebraTab.Height = 27;
+                LinearAlgebra.Content = keyboard.Mark(LinearAlgebra.Content.ToString());
+            }
+            if (Favorite.Content.ToString() == "-")
+            {
+                FavoriteTab.Height = 27;
+                Favorite.Content = keyboard.Mark(Favorite.Content.ToString());
+            }
+            StandardTab.Height = 213;
+            Standard.Content = keyboard.Mark(Standard.Content.ToString());
+            ZoomOutSeries.Text = "x,y";
+            ZoomInSeries.Text = "x,y";
+            InitializeApplication();
+            Plot.InvalidatePlot(true);
+            worksheetTab.IsSelected = true;
+        }
+
+        private void AplicationExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        private string filename = "";
+        private void SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> ToSave = new List<string>();
+            foreach (string item in ResultList.Items) ToSave.Add(item);
+            ToSave.Add("ChartLine");
+            foreach (var item in ListFunctionLine) ToSave.Add(item);
+            ToSave.Add("ChartPoint");
+            foreach (var item in ListFunctionPoint) ToSave.Add(item);
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.FileName = "Expresions"; // Default file name
+            dlg.DefaultExt = ".data"; // Default file extension
+            dlg.Filter = "Expresions (.Data)|*.Data"; // Filter files by extension
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+            // Process save file dialog box results
+            if (result == true)
+            {
+                filename = dlg.FileName;
+                Serialization.ConcurrentSerializer<List<string>>.Serialize(filename, ToSave);
+            }
+        }
+        private void OpenProject_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.FileName = "Expresions"; // Default file name
+            dlg.DefaultExt = ".data"; // Default file extension
+            dlg.Filter = "Expresions (.Data)|*.Data"; // Filter files by extension
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                List<string> ToSave = new List<string>();
+                ToSave = Serialization.ConcurrentSerializer<List<string>>.Deserialize(dlg.FileName);
+                ResultList.Items.Clear();
+                PointChartListFunction.Items.Clear();
+                chartlist.CountFunction = "1";
+                datatopointchartview.CountFunction = 1;
+                foreach (var item in ToSave)
+                {
+                    if (item != "ChartLine")
+                    {
+                        ResultList.Items.Add(item);
+                    }
+                    else
+                    {
+                        int index = ToSave.IndexOf(item);
+                        ToSave.RemoveRange(0, index + 1);
+                        break;
+                    }
+                }
+                ChartListFunction.Items.Clear();
+                foreach (var item in ToSave)
+                {
+                    if (item != "ChartPoint")
+                    {
+                        ChartListFunction.Items.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction, TextInChartPlot = item });
+                    }
+                    else
+                    {
+                        int index = ToSave.IndexOf(item);
+                        ToSave.RemoveRange(0, index + 1);
+                        break;
+                    }
+                    chartlist.CountFunction = (int.Parse(chartlist.CountFunction) + 1).ToString();
+                }
+                if (ChartListFunction.Items.Count == 0) ChartListFunction.Items.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });
+                foreach (var item in ToSave)
+                {
+                    PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction, TextBoxText = item });
+                    datatopointchartview.CountFunction = datatopointchartview.CountFunction + 1;
+                }
+                if (PointChartListFunction.Items.Count == 0) PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction });
+            }
+        }
+        private void Sava_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> ToSave = new List<string>();
+            if (filename == "")
+            {
+                foreach (string item in ResultList.Items) ToSave.Add(item);
+                ToSave.Add("ChartLine");
+                foreach (var item in ListFunctionLine) ToSave.Add(item);
+                ToSave.Add("ChartPoint");
+                foreach (var item in ListFunctionPoint) ToSave.Add(item);
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.FileName = "Expresions"; // Default file name
+                dlg.DefaultExt = ".data"; // Default file extension
+                dlg.Filter = "Expresions (.Data)|*.Data"; // Filter files by extension
+
+                // Show save file dialog box
+                Nullable<bool> result = dlg.ShowDialog();
+                // Process save file dialog box results
+                if (result == true)
+                {
+                    filename = dlg.FileName;
+                    Serialization.ConcurrentSerializer<List<string>>.Serialize(filename, ToSave);
+                }
+            }
+            else
+            {
+                foreach (string item in ResultList.Items) ToSave.Add(item);
+                ToSave.Add("ChartLine");
+                foreach (var item in ListFunctionLine) ToSave.Add(item);
+                ToSave.Add("ChartPoint");
+                foreach (var item in ListFunctionPoint) ToSave.Add(item);
+                Serialization.ConcurrentSerializer<List<string>>.Serialize(filename, ToSave);
+            }
         }
     }
 }
