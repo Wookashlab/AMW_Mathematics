@@ -99,6 +99,18 @@ namespace AMW_Mathematics
                     return "#";
                 case "Limit3":                              //granica #Ł
                     return "limit(";
+                case "ComplexAbsolute3":                     //moduł liczby zespolonej #Ł
+                    return "cabs(";
+                case "RealPart3":                           //cześć rzeczywista #Ł
+                    return "realpart(";
+                case "ImaginaryPart3":                      //cześć urojona #Ł
+                    return "imagpart(";
+                case "Conjugate3":                          //sprzęrzenie zwrotne liczby zepspolonej #Ł
+                    return "conjugate(";
+                case "Polar_Rect3":
+                    return "rectform(";
+                case "Rect_Polar3":
+                    return "polarform(";
             }
             return "DODAJ DO OTHER";
         }

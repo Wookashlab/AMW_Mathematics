@@ -285,7 +285,7 @@ namespace AMW_Mathematics
                     FavoriteTab.Height = 90 + wartosc * 63;
                     break;
                 case 7:
-                    ComplexTab.Height = 66 + wartosc * 39;
+                    ComplexTab.Height = 89 + wartosc * 62;
                     break;
 
             }
@@ -619,15 +619,17 @@ namespace AMW_Mathematics
             return result;                                                                                  //zwrócenie wyniku #Ł
         }
 
-        private void ComplexNumber_Checked(object sender, RoutedEventArgs e)
+        private void ComplexNumber_Checked(object sender, RoutedEventArgs e)                    //Funkcja uruchamiająca tryb Liczyb rzeczywiste #Ł
         {
-            ComplexTab.Visibility = System.Windows.Visibility.Visible;
+            ComplexTab.Visibility = System.Windows.Visibility.Visible;                          //ukrycie pasku funkcji na kalkulatorze "Liczby zespolone" #Ł
+            System.Windows.MessageBox.Show("Jesteś teraz w trybie liczb zespolonych. Jednostkę urujoną w naszym programie oznacza się poprzez użycie zwrotu \"%i\" Np. 2+3*%i", "Tryb liczb zespoloncyh", MessageBoxButton.OK, MessageBoxImage.Question);
+
         }
 
-        private void RealNumber_Checked(object sender, RoutedEventArgs e)
+        private void RealNumber_Checked(object sender, RoutedEventArgs e)                       //Funkcja uruchamiająca tryb liczby zespolone #Ł
         {
            
-                ComplexTab.Visibility = System.Windows.Visibility.Collapsed;
+                ComplexTab.Visibility = System.Windows.Visibility.Collapsed;                    //wyświetlenie pasku funkcji na kalkulatroze "Liczby zespolone #Ł
         }
     }
 }

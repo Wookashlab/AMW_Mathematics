@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/splashscreenv4.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/klawiatura/funkcje/sprz%c4%99%c5%bcenie.png")]
 
 
