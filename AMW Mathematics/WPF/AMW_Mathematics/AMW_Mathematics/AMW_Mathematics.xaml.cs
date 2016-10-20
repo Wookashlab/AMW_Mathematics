@@ -345,26 +345,44 @@ public MainWindow()
 
         private void ZoomIN_Click(object sender, RoutedEventArgs e)                 //Funkcja zmniejszająca wykres #M
         {
+            string level;
             switch (datatolinechartview.TypeChart)
             {
                 case "line":
-                    ChartLineView.ButtonZoomIn(expPlotter, ZoomInSeries);
+                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");
+                    for (int i = 0; i < int.Parse(level); i++)
+                    {
+                        ChartLineView.ButtonZoomIn(expPlotter, ZoomAfterX, ZoomAfterY);
+                    }
                     break;
                 case "point":
-                    ViewPlot.UpdateModelZoomIn(Plot, ZoomInSeries);                                                                                                                                                                                                                             //przekazanie do modelu wartości funkcji X #M                             
+                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");
+                    for (int i = 0; i < int.Parse(level); i++)
+                    {
+                        ViewPlot.UpdateModelZoomIn(Plot, ZoomAfterX, ZoomAfterY);
+                    }                        
                     break;
             }
         }
 
         private void ZoomOut_Click(object sender, RoutedEventArgs e)
         {
+            string level;
             switch (datatolinechartview.TypeChart)
             {
                 case "line":
-                    ChartLineView.ButtonZoomOut(expPlotter, ZoomOutSeries);
+                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");
+                    for (int i = 0; i < int.Parse(level); i++)
+                    {
+                        ChartLineView.ButtonZoomOut(expPlotter, ZoomAfterX, ZoomAfterY);
+                    }
                     break;
                 case "point":
-                    ViewPlot.UpdateModelZoomOut(Plot, ZoomOutSeries);
+                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");
+                    for (int i = 0; i < int.Parse(level); i++)
+                    {
+                        ViewPlot.UpdateModelZoomOut(Plot, ZoomAfterX, ZoomAfterY);
+                    }
                     break;
             }
         }
@@ -673,8 +691,7 @@ public MainWindow()
             }
             StandardTab.Height = 213;
             Standard.Content = keyboard.Mark(Standard.Content.ToString());
-            ZoomOutSeries.Text = "x,y";
-            ZoomInSeries.Text = "x,y";
+
             InitializeApplication();
             Plot.InvalidatePlot(true);
             worksheetTab.IsSelected = true;
@@ -849,13 +866,23 @@ public MainWindow()
                     break;
 
             }
-
-
-
-
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);       
             ThemeManager.ChangeAppStyle(Application.Current,
                                      ThemeManager.GetAccent(themeColor),ThemeManager.GetAppTheme(themeBackground));
+        }
+
+        private void AcceptXY_Click(object sender, RoutedEventArgs e)
+        {
+            switch (datatochart.WhichGraphZoom)
+            {
+                case "PlotChart":
+                    ChartLineView.SetRange(expPlotter, double.Parse(MinX.Text), double.Parse(MaxX.Text), double.Parse(MinY.Text), double.Parse(MaxY.Text));
+                    expPlotter.Refresh();
+                    break;
+                case "PointPlotChart":
+                    ViewPlot.SetXAndY(Plot, double.Parse(MinX.Text), double.Parse(MaxX.Text), double.Parse(MinY.Text), double.Parse(MaxY.Text));
+                    break;
+            }
         }
     }
 }

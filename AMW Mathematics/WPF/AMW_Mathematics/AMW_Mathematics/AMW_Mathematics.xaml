@@ -100,15 +100,21 @@
                 </TabItem>
                 <TabItem x:Name="FormatujOverLap"  VerticalAlignment="Top" Header="Formatuj" Margin="637,0,-637,0"  >
                     <Grid>
-                        <GroupBox x:Name="groupBox6" Header="Skalowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5" Width="180">
+                        <GroupBox x:Name="groupBox6" Header="Skalowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Width="156">
                             <Grid>
-                                <Button x:Name="ZoomOut" Content="Oddal"  Click="ZoomOut_Click" Margin="10,46,0,10" HorizontalAlignment="Left" Width="69" />
-                                <Button x:Name="ZoomIn" Content="Przybliż"  Click="ZoomIN_Click" Margin="10,10,0,46" HorizontalAlignment="Left" Width="69"/>
-                                <TextBox x:Name="ZoomOutSeries" Text="x,y" Margin="102,46,0,0" HorizontalAlignment="Left" Width="56" Height="26" VerticalAlignment="Top"/>
-                                <TextBox x:Name="ZoomInSeries" Text="x,y" Margin="102,0,0,46" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="56"/>
+                                <Button x:Name="ZoomOut" Content="Oddal"  Click="ZoomOut_Click" Margin="74,54,0,2" HorizontalAlignment="Left" Width="69" />
+                                <Button x:Name="ZoomIn" Content="Przybliż"  Click="ZoomIN_Click" Margin="0,54,0,2" HorizontalAlignment="Left" Width="69"/>
+                                <CheckBox x:Name="ZoomAfterY" Content="OY" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                                <CheckBox x:Name="ZoomAfterX" Content="OX" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.516,2.222" IsChecked="True"/>
+                                <ComboBox x:Name="ChartZoomLevel" HorizontalAlignment="Left" Margin="74,0,0,0" VerticalAlignment="Top" Width="69" SelectedIndex="0">
+                                    <ComboBoxItem Content="1x"></ComboBoxItem>
+                                    <ComboBoxItem Content="2x"></ComboBoxItem>
+                                    <ComboBoxItem Content="3x"></ComboBoxItem>
+                                    <ComboBoxItem Content="4x"></ComboBoxItem>
+                                </ComboBox>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox7" Header="Pozycjonowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="185,5,0,0" Width="180">
+                        <GroupBox x:Name="groupBox7" Header="Pozycjonowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="394,5,0,0" Width="180">
                             <Grid>
                                 <Button x:Name="ChartLineTopPosition" Content="Góra"  Margin="58,0,0,56" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.878,0.92" Click="ChartLineTopPosition_Click"/>
                                 <Button x:Name="ChartLineDownPosition" Content="Dół" Margin="58,56,0,0" HorizontalAlignment="Left" Width="50" Click="ChartLineDownPosition_Click"  />
@@ -116,6 +122,22 @@
                                 <Button x:Name="ChartLineRightPosition" Content="Prawo"  Margin="114,30,0,26" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.927,0.6" Click="ChartLineRightPosition_Click"/>
                             </Grid>
                         </GroupBox>
+                        <GroupBox x:Name="groupBox8" Header="Ustaw Oś" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="166,5,0,0" Width="223" Height="120">
+                            <Grid>
+                                <TextBlock Margin="26,0,149,63" Text="Oś X" FontSize="14"></TextBlock>
+                                <TextBlock Text="od:" Margin="0,26,185,38" FontSize="14" RenderTransformOrigin="0.654,0.65"></TextBlock>
+                                <TextBlock Text="do:" Margin="0,57,185,3" FontSize="14"></TextBlock>
+                                <TextBox x:Name="MinX" Margin="31,23,128,32"></TextBox>
+                                <TextBox x:Name="MaxX" Margin="31,54,128,-2"></TextBox>
+                                <Rectangle Fill="#FFF4F4F5" Height="82" Margin="105,-1,105,0" Stroke="Black" VerticalAlignment="Top"/>
+                                <TextBlock Text ="Oś Y" Margin="141,0,34,61" FontSize="14"></TextBlock>
+                                <TextBlock Text="od:" Margin="111,26,68,38" FontSize="14" RenderTransformOrigin="0.625,-0.059"></TextBlock>
+                                <TextBlock Text="do:" Margin="111,57,68,3" FontSize="14"></TextBlock>
+                                <TextBox x:Name="MinY" Margin="141,23,18,32"></TextBox>
+                                <TextBox x:Name="MaxY" Margin="141,54,18,-2"/>
+                            </Grid>
+                        </GroupBox>
+                        <Button x:Name="AcceptXY" Content="Zatwierdz" HorizontalAlignment="Left" Margin="312,7,0,0" VerticalAlignment="Top" Width="70" Height="10" Click="AcceptXY_Click"/>
                     </Grid>
                 </TabItem>
             </TabControl>
@@ -361,7 +383,7 @@
                             </WindowsFormsHost>
                         </TabControl>
                         <Grid Name="GraphHelpGrid" Margin="229,10,10,10" Grid.Column="2" >
-                            
+
                             <TextBlock x:Name="TitleTxt" Text="{Binding Title}" Foreground="#FF41B1E1" FontWeight="Bold" FontSize="24" Margin="0,26,0,503" />
                             <TextBlock x:Name="SubTitleTxt" Text="{Binding SubTitle}" Foreground="#FF5996B0" FontSize="20" Margin="0,76,0,453" FontWeight="Bold" />
                             <TextBlock x:Name="MainHelpTxt" Text="{Binding MainHelp}" FontSize="16" Margin="0,133,0,10" />

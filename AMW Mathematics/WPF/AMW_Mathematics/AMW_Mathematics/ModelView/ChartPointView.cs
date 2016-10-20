@@ -51,9 +51,9 @@ namespace AMW_Mathematics.ModelView
                 PlotModel.Series.Add(scatterSeries);                                                 //Dodanie do modelu wykresu nowej serii #M
             }
         }
-        public void UpdateModelZoomIn(OxyPlot.Wpf.PlotView e, TextBox ZoomInSeries)
-        { 
-            if (ZoomInSeries.Text == "x")
+        public void UpdateModelZoomIn(OxyPlot.Wpf.PlotView e, CheckBox ZoomAfterX, CheckBox ZoomAfterY)
+        {
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == false)
             {
                 if (PlotModel.Axes[0].ActualMinimum <= -1 && PlotModel.Axes[0].ActualMaximum >= 1)
                 {
@@ -61,7 +61,7 @@ namespace AMW_Mathematics.ModelView
                     PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum - 1;
                 }
             }
-            if (ZoomInSeries.Text.ToString() == "y")
+            if (ZoomAfterX.IsChecked == false && ZoomAfterY.IsChecked == true)
             {
                 if (PlotModel.Axes[1].ActualMinimum <= -1 && PlotModel.Axes[1].ActualMaximum >= 1)
                 {
@@ -69,7 +69,7 @@ namespace AMW_Mathematics.ModelView
                     PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum - 1;
                 }
             }
-            if (ZoomInSeries.Text.ToString() == "x,y" || ZoomInSeries.Text.ToString() == "y,x")
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == true)
             {
                 if (PlotModel.Axes[1].ActualMinimum <= -1 && PlotModel.Axes[1].ActualMaximum >= 1)
                 {
@@ -85,19 +85,19 @@ namespace AMW_Mathematics.ModelView
             e.ResetAllAxes();
             e.InvalidatePlot(true);
         }
-        public void UpdateModelZoomOut(OxyPlot.Wpf.PlotView e, TextBox ZoomOutSeries)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
+        public void UpdateModelZoomOut(OxyPlot.Wpf.PlotView e, CheckBox ZoomAfterX, CheckBox ZoomAfterY)              //Metoda odpowiedzialna za aktualizacje danych na wykresie #M
         {
-            if (ZoomOutSeries.Text == "x")
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == false)
             {
                 PlotModel.Axes[0].Minimum = PlotModel.Axes[0].ActualMinimum - 1;
                 PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum + 1;
             }
-            if (ZoomOutSeries.Text.ToString() == "y")
+            if (ZoomAfterX.IsChecked == false && ZoomAfterY.IsChecked == true)
             {
                 PlotModel.Axes[1].Minimum = PlotModel.Axes[1].ActualMinimum - 1;
                 PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum + 1;
             }
-            if (ZoomOutSeries.Text.ToString() == "x,y" || ZoomOutSeries.Text.ToString() == "y,x")
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == true)
             {
                 PlotModel.Axes[1].Minimum = PlotModel.Axes[1].ActualMinimum - 1;
                 PlotModel.Axes[1].Maximum = PlotModel.Axes[1].ActualMaximum + 1;
@@ -132,6 +132,15 @@ namespace AMW_Mathematics.ModelView
         {
             PlotModel.Axes[0].Minimum = PlotModel.Axes[0].ActualMinimum + 1;
             PlotModel.Axes[0].Maximum = PlotModel.Axes[0].ActualMaximum + 1;
+            e.ResetAllAxes();
+            e.InvalidatePlot(true);
+        }
+        public void SetXAndY(OxyPlot.Wpf.PlotView e ,double startx, double endx,double starty,double endy)
+        {
+            PlotModel.Axes[1].Minimum = startx;
+            PlotModel.Axes[1].Maximum = endx;
+            PlotModel.Axes[0].Minimum = starty;
+            PlotModel.Axes[0].Maximum = endy;
             e.ResetAllAxes();
             e.InvalidatePlot(true);
         }

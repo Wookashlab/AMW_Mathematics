@@ -63,33 +63,33 @@ namespace AMW_Mathematics.ModelView
             }
             e.Refresh();
         }
-        public void ButtonZoomIn(ExpressionPlotter expPlotter, TextBox ZoomInSeries)
+        public void ButtonZoomIn(ExpressionPlotter expPlotter, CheckBox ZoomAfterX, CheckBox ZoomAfterY)
         {
-            if (ZoomInSeries.Text == "x")
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == false)
             {
                 expPlotter.ZoomInX();
             }
-            if (ZoomInSeries.Text.ToString() == "y")
+            if (ZoomAfterX.IsChecked == false && ZoomAfterY.IsChecked == true)
             {
                 expPlotter.ZoomInY();
             }
-            if (ZoomInSeries.Text.ToString() == "x,y" || ZoomInSeries.Text.ToString() == "y,x")
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == true)
             {
                 expPlotter.ZoomIn();
             }
             expPlotter.Refresh();
         }
-        public void ButtonZoomOut(ExpressionPlotter expPlotter, TextBox ZoomOutSeries)
+        public void ButtonZoomOut(ExpressionPlotter expPlotter, CheckBox ZoomAfterX, CheckBox ZoomAfterY)
         {
-            if (ZoomOutSeries.Text == "x")
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == false)
             {
                 expPlotter.ZoomOutX();
             }
-            if (ZoomOutSeries.Text == "y")
+            if (ZoomAfterX.IsChecked == false && ZoomAfterY.IsChecked == true)
             {
                 expPlotter.ZoomOutY();
             }
-            if (ZoomOutSeries.Text.ToString() == "x,y" || ZoomOutSeries.Text.ToString() == "y,x")
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == true)
             {
                 expPlotter.ZoomOut();
             }
