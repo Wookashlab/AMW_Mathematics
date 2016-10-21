@@ -16,27 +16,27 @@
             <TabControl SelectedIndex="1" x:Name="tabControl" Margin="0,0,0,638" BorderBrush="AliceBlue" BorderThickness="6">
                 <TabItem Margin="-2,-2,60,0" Padding="6,2,50,2" IsEnabled="False">
                 </TabItem>
-                <TabItem x:Name="HomeTab"  VerticalAlignment="Top" Header="Narzędzia główne">
+                <TabItem x:Name="HomeTab"  VerticalAlignment="Top" Header="Home">
                     <Grid Margin="0,0,18,10" >
-                        <GroupBox x:Name="groupBox" Header="Schowek [WIP]" HorizontalAlignment="Left" Width="198" Margin="5,0,0,0">
+                        <GroupBox x:Name="groupBox" Header="Clipboard [WIP]" HorizontalAlignment="Left" Width="198" Margin="5,0,0,0">
                             <Grid Margin="0,0,0,-11">
-                                <Button x:Name="button" Content="Cofnij" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="button_Copy" Content="Przywróc" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="button_Copy1" Content="Kopiuj" HorizontalAlignment="Left" Margin="108,0,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="button_Copy2" Content="Wytnij" HorizontalAlignment="Left" Margin="108,29,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="button_Copy3" Content="Wklej" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="button" Content="Undo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="button_Copy" Content="Redo" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="button_Copy1" Content="Paste" HorizontalAlignment="Left" Margin="108,0,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="button_Copy2" Content="Cut" HorizontalAlignment="Left" Margin="108,29,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="button_Copy3" Content="Copy" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top" Width="75"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy" Header="Liczby i kąty [WIP]" HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
+                        <GroupBox x:Name="groupBox_Copy" Header="Numbers &amp; Angles [WIP]" HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
                             <Grid Height="81" VerticalAlignment="Top">
-                                <RadioButton x:Name="RealNumber" Content="Liczby rzeczywiste" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="RealNumber_Checked"/>
-                                <RadioButton x:Name="ComplexNumber" Content="Liczby zespolone" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="ComplexNumber_Checked"/>
-                                <RadioButton x:Name="radioButton_Copy" Content="Stopnie" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
-                                <RadioButton x:Name="radioButton_Copy1" Content="Radiany" HorizontalAlignment="Left" Margin="143,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
-                                <RadioButton x:Name="radioButton_Copy2" Content="Grady" HorizontalAlignment="Left" Margin="143,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
-                                <Label x:Name="label" Content="Miejsca dziesiętne:" HorizontalAlignment="Left" Margin="219,4,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.158,-0.154"/>
+                                <RadioButton x:Name="RealNumber" Content="Real Numbers" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="RealNumber_Checked"/>
+                                <RadioButton x:Name="ComplexNumber" Content="Complex Numbers" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="ComplexNumber_Checked"/>
+                                <RadioButton x:Name="radioButton_Copy" Content="Degrees" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
+                                <RadioButton x:Name="radioButton_Copy1" Content="Radians" HorizontalAlignment="Left" Margin="143,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
+                                <RadioButton x:Name="radioButton_Copy2" Content="Gradians" HorizontalAlignment="Left" Margin="143,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
+                                <Label x:Name="label" Content="Decimal Places:" HorizontalAlignment="Left" Margin="237,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.158,-0.154"/>
                                 <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
-                                    <ListBoxItem Content="Nie ustalony"/>
+                                    <ListBoxItem Content="Not fixed"/>
                                     <ListBoxItem Content="0"/>
                                     <ListBoxItem Content="1"/>
                                     <ListBoxItem Content="2"/>
@@ -46,7 +46,7 @@
 
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy1" Header="Narzędzia [WIP]" HorizontalAlignment="Left" Width="428" Margin="684,0,0,0">
+                        <GroupBox x:Name="groupBox_Copy1" Header="Tools [WIP]" HorizontalAlignment="Left" Width="428" Margin="684,0,0,0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="18*"/>
@@ -54,43 +54,43 @@
                                     <ColumnDefinition Width="305*"/>
                                 </Grid.ColumnDefinitions>
                                 <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3"/>
-                                <Button x:Name="button1_Copy" Content="Wzory i&#xD;&#xA;Równania" HorizontalAlignment="Right" Margin="0,10,204,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
-                                <Button x:Name="button1_Copy1" Content="Rozwiązywanie&#xD;&#xA;Równań" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3"/>
-                                <Button x:Name="button1_Copy2" Content="Trójkąty" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
-                                <Button x:Name="button1_Copy3" Content="Konwerter&#xD;&#xA;Jednostek" HorizontalAlignment="Left" Margin="272,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
+                                <Button x:Name="button1_Copy" Content="Formulas and &#xD;&#xA;Equations" HorizontalAlignment="Right" Margin="0,10,204,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
+                                <Button x:Name="button1_Copy1" Content="Equation&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3"/>
+                                <Button x:Name="button1_Copy2" Content="Triangle&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
+                                <Button x:Name="button1_Copy3" Content="Unit&#xD;&#xA;Converter" HorizontalAlignment="Left" Margin="272,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Wstaw">
+                <TabItem Header="Insert">
 
                     <Grid Margin="0,0,0,-107">
-                        <GroupBox x:Name="groupBox1" Header="Macierze [WIP]" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
-                            <Button x:Name="button2" Content="Matryca" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50"/>
+                        <GroupBox x:Name="groupBox1" Header="Matrices [WIP]" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
+                            <Button x:Name="button2" Content="Matrix" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50"/>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox2" Header="Zmienne [WIP]" HorizontalAlignment="Left" Margin="134,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
-                            <Button x:Name="button3" Content="Zmienna" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50"/>
+                        <GroupBox x:Name="groupBox2" Header="Variables [WIP]" HorizontalAlignment="Left" Margin="134,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
+                            <Button x:Name="button3" Content="Variable" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50"/>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox3" Header="Zestawy Danych [WiP]" HorizontalAlignment="Left" Margin="258,5,0,0" VerticalAlignment="Top" Height="120" Width="145">
-                            <Button x:Name="button4" Content="Zestaw&#xD;&#xA;Danych" HorizontalAlignment="Left" Margin="29,10,0,0" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" VerticalAlignment="Top"/>
+                        <GroupBox x:Name="groupBox3" Header="Data Sets [WiP]" HorizontalAlignment="Left" Margin="258,5,0,0" VerticalAlignment="Top" Height="120" Width="145">
+                            <Button x:Name="button4" Content="Data&#xD;&#xA;Set" HorizontalAlignment="Left" Margin="29,10,0,0" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" VerticalAlignment="Top"/>
                         </GroupBox>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Widok">
+                <TabItem Header="View">
                     <Grid Margin="0,0,0,-106">
-                        <GroupBox x:Name="groupBox4" Header="Widok [WIP]" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
+                        <GroupBox x:Name="groupBox4" Header="Appearance" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
-                                <Button x:Name="button5" Content="Skórki" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
-                                <Button x:Name="ThemaMenu" Content="Schemat&#xD;&#xA;Kolorów" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="ThemaMenu_Click"/>
+                                <Button x:Name="button5" Content="Skins" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
+                                <Button x:Name="ThemaMenu" Content="Color&#xD;&#xA;Schemes" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="ThemaMenu_Click"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox4_Copy" Header="Pokazanie [WIP]" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
+                        <GroupBox x:Name="groupBox4_Copy" Header="Show [WIP]" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
-                                <Button x:Name="button6" Content="Kalkulator" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
-                                <Button x:Name="button5_Copy1" Content="Przechowane&#xD;&#xA;Zmienne" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                <Button x:Name="button6" Content="Calculatror&#xD;&#xA;Pad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
+                                <Button x:Name="button5_Copy1" Content="Stored&#xD;&#xA;Variables" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox4_Copy1" Header="Powiększenie [WIP]" HorizontalAlignment="Left" Margin="436,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
+                        <GroupBox x:Name="groupBox4_Copy1" Header="Zoom [WIP]" HorizontalAlignment="Left" Margin="436,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
                                 <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="89" Height="19"/>
                                 <Button x:Name="button5_Copy2" Content="100%" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
@@ -98,14 +98,14 @@
                         </GroupBox>
                     </Grid>
                 </TabItem>
-                <TabItem x:Name="FormatujOverLap"  VerticalAlignment="Top" Header="Formatuj" Margin="637,0,-637,0"  >
+                <TabItem x:Name="FormatujOverLap"  VerticalAlignment="Top" Header="Graphing Tools" Margin="723,0,-723,0"  >
                     <Grid>
-                        <GroupBox x:Name="groupBox6" Header="Skalowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Width="156">
+                        <GroupBox x:Name="groupBox6" Header="Zoom" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Width="156">
                             <Grid>
-                                <Button x:Name="ZoomOut" Content="Oddal"  Click="ZoomOut_Click" Margin="74,54,0,2" HorizontalAlignment="Left" Width="69" />
-                                <Button x:Name="ZoomIn" Content="Przybliż"  Click="ZoomIN_Click" Margin="0,54,0,2" HorizontalAlignment="Left" Width="69"/>
-                                <CheckBox x:Name="ZoomAfterY" Content="OY" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                                <CheckBox x:Name="ZoomAfterX" Content="OX" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.516,2.222" IsChecked="True"/>
+                                <Button x:Name="ZoomOut" Content="Zoom Out"  Click="ZoomOut_Click" Margin="74,54,0,2" HorizontalAlignment="Left" Width="69" />
+                                <Button x:Name="ZoomIn" Content="Zoom In"  Click="ZoomIN_Click" Margin="0,54,0,2" HorizontalAlignment="Left" Width="69"/>
+                                <CheckBox x:Name="ZoomAfterY" Content="Y-axis" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                                <CheckBox x:Name="ZoomAfterX" Content="X-axis" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.516,2.222" IsChecked="True"/>
                                 <ComboBox x:Name="ChartZoomLevel" HorizontalAlignment="Left" Margin="74,0,0,0" VerticalAlignment="Top" Width="69" SelectedIndex="0">
                                     <ComboBoxItem Content="1x"></ComboBoxItem>
                                     <ComboBoxItem Content="2x"></ComboBoxItem>
@@ -114,35 +114,35 @@
                                 </ComboBox>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox7" Header="Pozycjonowanie" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="394,5,0,0" Width="180">
+                        <GroupBox x:Name="groupBox7" Header="Positioning" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="394,5,0,0" Width="180">
                             <Grid>
-                                <Button x:Name="ChartLineTopPosition" Content="Góra"  Margin="58,0,0,56" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.878,0.92" Click="ChartLineTopPosition_Click"/>
-                                <Button x:Name="ChartLineDownPosition" Content="Dół" Margin="58,56,0,0" HorizontalAlignment="Left" Width="50" Click="ChartLineDownPosition_Click"  />
-                                <Button x:Name="ChartLineLeftPosition" Content="Lewo" Margin="2,30,0,26" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.538,0.36" Click="ChartLineLeftPosition_Click"  />
-                                <Button x:Name="ChartLineRightPosition" Content="Prawo"  Margin="114,30,0,26" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.927,0.6" Click="ChartLineRightPosition_Click"/>
+                                <Button x:Name="ChartLineTopPosition" Content="Up"  Margin="58,0,0,56" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.878,0.92" Click="ChartLineTopPosition_Click"/>
+                                <Button x:Name="ChartLineDownPosition" Content="Down" Margin="58,56,0,0" HorizontalAlignment="Left" Width="50" Click="ChartLineDownPosition_Click"  />
+                                <Button x:Name="ChartLineLeftPosition" Content="Left" Margin="2,30,0,26" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.538,0.36" Click="ChartLineLeftPosition_Click"  />
+                                <Button x:Name="ChartLineRightPosition" Content="Right"  Margin="114,30,0,26" HorizontalAlignment="Left" Width="50" RenderTransformOrigin="0.927,0.6" Click="ChartLineRightPosition_Click"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox8" Header="Ustaw Oś" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="166,5,0,0" Width="223" Height="120">
+                        <GroupBox x:Name="groupBox8" Header="Axis range" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="166,5,0,0" Width="223" Height="120">
                             <Grid>
-                                <TextBlock Margin="26,0,149,63" Text="Oś X" FontSize="14"></TextBlock>
-                                <TextBlock Text="od:" Margin="0,26,185,38" FontSize="14" RenderTransformOrigin="0.654,0.65"></TextBlock>
-                                <TextBlock Text="do:" Margin="0,57,185,3" FontSize="14"></TextBlock>
-                                <TextBox x:Name="MinX" Margin="31,23,128,32"></TextBox>
-                                <TextBox x:Name="MaxX" Margin="31,54,128,-2"></TextBox>
+                                <TextBlock Margin="26,0,149,63" Text="X-axis" FontSize="14"></TextBlock>
+                                <TextBlock Margin="0,26,168,38" FontSize="14" RenderTransformOrigin="0.654,0.65"><Run Text="from"/><Run Text=":"/></TextBlock>
+                                <TextBlock Text="to:" Margin="0,57,168,3" FontSize="14"></TextBlock>
+                                <TextBox x:Name="MinX" Margin="48,23,111,32"></TextBox>
+                                <TextBox x:Name="MaxX" Margin="48,54,111,-2"></TextBox>
                                 <Rectangle Fill="#FFF4F4F5" Height="82" Margin="105,-1,105,0" Stroke="Black" VerticalAlignment="Top"/>
-                                <TextBlock Text ="Oś Y" Margin="141,0,34,61" FontSize="14"></TextBlock>
-                                <TextBlock Text="od:" Margin="111,26,68,38" FontSize="14" RenderTransformOrigin="0.625,-0.059"></TextBlock>
-                                <TextBlock Text="do:" Margin="111,57,68,3" FontSize="14"></TextBlock>
-                                <TextBox x:Name="MinY" Margin="141,23,18,32"></TextBox>
-                                <TextBox x:Name="MaxY" Margin="141,54,18,-2"/>
+                                <TextBlock Text ="Y-axis" Margin="141,0,34,61" FontSize="14" Height="20" VerticalAlignment="Bottom"></TextBlock>
+                                <TextBlock Text="form:" Margin="111,26,68,38" FontSize="14" RenderTransformOrigin="0.625,-0.059"></TextBlock>
+                                <TextBlock Text="to:" Margin="111,57,68,3" FontSize="14"></TextBlock>
+                                <TextBox x:Name="MinY" Margin="159,23,0,32"></TextBox>
+                                <TextBox x:Name="MaxY" Margin="159,54,0,-2"/>
                             </Grid>
                         </GroupBox>
-                        <Button x:Name="AcceptXY" Content="Zatwierdz" HorizontalAlignment="Left" Margin="312,7,0,0" VerticalAlignment="Top" Width="70" Height="10" Click="AcceptXY_Click"/>
+                        <Button x:Name="AcceptXY" Content="Confirm" HorizontalAlignment="Left" Margin="312,7,0,0" VerticalAlignment="Top" Width="68" Height="10" Click="AcceptXY_Click"/>
                     </Grid>
                 </TabItem>
             </TabControl>
             <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" SelectionChanged="TabControl_SelectionChanged" >
-                <TabItem x:Name="worksheetTab" Margin="0,0,-4,-2" Header="Arkusz">
+                <TabItem x:Name="worksheetTab" Margin="0,0,-4,-2" Header="Worksheet">
                     <TabControl BorderBrush="AliceBlue" BorderThickness="6" >
                         <Grid Margin="0,0,-11,-11">
                             <Grid.ColumnDefinitions>
@@ -154,17 +154,17 @@
                             <GroupBox x:Name="groupBox5" Header="" HorizontalAlignment="Left" Margin="10,418,0,0" VerticalAlignment="Top" Height="139" Width="840" Grid.ColumnSpan="2">
                                 <Grid FocusManager.FocusedElement="{Binding ElementName=ExpressionField}">
                                     <TextBox x:Name="ExpressionField" HorizontalAlignment="Left" Height="65" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" FontSize="18" TabIndex="0"/>
-                                    <TextBox x:Name="TipBox" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" TextWrapping="Wrap" Text="Wprowadź wyrażenie i naciśnij Wprowadź" VerticalAlignment="Top" Width="808"/>
-                                    <Button x:Name="Clear" Content="Wyczyść" HorizontalAlignment="Left" Margin="743,5,0,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
-                                    <Button x:Name="ConfirmExpresion" Content="Wprowadź" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
+                                    <TextBox x:Name="TipBox" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" TextWrapping="Wrap" Text="Type an expression and then click Enter." VerticalAlignment="Top" Width="808"/>
+                                    <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" Margin="743,5,0,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
+                                    <Button x:Name="ConfirmExpresion" Content="Enter" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
                                 </Grid>
                             </GroupBox>
-                            <Button x:Name="Edit" Content="Edytuj" HorizontalAlignment="Left" Margin="566,10,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
-                            <Button x:Name="Delete" Content="Usuń" HorizontalAlignment="Left" Margin="649,10,0,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
+                            <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="566,10,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
+                            <Button x:Name="Delete" Content="Remove" HorizontalAlignment="Left" Margin="649,10,0,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
                         </Grid>
                     </TabControl>
                 </TabItem>
-                <TabItem x:Name="ChartsOverLap" Header="Wykresy" >
+                <TabItem x:Name="ChartsOverLap" Header="Graphing" Height="39" VerticalAlignment="Top" >
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="30*"/>
@@ -176,14 +176,14 @@
                                 <ListViewItem x:Name="EqualizationAndFunctionsChLV" Width="247" Height="428">
                                     <Grid>
                                         <Button x:Name="EqualizationAndFunctionsChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,57,0" Height="22" VerticalAlignment="Top">Równania i Funkcje</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,29,0" Height="22" VerticalAlignment="Top" Text="Equations &amp; Functions"/>
                                         <ComboBox Width="100" SelectedIndex="0" Margin="15,31,132,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
                                             <ComboBoxItem Content="3D"/>
                                         </ComboBox>
                                         <ComboBox x:Name="LineTypeChart" Width="100" SelectedIndex="0" Height="26" Margin="127,31,20,0" VerticalAlignment="Top">
-                                            <ComboBoxItem  Content="Kartezjański"/>
-                                            <ComboBoxItem Content="Biegunowy"/>
+                                            <ComboBoxItem  Content="Cartesian"/>
+                                            <ComboBoxItem Content="Polar"/>
                                         </ComboBox>
                                         <ListView x:Name="ChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -210,22 +210,22 @@
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <Button x:Name="AddExpresionToPlot" Content="Dodaj" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" Click="AddExpresionToPlot_Click" VerticalAlignment="Top"/>
-                                        <Button x:Name="RemoveFunctionFromChart" Content="Usuń" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" Click="RemoveFunctionFromChart_Click"/>
-                                        <Button x:Name="PlotChart" Content="Rysuj" HorizontalAlignment="Left" Margin="170,396,0,7" Width="57" Height="20" Click="PlotChart_Click"/>
+                                        <Button x:Name="AddExpresionToPlot" Content="Add" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" Click="AddExpresionToPlot_Click" VerticalAlignment="Top"/>
+                                        <Button x:Name="RemoveFunctionFromChart" Content="Remove" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" Click="RemoveFunctionFromChart_Click"/>
+                                        <Button x:Name="PlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,7" Width="57" Height="20" Click="PlotChart_Click"/>
                                     </Grid>
                                 </ListViewItem>
                                 <ListViewItem  x:Name="DataSetChLV" Height="24" Width="247">
                                     <Grid>
                                         <Button x:Name="DataSetChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
-                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Zestawy danych</TextBlock>
+                                        <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top" Text="Data Sets"/>
                                         <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
                                             <ComboBoxItem Content="3D"/>
                                         </ComboBox>
                                         <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,15,0" VerticalAlignment="Top">
-                                            <ComboBoxItem Content="Kartezjański"/>
-                                            <ComboBoxItem Content="Biegunowy[WIP"/>
+                                            <ComboBoxItem Content="Cartesian"/>
+                                            <ComboBoxItem Content="Polar"/>
                                         </ComboBox>
                                         <ListView x:Name="PointChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -259,9 +259,9 @@
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <Button x:Name="PointAddExpresionToPlot" Content="Dodaj" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top" Click="AddExpresionToPlot_Click"/>
-                                        <Button x:Name="PointRemoveFunctionFromChart" Content="Usuń" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" />
-                                        <Button x:Name="PointPlotChart" Content="Rysuj" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click" />
+                                        <Button x:Name="PointAddExpresionToPlot" Content="Add" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top" Click="AddExpresionToPlot_Click"/>
+                                        <Button x:Name="PointRemoveFunctionFromChart" Content="Remove" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" />
+                                        <Button x:Name="PointPlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click" />
                                     </Grid>
                                 </ListViewItem>
                                 <ListViewItem  x:Name="ParametricChLV" Height="28" Width="247">
@@ -273,8 +273,8 @@
                                             <ComboBoxItem Content="3D"/>
                                         </ComboBox>
                                         <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,15,0" VerticalAlignment="Top">
-                                            <ComboBoxItem Content="Liniowy"/>
-                                            <ComboBoxItem Content="Kołowy"/>
+                                            <ComboBoxItem Content="Cartesian"/>
+                                            <ComboBoxItem Content="Polar"/>
                                         </ComboBox>
                                         <ListView x:Name="ParametricChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -316,9 +316,9 @@
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <Button x:Name="ParametricAddExpresionToPlot" Content="Dodaj" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top"/>
-                                        <Button x:Name="ParametricRemoveFunctionFromChart" Content="Usuń" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" />
-                                        <Button x:Name="ParametricPlotChart" Content="Rysuj" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" />
+                                        <Button x:Name="ParametricAddExpresionToPlot" Content="Add" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top"/>
+                                        <Button x:Name="ParametricRemoveFunctionFromChart" Content="Remove" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" />
+                                        <Button x:Name="ParametricPlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" />
                                     </Grid>
                                 </ListViewItem>
                                 <ListViewItem  x:Name="InequalitiesChLV" Height="26" Width="247">
@@ -357,9 +357,9 @@
                                                 </GridView>
                                             </ListView.View>
                                         </ListView>
-                                        <Button x:Name="InequalitiesAddExpresionToPlot" Content="Dodaj" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top"/>
-                                        <Button x:Name="InequalitiesRemoveFunctionFromChart" Content="Usuń" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" />
-                                        <Button x:Name="InequalitiesPlotChart" Content="Rysuj" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" />
+                                        <Button x:Name="InequalitiesAddExpresionToPlot" Content="Add" HorizontalAlignment="Left" Margin="10,396,0,0" Width="57" Height="20" VerticalAlignment="Top"/>
+                                        <Button x:Name="InequalitiesRemoveFunctionFromChart" Content="Remove" HorizontalAlignment="Left" Margin="72,396,0,0" VerticalAlignment="Top" Width="76" />
+                                        <Button x:Name="InequalitiesPlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" />
                                     </Grid>
                                 </ListViewItem>
                                 <ListViewItem  x:Name="TraceChLV" Height="28" Width="247">
@@ -367,9 +367,9 @@
                                         <Button x:Name="TraceChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
                                         <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Graph Controls [WiP]</TextBlock>
                                         <Button x:Name="TraceStartPlot" Content="Start" HorizontalAlignment="Left" Margin="65,41,0,0" Width="45" Height="20" VerticalAlignment="Top"/>
-                                        <Button x:Name="TraceSPauseChart" Content="Pauza" HorizontalAlignment="Left" Margin="115,41,0,0" VerticalAlignment="Top" Width="44" />
+                                        <Button x:Name="TraceSPauseChart" Content="Pause" HorizontalAlignment="Left" Margin="115,41,0,0" VerticalAlignment="Top" Width="44" />
                                         <Button x:Name="TraceStopChart" Content="Stop" HorizontalAlignment="Left" Margin="164,41,0,0" VerticalAlignment="Top" Width="42" Height="20" />
-                                        <Label Margin="10,38,187,0" Height="26" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.52,1.154">Trasa</Label>
+                                        <Label Margin="10,38,187,0" Height="26" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.52,1.154">Trace</Label>
                                     </Grid>
                                 </ListViewItem>
                             </ListView>
@@ -401,7 +401,7 @@
                 </TabControl>
             </TabControl>
         </Grid>
-        <Button x:Name="Menu" Content="Plik" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-0.045,0.6" Click="Menu_Click"/>
+        <Button x:Name="Menu" Content="File" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-0.045,0.6" Click="Menu_Click"/>
         <Image x:Name="image" Source="img/AMW.png" HorizontalAlignment="Left" Height="618" Margin="-11,208,0,0" VerticalAlignment="Top" Width="364"/>
         <Button x:Name="k7" Content="7" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
         <Button x:Name="k8" Content="8" HorizontalAlignment="Left" Margin="98,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
@@ -431,24 +431,24 @@
             <ListBoxItem x:Name="ComplexTab" Height="155">
                 <Grid Height="168" >
                     <Button x:Name="Complex" Content="-" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="ComplexLabel" Content="Liczby zespolone:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Margin="30,0,0,0"/>
+                    <Label x:Name="ComplexLabel" Content="Complex Numbers:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Margin="30,0,0,0"/>
                     <Button x:Name="ComplexAbsolute3" Content="|z|" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="30" ToolTip="Moduł liczby zespolonej. Np. cabs(1+%i)" Click="Function_Click" Height="28"/>
                     <Button x:Name="ImaginaryUnit2" Content="%i" HorizontalAlignment="Left" Margin="93,31,0,0" VerticalAlignment="Top" Width="30" ToolTip="Jednosta urojona" Click="Function_Click" Height="28"/>
-                    <Button x:Name="RealPart3" Content="częśc rzeczywista" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Część rzeczywista liczby zespolonej. Np. realpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
-                    <Button x:Name="ImaginaryPart3" Content="częśc uruojona" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Część urojona liczby zespolonej. Np. imgagpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
+                    <Button x:Name="RealPart3" Content="real part" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Część rzeczywista liczby zespolonej. Np. realpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
+                    <Button x:Name="ImaginaryPart3" Content="imaginary part" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Część urojona liczby zespolonej. Np. imgagpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
                     <Button x:Name="Conjugate3"  HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="43" ToolTip="Sprzężenie zwrotne liczby zespolonej. Np. conjugate(1+%i)" Click="Function_Click">
                         <Image Source="img/Klawiatura/Funkcje/sprzężenie.png" />
                     </Button>
                     <Button x:Name="ComplexArg1" Content="carg" HorizontalAlignment="Left" Margin="128,31,0,0" VerticalAlignment="Top" Width="38" ToolTip="Argument liczby zespolonej. Np. carg(1+%i)" Click="Function_Click" Height="28"/>
-                    <Button x:Name="Rect_Polar3" Content="postać algebraiczna &gt; wykładniczą" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="228" ToolTip="Zamiana liczby zespolonej z postaci algebranicznej na wyjkładniczą. Np. polarform(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
-                    <Button x:Name="Polar_Rect3" Content="postać wykładnicza &gt;algebraiczna" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="228" ToolTip="Zamiana liczby zespolonej z postaci wykładniczej na algebraiczną. Np. rectform(sqrt(5)*%e^(%i*atan(2)))" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
+                    <Button x:Name="Rect_Polar3" Content="rectangular &gt; polar" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="228" ToolTip="Zamiana liczby zespolonej z postaci algebranicznej na wyjkładniczą. Np. polarform(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
+                    <Button x:Name="Polar_Rect3" Content="polar &gt; rectangular" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="228" ToolTip="Zamiana liczby zespolonej z postaci wykładniczej na algebraiczną. Np. rectform(sqrt(5)*%e^(%i*atan(2)))" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
                 </Grid>
             </ListBoxItem>
 
             <ListBoxItem x:Name="CalculusTab" Height="27" >
                 <Grid Height="105" >
                     <Button x:Name="Calculus" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="CalculusLabel" Content="Rachunek różniczkowy:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136"  Margin="30,0,0,0"/>
+                    <Label x:Name="CalculusLabel" Content="Calculus:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136"  Margin="30,0,0,0"/>
                     <Button x:Name="Derivative3" ToolTip="Pochodna wyrażenia. Np. diff(x^2,x)"  HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="46" Height="38" Click="Function_Click">
                         <Image Source="img/Klawiatura/Funkcje/pochodna.png" Height="28" Width="40" />
                     </Button>
@@ -475,7 +475,7 @@
                 <Grid Height="153" >
 
                     <Button x:Name="Statistic" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="StatisticLabel" Content="Statystyka:   [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Margin="30,0,0,0"/>
+                    <Label x:Name="StatisticLabel" Content="Statistics:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Margin="30,0,0,0"/>
                     <Button x:Name="NawiasKO2" Content="{}{" ToolTip="Otwierający nawais klamrowy. Np. {2,3,4}" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
                     <Button x:Name="NawiasKZ2" Content="}" ToolTip="Zamykający nawais klamrowy. Np. {2,3,4}" HorizontalAlignment="Left" Margin="38,30,0,0" VerticalAlignment="Top" Width="24" Height="18" Click="Function_Click"/>
                     <Button x:Name="Sort3" Content="sort" ToolTip="Sortowanie listy w kolejności rosnącej. Np. sort([2,1,6,3])" HorizontalAlignment="Left" Margin="67,31,0,0" VerticalAlignment="Top" Width="40" Height="18" Click="Function_Click"/>
@@ -497,7 +497,7 @@
             <ListBoxItem x:Name="TrigonometryTab" Height="27" >
                 <Grid Height="153" >
                     <Button x:Name="Trigonometry" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="TrigonometryLabel" Content="Trygonometria:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104"  Margin="30,0,0,0"/>
+                    <Label x:Name="TrigonometryLabel" Content="Trigonometry:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104"  Margin="30,0,0,0"/>
                     <Button x:Name="Sine1" ToolTip="Sinus liczby. Np. sin(45)" Content="sin" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
                     <Button x:Name="Cosine1" ToolTip="Cosinus liczby. Np. cos(45)" Content="cos" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
                     <Button x:Name="Tangent1" ToolTip="Tangens liczby. Np. tan(45)" Content="tan" HorizontalAlignment="Left" Margin="160,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
@@ -518,7 +518,7 @@
             <ListBoxItem x:Name="LinearAlgebraTab" Height="27" >
                 <Grid Height="153">
                     <Button x:Name="LinearAlgebra" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="LinearAlgebraLabel" Content="Algebra liniowa: [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Margin="30,0,0,0"/>
+                    <Label x:Name="LinearAlgebraLabel" Content="Linear Algebra: [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Margin="30,0,0,0"/>
 
 
                 </Grid>
@@ -527,11 +527,11 @@
             <ListBoxItem x:Name="StandardTab" Height="213" >
                 <Grid Height="232">
                     <Button x:Name="Standard" Content="-" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="StandardLabel" Content="Standardowe:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104"  Margin="30,0,0,0"/>
+                    <Label x:Name="StandardLabel" Content="Standard:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104"  Margin="30,0,0,0"/>
                     <Button x:Name="Xvariable2" ToolTip="Zmienna o nazwie x. Np. x:=." Content="x" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
                     <Button x:Name="Yvariable2" ToolTip="Zmienna o nazwie y. Np. y:=." Content="y" HorizontalAlignment="Left" Margin="57,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
                     <Button x:Name="Zvariable2" ToolTip="Zmienna o nazwie z. Np. z:=." Content="z" HorizontalAlignment="Left" Margin="104,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Variable" ToolTip="Okno z innymi zmiennymi" Content="Zmienne" HorizontalAlignment="Left" Margin="151,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Variable_Click" />
+                    <Button x:Name="Variable" ToolTip="Okno z innymi zmiennymi" Content="more vars" HorizontalAlignment="Left" Margin="151,31,0,0" VerticalAlignment="Top" Width="85" Height="18" Click="Variable_Click" />
                     <Button x:Name="NawiasO2" ToolTip="Otwierający nawias. Np. 2*(2+2)" Content="(" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
                     <Button x:Name="NawiasZ2" ToolTip="Zamykający nawias. Np. 2*(2+2)" Content=")" HorizontalAlignment="Left" Margin="38,62,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
                     <Button x:Name="Factor1" ToolTip="Faktoryzacja wyrażenia. Np. factor(2^65+3^65)" Content="factor" HorizontalAlignment="Left" Margin="66,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
@@ -571,7 +571,7 @@
             <ListBoxItem x:Name="FavoriteTab" Height="27" >
                 <Grid Height="153" >
                     <Button x:Name="Favorite" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="FavoriteLabel" Content="Ulubione:     [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150"  Margin="30,0,0,0"/>
+                    <Label x:Name="FavoriteLabel" Content="Favorite Buttons: [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150"  Margin="30,0,0,0"/>
                 </Grid>
             </ListBoxItem>
         </ListBox>
@@ -607,11 +607,11 @@
                     Height="165"
                     Background="#FF41B1E1">
                 <Grid>
-                    <Button x:Name="New" Content="Nowy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="NewProject_Click"/>
-                    <Button x:Name="OpenProject" Content="Otwórz" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Click="OpenProject_Click"/>
-                    <Button x:Name="Save" Content="Zapisz" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top" Width="75" Click="Sava_Click"/>
-                    <Button x:Name="SaveAs" Content="Zapisz jako" HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" Width="75" Click="SaveAs_Click"/>
-                    <Button x:Name="Exit" Content="Zakończ" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75" Click="AplicationExit_Click"/>
+                    <Button x:Name="New" Content="New" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="NewProject_Click"/>
+                    <Button x:Name="OpenProject" Content="Open..." HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="75" Click="OpenProject_Click"/>
+                    <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top" Width="75" Click="Sava_Click"/>
+                    <Button x:Name="SaveAs" Content="Save as..." HorizontalAlignment="Left" Margin="11,100,0,0" VerticalAlignment="Top" Width="75" Click="SaveAs_Click"/>
+                    <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="75" Click="AplicationExit_Click"/>
                 </Grid>
 
             </Border>
@@ -639,8 +639,8 @@
                         </ListView.ItemTemplate>
                     </ListView>
                     <Button x:Name="DataSetOk" Content="OK" HorizontalAlignment="Left" Margin="150,168,0,0" VerticalAlignment="Top" Width="50" Click="DataSetOk_Click"/>
-                    <Button x:Name="DataSetCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="205,168,0,0" VerticalAlignment="Top" Width="50" Click="DataSetCancel_Click"/>
-                    <Button x:Name="DataSetClear" Content="Wyczyść" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="61" Click="DataSetClear_Click"/>
+                    <Button x:Name="DataSetCancel" Content="Cancel" HorizontalAlignment="Left" Margin="205,168,0,0" VerticalAlignment="Top" Width="50" Click="DataSetCancel_Click"/>
+                    <Button x:Name="DataSetClear" Content="Clear" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="61" Click="DataSetClear_Click"/>
 
                 </Grid>
             </Border>
@@ -655,8 +655,8 @@
                     Background="#FF41B1E1">
                 <Grid>
 
-                    <Label x:Name="Kolor" Content="Kolor akcentu:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label1_Copy" Content="Motyw:" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="Kolor" Content="Accents color:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label1_Copy" Content="Themes:" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="SelectedColor" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
                         <ListBoxItem Content="Blue" IsSelected="True" Width="110"/>
                         <ListBoxItem Content="Red" IsSelected="True" Width="110"/>
@@ -669,7 +669,7 @@
                         <ListBoxItem Content="BaseLight" Width="110"/>
                         <ListBoxItem Content="BaseDark" Width="110"/>
                     </ComboBox>
-                    <Button x:Name="ColorAccept" Content="Zapisz" HorizontalAlignment="Left" Margin="200,108,0,0" VerticalAlignment="Top" Width="75" Click="ColorAccept_Click"/>
+                    <Button x:Name="ColorAccept" Content="Save" HorizontalAlignment="Left" Margin="200,108,0,0" VerticalAlignment="Top" Width="75" Click="ColorAccept_Click"/>
 
 
 

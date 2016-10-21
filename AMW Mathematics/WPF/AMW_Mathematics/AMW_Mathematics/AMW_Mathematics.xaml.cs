@@ -116,7 +116,7 @@ public MainWindow()
                 if ((bool)RealNumber.IsChecked)
                     if (ExpressionField.Text.Contains("%i"))
                     {
-                        System.Windows.MessageBox.Show("Podane wyrażenie zawiera liczby złożone mimo tego, że jesteś w trybie liczb rzeczywistych. Zmień wyrażenie lub tryb i spróbuj ponownie", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                        System.Windows.MessageBox.Show("Expression contains a complex number despite the fact that you are in real numbers mode. Change the expression or mode and try again ", " Error ", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
 
@@ -130,7 +130,7 @@ public MainWindow()
                 {
                     if (Expresion.Contains("syntax"))
                     {
-                        System.Windows.MessageBox.Show("Wystąpił błąd w składni wyrażenia popraw działanie i spróbuj ponownie", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                        System.Windows.MessageBox.Show("There was an error in the expression syntax - correct expression and try againe", "Syntax Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                 }
@@ -140,11 +140,11 @@ public MainWindow()
                     string[] rat = Expresion.Split('=');
                     Expresion = rat.Last() + "     [WIP]";
                 }
-                ResultList.Items.Add("Wejście: " + phrase.AddToNumberDot(ExpressionField.Text) + "\nWyjście: " + Expresion);
+                ResultList.Items.Add("Input:      " + phrase.AddToNumberDot(ExpressionField.Text) + "\nOutput:   " + Expresion);
                 ResultList.SelectedIndex = ResultList.Items.Count - 1;
                 ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);
                 ExpressionField.Clear();
-                TipBox.Text = "Wprowadź wyrażenie i naciśnij Wprowadź";
+                TipBox.Text = "Type an expression and then click Enter.";
                 TipBox.Foreground = Brushes.Black;
             }
         }
@@ -161,7 +161,7 @@ public MainWindow()
         private void Clear_Click(object sender, RoutedEventArgs e)                  //Funckja czyszcząca okno wprowadzania #Ł
         {
             ExpressionField.Text = "";
-            TipBox.Text = "Wprowadź wyrażenie i naciśnij Wprowadź";
+            TipBox.Text = "Type an expression and then click Enter.";
             TipBox.Foreground = Brushes.Black;
         }
 
@@ -470,7 +470,7 @@ public MainWindow()
             string[] partExpression;
             string[] split = new string[] { "\n" };
             partExpression = ResultList.SelectedItem.ToString().Split(split, StringSplitOptions.RemoveEmptyEntries);
-            ExpressionField.Text = partExpression[0].Remove(0, 9);
+            ExpressionField.Text = partExpression[0].Remove(0, 12);
             ExpressionField.Focus();
             ExpressionField.SelectionStart = ExpressionField.Text.Length;
 
@@ -646,7 +646,7 @@ public MainWindow()
         private void ComplexNumber_Checked(object sender, RoutedEventArgs e)                    //Funkcja uruchamiająca tryb Liczyb rzeczywiste #Ł
         {
             ComplexTab.Visibility = System.Windows.Visibility.Visible;                          //wyświetlenie pasku funkcji na kalkulatroze "Liczby zespolone #Ł
-            System.Windows.MessageBox.Show("Jesteś teraz w trybie liczb zespolonych. Jednostkę urujoną w naszym programie oznacza się poprzez użycie zwrotu \"%i\" Np. 2+3*%i", "Tryb liczb zespoloncyh", MessageBoxButton.OK, MessageBoxImage.Question);
+            System.Windows.MessageBox.Show("You are now in the complex numbers mode. The imaginary unit in our program is determined by use of the phrase \" % i \" Ex. 2 + 3 *% i ", " Complex Numbers Mode", MessageBoxButton.OK, MessageBoxImage.Question);
             
         }
 

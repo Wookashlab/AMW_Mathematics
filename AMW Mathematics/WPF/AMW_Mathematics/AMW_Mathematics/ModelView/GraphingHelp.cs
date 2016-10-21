@@ -19,15 +19,15 @@ namespace AMW_Mathematics.ModelView
         }
         public void RownaniaFunkcje2d()
         {
-            Title = "Pomoc do zakładki \"Wyrkesy\"";
-            SubTitle = "Wzory i równania 2D - układ kartezjański";
-            MainHelp = "Wprowadź równanie lub funkcj, którą chcesz narysować.\n\nPrzykłady\ny = x + 3\ny = sqrt(x^2 + 2)\ny = x ^ 2 + 2x - 1 - 2";
+            Title = "Help for Graphing Tab";
+            SubTitle = "Equation and Function 2D";
+            MainHelp = "Enter the equation or function you want to plot.\n\nExamples\ny = x + 3\ny = sqrt(x^2 + 2)\ny = x ^ 2 + 2x - 1 - 2";
         }
         public void ZestawDanych()
         {
-            Title = "Pomoc do zakładki \"Wyrkesy\"";
-            SubTitle = "Zestaw danych 2D - układ kartezjański";
-            MainHelp = "Wprowadź zestaw danych, którą chcesz narysować.\n\nWskazówki:\nKliknij przycisk \"Wstaw zestaw danych\", aby wprowadzić dane w łatwy sposób.\nJeżeli przechowujesz dane w zmiennej możesz wprowadzić jej nazwę do \nokna wprowadzania\n\nPrzykłady\n{{1,1}, {- 1,1}, {- 3,9}, {2,4}}";
+            Title = "Help for Graphing Tab";
+            SubTitle = "Data Sets - 2D";
+            MainHelp = "Enter the data set that you want to plot.\n\nTips:\nClick the \"Insert Data set\" button for an easy way to enter data\n\nExamples\n{{1,1}, {- 1,1}, {- 3,9}, {2,4}}";
         }
     }
 }
