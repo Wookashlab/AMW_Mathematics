@@ -60,6 +60,8 @@ namespace AMW_Mathematics
 
         private DataToChart datatochart = new DataToChart();
 
+        private DataLayout datalayout = new DataLayout();
+
         System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();
         public string theme { get; set; }
           public string background { get; set; }
@@ -103,6 +105,7 @@ public MainWindow()
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            datalayout.VisibilityCalculatorPad = true;
             ComplexNumber comp = new ComplexNumber();
             expPlotter.MouseMove += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseMove);
             expPlotter.MouseWheel += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseWheel);
@@ -455,9 +458,7 @@ public MainWindow()
                 Plot.Visibility = Visibility.Hidden;
                 GraphHelpGrid.Visibility = Visibility.Visible;
                 expPlotterControl.Visibility = Visibility.Hidden;
-
             }
-
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)                         //Funkcja obsługująca usuwanie pozycji z listy Result #Ł
@@ -883,6 +884,58 @@ public MainWindow()
                     ViewPlot.SetXAndY(Plot, double.Parse(MinX.Text), double.Parse(MaxX.Text), double.Parse(MinY.Text), double.Parse(MaxY.Text));
                     break;
             }
+        }
+
+        private void Hidde_CalculatorPad_Click(object sender, RoutedEventArgs e)
+        {
+            if(datalayout.VisibilityCalculatorPad == true)
+            {
+                Function_list.Visibility = Visibility.Hidden;
+                Pad_Atribute.Visibility = Visibility.Hidden;
+                Worksheetadn.Margin = new Thickness(10, 188, 0, 0);
+                Worksheetadn.Width = 1191;
+                datalayout.VisibilityCalculatorPad = false;
+            }else
+            {
+                Function_list.Visibility = Visibility.Visible;
+                Pad_Atribute.Visibility = Visibility.Visible;
+                Worksheetadn.Margin = new Thickness(322, 188, 0, 0);
+                Worksheetadn.Width = 879;
+                datalayout.VisibilityCalculatorPad = true;
+            }         
+        }
+
+        private void Stored_Variable_Click(object sender, RoutedEventArgs e)
+        {
+            VariablePop.IsOpen = true;
+            var point = Mouse.GetPosition(Application.Current.MainWindow);
+            VariablePop.HorizontalOffset = point.X - 10;
+            VariablePop.VerticalOffset = point.Y - 20;
+            VariablesListView.Items.Clear();
+            int index = 0;
+            foreach(var item in phrase.SymbolsAndValues)
+            {
+                VariablesListView.Items.Add(new VariablesListView {Variable = item.Key + " = " + item.Value, Index = index});
+                index++;
+            }
+        }
+
+        private void ClearVariable_Click(object sender, RoutedEventArgs e)
+        {
+            var klawisz = (Button)sender;
+            var item = VariablesListView.Items[int.Parse(klawisz.Tag.ToString())];
+            VariablesListView.Items.Remove(item);
+            var variable = item as VariablesListView;
+            int ind = variable.Variable.IndexOf("=");
+            string key = variable.Variable.Substring(0, ind-1).ToString();
+            phrase.SymbolsAndValues.Remove(key);
+        }
+
+        private void Clear_Variables_Click(object sender, RoutedEventArgs e)
+        {
+            VariablesListView.Items.Clear();
+            phrase.SymbolsAndValues.Clear();
+            VariablePop.IsOpen = false;
         }
     }
 }

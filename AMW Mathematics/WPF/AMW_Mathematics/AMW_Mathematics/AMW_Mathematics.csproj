@@ -100,6 +100,8 @@
     <Compile Include="Function\Expreson.cs" />
     <Compile Include="ModelView\GraphingHelp.cs" />
     <Compile Include="ModelView\ListPointChartView.cs" />
+    <Compile Include="ModelView\VariablesListView.cs" />
+    <Compile Include="Model\DataLayout.cs" />
     <Compile Include="Model\DataToChart.cs" />
     <Compile Include="Model\DataToLineChartView.cs" />
     <Compile Include="Model\DataToPointList.cs" />

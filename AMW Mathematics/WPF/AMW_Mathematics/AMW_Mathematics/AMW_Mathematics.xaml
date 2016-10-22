@@ -86,8 +86,8 @@
                         </GroupBox>
                         <GroupBox x:Name="groupBox4_Copy" Header="Show [WIP]" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
-                                <Button x:Name="button6" Content="Calculatror&#xD;&#xA;Pad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
-                                <Button x:Name="button5_Copy1" Content="Stored&#xD;&#xA;Variables" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                <Button x:Name="Hidde_CalculatorPad" Content="Calculatror&#xD;&#xA;Pad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="Hidde_CalculatorPad_Click"/>
+                                <Button x:Name="Stored_Variable" Content="Stored&#xD;&#xA;Variables" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Stored_Variable_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox x:Name="groupBox4_Copy1" Header="Zoom [WIP]" HorizontalAlignment="Left" Margin="436,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
@@ -141,7 +141,7 @@
                     </Grid>
                 </TabItem>
             </TabControl>
-            <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" SelectionChanged="TabControl_SelectionChanged" >
+            <TabControl x:Name="Worksheetadn" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" SelectionChanged="TabControl_SelectionChanged" >
                 <TabItem x:Name="worksheetTab" Margin="0,0,-4,-2" Header="Worksheet">
                     <TabControl BorderBrush="AliceBlue" BorderThickness="6" >
                         <Grid Margin="0,0,-11,-11">
@@ -151,16 +151,16 @@
                             </Grid.ColumnDefinitions>
                             <ListBox x:Name="ResultList" Margin="10,40,10,160" FontSize="22" Grid.ColumnSpan="2">
                             </ListBox>
-                            <GroupBox x:Name="groupBox5" Header="" HorizontalAlignment="Left" Margin="10,418,0,0" VerticalAlignment="Top" Height="139" Width="840" Grid.ColumnSpan="2">
+                            <GroupBox x:Name="groupBox5" Header="" Margin="10,418,18,0" VerticalAlignment="Top" Height="139" Grid.ColumnSpan="2">
                                 <Grid FocusManager.FocusedElement="{Binding ElementName=ExpressionField}">
-                                    <TextBox x:Name="ExpressionField" HorizontalAlignment="Left" Height="65" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="728" FontSize="18" TabIndex="0"/>
-                                    <TextBox x:Name="TipBox" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" TextWrapping="Wrap" Text="Type an expression and then click Enter." VerticalAlignment="Top" Width="808"/>
-                                    <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" Margin="743,5,0,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
-                                    <Button x:Name="ConfirmExpresion" Content="Enter" HorizontalAlignment="Left" Margin="743,35,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
+                                    <TextBox x:Name="ExpressionField" Height="65" Margin="10,0,90,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18" TabIndex="0"/>
+                                    <TextBox x:Name="TipBox" Height="29" Margin="10,70,10,0" TextWrapping="Wrap" Text="Type an expression and then click Enter." VerticalAlignment="Top"/>
+                                    <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Right" Margin="0,5,10,0" VerticalAlignment="Top" Width="75" Click="Clear_Click"/>
+                                    <Button x:Name="ConfirmExpresion" Content="Enter" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
                                 </Grid>
                             </GroupBox>
-                            <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="566,10,0,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
-                            <Button x:Name="Delete" Content="Remove" HorizontalAlignment="Left" Margin="649,10,0,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
+                            <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Right" Margin="0,10,93,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
+                            <Button x:Name="Delete" Content="Remove" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
                         </Grid>
                     </TabControl>
                 </TabItem>
@@ -171,7 +171,7 @@
                             <ColumnDefinition Width="28*"/>
                             <ColumnDefinition Width="815*"/>
                         </Grid.ColumnDefinitions>
-                        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,0,598,0" Grid.ColumnSpan="3">
+                        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="267">
                             <ListView HorizontalAlignment="Left" Width="251">
                                 <ListViewItem x:Name="EqualizationAndFunctionsChLV" Width="247" Height="428">
                                     <Grid>
@@ -387,7 +387,7 @@
                             <TextBlock x:Name="TitleTxt" Text="{Binding Title}" Foreground="#FF41B1E1" FontWeight="Bold" FontSize="24" Margin="0,26,0,503" />
                             <TextBlock x:Name="SubTitleTxt" Text="{Binding SubTitle}" Foreground="#FF5996B0" FontSize="20" Margin="0,76,0,453" FontWeight="Bold" />
                             <TextBlock x:Name="MainHelpTxt" Text="{Binding MainHelp}" FontSize="16" Margin="0,133,0,10" />
-                            <Image Source="img/help_page_sign.png" Margin="484,3,10,483" />
+                            <Image Source="img/help_page_sign.png" Margin="0,3,10,483" HorizontalAlignment="Right" Width="82" />
                         </Grid>
                     </Grid>
                 </TabItem>
@@ -402,30 +402,31 @@
             </TabControl>
         </Grid>
         <Button x:Name="Menu" Content="File" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-0.045,0.6" Click="Menu_Click"/>
-        <Image x:Name="image" Source="img/AMW.png" HorizontalAlignment="Left" Height="618" Margin="-11,208,0,0" VerticalAlignment="Top" Width="364"/>
-        <Button x:Name="k7" Content="7" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
-        <Button x:Name="k8" Content="8" HorizontalAlignment="Left" Margin="98,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
-        <Button x:Name="k9" Content="9" HorizontalAlignment="Left" Margin="165,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
-        <Button x:Name="k4" Content="4" HorizontalAlignment="Left" Margin="29,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="k5" Content="5" HorizontalAlignment="Left" Margin="98,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="k6" Content="6" HorizontalAlignment="Left" Margin="165,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="k1" Content="1" HorizontalAlignment="Left" Margin="29,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="k2" Content="2" HorizontalAlignment="Left" Margin="98,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="k3" Content="3" HorizontalAlignment="Left" Margin="165,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="k0" Content="0" HorizontalAlignment="Left" Margin="29,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="kKropka" Content="." HorizontalAlignment="Left" Margin="98,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="kPrzecinek" Content="," HorizontalAlignment="Left" Margin="165,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="kDzielenie" Content="/" HorizontalAlignment="Left" Margin="232,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="kMnożenie" Content="*" HorizontalAlignment="Left" Margin="232,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="kDodawanie" Content="+" HorizontalAlignment="Left" Margin="232,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-        <Button x:Name="kOdejmowanie" Content="-" HorizontalAlignment="Left" Margin="232,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+        <Grid x:Name="Pad_Atribute">
+            <Image x:Name="image" Source="img/AMW.png" HorizontalAlignment="Left" Height="618" Margin="-11,208,0,0" VerticalAlignment="Top" Width="364"/>
+            <Button x:Name="k7" Content="7" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
+            <Button x:Name="k8" Content="8" HorizontalAlignment="Left" Margin="98,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
+            <Button x:Name="k9" Content="9" HorizontalAlignment="Left" Margin="165,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
+            <Button x:Name="k4" Content="4" HorizontalAlignment="Left" Margin="29,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="k5" Content="5" HorizontalAlignment="Left" Margin="98,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="k6" Content="6" HorizontalAlignment="Left" Margin="165,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="k1" Content="1" HorizontalAlignment="Left" Margin="29,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="k2" Content="2" HorizontalAlignment="Left" Margin="98,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="k3" Content="3" HorizontalAlignment="Left" Margin="165,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="k0" Content="0" HorizontalAlignment="Left" Margin="29,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="kKropka" Content="." HorizontalAlignment="Left" Margin="98,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="kPrzecinek" Content="," HorizontalAlignment="Left" Margin="165,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="kDzielenie" Content="/" HorizontalAlignment="Left" Margin="232,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="kMnożenie" Content="*" HorizontalAlignment="Left" Margin="232,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="kDodawanie" Content="+" HorizontalAlignment="Left" Margin="232,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="kOdejmowanie" Content="-" HorizontalAlignment="Left" Margin="232,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
 
-        <Image x:Name="kBack" HorizontalAlignment="Left" Height="33" Margin="219,770,0,0" VerticalAlignment="Top" Width="51" Source="img/Klawiatura/cofnij.png" MouseDown="kBack_MouseDown"/>
-        <Image x:Name="kEnter" HorizontalAlignment="Left" Height="36" Margin="118,770,0,0" VerticalAlignment="Top" Width="87" Source="img/Klawiatura/=.png" MouseDown="ConfirmExpresion_Click"/>
-        <Image x:Name="kMin" HorizontalAlignment="Left" Height="33" Margin="52,768,0,0" VerticalAlignment="Top" Width="50" Source="img/Klawiatura/minimalizuj.png" MouseDown="kMin_MouseDown"/>
+            <Image x:Name="kBack" HorizontalAlignment="Left" Height="33" Margin="219,770,0,0" VerticalAlignment="Top" Width="51" Source="img/Klawiatura/cofnij.png" MouseDown="kBack_MouseDown"/>
+            <Image x:Name="kEnter" HorizontalAlignment="Left" Height="36" Margin="118,770,0,0" VerticalAlignment="Top" Width="87" Source="img/Klawiatura/=.png" MouseDown="ConfirmExpresion_Click"/>
+            <Image x:Name="kMin" HorizontalAlignment="Left" Height="33" Margin="52,768,0,0" VerticalAlignment="Top" Width="50" Source="img/Klawiatura/minimalizuj.png" MouseDown="kMin_MouseDown"/>
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="24,624,0,0" Stroke="Black" VerticalAlignment="Top" Width="270"/>
-
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="24,624,0,0" Stroke="Black" VerticalAlignment="Top" Width="270"/>
+        </Grid>
         <ListBox x:Name="Function_list" HorizontalAlignment="Left" Height="348" Margin="24,271,0,0" VerticalAlignment="Top" Width="270">
 
             <ListBoxItem x:Name="ComplexTab" Height="155">
@@ -649,12 +650,10 @@
                Placement="Relative"
                IsOpen="False"
                StaysOpen="False">
-
             <Border x:Name="ThemePopOutBorder" Width="285" 
                     Height="143"
                     Background="#FF41B1E1">
                 <Grid>
-
                     <Label x:Name="Kolor" Content="Accents color:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="label1_Copy" Content="Themes:" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="SelectedColor" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
@@ -670,13 +669,47 @@
                         <ListBoxItem Content="BaseDark" Width="110"/>
                     </ComboBox>
                     <Button x:Name="ColorAccept" Content="Save" HorizontalAlignment="Left" Margin="200,108,0,0" VerticalAlignment="Top" Width="75" Click="ColorAccept_Click"/>
-
-
-
                 </Grid>
             </Border>
         </Popup>
-
+        <Popup Name="VariablePop"
+               Placement="Relative"
+               IsOpen="False"
+               StaysOpen="False">
+            <Border x:Name="VariablePopBorder" Width="196" 
+                    Height="197"
+                    Background="#FF41B1E1">
+                <Grid>
+                    <Label x:Name="la" Content="Variable List" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="17" Height="40" Width="103" Margin="50,5,0,0"/>
+                    <ListView x:Name="VariablesListView" Margin="10,40" FontSize="16" FontStyle="Italic" VirtualizingStackPanel.IsVirtualizing="False">
+                        <ListView.Resources>
+                            <Style TargetType="{x:Type GridViewColumnHeader}">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Variable}"></TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Clear" Tag="{Binding Index}" Width="50" Click="ClearVariable_Click"></Button>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                            </ListView.View>
+                    </ListView>
+                    <Button x:Name="Clear_Variables" Content="Clear" Margin="120,162,10,10" Click="Clear_Variables_Click"></Button>
+                </Grid>
+            </Border>
+        </Popup>
     </Grid>
 </Controls:MetroWindow>
 
