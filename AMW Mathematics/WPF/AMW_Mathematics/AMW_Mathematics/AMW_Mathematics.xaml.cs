@@ -209,7 +209,7 @@ public MainWindow()
                     expPlotterControl.Visibility = Visibility.Visible;
                     ListFunctionLine.Clear();
                     ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);
-                    if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Kartezjański")
+                    if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Cartesian")
                     {
                         double ys = FindRoundMiddle(ListFunctionLine[0]);
                         ChartLineView.DrawChartLine(expPlotter, -5, 5, ys - 5, ys + 5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);
@@ -658,6 +658,8 @@ public MainWindow()
         }
         private void NewProject_Click(object sender, RoutedEventArgs e)
         {
+            VariablesListView.Items.Clear();
+            phrase.SymbolsAndValues.Clear();
             ResultList.Items.Clear();
             ChartListFunction.Items.Clear();
             PointChartListFunction.Items.Clear();
@@ -711,6 +713,8 @@ public MainWindow()
             foreach (var item in ListFunctionLine) ToSave.Add(item);
             ToSave.Add("ChartPoint");
             foreach (var item in ListFunctionPoint) ToSave.Add(item);
+            ToSave.Add("Variables");
+            foreach (var item in phrase.SymbolsAndValues) ToSave.Add(item.Key + " = " + item.Value);
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "Expresions"; // Default file name
             dlg.DefaultExt = ".data"; // Default file extension
@@ -771,10 +775,30 @@ public MainWindow()
                 if (ChartListFunction.Items.Count == 0) ChartListFunction.Items.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });
                 foreach (var item in ToSave)
                 {
-                    PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction, TextBoxText = item });
+                    if(item != "Variables")
+                    {
+                        PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction, TextBoxText = item });
+                    }
+                    else
+                    {
+                        int index = ToSave.IndexOf(item);
+                        ToSave.RemoveRange(0, index + 1);
+                        break;
+                    }                   
                     datatopointchartview.CountFunction = datatopointchartview.CountFunction + 1;
                 }
                 if (PointChartListFunction.Items.Count == 0) PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction });
+                VariablesListView.Items.Clear();
+                phrase.SymbolsAndValues.Clear();
+                int ind = 0;
+                foreach(var item in ToSave)
+                {
+                    VariablesListView.Items.Add(new VariablesListView { Variable = item, Index = ind });
+                    ind++;
+                    string key = item.Substring(0, item.IndexOf("=") - 1);
+                    string value = item.Substring(item.IndexOf("=") + 1, item.Length-1- item.IndexOf("="));
+                    phrase.SymbolsAndValues.Add(key, value);
+                }
             }
         }
         private void Sava_Click(object sender, RoutedEventArgs e)
@@ -787,10 +811,9 @@ public MainWindow()
                 foreach (var item in ListFunctionLine) ToSave.Add(item);
                 ToSave.Add("ChartPoint");
                 foreach (var item in ListFunctionPoint) ToSave.Add(item);
+                ToSave.Add("Variables");
+                foreach (var item in phrase.SymbolsAndValues) ToSave.Add(item.Key + " = " + item.Value);
                 Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-                dlg.FileName = "Expresions"; // Default file name
-                dlg.DefaultExt = ".data"; // Default file extension
-                dlg.Filter = "Expresions (.Data)|*.Data"; // Filter files by extension
 
                 // Show save file dialog box
                 Nullable<bool> result = dlg.ShowDialog();
@@ -914,8 +937,8 @@ public MainWindow()
             VariablesListView.Items.Clear();
             int index = 0;
             foreach(var item in phrase.SymbolsAndValues)
-            {
-                VariablesListView.Items.Add(new VariablesListView {Variable = item.Key + " = " + item.Value, Index = index});
+            {              
+                VariablesListView.Items.Add(new VariablesListView {Variable = item.Key + " = " + item.Value.Insert(item.Value.Length, " "), Index = index});
                 index++;
             }
         }

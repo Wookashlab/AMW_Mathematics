@@ -676,11 +676,11 @@
                Placement="Relative"
                IsOpen="False"
                StaysOpen="False">
-            <Border x:Name="VariablePopBorder" Width="196" 
+            <Border x:Name="VariablePopBorder" Width="242" 
                     Height="197"
                     Background="#FF41B1E1">
                 <Grid>
-                    <Label x:Name="la" Content="Variable List" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="17" Height="40" Width="103" Margin="50,5,0,0"/>
+                    <Label x:Name="la" Content="Variable List" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="17" Height="40" Width="103" Margin="71,5,0,0"/>
                     <ListView x:Name="VariablesListView" Margin="10,40" FontSize="16" FontStyle="Italic" VirtualizingStackPanel.IsVirtualizing="False">
                         <ListView.Resources>
                             <Style TargetType="{x:Type GridViewColumnHeader}">
@@ -692,21 +692,21 @@
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Variable}"></TextBlock>
+                                            <TextBlock Text="{Binding Variable}" Margin="0,0,5,0"></TextBlock>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Clear" Tag="{Binding Index}" Width="50" Click="ClearVariable_Click"></Button>
+                                            <Button Content="Clear" Tag="{Binding Index}" Width="50" Click="ClearVariable_Click" Margin="15,0,0,0"></Button>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                             </GridView>
                             </ListView.View>
                     </ListView>
-                    <Button x:Name="Clear_Variables" Content="Clear" Margin="120,162,10,10" Click="Clear_Variables_Click"></Button>
+                    <Button x:Name="Clear_Variables" Content="Clear ALL" Margin="150,162,10,10" Click="Clear_Variables_Click"></Button>
                 </Grid>
             </Border>
         </Popup>
