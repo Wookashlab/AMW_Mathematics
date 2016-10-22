@@ -20,6 +20,7 @@ using System.Data;
 using ExpressionPlotterControl;
 using AMW_Mathematics.Function;
 using AMW_Mathematics.Model;
+using AMW_Mathematics.Windows;
 
 namespace AMW_Mathematics
 {
@@ -64,9 +65,9 @@ namespace AMW_Mathematics
 
         System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();
         public string theme { get; set; }
-          public string background { get; set; }
-
-public MainWindow()
+        public string background { get; set; }
+    
+        public MainWindow()
         {
             InitializeApplication();
             InitializeComponent();
@@ -857,36 +858,42 @@ public MainWindow()
                     DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
                     MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
                     VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
+                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
                     break;
                 case "Blue":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
                     DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
                     MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
                     VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
+                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
                     break;
                 case "Green":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
                     DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
                     MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
                     VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
+                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
                     break;
                 case "Orange":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
                     DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
                     MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
                     VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
+                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
                     break;
                     case "Pink":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
                     DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
                     MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
                     VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
+                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
                     break;
                 case "Brown":
                     ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
                     DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
                     MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
                     VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
+                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
                     break;
 
             }
@@ -959,6 +966,11 @@ public MainWindow()
             VariablesListView.Items.Clear();
             phrase.SymbolsAndValues.Clear();
             VariablePop.IsOpen = false;
+        }
+
+        private void TriangleSolverButton_Click(object sender, RoutedEventArgs e)
+        {
+            new TriangleSolver();
         }
     }
 }

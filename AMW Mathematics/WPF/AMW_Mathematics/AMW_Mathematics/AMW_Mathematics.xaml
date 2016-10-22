@@ -56,7 +56,7 @@
                                 <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3"/>
                                 <Button x:Name="button1_Copy" Content="Formulas and &#xD;&#xA;Equations" HorizontalAlignment="Right" Margin="0,10,204,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
                                 <Button x:Name="button1_Copy1" Content="Equation&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3"/>
-                                <Button x:Name="button1_Copy2" Content="Triangle&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
+                                <Button x:Name="TriangleSolverButton" Content="Triangle&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2" Click="TriangleSolverButton_Click"/>
                                 <Button x:Name="button1_Copy3" Content="Unit&#xD;&#xA;Converter" HorizontalAlignment="Left" Margin="272,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
                             </Grid>
                         </GroupBox>
@@ -84,7 +84,7 @@
                                 <Button x:Name="ThemaMenu" Content="Color&#xD;&#xA;Schemes" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="ThemaMenu_Click"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox4_Copy" Header="Show [WIP]" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
+                        <GroupBox x:Name="groupBox4_Copy" Header="Show" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
                                 <Button x:Name="Hidde_CalculatorPad" Content="Calculatror&#xD;&#xA;Pad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="Hidde_CalculatorPad_Click"/>
                                 <Button x:Name="Stored_Variable" Content="Stored&#xD;&#xA;Variables" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Stored_Variable_Click"/>

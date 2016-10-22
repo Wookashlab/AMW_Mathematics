@@ -111,6 +111,9 @@
     <Compile Include="Windows\ThemaColor.xaml.cs">
       <DependentUpon>ThemaColor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TriangleSolver.xaml.cs">
+      <DependentUpon>TriangleSolver.xaml</DependentUpon>
+    </Compile>
     <Page Include="AMW_Mathematics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ThemaColor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TriangleSolver.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +226,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Klawiatura\Funkcje\sprzężenie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\help_page_sign.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
