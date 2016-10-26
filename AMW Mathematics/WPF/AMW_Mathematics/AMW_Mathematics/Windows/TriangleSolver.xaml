@@ -6,14 +6,13 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
-        Title="AMW Mathematics" Height="479" Width="331" ResizeMode="CanMinimize"
+        Title="AMW Mathematics" Height="353" Width="306" ResizeMode="CanMinimize"
         BorderThickness="1" >
-    <Polygon
-    Points="30,10 20,125 260,190 300,200"
-    Stroke="Blue"
-    StrokeThickness="2" Margin="10,10,0,0" Height="218" VerticalAlignment="Top" HorizontalAlignment="Left" Width="306">
-        <Polygon.Fill>
-            <SolidColorBrush Color="Blue" Opacity="0.3"/>
-        </Polygon.Fill>
-    </Polygon>
+    <Grid x:Name="GridAll">
+        <TextBox x:Name="TValuec" HorizontalAlignment="Left" Height="23" Margin="21,216,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TValuea" HorizontalAlignment="Left" Height="23" Margin="21,247,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TValueb" HorizontalAlignment="Left" Height="23" Margin="21,278,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="SolveTriangel" HorizontalAlignment="Left" Margin="213,287,0,0" VerticalAlignment="Top" Width="75" Click="SolveTriangel_Click"/>
+    </Grid>
+
 </Controls:MetroWindow>
