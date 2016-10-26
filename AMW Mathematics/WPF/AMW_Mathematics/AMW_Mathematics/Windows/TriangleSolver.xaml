@@ -6,13 +6,37 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
-        Title="AMW Mathematics" Height="353" Width="306" ResizeMode="CanMinimize"
+        Title="AMW Mathematics" Height="514.831" Width="392" ResizeMode="CanMinimize"
         BorderThickness="1" >
-    <Grid x:Name="GridAll">
-        <TextBox x:Name="TValuec" HorizontalAlignment="Left" Height="23" Margin="21,216,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TValuea" HorizontalAlignment="Left" Height="23" Margin="21,247,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TValueb" HorizontalAlignment="Left" Height="23" Margin="21,278,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="SolveTriangel" HorizontalAlignment="Left" Margin="213,287,0,0" VerticalAlignment="Top" Width="75" Click="SolveTriangel_Click"/>
+    <Grid Margin="0,0,0,3">
+        <Grid x:Name="TriangeImg" Margin="10,10,10,318" HorizontalAlignment="Stretch"/>
+        <Button Margin="290,446,0,0"  Height="3" Content="Calculate" VerticalAlignment="Top" Opacity="0.6" Click="SolveTriangel_Click" MouseLeave="TriangelSolve_MouseLeave" HorizontalAlignment="Left" Width="84"/>
+        <Button Margin="10,446,287,0"  Height="3" Content="Clear" VerticalAlignment="Top" Opacity="0.6"  Click="SolveTriangelClear_Click"/>
+        <GroupBox x:Name="groupBox" Header="       Sides                            Angles           " HorizontalAlignment="Left" Width="364" Margin="10,303,0,0" Height="138" VerticalAlignment="Top">
+            <Grid Margin="0,0,0,-2">
+                <Rectangle Fill="#FFF4F4F5" Height="102" Margin="205,0,0,-1" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1"/>
+                <Label Content="c" Margin="73,5,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" RenderTransformOrigin="0.474,0.5" HorizontalAlignment="Left" Width="19"/>
+                <Label Content="b" Margin="73,36,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
+                <Label Content="a" Margin="73,65,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
+                <TextBox x:Name="TValuec" HorizontalAlignment="Left" Height="23" Margin="92,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" SelectionChanged="SelectionCahanged_Variable"/>
+                <TextBox x:Name="TValuea" HorizontalAlignment="Left" Height="23" Margin="92,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
+                <TextBox x:Name="TValueb" HorizontalAlignment="Left" Height="23" Margin="92,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
+                <Rectangle Fill="#FFF4F4F5" Height="102" Margin="40,0,0,-1" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1"/>
+                <TextBox x:Name="AngleC" HorizontalAlignment="Left" Height="23" Margin="259,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
+                <TextBox x:Name="AngleB" HorizontalAlignment="Left" Height="23" Margin="259,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"/>
+                <TextBox x:Name="AngleA" HorizontalAlignment="Left" Height="23" Margin="259,67,0,0" TextWrapping="Wrap" Width="83" VerticalAlignment="Top"/>
+                <Label Content="C" Margin="240,5,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19" RenderTransformOrigin="0.421,0.462"/>
+                <Label Content="B" Margin="240,36,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
+                <Label Content="A" Margin="240,67,0,0" Background="#FF41B1E1" Foreground="White" RenderTransformOrigin="0.491,0.474" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
+                <Button Margin="0,67,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="17"/>
+                <Button Margin="0,36,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="17"/>
+                <Button Margin="0,5,335,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Right" Width="17"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox_Copy" Header="Show" HorizontalAlignment="Left" Width="364" Margin="10,168,0,0" Height="126" VerticalAlignment="Top">
+            <Grid Margin="0,0,0,-2"/>
+        </GroupBox>
+
     </Grid>
 
 </Controls:MetroWindow>
