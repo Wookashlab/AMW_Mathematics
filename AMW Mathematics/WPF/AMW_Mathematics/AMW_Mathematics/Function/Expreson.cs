@@ -20,6 +20,10 @@ namespace AMW_Mathematics
                 Expresion = Maxima.Eval(Expresion);
                 try
                 {
+                    foreach (var symbol in SymbolsAndValues)
+                    {
+                        Expresion = Expresion.Replace(symbol.Key, symbol.Value);
+                    }
                     SymbolsAndValues[SymbolsAndValues.First(m => m.Key == ExpressionField.Text.Substring(0, Math.Min(ExpressionField.Text.Length, ExpressionField.Text.IndexOf(":")))).Key] = Expresion;
                 }
                 catch

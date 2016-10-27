@@ -970,7 +970,8 @@ namespace AMW_Mathematics
 
         private void TriangleSolverButton_Click(object sender, RoutedEventArgs e)
         {
-            new TriangleSolver();
+            TriangleSolver trianglesolverwindow = new TriangleSolver();
+            trianglesolverwindow.ShowDialog();
         }
     }
 }
