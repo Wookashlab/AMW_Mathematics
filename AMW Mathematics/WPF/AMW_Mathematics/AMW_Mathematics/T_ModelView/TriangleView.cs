@@ -19,12 +19,13 @@ namespace AMW_Mathematics.T_ModelView
     class TriangleView
     {
 
-         double licz_kat(double a, double b, double c)
+        double licz_kat(double a, double b, double c)
         {
             double cos_kat;
             cos_kat = (b * b + c * c - a * a) / (2 * b * c); 
             return (Math.Acos(cos_kat) * 180 / 3.14159265);
         }
+
         public Polygon DrawTriangel(Grid TriangeImg, Polygon Triangle, TextBox TValuea, TextBox TValueb, TextBox TValuec, TextBox AngleA, TextBox AngleB, TextBox AngleC, double diffrent, double ValueC, double ValueA, double ValueB)
         {
             TValuea.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
@@ -110,6 +111,7 @@ namespace AMW_Mathematics.T_ModelView
             TriangeImg.Children.Add(Triangle);
             return Triangle;
         }
+
         public void DrawLabel(Grid TriangeImg, Polygon Triangle, ref List<Label> ListLabel,ref List<Label> ListLabel2)
         {
             try
@@ -200,6 +202,130 @@ namespace AMW_Mathematics.T_ModelView
                     TriangeImg.Children.Add(ListLabel[i]);
                     TriangeImg.Children.Add(ListLabel2[i]);
                     i++;
+                }
+            }
+            catch { }
+        }
+
+        public void EnterToBoxSide(object sender, ref List<Label> ListLabel2)
+        {
+            try
+            {
+                var name = (TextBox)sender;
+                switch (name.Name)
+                {
+                    case "TValuec":
+                        ListLabel2[0].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
+                        ListLabel2[0].FontSize = 16;
+                        ListLabel2[0].FontWeight = FontWeights.Bold;
+                        ListLabel2[0].Content = ListLabel2[0].Content + "!";
+                        break;
+                    case "TValuea":
+                        ListLabel2[1].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
+                        ListLabel2[1].FontSize = 16;
+                        ListLabel2[1].FontWeight = FontWeights.Bold;
+                        ListLabel2[1].Margin = new Thickness(ListLabel2[1].Margin.Left - 8, ListLabel2[1].Margin.Top, 0, 0);
+                        ListLabel2[1].Content = "!" + ListLabel2[1].Content;
+                        break;
+                    case "TValueb":
+                        ListLabel2[2].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
+                        ListLabel2[2].FontSize = 16;
+                        ListLabel2[2].FontWeight = FontWeights.Bold;
+                        ListLabel2[2].Content = "!" + ListLabel2[2].Content;
+                        break;
+                }
+            }
+            catch { };
+        }
+
+        public void LeaveBoxSide(object sender, ref List<Label> ListLabel2)
+        {
+            try
+            {
+                var name = (TextBox)sender;
+                switch (name.Name)
+                {
+                    case "TValuec":
+                        ListLabel2[0].ClearValue(Label.ForegroundProperty);
+                        ListLabel2[0].ClearValue(Label.FontSizeProperty);
+                        ListLabel2[0].ClearValue(Label.FontWeightProperty);
+                        ListLabel2[0].Content = ListLabel2[0].Content.ToString().Replace("!", "");
+                        break;
+                    case "TValuea":
+                        ListLabel2[1].ClearValue(Label.ForegroundProperty);
+                        ListLabel2[1].ClearValue(Label.FontSizeProperty);
+                        ListLabel2[1].ClearValue(Label.FontWeightProperty);
+                        ListLabel2[1].Margin = new Thickness(ListLabel2[1].Margin.Left + 8, ListLabel2[1].Margin.Top, 0, 0);
+                        ListLabel2[1].Content = ListLabel2[1].Content.ToString().Replace("!", "");
+                        break;
+                    case "TValueb":
+                        ListLabel2[2].ClearValue(Label.ForegroundProperty);
+                        ListLabel2[2].ClearValue(Label.FontSizeProperty);
+                        ListLabel2[2].ClearValue(Label.FontWeightProperty);
+                        ListLabel2[2].Content = ListLabel2[2].Content.ToString().Replace("!", "");
+                        break;
+                }
+            }
+            catch { }
+        }
+
+        public void EnterToBoxAngle(object sender, ref List<Label> ListLabel)
+        {
+            try
+            {
+                var name = (TextBox)sender;
+                switch (name.Name)
+                {
+                    case "AngleC":
+                        ListLabel[2].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
+                        ListLabel[2].FontSize = 16;
+                        ListLabel[2].FontWeight = FontWeights.Bold;
+                        ListLabel[2].Margin = new Thickness(ListLabel[2].Margin.Left, ListLabel[2].Margin.Top - 5, 0, 0);
+                        ListLabel[2].Content = ListLabel[2].Content + "!";
+                        break;
+                    case "AngleB":
+                        ListLabel[1].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
+                        ListLabel[1].FontSize = 16;
+                        ListLabel[1].FontWeight = FontWeights.Bold;
+                        ListLabel[1].Content = "!" + ListLabel[1].Content;
+                        break;
+                    case "AngleA":
+                        ListLabel[0].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
+                        ListLabel[0].FontSize = 16;
+                        ListLabel[0].FontWeight = FontWeights.Bold;
+                        ListLabel[0].Content = "!" + ListLabel[0].Content;
+                        break;
+                }
+            }
+            catch { };
+        }
+
+        public void LeaveBoxAngle(object sender, ref List<Label> ListLabel)
+        {
+            try
+            {
+                var name = (TextBox)sender;
+                switch (name.Name)
+                {
+                    case "AngleC":
+                        ListLabel[2].ClearValue(Label.ForegroundProperty);
+                        ListLabel[2].ClearValue(Label.FontSizeProperty);
+                        ListLabel[2].ClearValue(Label.FontWeightProperty);
+                        ListLabel[2].Margin = new Thickness(ListLabel[2].Margin.Left, ListLabel[2].Margin.Top + 5, 0, 0);
+                        ListLabel[2].Content = ListLabel[2].Content.ToString().Replace("!", "");
+                        break;
+                    case "AngleB":
+                        ListLabel[1].ClearValue(Label.ForegroundProperty);
+                        ListLabel[1].ClearValue(Label.FontSizeProperty);
+                        ListLabel[1].ClearValue(Label.FontWeightProperty);
+                        ListLabel[1].Content = ListLabel[1].Content.ToString().Replace("!", "");
+                        break;
+                    case "AngleA":
+                        ListLabel[0].ClearValue(Label.ForegroundProperty);
+                        ListLabel[0].ClearValue(Label.FontSizeProperty);
+                        ListLabel[0].ClearValue(Label.FontWeightProperty);
+                        ListLabel[0].Content = ListLabel[0].Content.ToString().Replace("!", "");
+                        break;
                 }
             }
             catch { }

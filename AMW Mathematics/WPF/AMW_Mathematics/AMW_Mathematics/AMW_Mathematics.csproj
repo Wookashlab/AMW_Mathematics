@@ -105,6 +105,7 @@
     <Compile Include="Model\DataToChart.cs" />
     <Compile Include="Model\DataToLineChartView.cs" />
     <Compile Include="Model\DataToPointList.cs" />
+    <Compile Include="T_ModelView\TriangleShowBoxView.cs" />
     <Compile Include="T_ModelView\TriangleView.cs" />
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
