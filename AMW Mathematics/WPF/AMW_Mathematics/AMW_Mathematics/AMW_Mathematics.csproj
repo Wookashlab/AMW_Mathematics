@@ -107,6 +107,9 @@
     <Compile Include="Model\DataToPointList.cs" />
     <Compile Include="T_ModelView\TriangleShowBoxView.cs" />
     <Compile Include="T_ModelView\TriangleView.cs" />
+    <Compile Include="Windows\EquationSolver.xaml.cs">
+      <DependentUpon>EquationSolver.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Logo.xaml.cs">
       <DependentUpon>Logo.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <DependentUpon>AMW_Mathematics.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\EquationSolver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Logo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

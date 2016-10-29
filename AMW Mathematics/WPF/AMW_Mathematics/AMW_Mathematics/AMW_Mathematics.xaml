@@ -55,7 +55,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3"/>
                                 <Button x:Name="button1_Copy" Content="Formulas and &#xD;&#xA;Equations" HorizontalAlignment="Right" Margin="0,10,204,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
-                                <Button x:Name="button1_Copy1" Content="Equation&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3"/>
+                                <Button x:Name="EquationSolverButton" Content="Equation&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3" Click="EquationSolverButton_Click"/>
                                 <Button x:Name="TriangleSolverButton" Content="Triangle&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2" Click="TriangleSolverButton_Click"/>
                                 <Button x:Name="button1_Copy3" Content="Unit&#xD;&#xA;Converter" HorizontalAlignment="Left" Margin="272,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
                             </Grid>

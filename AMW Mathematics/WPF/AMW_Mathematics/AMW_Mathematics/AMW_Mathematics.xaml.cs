@@ -973,5 +973,11 @@ namespace AMW_Mathematics
             TriangleSolver trianglesolverwindow = new TriangleSolver();
             trianglesolverwindow.ShowDialog();
         }
+
+        private void EquationSolverButton_Click(object sender, RoutedEventArgs e)
+        {
+            EquationSolver equationsolver = new EquationSolver();
+            equationsolver.ShowDialog();
+        }
     }
 }
