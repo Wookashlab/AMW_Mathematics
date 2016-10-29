@@ -11,16 +11,6 @@ namespace AMW_Mathematics.E_ModelView
     class ComboListEquationView
     {
         public List<string> Source { get; set; }
-
-        private string _mySelectedItem;
-        public string MySelectedItem
-        {
-            get { return _mySelectedItem; }
-            set
-            {
-                _mySelectedItem = value;
-            }
-        }
         public ComboListEquationView()
         {
             Source = new List<string>
@@ -32,7 +22,6 @@ namespace AMW_Mathematics.E_ModelView
                "Solve a System of 5 Equations",
                "Solve a System of 6 Equations"
             };
-            _mySelectedItem = Source[0];
         }
     }
 }
