@@ -74,7 +74,7 @@ namespace AMW_Mathematics
         public MainWindow()
         {
 
-         //   ss.Show(true, true);                                                                //Wywołanie splashscreena który zawsze jest na górze i samoistnie się wyłącza po załadowaniu aplikacji #Ł
+            ss.Show(true, true);                                                                //Wywołanie splashscreena który zawsze jest na górze i samoistnie się wyłącza po załadowaniu aplikacji #Ł
             InitializeApplication();
             
         }
@@ -111,6 +111,8 @@ namespace AMW_Mathematics
             datatochart.WhichGraphZoom = "";
             Thememanager.LoadTheme();                                                           //Załadowanie motywu z pliku #Ł
             ThemeChange();                                                                      //Ustawienie motywu #Ł
+            if (Thememanager.themeColor == "BaseLight") ButtonColorChange("Black");             //Zmiana koloru guzików na "telefonie" w zależności od motywu #Ł
+            else ButtonColorChange("White");
             RealNumber.IsChecked = true;                                                       //Włączenie trybu "Liczby rzeczywiste" #Ł
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
@@ -862,16 +864,21 @@ namespace AMW_Mathematics
             ThemePopOut.IsOpen = false;                                                             //Zamknięcie popout-u #Ł
             ThemeChange();                                                                          //Wywołanie zmian koloru aplikacji #Ł
             Thememanager.SaveThem();                                                                //Zapisanie wybranych zmian do pliku #Ł
+            if (Thememanager.themeColor == "BaseLight") ButtonColorChange("Black");             //Zmiana koloru guzików na "telefonie" w zależności od motywu #Ł
+            else ButtonColorChange("White");
 
         }
         private void ThemeChange()                                                                  //Zmiana koloru aplikacji #Ł
         {
             Thememanager.Accent(Thememanager.accentColor);                                          //Wygenerowanie kodu koloru odpowidającego wybranemu kolorowi w klasie AppTheme #Ł
-            ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));                               //Zmiana koloru popoutów #Ł
-            DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));
-            MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));
-            VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));
-            VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));
+            SolidColorBrush themeColor = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));  //Zapisanie kodu koloru przy pomocy SolidColorBrush #Ł
+            ThemePopOutBorder.Background = themeColor;                              //Zmiana koloru poszczególnych komponentó  #Ł
+            DataSetsPopOutBorder.Background = themeColor;
+            MenuPopOutBorder.Background = themeColor;
+            VariablesPopOutBorder.Background = themeColor;
+            VariablePopBorder.Background = themeColor;
+            TitleTxt.Foreground = themeColor;
+            SubTitleTxt.Foreground = themeColor;
 
             Tuple<MahApps.Metro.AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);                  //Zmiana motuwy aplikacji #Ł
             ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Thememanager.accentColor), ThemeManager.GetAppTheme(Thememanager.themeColor));
@@ -953,6 +960,17 @@ namespace AMW_Mathematics
         {
             EquationSolver equationsolver = new EquationSolver();
             equationsolver.ShowDialog();
+        }
+        void ButtonColorChange(string color)
+        {
+            ConjugateImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/"+color+"/sprzężenie.png", UriKind.Relative));
+            IntegrateImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/całka.png", UriKind.Relative));
+            IntegrateOImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/całkaO.png", UriKind.Relative));
+            LimitImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/granica.png", UriKind.Relative));
+            DerivativeImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/pochodna.png", UriKind.Relative));
+            DerivativeSImg.Source  = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/pochodna2.png", UriKind.Relative));
+            SquareRootImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/square_root.png", UriKind.Relative));
+            RootImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/square_root_x.png", UriKind.Relative));
         }
     }
 }

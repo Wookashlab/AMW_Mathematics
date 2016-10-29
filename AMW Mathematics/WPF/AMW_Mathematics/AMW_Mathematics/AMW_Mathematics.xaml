@@ -385,9 +385,9 @@
                         <Grid Name="GraphHelpGrid" Margin="229,10,10,10" Grid.Column="2" >
 
                             <TextBlock x:Name="TitleTxt" Text="{Binding Title}" Foreground="#FF41B1E1" FontWeight="Bold" FontSize="24" Margin="0,26,0,503" />
-                            <TextBlock x:Name="SubTitleTxt" Text="{Binding SubTitle}" Foreground="#FF5996B0" FontSize="20" Margin="0,76,0,453" FontWeight="Bold" />
+                            <TextBlock x:Name="SubTitleTxt" Text="{Binding SubTitle}" Foreground="#FF41B1E1" FontSize="20" Margin="0,76,0,453" FontWeight="Bold" />
                             <TextBlock x:Name="MainHelpTxt" Text="{Binding MainHelp}" FontSize="16" Margin="0,133,0,10" />
-                            <Image Source="img/help_page_sign.png" Margin="0,3,10,483" HorizontalAlignment="Right" Width="82" />
+                            <Image Source="img/help.png" Margin="0,3,10,483" HorizontalAlignment="Right" Width="82" />
                         </Grid>
                     </Grid>
                 </TabItem>
@@ -438,7 +438,7 @@
                     <Button x:Name="RealPart3" Content="real part" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Real part of an expression. e.g. realpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
                     <Button x:Name="ImaginaryPart3" Content="imaginary part" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Imaginary part of an expression. e.g. imgagpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
                     <Button x:Name="Conjugate3"  HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="43" ToolTip="Complex conjugate of an expression. e.g. conjugate(1+%i)" Click="Function_Click">
-                        <Image Source="img/Klawiatura/Funkcje/sprzężenie.png" />
+                        <Image x:Name="ConjugateImg" Source="img/Klawiatura/Funkcje/Black/sprzężenie.png" />
                     </Button>
                     <Button x:Name="ComplexArg1" Content="carg" HorizontalAlignment="Left" Margin="128,31,0,0" VerticalAlignment="Top" Width="38" ToolTip="Argument of an expression. e.g. carg(1+%i)" Click="Function_Click" Height="28"/>
                     <Button x:Name="Rect_Polar3" Content="rectangular &gt; polar" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="228" ToolTip="Converts rectangular form to polar. Np. polarform(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
@@ -451,19 +451,19 @@
                     <Button x:Name="Calculus" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
                     <Label x:Name="CalculusLabel" Content="Calculus:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136"  Margin="30,0,0,0"/>
                     <Button x:Name="Derivative3" ToolTip="Derivative of function. e.g. diff(x^2,x)"  HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="46" Height="38" Click="Function_Click">
-                        <Image Source="img/Klawiatura/Funkcje/pochodna.png" Height="28" Width="40" />
+                        <Image x:Name="DerivativeImg" Source="img/Klawiatura/Funkcje/Black/pochodna.png" Height="28" Width="40" />
                     </Button>
                     <Button x:Name="DerivativeS3" ToolTip="The second derivative of function. e.g. diff(x^2,x,2)" HorizontalAlignment="Left" Margin="61,31,0,0" VerticalAlignment="Top" Width="49" Height="38" Click="Function_Click">
-                        <Image Source="img/Klawiatura/Funkcje/pochodna2.png" Height="20" Width="46" />
+                        <Image x:Name="DerivativeSImg" Source="img/Klawiatura/Funkcje/Black/pochodna2.png" Height="20" Width="46" />
                     </Button>
                     <Button x:Name="Integrate3" ToolTip="Indefinite integral of function. e.g. integrate(x^2,x)"  HorizontalAlignment="Left" Margin="115,31,0,0" VerticalAlignment="Top" Width="24" Height="38" Click="Function_Click">
-                        <Image Source="img/Klawiatura/Funkcje/całka.png" Height="18" Width="15" />
+                        <Image x:Name="IntegrateImg" Source="img/Klawiatura/Funkcje/Black/całka.png" Height="18" Width="15" />
                     </Button>
                     <Button x:Name="IntegrateO3" ToolTip="Definite integral of function. e.g. integrate(x^2,x,#from,#to)"  HorizontalAlignment="Left" Margin="144,31,0,0" VerticalAlignment="Top" Width="27" Height="38" Click="Function_Click" >
-                        <Image Source="img/Klawiatura/Funkcje/całkaO.png" Height="28" Width="17" />
+                        <Image x:Name="IntegrateOImg" Source="img/Klawiatura/Funkcje/Black/całkaO.png" Height="28" Width="17" />
                     </Button>
                     <Button x:Name="Limit3" ToolTip="Limit of a function. e.g. limit(expr,x,val) [limx→val expr(x)]"  HorizontalAlignment="Left" Margin="176,31,0,0" VerticalAlignment="Top" Width="44" Height="38" Click="Function_Click" >
-                        <Image Source="img/Klawiatura/Funkcje/granica.png" Height="24" Width="43" />
+                        <Image x:Name="LimitImg" Source="img/Klawiatura/Funkcje/Black/granica.png" Height="24" Width="43" />
                     </Button>
                     <Button x:Name="Addition3" ToolTip="Sum of a series. e.g.sum(i,i,1,3) [sum(value,variable,from,to)]" Content="Σ"  HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" FontSize="12" />
                     <Button x:Name="Multiplication3" ToolTip="Product of a series. e.g. product(i,i,1,3) [product(value,variable,from,to)]" Content="Π"  HorizontalAlignment="Left" Margin="41,74,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" FontSize="12" />
@@ -540,10 +540,10 @@
                     <Button x:Name="Powerof22" ToolTip="Raised to the power of 2. e.g. 32^2" Content="^2" HorizontalAlignment="Left" Margin="131,122,0,0" VerticalAlignment="Top" Width="30" Height="18" Click="Function_Click"/>
                     <Button x:Name="Powerof2" ToolTip="Number raised to the power. e.g. 2^5" Content="^" HorizontalAlignment="Left" Margin="166,122,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click"/>
                     <Button x:Name="SquareRoot3" ToolTip="Square root of a number. e.g. sqr(4)" HorizontalAlignment="Left" Margin="197,122,0,82" Width="39" Height="18" Click="Function_Click">
-                        <Image Source="img/Klawiatura/Funkcje/square_root_256.png" />
+                        <Image x:Name="SquareRootImg" Source="img/Klawiatura/Funkcje/Black/square_root.png" />
                     </Button>
                     <Button x:Name="Root3" ToolTip="xth root of a number. e.g. sqr(4)???????????????????" HorizontalAlignment="Left" Margin="10,152,0,52" Width="39" Height="18" Click="Function_Click">
-                        <Image Source="img/Klawiatura/Funkcje/square_root_x.png" />
+                        <Image x:Name="RootImg" Source="img/Klawiatura/Funkcje/Black/square_root_x.png" />
                     </Button>
                     <Button x:Name="And2" ToolTip="Logical AND operator. e.g. true and true" Content="and" HorizontalAlignment="Left" Margin="54,152,0,52" Width="34" Height="18" Click="Function_Click"/>
                     <Button x:Name="Or2" ToolTip="Logical OR operator. e.g. true or false" Content="or" HorizontalAlignment="Left" Margin="93,152,0,52" Width="25" Height="18" Click="Function_Click"/>
@@ -648,13 +648,30 @@
                 <Grid>
                     <Label x:Name="Kolor" Content="Accents color:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="label1_Copy" Content="Themes:" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="SelectedColor" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
-                        <ListBoxItem Content="Blue" IsSelected="True" Width="110"/>
-                        <ListBoxItem Content="Red" IsSelected="True" Width="110"/>
-                        <ListBoxItem Content="Green" IsSelected="True" Width="110"/>
-                        <ListBoxItem Content="Orange" IsSelected="True" Width="110"/>
-                        <ListBoxItem Content="Pink" IsSelected="True" Width="110"/>
-                        <ListBoxItem Content="Brown" IsSelected="True" Width="110"/>
+                    <ComboBox x:Name="SelectedColor" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" >
+                        <ListBoxItem Content="Blue"  />
+                        <ListBoxItem Content="Red"  />
+                        <ListBoxItem Content="Green"/>
+                        <ListBoxItem Content="Orange" />
+                        <ListBoxItem Content="Pink" />
+                        <ListBoxItem Content="Brown" />
+                        <ListBoxItem Content="Purple" />
+                        <ListBoxItem Content="Lime" />
+                        <ListBoxItem Content="Emerald" />
+                        <ListBoxItem Content="Teal" />
+                        <ListBoxItem Content="Cobalt" />
+                        <ListBoxItem Content="Indigo" />
+                        <ListBoxItem Content="Violet" />
+                        <ListBoxItem Content="Magenta" />
+                        <ListBoxItem Content="Crimson" />
+                        <ListBoxItem Content="Amber" />
+                        <ListBoxItem Content="Yellow" />
+                        <ListBoxItem Content="Olive" />
+                        <ListBoxItem Content="Steel" />
+                        <ListBoxItem Content="Mauve" />
+                        <ListBoxItem Content="Taupe" />
+                        <ListBoxItem Content="Sienna" />
+
                     </ComboBox>
                     <ComboBox x:Name="SelectedTheme" HorizontalAlignment="Left" Margin="155,41,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
                         <ListBoxItem Content="BaseLight" Width="110"/>

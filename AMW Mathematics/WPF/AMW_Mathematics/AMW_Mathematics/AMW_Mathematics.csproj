@@ -207,28 +207,34 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\Klawiatura\Funkcje\całka.png" />
-    <Resource Include="img\Klawiatura\Funkcje\całkaO.png" />
-    <Resource Include="img\Klawiatura\Funkcje\granica.png" />
-    <Resource Include="img\Klawiatura\Funkcje\pochodna.png" />
-    <Resource Include="img\Klawiatura\Funkcje\pochodna1.png" />
-    <Resource Include="img\Klawiatura\Funkcje\pochodna2.png" />
-    <Resource Include="img\Klawiatura\Funkcje\square_root_256.png" />
-    <Resource Include="img\Klawiatura\Funkcje\square_root_x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="img\Klawiatura\minimalizuj.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\SplashScreenv4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\Klawiatura\Funkcje\sprzężenie.png" />
+    <Resource Include="img\Klawiatura\Funkcje\White\całka.png" />
+    <Resource Include="img\Klawiatura\Funkcje\White\całkaO.png" />
+    <Resource Include="img\Klawiatura\Funkcje\White\granica.png" />
+    <Resource Include="img\Klawiatura\Funkcje\White\pochodna.png" />
+    <Resource Include="img\Klawiatura\Funkcje\White\pochodna2.png" />
+    <Resource Include="img\Klawiatura\Funkcje\White\sprzężenie.png" />
+    <Resource Include="img\Klawiatura\Funkcje\White\square_root.png" />
+    <Resource Include="img\Klawiatura\Funkcje\White\square_root_x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\help_page_sign.png" />
+    <Resource Include="img\Klawiatura\Funkcje\Black\całka.png" />
+    <Resource Include="img\Klawiatura\Funkcje\Black\całkaO.png" />
+    <Resource Include="img\Klawiatura\Funkcje\Black\granica.png" />
+    <Resource Include="img\Klawiatura\Funkcje\Black\pochodna.png" />
+    <Resource Include="img\Klawiatura\Funkcje\Black\pochodna2.png" />
+    <Resource Include="img\Klawiatura\Funkcje\Black\sprzężenie.png" />
+    <Resource Include="img\Klawiatura\Funkcje\Black\square_root.png" />
+    <Resource Include="img\Klawiatura\Funkcje\Black\square_root_x.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="img\Help.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

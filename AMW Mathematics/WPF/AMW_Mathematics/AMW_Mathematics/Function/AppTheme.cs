@@ -55,19 +55,54 @@ namespace AMW_Mathematics.Function
                 case "Brown":
                     accentColorCode = "#FF9B7B56";
                     break;
-                //case "blue":
-                //    accentColor = "#FF41B1E1";
-                //    break;
-                //    case "blue":
-                //    accentColor = "#FF41B1E1";
-                //    break;
-                //    case "blue":
-                //    accentColor = "#FF41B1E1";
-                //    break;
-
-                    // “Purple”, “Lime”, “Emerald”, “Teal”, “Cyan”, “Cobalt”, “Indigo”, “Violet”,  “Magenta”, “Crimson”, “Amber”, “Yellow”, “Olive”, “Steel”, “Mauve”, “Taupe”, “Sienna”
-
-
+               case "Purple":
+                    accentColorCode = "#FF837AE5";
+                    break;
+               case "Lime":
+                    accentColorCode = "#FFB6D033";
+                    break;
+               case "Emerald":
+                    accentColorCode = "#FF33A133";
+                    break;
+               case "Teal":
+                    accentColorCode = "#FF33BCBA";
+                    break;
+               case "Cobalt":
+                    accentColorCode = "#FF3373F2";
+                    break;
+                case "Indigo":
+                    accentColorCode = "#FF8833FF";
+                    break;
+               case "Violet":
+                    accentColorCode = "#FFBB33FF";
+                    break;
+                case "Magenta":
+                    accentColorCode = "#FFE0338F";
+                    break;
+                case "Crimson":
+                    accentColorCode = "#FFB53351";
+                    break;
+                case "Amber":
+                    accentColorCode = "#FFF3B53B";
+                    break;
+                case "Yellow":
+                    accentColorCode = "#FFFEE538";
+                    break;
+                case "Olive":
+                    accentColorCode = "#FF8A9F83";
+                    break;
+                case "Steel":
+                    accentColorCode = "#FF83919F";
+                    break;
+                case "Mauve":
+                    accentColorCode = "#FF9180A1";
+                    break;
+                case "Taupe":
+                    accentColorCode = "#FF9F9471";
+                    break;
+                case "Sienna":
+                    accentColorCode = "#FFB37557";
+                    break;
         }
 
         }
