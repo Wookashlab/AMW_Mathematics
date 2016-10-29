@@ -31,9 +31,15 @@ namespace AMW_Mathematics.T_ModelView
             TValuea.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
             TValueb.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
             TValuec.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
-            AngleA.Text = Math.Round(licz_kat(ValueA, ValueB, ValueC), 2).ToString();
-            AngleB.Text = Math.Round(licz_kat(ValueB, ValueA, ValueC), 2).ToString();
-            AngleC.Text = Math.Round(licz_kat(ValueC, ValueB, ValueA), 2).ToString();
+            AngleA.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
+            AngleB.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
+            AngleC.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
+            if (TValuec.Text != "" && TValueb.Text != "" && TValuea.Text != "")
+            {
+                AngleA.Text = Math.Round(licz_kat(ValueA, ValueB, ValueC), 2).ToString();
+                AngleB.Text = Math.Round(licz_kat(ValueB, ValueA, ValueC), 2).ToString();
+                AngleC.Text = Math.Round(licz_kat(ValueC, ValueB, ValueA), 2).ToString();
+            }
             Triangle = new Polygon
             {
                 Name = "Triangle"
@@ -112,14 +118,16 @@ namespace AMW_Mathematics.T_ModelView
             return Triangle;
         }
 
+
+
         public void DrawLabel(Grid TriangeImg, Polygon Triangle, ref List<Label> ListLabel,ref List<Label> ListLabel2)
         {
             try
             {
                 ListLabel = new List<Label> { new Label(), new Label(), new Label() };
-                ListLabel[0].Content = "A";
-                ListLabel[1].Content = "B";
-                ListLabel[2].Content = "C";
+                ListLabel[0].Content = "α";
+                ListLabel[1].Content = "β";
+                ListLabel[2].Content = "γ";
                 ListLabel2 = new List<Label> { new Label(), new Label(), new Label() };
                 ListLabel2[0].Content = "c";
                 ListLabel2[1].Content = "b";
@@ -173,7 +181,7 @@ namespace AMW_Mathematics.T_ModelView
                     }
                     if (i == 2)
                     {
-                        ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()) - 7, double.Parse(transformedPoint.Y.ToString()) - 23, 0, 0);
+                        ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()) - 7, double.Parse(transformedPoint.Y.ToString()) - 25, 0, 0);
                         transformedPoint1 = polygonToGridTransform.Transform(
                                            polygonGeometryTransform.Transform(Triangle.Points[j - 2]));
                         if (double.Parse(transformedPoint.X.ToString()) < double.Parse(transformedPoint1.X.ToString()))

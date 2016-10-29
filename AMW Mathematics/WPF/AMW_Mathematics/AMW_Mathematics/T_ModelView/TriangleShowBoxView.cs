@@ -18,7 +18,7 @@ namespace AMW_Mathematics.T_ModelView
 {
     class TriangleShowBoxView
     {
-        public void ShowSolverBox_Window(int index, ListBox ShowSolverBox, TextBox AngleA, TextBox AngleB, TextBox AngleC, TextBox TValuea, TextBox TValueb, TextBox TValuec)
+        public void ShowSolverBox_Window(int index, ListBox ShowSolverBox,ComboBox TypeSolving, TextBox AngleA, TextBox AngleB, TextBox AngleC, TextBox TValuea, TextBox TValueb, TextBox TValuec)
         {
             try
             {
@@ -26,10 +26,17 @@ namespace AMW_Mathematics.T_ModelView
                 {
                     case 0:
                         ShowSolverBox.Items.Clear();
-                        ShowSolverBox.Items.Add("A: Law of Cosines: cos(α)=(c²+b²-a²)÷(2·b·a)");
-                        ShowSolverBox.Items.Add("B: Law of Cosines: cos(β)=(c²-b²+a²)÷(2·b·a)");
-                        ShowSolverBox.Items.Add("C: Law of Cosines: cos(γ)=(b²+a²-c²)÷(2·b·a)");
-                        ShowSolverBox.Items.Add("D: Sum of triangle's angles measures A+B+C=1");
+                        if((TypeSolving.Items[TypeSolving.SelectedIndex] as ComboBoxItem).Content.ToString() == "Sides")
+                        {
+                            ShowSolverBox.Items.Add("A: Law of Cosines: cos(α)=(c²+b²-a²)÷(2·b·a)");
+                            ShowSolverBox.Items.Add("B: Law of Cosines: cos(β)=(c²-b²+a²)÷(2·b·a)");
+                            ShowSolverBox.Items.Add("C: Law of Cosines: cos(γ)=(b²+a²-c²)÷(2·b·a)");
+                            ShowSolverBox.Items.Add("D: Sum of triangle's angles measures α+β+γ=1");
+                        }
+                        if ((TypeSolving.Items[TypeSolving.SelectedIndex] as ComboBoxItem).Content.ToString() == "Angles")
+                        {
+                            ShowSolverBox.Items.Add("A: Sum of triangle's angles measure: α+β+γ=1");
+                        }                      
                         break;
                     case 1:
                         ShowSolverBox.Items.Clear();

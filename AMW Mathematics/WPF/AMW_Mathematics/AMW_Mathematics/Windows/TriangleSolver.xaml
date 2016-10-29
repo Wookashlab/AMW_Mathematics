@@ -6,31 +6,40 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
-        Title="AMW Mathematics" Height="514.831" Width="392" ResizeMode="CanMinimize"
+        Title="AMW Mathematics" Height="538.831" Width="392" ResizeMode="CanMinimize"
         BorderThickness="1" >
     <Grid Margin="0,0,0,3">
         <Grid x:Name="TriangeImg" Margin="10,10,10,318" HorizontalAlignment="Stretch"/>
-        <Button Margin="290,446,0,0"  Height="3" Content="Calculate" VerticalAlignment="Top" Opacity="0.6" Click="SolveTriangel_Click" MouseLeave="TriangelSolve_MouseLeave" HorizontalAlignment="Left" Width="84"/>
-        <Button Margin="10,446,287,0"  Height="3" Content="Clear" VerticalAlignment="Top" Opacity="0.6"  Click="SolveTriangelClear_Click"/>
-        <GroupBox x:Name="groupBox" Header="       Sides                            Angles           " HorizontalAlignment="Left" Width="364" Margin="10,303,0,0" Height="138" VerticalAlignment="Top">
+        <Button Margin="290,470,0,0"  Height="3" Content="Calculate" VerticalAlignment="Top" Opacity="0.6" Click="SolveTriangel_Click" MouseLeave="TriangelSolve_MouseLeave" HorizontalAlignment="Left" Width="84"/>
+        <Button Margin="10,470,287,0"  Height="3" Content="Clear" VerticalAlignment="Top" Opacity="0.6"  Click="SolveTriangelClear_Click"/>
+        <GroupBox x:Name="SolvingValuesBox" Header="            Sides                                        Angles           " HorizontalAlignment="Left" Width="364" Margin="10,299,0,0" Height="162" VerticalAlignment="Top">
             <Grid Margin="0,0,0,-2">
-                <Rectangle Fill="#FFF4F4F5" Height="102" Margin="205,0,0,-1" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1"/>
-                <Label Content="c" Margin="73,5,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" RenderTransformOrigin="0.474,0.5" HorizontalAlignment="Left" Width="19"/>
-                <Label Content="b" Margin="73,36,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
-                <Label Content="a" Margin="73,65,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
-                <TextBox x:Name="TValuec" HorizontalAlignment="Left" Height="23" Margin="92,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" MouseEnter="SolverLabel_MouseEnter" MouseLeave="SolverLabel_MouseLeave"/>
-                <TextBox x:Name="TValuea" HorizontalAlignment="Left" Height="23" Margin="92,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" MouseEnter="SolverLabel_MouseEnter" MouseLeave="SolverLabel_MouseLeave"/>
-                <TextBox x:Name="TValueb" HorizontalAlignment="Left" Height="23" Margin="92,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" MouseEnter="SolverLabel_MouseEnter" MouseLeave="SolverLabel_MouseLeave"/>
-                <Rectangle Fill="#FFF4F4F5" Height="102" Margin="40,0,0,-1" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1"/>
-                <TextBox x:Name="AngleC" HorizontalAlignment="Left" Height="23" Margin="259,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83"  MouseEnter="SolverLabelAngle_MouseEnter" MouseLeave="SolverLabelAngle_MouseLeave"/>
-                <TextBox x:Name="AngleB" HorizontalAlignment="Left" Height="23" Margin="259,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" MouseEnter="SolverLabelAngle_MouseEnter" MouseLeave="SolverLabelAngle_MouseLeave"/>
-                <TextBox x:Name="AngleA" HorizontalAlignment="Left" Height="23" Margin="259,67,0,0" TextWrapping="Wrap" Width="83" VerticalAlignment="Top" MouseEnter="SolverLabelAngle_MouseEnter" MouseLeave="SolverLabelAngle_MouseLeave"/>
-                <Label Content="C" Margin="240,5,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19" RenderTransformOrigin="0.421,0.462"/>
-                <Label Content="B" Margin="240,36,0,0" Background="#FF41B1E1" Foreground="White" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
-                <Label Content="A" Margin="240,67,0,0" Background="#FF41B1E1" Foreground="White" RenderTransformOrigin="0.491,0.474" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
-                <Button Margin="0,67,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="17"/>
-                <Button Margin="0,36,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="17"/>
-                <Button Margin="0,5,335,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Right" Width="17"/>
+                <ComboBox x:Name="TypeSolving" HorizontalAlignment="Left" Margin="102,-32,0,0" VerticalAlignment="Top" Width="73" SelectionChanged="TypeSolving_SelectionChanged">
+                    <ComboBoxItem Content="Sides">
+                    </ComboBoxItem>
+                    <ComboBoxItem Content="Angles">
+                    </ComboBoxItem>
+                </ComboBox>
+                <Grid x:Name="TypeSolvingGrid" IsEnabled="False">
+                    <Rectangle Fill="#FFF4F4F5" Height="125" Margin="198,0,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1"/>
+                    <Label Content="c" Margin="59,8,0,0" Background="#FF41B1E1" Foreground="White" Height="30" VerticalAlignment="Top" RenderTransformOrigin="0.474,0.5" HorizontalAlignment="Left" Width="19"/>
+                    <Label Content="b" Margin="59,46,0,0" Background="#FF41B1E1" Foreground="White" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
+                    <Label Content="a" Margin="59,85,0,0" Background="#FF41B1E1" Foreground="White" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
+                    <TextBox x:Name="TValuec" HorizontalAlignment="Left" Height="30" Margin="78,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" MouseEnter="SolverLabel_MouseEnter" MouseLeave="SolverLabel_MouseLeave"/>
+                    <TextBox x:Name="TValuea" HorizontalAlignment="Left" Height="30" Margin="78,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" MouseEnter="SolverLabel_MouseEnter" MouseLeave="SolverLabel_MouseLeave"/>
+                    <TextBox x:Name="TValueb" HorizontalAlignment="Left" Height="30" Margin="78,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" MouseEnter="SolverLabel_MouseEnter" MouseLeave="SolverLabel_MouseLeave" RenderTransformOrigin="0.629,1.5"/>
+                    <Rectangle Fill="#FFF4F4F5" Height="125" Margin="36,0,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1"/>
+                    <TextBox x:Name="AngleC" HorizontalAlignment="Left" Height="30" Margin="239,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97"  MouseEnter="SolverLabelAngle_MouseEnter" MouseLeave="SolverLabelAngle_MouseLeave"/>
+                    <TextBox x:Name="AngleB" HorizontalAlignment="Left" Height="30" Margin="239,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" MouseEnter="SolverLabelAngle_MouseEnter" MouseLeave="SolverLabelAngle_MouseLeave" RenderTransformOrigin="0.443,1.462"/>
+                    <TextBox x:Name="AngleA" HorizontalAlignment="Left" Height="30" Margin="239,85,0,0" TextWrapping="Wrap" Width="97" VerticalAlignment="Top" MouseEnter="SolverLabelAngle_MouseEnter" MouseLeave="SolverLabelAngle_MouseLeave" RenderTransformOrigin="0.495,0.423"/>
+                    <Label Content="γ" Margin="220,8,0,0" Background="#FF41B1E1" Foreground="White" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19" RenderTransformOrigin="0.421,0.462"/>
+                    <Label Content="β" Margin="220,46,0,0" Background="#FF41B1E1" Foreground="White" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
+                    <Label Content="α" Margin="220,85,0,0" Background="#FF41B1E1" Foreground="White" RenderTransformOrigin="0.491,0.474" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="19"/>
+                    <Button Content ="x²" Margin="0,64,0,0" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="26"/>
+                    <Button ToolTip="Square root of a number. e.g. sqr(4)" HorizontalAlignment="Left" Margin="0,34,0,66" Width="26" Height="18" Content="√" FontSize="12"/>
+                    <Button Content="π" Margin="0,5,326,0" Height="4" VerticalAlignment="Top" HorizontalAlignment="Right" Width="26"/>
+                    <Button Content="xⁿ" Margin="0,94,0,0" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="26"/>
+                </Grid>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Copy" Header="Show" HorizontalAlignment="Left" Width="364" Margin="10,168,0,0" Height="126" VerticalAlignment="Top">
@@ -39,14 +48,13 @@
                     <ColumnDefinition Width="215*"/>
                     <ColumnDefinition Width="137*"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="SolveTriangelProperties" HorizontalAlignment="Left" Margin="103,-32,0,0" VerticalAlignment="Top" Width="166" Grid.ColumnSpan="2" SelectionChanged="SolveTriangelProperties_SelectionChanged">
+                <ComboBox x:Name="SolveTriangelProperties" IsEnabled="False" HorizontalAlignment="Left" Margin="103,-32,0,0" VerticalAlignment="Top" Width="166" Grid.ColumnSpan="2" SelectionChanged="SolveTriangelProperties_SelectionChanged">
                     <ComboBoxItem Content="Rules used to calculate">
                     </ComboBoxItem>
                     <ComboBoxItem Content="Triangle Type">
                     </ComboBoxItem>
                     <ComboBoxItem Content="Altitudes and area">
                     </ComboBoxItem>
-                    <ComboBox x:Name="comboBox" Width="120"/>
                 </ComboBox>
                 <ListBox x:Name="ShowSolverBox" Grid.ColumnSpan="2">
                 </ListBox>
