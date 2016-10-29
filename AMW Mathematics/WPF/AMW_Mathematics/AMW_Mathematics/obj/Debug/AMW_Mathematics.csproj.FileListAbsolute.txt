@@ -251,13 +251,11 @@ D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\A
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
-D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.g.cs
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
-D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\Logo.baml
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
@@ -292,8 +290,6 @@ C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache
-D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\ThemaColor.baml
-D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\ThemaColor.g.cs
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\ThemaColor.g.cs
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\ThemaColor.baml
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\TriangleSolver.g.cs
@@ -302,3 +298,5 @@ D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\A
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\TriangleSolver.baml
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.g.cs
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.baml
+D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.g.cs
+D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.baml

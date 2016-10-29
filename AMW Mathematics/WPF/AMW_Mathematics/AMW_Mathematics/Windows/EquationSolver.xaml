@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
         Title="AMW Mathematics" Height="538.831" Width="392" ResizeMode="CanMinimize"
-        BorderThickness="1" >
+        BorderThickness="2" 
+        GlowBrush="{DynamicResource AccentColorBrush}" >
     <Grid>
     </Grid>
 </Controls:MetroWindow>

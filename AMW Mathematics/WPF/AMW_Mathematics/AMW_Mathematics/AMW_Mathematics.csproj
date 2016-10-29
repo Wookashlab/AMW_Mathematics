@@ -110,12 +110,6 @@
     <Compile Include="Windows\EquationSolver.xaml.cs">
       <DependentUpon>EquationSolver.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Logo.xaml.cs">
-      <DependentUpon>Logo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ThemaColor.xaml.cs">
-      <DependentUpon>ThemaColor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\TriangleSolver.xaml.cs">
       <DependentUpon>TriangleSolver.xaml</DependentUpon>
     </Compile>
@@ -133,14 +127,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\EquationSolver.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Logo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ThemaColor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

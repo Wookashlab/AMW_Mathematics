@@ -126,8 +126,8 @@ namespace AMW_Mathematics.Windows
 
                 if (ValueA + ValueB > ValueC && ValueA + ValueC > ValueB && ValueC + ValueB > ValueA && Checkanglessum == true)
                 {
-                    SolveTriangelProperties.IsEnabled = true;
                     Triangle = triangleview.DrawTriangel(TriangeImg, Triangle, TValuea, TValueb, TValuec, AngleA, AngleB, AngleC, diffrent, ValueC, ValueA, ValueB);
+                    TriangeImg.Visibility = Visibility.Visible;
                     SolveTriangelProperties.SelectedIndex = 0;
                     drawlabel = true;
                 }
@@ -145,6 +145,7 @@ namespace AMW_Mathematics.Windows
                     }
                     catch { }
                     drawlabel = false;
+                    
                 }
             }
             catch { } 
@@ -152,7 +153,18 @@ namespace AMW_Mathematics.Windows
 
         private void SolveTriangelClear_Click(object sender, RoutedEventArgs e)
         {
-
+            SolveTriangelProperties.SelectedIndex = -1;
+            ShowSolverBox.Items.Clear();
+            SolveTriangelProperties.IsEnabled = false;
+            TypeSolvingGrid.IsEnabled = true;
+            TriangeImg.Children.RemoveRange(0, TriangeImg.Children.Count);
+            TValuea.Clear();
+            TValueb.Clear();
+            TValuec.Clear();
+            AngleA.Clear();
+            AngleB.Clear();
+            AngleC.Clear();
+            
         }
 
         private void TriangelSolve_MouseLeave(object sender, MouseEventArgs e)
