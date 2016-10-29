@@ -95,6 +95,7 @@
     <Compile Include="Function\FunctionToAllPlot.cs" />
     <Compile Include="Function\PointChartFunction.cs" />
     <Compile Include="Function\Serialization.cs" />
+    <Compile Include="Function\AppTheme.cs" />
     <Compile Include="ModelView\ChartLineView.cs" />
     <Compile Include="ModelView\ChartListViewInequalities.cs" />
     <Compile Include="ModelView\ChartListViewParametric.cs" />

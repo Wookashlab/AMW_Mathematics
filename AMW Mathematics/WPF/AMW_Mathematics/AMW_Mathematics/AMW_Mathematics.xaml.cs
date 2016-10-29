@@ -63,6 +63,9 @@ namespace AMW_Mathematics
 
         private DataLayout datalayout = new DataLayout();
         SplashScreen ss = new SplashScreen("img/SplashScreenv4.png");                           //Ustalenei jaki obraz ma być SplashScreenem #Ł
+        Function.AppTheme Thememanager = new Function.AppTheme();                               //Instancja klasy obsługującej motyw aplikacji #Ł
+
+
 
         System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();
         public string theme { get; set; }
@@ -71,12 +74,13 @@ namespace AMW_Mathematics
         public MainWindow()
         {
 
-            ss.Show(true, true);                                                                //Wywołanie splashscreena który zawsze jest na górze i samoistnie się wyłącza po załadowaniu aplikacji #Ł
+         //   ss.Show(true, true);                                                                //Wywołanie splashscreena który zawsze jest na górze i samoistnie się wyłącza po załadowaniu aplikacji #Ł
             InitializeApplication();
-
+            
         }
         public void InitializeApplication()
         {
+
             chartlist.CountFunction = "1";
             datatopointchartview.CountFunction = 1;
             InitializeComponent();                                                 //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
@@ -105,13 +109,17 @@ namespace AMW_Mathematics
             datatolinechartview.ShowTooltip = true;
             datatolinechartview.ToogleGridLineView = true;
             datatochart.WhichGraphZoom = "";
-            RealNumber.IsChecked = true;                                       //Włączenie trybu "Liczby rzeczywiste" #Ł
+            Thememanager.LoadTheme();                                                           //Załadowanie motywu z pliku #Ł
+            ThemeChange();                                                                      //Ustawienie motywu #Ł
+            RealNumber.IsChecked = true;                                                       //Włączenie trybu "Liczby rzeczywiste" #Ł
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             datalayout.VisibilityCalculatorPad = true;
             expPlotter.MouseMove += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseMove);
             expPlotter.MouseWheel += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseWheel);
+            Tuple<MahApps.Metro.AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
+            ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Thememanager.accentColor), ThemeManager.GetAppTheme(Thememanager.themeColor));
         }
 
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
@@ -847,61 +855,26 @@ namespace AMW_Mathematics
 
         }
 
-        private void ColorAccept_Click(object sender, RoutedEventArgs e)                             //Zmiana koloru programu #Ł       
+        private void ColorAccept_Click(object sender, RoutedEventArgs e)                             //Obsługa zmiany koloru programu w popout-cie #Ł       
         {
-            String themeColor="", themeBackground="";
-            themeColor = SelectedColor.SelectedItem.ToString().Remove(0, 37);
-            themeBackground = SelectedTheme.SelectedItem.ToString().Remove(0, 37);
-            ThemePopOut.IsOpen = false;
-            switch (themeColor)
-            {
-                case "Red":
-                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFEA4333"));
-                    break;
-                case "Blue":
-                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
-                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF41B1E1"));
-                    break;
-                case "Green":
-                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
-                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF80BA45"));
-                    break;
-                case "Orange":
-                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
-                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFB8633"));
-                    break;
-                    case "Pink":
-                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
-                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFF68ED9"));
-                    break;
-                case "Brown":
-                    ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
-                    DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
-                    MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
-                    VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
-                    VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF9B7B56"));
-                    break;
+            Thememanager.accentColor = SelectedColor.SelectedItem.ToString().Remove(0, 37);         //Zczytanie wybranego akcentu #Ł
+            Thememanager.themeColor = SelectedTheme.SelectedItem.ToString().Remove(0, 37);          //Zczytanie wybranego motywu #Ł
+            ThemePopOut.IsOpen = false;                                                             //Zamknięcie popout-u #Ł
+            ThemeChange();                                                                          //Wywołanie zmian koloru aplikacji #Ł
+            Thememanager.SaveThem();                                                                //Zapisanie wybranych zmian do pliku #Ł
 
-            }
-            Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);       
-            ThemeManager.ChangeAppStyle(Application.Current,
-                                     ThemeManager.GetAccent(themeColor),ThemeManager.GetAppTheme(themeBackground));
+        }
+        private void ThemeChange()                                                                  //Zmiana koloru aplikacji #Ł
+        {
+            Thememanager.Accent(Thememanager.accentColor);                                          //Wygenerowanie kodu koloru odpowidającego wybranemu kolorowi w klasie AppTheme #Ł
+            ThemePopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));                               //Zmiana koloru popoutów #Ł
+            DataSetsPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));
+            MenuPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));
+            VariablesPopOutBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));
+            VariablePopBorder.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));
+
+            Tuple<MahApps.Metro.AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);                  //Zmiana motuwy aplikacji #Ł
+            ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Thememanager.accentColor), ThemeManager.GetAppTheme(Thememanager.themeColor));
         }
 
         private void AcceptXY_Click(object sender, RoutedEventArgs e)
