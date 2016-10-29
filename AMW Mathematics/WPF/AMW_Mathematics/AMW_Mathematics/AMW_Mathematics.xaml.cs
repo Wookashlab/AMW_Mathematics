@@ -945,7 +945,7 @@ namespace AMW_Mathematics
 
         private void TriangleSolverButton_Click(object sender, RoutedEventArgs e)
         {
-            TriangleSolver trianglesolverwindow = new TriangleSolver();
+            TriangleSolver trianglesolverwindow = new TriangleSolver(Thememanager.accentColorCode);
             trianglesolverwindow.ShowDialog();
         }
 

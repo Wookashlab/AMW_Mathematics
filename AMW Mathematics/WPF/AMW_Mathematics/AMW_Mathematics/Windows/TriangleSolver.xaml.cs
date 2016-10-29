@@ -34,10 +34,18 @@ namespace AMW_Mathematics.Windows
         private List<Label> ListLabel2;
 
         private bool drawlabel = false;
-
-        public TriangleSolver()
+        private SolidColorBrush color;
+        public TriangleSolver(string colorCode)
         {
+            color = (SolidColorBrush)(new BrushConverter().ConvertFrom(colorCode));
             InitializeComponent();
+            ColorLabelA.Background = color;
+            ColorLabelAlfa.Background = color;
+            ColorLabelB.Background = color;
+            ColorLabelBeta.Background = color;
+            ColorLabelC.Background = color;
+            ColorLabelGama.Background = color;
+
         }
         public Dictionary<string,double> SolveAfterAngles(Dictionary<string, double> LenghtSides, double?  AngleA, double ? AngleB, double ? AngleC, double ? ValueC, double ?  ValueB, double ? ValueA )
         {
@@ -126,7 +134,7 @@ namespace AMW_Mathematics.Windows
 
                 if (ValueA + ValueB > ValueC && ValueA + ValueC > ValueB && ValueC + ValueB > ValueA && Checkanglessum == true)
                 {
-                    Triangle = triangleview.DrawTriangel(TriangeImg, Triangle, TValuea, TValueb, TValuec, AngleA, AngleB, AngleC, diffrent, ValueC, ValueA, ValueB);
+                    Triangle = triangleview.DrawTriangel(TriangeImg, Triangle, TValuea, TValueb, TValuec, AngleA, AngleB, AngleC, diffrent, ValueC, ValueA, ValueB, color);
                     TriangeImg.Visibility = Visibility.Visible;
                     SolveTriangelProperties.SelectedIndex = 0;
                     drawlabel = true;

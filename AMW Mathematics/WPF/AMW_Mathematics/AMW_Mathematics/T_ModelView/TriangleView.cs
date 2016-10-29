@@ -26,7 +26,7 @@ namespace AMW_Mathematics.T_ModelView
             return (Math.Acos(cos_kat) * 180 / 3.14159265);
         }
 
-        public Polygon DrawTriangel(Grid TriangeImg, Polygon Triangle, TextBox TValuea, TextBox TValueb, TextBox TValuec, TextBox AngleA, TextBox AngleB, TextBox AngleC, double diffrent, double ValueC, double ValueA, double ValueB)
+        public Polygon DrawTriangel(Grid TriangeImg, Polygon Triangle, TextBox TValuea, TextBox TValueb, TextBox TValuec, TextBox AngleA, TextBox AngleB, TextBox AngleC, double diffrent, double ValueC, double ValueA, double ValueB, SolidColorBrush themeColor)
         {
             TValuea.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
             TValueb.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
@@ -46,7 +46,7 @@ namespace AMW_Mathematics.T_ModelView
               ,
                 StrokeThickness = 3
               ,
-                Fill = new SolidColorBrush(Color.FromArgb(255, 65, 177, 225))
+                Fill = themeColor
               ,
                 Opacity = 1
               ,
