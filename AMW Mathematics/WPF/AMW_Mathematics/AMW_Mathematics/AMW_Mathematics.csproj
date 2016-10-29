@@ -92,7 +92,6 @@
     <Compile Include="E_ModelView\ComboListEquationView.cs" />
     <Compile Include="E_ModelView\ListExpresionView.cs" />
     <Compile Include="E_Model\E_DataToListView.cs" />
-    <Compile Include="Function\ComplexNumber.cs" />
     <Compile Include="Function\FunctionToAllPlot.cs" />
     <Compile Include="Function\PointChartFunction.cs" />
     <Compile Include="Function\Serialization.cs" />

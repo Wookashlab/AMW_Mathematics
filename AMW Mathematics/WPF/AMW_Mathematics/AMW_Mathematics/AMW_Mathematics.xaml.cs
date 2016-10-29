@@ -73,7 +73,7 @@ namespace AMW_Mathematics
 
             ss.Show(true, true);                                                                //Wywołanie splashscreena który zawsze jest na górze i samoistnie się wyłącza po załadowaniu aplikacji #Ł
             InitializeApplication();
-            InitializeComponent();
+
         }
         public void InitializeApplication()
         {
@@ -110,7 +110,6 @@ namespace AMW_Mathematics
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             datalayout.VisibilityCalculatorPad = true;
-            ComplexNumber comp = new ComplexNumber();
             expPlotter.MouseMove += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseMove);
             expPlotter.MouseWheel += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseWheel);
         }

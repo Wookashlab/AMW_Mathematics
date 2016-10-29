@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
         Title="AMW Mathematics" Height="431.831" Width="287" ResizeMode="CanMinimize"
-        BorderThickness="1" >
+        BorderThickness="2" 
+        GlowBrush="{DynamicResource AccentColorBrush}">
     <Grid Margin="0,0,2,320">
         <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,0,0,8" >
             <ComboBox x:Name="CoEquations" ItemsSource="{Binding Source}" SelectedItem="{Binding MySelectedItem}" FontSize="10" HorizontalAlignment="Left" Width="180" Height="32" VerticalAlignment="Top" Margin="10,10,0,0" />
@@ -24,7 +25,7 @@
             </ListView>
         </TabControl>
         <Button x:Name="button" Content="Solve" VerticalAlignment="Top" Margin="191,234,11,-178"/>
-        <GroupBox x:Name="groupBox" Header="Equation Solving" Margin="2,274,0,-314">
+        <GroupBox x:Name="groupBox" Header="Equation Solving" Margin="2,274,0,-323">
             <Grid Margin="0,0,0,-11"/>
         </GroupBox>
     </Grid>
