@@ -62,6 +62,7 @@ namespace AMW_Mathematics
         private DataToChart datatochart = new DataToChart();
 
         private DataLayout datalayout = new DataLayout();
+        SplashScreen ss = new SplashScreen("img/SplashScreenv4.png");                           //Ustalenei jaki obraz ma być SplashScreenem #Ł
 
         System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();
         public string theme { get; set; }
@@ -69,7 +70,8 @@ namespace AMW_Mathematics
     
         public MainWindow()
         {
-            this.Topmost = true;
+
+            ss.Show(true, true);                                                                //Wywołanie splashscreena który zawsze jest na górze i samoistnie się wyłącza po załadowaniu aplikacji #Ł
             InitializeApplication();
             InitializeComponent();
         }

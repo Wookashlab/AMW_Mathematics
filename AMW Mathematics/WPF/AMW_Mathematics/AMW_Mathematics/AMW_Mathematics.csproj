@@ -217,7 +217,7 @@
     <Resource Include="img\Klawiatura\minimalizuj.png" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="img\SplashScreenv4.png" />
+    <Resource Include="img\SplashScreenv4.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Klawiatura\Funkcje\sprzężenie.png" />
