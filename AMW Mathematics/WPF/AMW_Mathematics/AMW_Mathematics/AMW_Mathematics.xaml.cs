@@ -69,6 +69,7 @@ namespace AMW_Mathematics
     
         public MainWindow()
         {
+            this.Topmost = true;
             InitializeApplication();
             InitializeComponent();
         }
