@@ -90,6 +90,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="E_ModelView\ListExpresionView.cs" />
+    <Compile Include="E_Model\ExpresionToSolve.cs" />
+    <Compile Include="Function\EqualizationSolverFunction.cs" />
     <Compile Include="Function\FunctionToAllPlot.cs" />
     <Compile Include="Function\PointChartFunction.cs" />
     <Compile Include="Function\Serialization.cs" />
