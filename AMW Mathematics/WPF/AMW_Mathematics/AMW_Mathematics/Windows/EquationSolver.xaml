@@ -6,12 +6,12 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
-        Title="AMW Mathematics" Height="431.831" Width="287" ResizeMode="CanMinimize"
+        Title="AMW Mathematics" Height="455.831" Width="296" ResizeMode="CanMinimize"
         BorderThickness="2" 
         GlowBrush="{DynamicResource AccentColorBrush}">
     <Grid Margin="0,0,2,320">
-        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,0,0,8" >
-            <ComboBox x:Name="CoEquations" HorizontalAlignment="Left" Width="180" Height="32" VerticalAlignment="Top" Margin="10,10,0,0" SelectionChanged="CoEquations_SelectionChanged" SelectedIndex="0">
+        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,0,0,30" >
+            <ComboBox x:Name="CoEquations" HorizontalAlignment="Left" Width="203" Height="32" VerticalAlignment="Top" Margin="10,10,0,0" SelectionChanged="CoEquations_SelectionChanged" SelectedIndex="0">
                 <ComboBoxItem Content="Solve 1 Equation"></ComboBoxItem>
                 <ComboBoxItem Content="Solve a System of 2 Equations"></ComboBoxItem>
                 <ComboBoxItem Content="Solve a System of 3 Equations"></ComboBoxItem>
@@ -20,18 +20,18 @@
                 <ComboBoxItem Content="Solve a System of 6 Equations"></ComboBoxItem>
             </ComboBox>
         </TabControl>
-        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,78,0,-188" Height="191" VerticalAlignment="Top">
-            <ListView x:Name="ListViewExp" Margin="-1,0,2,30" Width="260" VerticalContentAlignment="Stretch" HorizontalAlignment="Right" Height="141" VerticalAlignment="Bottom">
+        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="2,78,0,-188" Height="191" VerticalAlignment="Top">
+            <ListView x:Name="ListViewExp" Margin="2,-1,2,42" VerticalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <TextBox Text="{Binding Exp}" Margin="0,0,5,0" Width="250" Height="35" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="{Binding Watermark}" FontSize="16"></TextBox>
+                        <Grid Margin="0,4">
+                            <TextBox Text="{Binding Exp}" Margin="0,0,5,0" Width="250" Height="33" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="{Binding Watermark}" FontSize="16"></TextBox>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </TabControl>
-        <Button x:Name="button" Content="Solve" VerticalAlignment="Top" Margin="191,234,11,-178"/>
+        <Button x:Name="button" Content="Solve" Margin="227,229,11,-153" Style="{StaticResource AccentedSquareButtonStyle}"/>
         <GroupBox x:Name="groupBox" Header="Equation Solving" Margin="2,274,0,-323">
             <Grid Margin="0,0,0,-11"/>
         </GroupBox>

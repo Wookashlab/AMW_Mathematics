@@ -44,6 +44,19 @@ namespace AMW_Mathematics.Windows
                         ListViewExp.Items.Add(new ListExpresionView { Exp = "", Watermark = "Equation " +  val});
                     }
                 }
+                index = CoEquations.SelectedIndex;
+                if (ListViewExp.Items.Count > index + 1)
+                {
+                    count = (ListViewExp.Items.Count-1)  - (index) ;
+                    do
+                    {
+
+                        ListViewExp.Items.RemoveAt(ListViewExp.Items.Count - 1);
+                        ListViewExp.Items.Refresh();
+                        count = count - 1;
+                    }
+                    while (count > 0);
+                }
             }
             catch { }
         }
