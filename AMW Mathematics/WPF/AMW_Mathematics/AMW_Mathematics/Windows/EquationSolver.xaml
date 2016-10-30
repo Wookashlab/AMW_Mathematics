@@ -11,7 +11,14 @@
         GlowBrush="{DynamicResource AccentColorBrush}">
     <Grid Margin="0,0,2,320">
         <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,0,0,8" >
-            <ComboBox x:Name="CoEquations" ItemsSource="{Binding Source}" HorizontalAlignment="Left" Width="180" Height="32" VerticalAlignment="Top" Margin="10,10,0,0" SelectedIndex="0" />
+            <ComboBox x:Name="CoEquations" HorizontalAlignment="Left" Width="180" Height="32" VerticalAlignment="Top" Margin="10,10,0,0" SelectionChanged="CoEquations_SelectionChanged" SelectedIndex="0">
+                <ComboBoxItem Content="Solve 1 Equation"></ComboBoxItem>
+                <ComboBoxItem Content="Solve a System of 2 Equations"></ComboBoxItem>
+                <ComboBoxItem Content="Solve a System of 3 Equations"></ComboBoxItem>
+                <ComboBoxItem Content="Solve a System of 4 Equations"></ComboBoxItem>
+                <ComboBoxItem Content="Solve a System of 5 Equations"></ComboBoxItem>
+                <ComboBoxItem Content="Solve a System of 6 Equations"></ComboBoxItem>
+            </ComboBox>
         </TabControl>
         <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,78,0,-188" Height="191" VerticalAlignment="Top">
             <ListView x:Name="ListViewExp" Margin="-1,0,2,30" Width="260" VerticalContentAlignment="Stretch" HorizontalAlignment="Right" Height="141" VerticalAlignment="Bottom">

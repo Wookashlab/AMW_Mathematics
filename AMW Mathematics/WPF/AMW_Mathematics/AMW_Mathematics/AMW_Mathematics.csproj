@@ -89,7 +89,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="E_ModelView\ComboListEquationView.cs" />
     <Compile Include="E_ModelView\ListExpresionView.cs" />
     <Compile Include="Function\FunctionToAllPlot.cs" />
     <Compile Include="Function\PointChartFunction.cs" />
