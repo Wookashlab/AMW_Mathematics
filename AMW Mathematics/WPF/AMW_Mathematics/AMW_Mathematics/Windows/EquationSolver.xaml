@@ -31,7 +31,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </TabControl>
-        <Button x:Name="button" Content="Solve" Margin="227,229,11,-153" Style="{StaticResource AccentedSquareButtonStyle}"/>
+        <Button x:Name="Solve" Content="Solve" Margin="227,229,11,-153" Style="{StaticResource AccentedSquareButtonStyle}" Click="Solve_Click"/>
         <GroupBox x:Name="groupBox" Header="Equation Solving" Margin="2,274,0,-323">
             <Grid Margin="0,0,0,-11"/>
         </GroupBox>
