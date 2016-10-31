@@ -103,25 +103,12 @@ namespace AMW_Mathematics.Function
                 case "Sienna":
                     accentColorCode = "#FFB37557";
                     break;
-            
-                    
             }
 
         }
-        public void Theme (string color)                                    //Reczej nie potrzebbe ?? #Ł
+        public void GetBorderColor(string tColor)                          //Funkcja generująca kolor ramek Ł#
         {
-            switch (color)
-            {
-                case "blue":
-                    themeColor = "#FF41B1E1";
-                    break;
-
-            }
-
-        }
-        public void GetBorderColor(string tColor)
-        {
-            borderColor = "#33" + tColor.Substring(3);
+            borderColor = "#33" + tColor.Substring(3);                     //rozjaśninie kodu koloru akcentu #Ł
 
         }
 

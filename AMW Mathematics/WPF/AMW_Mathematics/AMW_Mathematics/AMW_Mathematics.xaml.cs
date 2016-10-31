@@ -850,10 +850,10 @@ namespace AMW_Mathematics
 
         private void ThemaMenu_Click(object sender, RoutedEventArgs e)                                  //Otwarcie PopOutu ThemeMenu #Ł
         {
-            ThemePopOut.IsOpen = true;
-            var point = Mouse.GetPosition(Application.Current.MainWindow);
-            ThemePopOut.HorizontalOffset = point.X - 10;
-            ThemePopOut.VerticalOffset = point.Y - 20;
+            ThemePopOut.IsOpen = true;                                                                  //Pokazanie popoutu #Ł
+            var point = Mouse.GetPosition(Application.Current.MainWindow);                              //Zczytanie pozycji myszki #Ł
+            ThemePopOut.HorizontalOffset = point.X - 10;                                                //Ustawnie pozycji popoutu - poziom #Ł
+            ThemePopOut.VerticalOffset = point.Y - 20;                                                  //Ustawnie pozycji popoutu - popm #Ł
 
         }
 
@@ -864,7 +864,7 @@ namespace AMW_Mathematics
             ThemePopOut.IsOpen = false;                                                             //Zamknięcie popout-u #Ł
             ThemeChange();                                                                          //Wywołanie zmian koloru aplikacji #Ł
             Thememanager.SaveThem();                                                                //Zapisanie wybranych zmian do pliku #Ł
-            if (Thememanager.themeColor == "BaseLight") ButtonColorChange("Black");             //Zmiana koloru guzików na "telefonie" w zależności od motywu #Ł
+            if (Thememanager.themeColor == "BaseLight") ButtonColorChange("Black");                 //Zmiana koloru guzików na "telefonie" w zależności od motywu #Ł
             else ButtonColorChange("White");
 
         }
@@ -873,17 +873,18 @@ namespace AMW_Mathematics
             Thememanager.Accent(Thememanager.accentColor);                                          //Wygenerowanie kodu koloru odpowidającego wybranemu kolorowi w klasie AppTheme #Ł
             Thememanager.GetBorderColor(Thememanager.accentColorCode);
             SolidColorBrush themeColor = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));  //Zapisanie kodu koloru przy pomocy SolidColorBrush #Ł
-            SolidColorBrush borderColor = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.borderColor));
+            SolidColorBrush borderColor = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.borderColor));     //Zapisanie kodu koloru ramek przy pomocy SolidColorBrush Ł
 
 
-            ThemePopOutBorder.Background = themeColor;                              //Zmiana koloru poszczególnych komponentó  #Ł
+            ThemePopOutBorder.Background = themeColor;                              //Zmiana koloru poszczególnych komponentów  #Ł
             DataSetsPopOutBorder.Background = themeColor;
             MenuPopOutBorder.Background = themeColor;
             VariablesPopOutBorder.Background = themeColor;
             VariablePopBorder.Background = themeColor;
             TitleTxt.Foreground = themeColor;
             SubTitleTxt.Foreground = themeColor;
-            GraphingTabControl1.BorderBrush = borderColor;
+
+            GraphingTabControl1.BorderBrush = borderColor;                         //Zmiana koloru ramek #Ł
             GraphingTabControl2.BorderBrush = borderColor;
             MainManuTabControl.BorderBrush = borderColor;
             WorkingTabControl.BorderBrush = borderColor;
@@ -893,7 +894,7 @@ namespace AMW_Mathematics
             ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Thememanager.accentColor), ThemeManager.GetAppTheme(Thememanager.themeColor));
         }
 
-        private void AcceptXY_Click(object sender, RoutedEventArgs e)
+        private void AcceptXY_Click(object sender, RoutedEventArgs e)                           //Zmiana zakresu wykresów #Ł
         {
             switch (datatochart.WhichGraphZoom)
             {
@@ -907,7 +908,7 @@ namespace AMW_Mathematics
             }
         }
 
-        private void Hidde_CalculatorPad_Click(object sender, RoutedEventArgs e)
+        private void Hidde_CalculatorPad_Click(object sender, RoutedEventArgs e)                    //Ukrycie i pokazanie "telefonu" z funkcjami #Ł
         {
             if(datalayout.VisibilityCalculatorPad == true)
             {
@@ -926,7 +927,7 @@ namespace AMW_Mathematics
             }         
         }
 
-        private void Stored_Variable_Click(object sender, RoutedEventArgs e)
+        private void Stored_Variable_Click(object sender, RoutedEventArgs e)                         //Otwarcie PopOutu z zmiennymi #Ł
         {
             VariablePop.IsOpen = true;
             var point = Mouse.GetPosition(Application.Current.MainWindow);
@@ -941,7 +942,7 @@ namespace AMW_Mathematics
             }
         }
 
-        private void ClearVariable_Click(object sender, RoutedEventArgs e)
+        private void ClearVariable_Click(object sender, RoutedEventArgs e)                          //Obsługa czysczenia danej zmeinnej #Ł
         {
             var klawisz = (Button)sender;
             var item = VariablesListView.Items[int.Parse(klawisz.Tag.ToString())];
@@ -952,14 +953,14 @@ namespace AMW_Mathematics
             phrase.SymbolsAndValues.Remove(key);
         }
 
-        private void Clear_Variables_Click(object sender, RoutedEventArgs e)
+        private void Clear_Variables_Click(object sender, RoutedEventArgs e)                       //Obsługa czyszczenia wsyzskich zmiennych #Ł
         {
             VariablesListView.Items.Clear();
             phrase.SymbolsAndValues.Clear();
             VariablePop.IsOpen = false;
         }
 
-        private void TriangleSolverButton_Click(object sender, RoutedEventArgs e)
+        private void TriangleSolverButton_Click(object sender, RoutedEventArgs e)               //Otworzenie okna rozwiązywania trójkątów #Ł
         {
             TriangleSolver trianglesolverwindow = new TriangleSolver(Thememanager.accentColorCode);
             Opacity = 0.3;
@@ -967,12 +968,12 @@ namespace AMW_Mathematics
             Opacity = 1;
         }
 
-        private void EquationSolverButton_Click(object sender, RoutedEventArgs e)
+        private void EquationSolverButton_Click(object sender, RoutedEventArgs e)               //Otworzenie okna rozwiązywania równań #Ł
         {
             EquationSolver equationsolver = new EquationSolver();
             equationsolver.ShowDialog();
         }
-        void ButtonColorChange(string color)
+        void ButtonColorChange(string color)                                                    //Zmiana kolorów przycisków #Ł
         {
             ConjugateImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/"+color+"/sprzężenie.png", UriKind.Relative));
             IntegrateImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/całka.png", UriKind.Relative));

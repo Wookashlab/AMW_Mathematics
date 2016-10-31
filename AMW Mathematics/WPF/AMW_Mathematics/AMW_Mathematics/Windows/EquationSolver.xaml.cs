@@ -7,6 +7,7 @@ using AMW_Mathematics.E_ModelView;
 using MaximaSharp;
 using AMW_Mathematics.Function;
 using AMW_Mathematics.E_Model;
+using System.IO;
 namespace AMW_Mathematics.Windows
 {
     /// <summary>
@@ -16,57 +17,8 @@ namespace AMW_Mathematics.Windows
     {
         EqualizationSolverFunction equalizationsolverfunction = new EqualizationSolverFunction();
 
-        List<string> VariableList = new List<string> //Lista dostępnych zmiennych które można wprowadzić do wyrażenia #M
-        {
-             "A"
-            ,"B"
-            ,"C"
-            ,"D"
-            ,"E"
-            ,"F"
-            ,"G"
-            ,"H"
-            ,"I"
-            ,"J"
-            ,"K"
-            ,"L"
-            ,"M"
-            ,"N"
-            ,"O"
-            ,"P"
-            ,"R"
-            ,"S"
-            ,"T"
-            ,"U"
-            ,"W"
-            ,"Y"
-            ,"Y"
-            ,"Z"
-            ,"a"
-            ,"b"
-            ,"v"
-            ,"d"
-            ,"e"
-            ,"f"
-            ,"g"
-            ,"h"
-            ,"i"
-            ,"j"
-            ,"k"
-            ,"l"
-            ,"m"
-            ,"n"
-            ,"o"
-            ,"p"
-            ,"r"
-            ,"s"
-            ,"t"
-            ,"u"
-            ,"w"
-            ,"x"
-            ,"y"
-            ,"z"
-        };
+        List<string> VariableList  = File.ReadAllLines(@"VariableList").ToList();                               //Zczytanie listy zmiennych z pliku #Ł
+
         public EquationSolver()
         {
             InitializeComponent();
