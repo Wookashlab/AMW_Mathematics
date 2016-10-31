@@ -13,7 +13,7 @@
         xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
         <Grid>
-            <TabControl SelectedIndex="1" x:Name="tabControl" Margin="0,0,0,638" BorderBrush="AliceBlue" BorderThickness="6">
+            <TabControl SelectedIndex="1" x:Name="MainManuTabControl" Margin="0,0,0,638" BorderBrush="#FF41B1E1" BorderThickness="6">
                 <TabItem Margin="-2,-2,60,0" Padding="6,2,50,2" IsEnabled="False">
                 </TabItem>
                 <TabItem x:Name="HomeTab"  VerticalAlignment="Top" Header="Home">
@@ -143,7 +143,7 @@
             </TabControl>
             <TabControl x:Name="Worksheetadn" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" SelectionChanged="TabControl_SelectionChanged" >
                 <TabItem x:Name="worksheetTab" Margin="0,0,-4,-2" Header="Worksheet">
-                    <TabControl BorderBrush="AliceBlue" BorderThickness="6" >
+                    <TabControl x:Name="WorkingTabControl" BorderBrush="#FF41B1E1" BorderThickness="6" >
                         <Grid Margin="0,0,-11,-11">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="135*"/>
@@ -171,7 +171,7 @@
                             <ColumnDefinition Width="28*"/>
                             <ColumnDefinition Width="815*"/>
                         </Grid.ColumnDefinitions>
-                        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="267">
+                        <TabControl x:Name="GraphingTabControl1" BorderBrush="#FF41B1E1" BorderThickness="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="267">
                             <ListView HorizontalAlignment="Left" Width="251">
                                 <ListViewItem x:Name="EqualizationAndFunctionsChLV" Width="247" Height="428">
                                     <Grid>
@@ -377,7 +377,7 @@
                         <TabControl Margin="218,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
                             <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3" />
                         </TabControl>
-                        <TabControl Margin="218,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
+                        <TabControl x:Name="GraphingTabControl2" Margin="218,0,10,0" BorderBrush="#FF41B1E1" BorderThickness="6" Grid.Column="2">
                             <WindowsFormsHost x:Name="expPlotterControl" Visibility="Hidden">
                                 <WinForms:ExpressionPlotter x:Name="expPlotter" Click="Chart_Click"></WinForms:ExpressionPlotter>
                             </WindowsFormsHost>

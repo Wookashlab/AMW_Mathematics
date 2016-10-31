@@ -879,6 +879,10 @@ namespace AMW_Mathematics
             VariablePopBorder.Background = themeColor;
             TitleTxt.Foreground = themeColor;
             SubTitleTxt.Foreground = themeColor;
+            GraphingTabControl1.BorderBrush = themeColor;
+            GraphingTabControl2.BorderBrush = themeColor;
+            MainManuTabControl.BorderBrush = themeColor;
+            WorkingTabControl.BorderBrush = themeColor;
 
             Tuple<MahApps.Metro.AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);                  //Zmiana motuwy aplikacji #Ł
             ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Thememanager.accentColor), ThemeManager.GetAppTheme(Thememanager.themeColor));
