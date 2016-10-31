@@ -855,6 +855,23 @@ namespace AMW_Mathematics
             ThemePopOut.HorizontalOffset = point.X - 10;                                                //Ustawnie pozycji popoutu - poziom #Ł
             ThemePopOut.VerticalOffset = point.Y - 20;                                                  //Ustawnie pozycji popoutu - popm #Ł
 
+            foreach (ListBoxItem item in SelectedColor.Items)                                           //Wybranie obecnego akcentu w comboboxie #Ł
+            {
+                if (item.Content.ToString() == Thememanager.accentColor)
+                {
+                    SelectedColor.SelectedItem = item;
+                }
+            }
+            foreach (ListBoxItem item in SelectedTheme.Items)                                           //Wybranei obecnego motywu w comboboxie #Ł
+            {
+                if (item.Content.ToString() == Thememanager.themeColor)
+                {
+                    SelectedTheme.SelectedItem = item;
+                }
+            }
+
+
+
         }
 
         private void ColorAccept_Click(object sender, RoutedEventArgs e)                             //Obsługa zmiany koloru programu w popout-cie #Ł       
@@ -970,8 +987,10 @@ namespace AMW_Mathematics
 
         private void EquationSolverButton_Click(object sender, RoutedEventArgs e)               //Otworzenie okna rozwiązywania równań #Ł
         {
-            EquationSolver equationsolver = new EquationSolver();
+            Opacity = 0.3;
+            EquationSolver equationsolver = new EquationSolver(Thememanager.borderColor);
             equationsolver.ShowDialog();
+            Opacity = 1;
         }
         void ButtonColorChange(string color)                                                    //Zmiana kolorów przycisków #Ł
         {

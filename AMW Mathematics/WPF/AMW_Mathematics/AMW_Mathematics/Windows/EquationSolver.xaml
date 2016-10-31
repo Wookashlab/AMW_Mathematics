@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="AMW Mathematics" Height="455.831" Width="296" ResizeMode="CanMinimize"
         BorderThickness="2" 
-        GlowBrush="{DynamicResource AccentColorBrush}">
+        GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,2,320">
-        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="0,0,0,30" >
+        <TabControl x:Name="SelectBorder" BorderBrush="#3341B1E1" BorderThickness="6" Margin="0,0,0,30" >
             <ComboBox x:Name="CoEquations" HorizontalAlignment="Left" Width="203" Height="32" VerticalAlignment="Top" Margin="10,10,0,0" SelectionChanged="CoEquations_SelectionChanged" SelectedIndex="0">
                 <ComboBoxItem Content="Solve 1 Equation"></ComboBoxItem>
                 <ComboBoxItem Content="Solve a System of 2 Equations"></ComboBoxItem>
@@ -20,7 +20,7 @@
                 <ComboBoxItem Content="Solve a System of 6 Equations"></ComboBoxItem>
             </ComboBox>
         </TabControl>
-        <TabControl BorderBrush="AliceBlue" BorderThickness="6" Margin="2,78,0,-188" Height="191" VerticalAlignment="Top">
+        <TabControl x:Name="MainBorder" BorderBrush="#3341B1E1" BorderThickness="6" Margin="2,78,0,-188" Height="191" VerticalAlignment="Top">
             <ListView x:Name="ListViewExp" Margin="2,-1,2,42" VerticalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -7,6 +7,7 @@ using AMW_Mathematics.E_ModelView;
 using MaximaSharp;
 using AMW_Mathematics.Function;
 using AMW_Mathematics.E_Model;
+using System.Windows.Media;
 using System.IO;
 namespace AMW_Mathematics.Windows
 {
@@ -19,10 +20,13 @@ namespace AMW_Mathematics.Windows
 
         List<string> VariableList  = File.ReadAllLines(@"VariableList").ToList();                               //Zczytanie listy zmiennych z pliku #Ł
 
-        public EquationSolver()
+        public EquationSolver(string borderColor)
         {
             InitializeComponent();
-            ListViewExp.Items.Add(new List<ListExpresionView> {
+            MainBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom(borderColor));
+            SelectBorder.BorderBrush =(SolidColorBrush)(new BrushConverter().ConvertFrom(borderColor));
+
+        ListViewExp.Items.Add(new List<ListExpresionView> {
                                  new ListExpresionView { Exp = "", Watermark = "Equation 1" }                     //Dynamiczne dodanie do widoku listy wyrażenia przedstawionego jako instancja klasy ListExpresionView #M
             });
        }

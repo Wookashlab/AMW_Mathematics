@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Media;
 using System.Threading.Tasks;
 using System.IO;
 
@@ -12,7 +13,7 @@ namespace AMW_Mathematics.Function
 
 
         public String accentColor = "Blue", themeColor = "BaseLight", accentColorCode = "#FF41B1E1", borderColor = "#3341B1E1";
-
+        
         public void LoadTheme()                                                 //Odczytywanie pliku z zapisanym motywem #Ł
         {
             string[] lines = System.IO.File.ReadAllLines(@"theme");             //Wpisuje wartość pliku do tablicy #Ł
@@ -20,6 +21,7 @@ namespace AMW_Mathematics.Function
             themeColor = lines[1];                               //Zapisuje w zmiennej motyw #Ł
             Accent(accentColor);                                                //Generuje kod koloru #Ł
             GetBorderColor(accentColorCode);
+            
             
         }
         public void SaveThem()                                                  //Zapisanie koloru aplikacji do pliku #Ł 
