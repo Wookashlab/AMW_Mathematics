@@ -871,7 +871,11 @@ namespace AMW_Mathematics
         private void ThemeChange()                                                                  //Zmiana koloru aplikacji #Ł
         {
             Thememanager.Accent(Thememanager.accentColor);                                          //Wygenerowanie kodu koloru odpowidającego wybranemu kolorowi w klasie AppTheme #Ł
+            Thememanager.GetBorderColor(Thememanager.accentColorCode);
             SolidColorBrush themeColor = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.accentColorCode));  //Zapisanie kodu koloru przy pomocy SolidColorBrush #Ł
+            SolidColorBrush borderColor = (SolidColorBrush)(new BrushConverter().ConvertFrom(Thememanager.borderColor));
+
+
             ThemePopOutBorder.Background = themeColor;                              //Zmiana koloru poszczególnych komponentó  #Ł
             DataSetsPopOutBorder.Background = themeColor;
             MenuPopOutBorder.Background = themeColor;
@@ -879,12 +883,13 @@ namespace AMW_Mathematics
             VariablePopBorder.Background = themeColor;
             TitleTxt.Foreground = themeColor;
             SubTitleTxt.Foreground = themeColor;
-            GraphingTabControl1.BorderBrush = themeColor;
-            GraphingTabControl2.BorderBrush = themeColor;
-            MainManuTabControl.BorderBrush = themeColor;
-            WorkingTabControl.BorderBrush = themeColor;
+            GraphingTabControl1.BorderBrush = borderColor;
+            GraphingTabControl2.BorderBrush = borderColor;
+            MainManuTabControl.BorderBrush = borderColor;
+            WorkingTabControl.BorderBrush = borderColor;
 
-            Tuple<MahApps.Metro.AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);                  //Zmiana motuwy aplikacji #Ł
+
+            Tuple<MahApps.Metro.AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);                  //Zmiana motuwy aplikacji #
             ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Thememanager.accentColor), ThemeManager.GetAppTheme(Thememanager.themeColor));
         }
 
@@ -957,7 +962,9 @@ namespace AMW_Mathematics
         private void TriangleSolverButton_Click(object sender, RoutedEventArgs e)
         {
             TriangleSolver trianglesolverwindow = new TriangleSolver(Thememanager.accentColorCode);
+            Opacity = 0.3;
             trianglesolverwindow.ShowDialog();
+            Opacity = 1;
         }
 
         private void EquationSolverButton_Click(object sender, RoutedEventArgs e)

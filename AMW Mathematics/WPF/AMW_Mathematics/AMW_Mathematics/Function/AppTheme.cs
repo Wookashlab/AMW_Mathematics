@@ -11,7 +11,7 @@ namespace AMW_Mathematics.Function
     {
 
 
-        public String accentColor = "Blue", themeColor = "BaseLight", accentColorCode = "#FF41B1E1";
+        public String accentColor = "Blue", themeColor = "BaseLight", accentColorCode = "#FF41B1E1", borderColor = "#3341B1E1";
 
         public void LoadTheme()                                                 //Odczytywanie pliku z zapisanym motywem #Ł
         {
@@ -19,7 +19,7 @@ namespace AMW_Mathematics.Function
             accentColor = lines[0];                                // Zapisuje w zmiennej akcent #Ł
             themeColor = lines[1];                               //Zapisuje w zmiennej motyw #Ł
             Accent(accentColor);                                                //Generuje kod koloru #Ł
-            
+            GetBorderColor(accentColorCode);
             
         }
         public void SaveThem()                                                  //Zapisanie koloru aplikacji do pliku #Ł 
@@ -55,25 +55,25 @@ namespace AMW_Mathematics.Function
                 case "Brown":
                     accentColorCode = "#FF9B7B56";
                     break;
-               case "Purple":
+                case "Purple":
                     accentColorCode = "#FF837AE5";
                     break;
-               case "Lime":
+                case "Lime":
                     accentColorCode = "#FFB6D033";
                     break;
-               case "Emerald":
+                case "Emerald":
                     accentColorCode = "#FF33A133";
                     break;
-               case "Teal":
+                case "Teal":
                     accentColorCode = "#FF33BCBA";
                     break;
-               case "Cobalt":
+                case "Cobalt":
                     accentColorCode = "#FF3373F2";
                     break;
                 case "Indigo":
                     accentColorCode = "#FF8833FF";
                     break;
-               case "Violet":
+                case "Violet":
                     accentColorCode = "#FFBB33FF";
                     break;
                 case "Magenta":
@@ -103,7 +103,9 @@ namespace AMW_Mathematics.Function
                 case "Sienna":
                     accentColorCode = "#FFB37557";
                     break;
-        }
+            
+                    
+            }
 
         }
         public void Theme (string color)                                    //Reczej nie potrzebbe ?? #Ł
@@ -115,6 +117,11 @@ namespace AMW_Mathematics.Function
                     break;
 
             }
+
+        }
+        public void GetBorderColor(string tColor)
+        {
+            borderColor = "#33" + tColor.Substring(3);
 
         }
 

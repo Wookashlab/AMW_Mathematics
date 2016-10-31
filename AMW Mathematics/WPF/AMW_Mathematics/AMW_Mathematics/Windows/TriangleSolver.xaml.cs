@@ -135,7 +135,7 @@ namespace AMW_Mathematics.Windows
                 if (ValueA + ValueB > ValueC && ValueA + ValueC > ValueB && ValueC + ValueB > ValueA && Checkanglessum == true)
                 {
                     Triangle = triangleview.DrawTriangel(TriangeImg, Triangle, TValuea, TValueb, TValuec, AngleA, AngleB, AngleC, diffrent, ValueC, ValueA, ValueB, color);
-                    TriangeImg.Visibility = Visibility.Visible;
+                    SolveTriangelProperties.IsEnabled = true;
                     SolveTriangelProperties.SelectedIndex = 0;
                     drawlabel = true;
                 }

@@ -13,7 +13,7 @@
         xmlns:WinForms="clr-namespace:ExpressionPlotterControl;assembly=ExpressionPlotterControl" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
         <Grid>
-            <TabControl SelectedIndex="1" x:Name="MainManuTabControl" Margin="0,0,0,638" BorderBrush="#FF41B1E1" BorderThickness="6">
+            <TabControl SelectedIndex="1" x:Name="MainManuTabControl" Margin="0,0,0,638" BorderBrush="#3341B1E1" BorderThickness="6">
                 <TabItem Margin="-2,-2,60,0" Padding="6,2,50,2" IsEnabled="False">
                 </TabItem>
                 <TabItem x:Name="HomeTab"  VerticalAlignment="Top" Header="Home">
@@ -141,9 +141,9 @@
                     </Grid>
                 </TabItem>
             </TabControl>
-            <TabControl x:Name="Worksheetadn" HorizontalAlignment="Left" Height="628" Margin="322,188,0,0" VerticalAlignment="Top" Width="879" SelectionChanged="TabControl_SelectionChanged" >
+            <TabControl x:Name="Worksheetadn" HorizontalAlignment="Left" Height="636" Margin="322,188,0,0" VerticalAlignment="Top" Width="887" SelectionChanged="TabControl_SelectionChanged" >
                 <TabItem x:Name="worksheetTab" Margin="0,0,-4,-2" Header="Worksheet">
-                    <TabControl x:Name="WorkingTabControl" BorderBrush="#FF41B1E1" BorderThickness="6" >
+                    <TabControl x:Name="WorkingTabControl" BorderThickness="6" BorderBrush="#3341B1E1" >
                         <Grid Margin="0,0,-11,-11">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="135*"/>
@@ -159,8 +159,8 @@
                                     <Button x:Name="ConfirmExpresion" Content="Enter" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top" Width="75" Click="ConfirmExpresion_Click" IsDefault="True"/>
                                 </Grid>
                             </GroupBox>
-                            <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Right" Margin="0,10,93,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
-                            <Button x:Name="Delete" Content="Remove" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
+                            <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Right" Margin="0,10,107,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
+                            <Button x:Name="Delete" Content="Remove" HorizontalAlignment="Right" Margin="0,10,18,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
                         </Grid>
                     </TabControl>
                 </TabItem>
@@ -171,7 +171,7 @@
                             <ColumnDefinition Width="28*"/>
                             <ColumnDefinition Width="815*"/>
                         </Grid.ColumnDefinitions>
-                        <TabControl x:Name="GraphingTabControl1" BorderBrush="#FF41B1E1" BorderThickness="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="267">
+                        <TabControl x:Name="GraphingTabControl1" BorderBrush="#3341B1E1" BorderThickness="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="267">
                             <ListView HorizontalAlignment="Left" Width="251">
                                 <ListViewItem x:Name="EqualizationAndFunctionsChLV" Width="247" Height="428">
                                     <Grid>
@@ -374,10 +374,10 @@
                                 </ListViewItem>
                             </ListView>
                         </TabControl>
-                        <TabControl Margin="218,0,10,0" BorderBrush="AliceBlue" BorderThickness="6" Grid.Column="2">
+                        <TabControl Margin="218,0,10,0"  Grid.Column="2">
                             <oxy:PlotView x:Name="Plot" Model="{Binding PlotModel}" Margin="0,0,4,3" />
                         </TabControl>
-                        <TabControl x:Name="GraphingTabControl2" Margin="218,0,10,0" BorderBrush="#FF41B1E1" BorderThickness="6" Grid.Column="2">
+                        <TabControl x:Name="GraphingTabControl2" Margin="218,0,0,0" BorderBrush="#3341B1E1" BorderThickness="6" Grid.Column="2">
                             <WindowsFormsHost x:Name="expPlotterControl" Visibility="Hidden">
                                 <WinForms:ExpressionPlotter x:Name="expPlotter" Click="Chart_Click"></WinForms:ExpressionPlotter>
                             </WindowsFormsHost>
@@ -713,7 +713,7 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                             </GridView>
-                            </ListView.View>
+                        </ListView.View>
                     </ListView>
                     <Button x:Name="Clear_Variables" Content="Clear ALL" Margin="150,162,10,10" Click="Clear_Variables_Click"></Button>
                 </Grid>
