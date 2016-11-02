@@ -16,9 +16,11 @@ namespace AMW_Mathematics.Windows
     /// </summary>
     public partial class EquationSolver : MetroWindow
     {
-        EqualizationSolverFunction equalizationsolverfunction = new EqualizationSolverFunction();
+        EqualizationSolverFunction equalizationsolverfunction = new EqualizationSolverFunction();               //Stworzenie obiektu klasy equalizationsolvefunction w celu załadowania do widoku danych #M
 
         List<string> VariableList  = File.ReadAllLines(@"VariableList").ToList();                               //Zczytanie listy zmiennych z pliku #Ł
+
+        private int countresultsolving = 0;
 
         public EquationSolver(string borderColor)
         {
@@ -63,33 +65,58 @@ namespace AMW_Mathematics.Windows
             catch { }
         }
 
-        private void Solve_Click(object sender, RoutedEventArgs e)                                                      //funcja odpowiadająca za obliczenie równania #M
+        private void Solve_Click(object sender, RoutedEventArgs e)                                                          //funcja odpowiadająca za obliczenie równania #M
         {
-            List<ExpresionsToSolve> lisetexpresiontosolve = new List<ExpresionsToSolve>();                              //stowrzenie listy klasy ExpresionToSolve która będzie przechowywać wartośc elementu równania wraz z zmiennymi które w nim wystąpiły #M
-            foreach (var item in ListViewExp.Items)                                                                     //Pętla sczytująca elementy równania z widoku Listy i wprowadzające je do listy ExpresionToSolve na której później będziemy operować aby wyliczć wartośc wyrażenia #M
+            List<ExpresionsToSolve> lisetexpresiontosolve = new List<ExpresionsToSolve>();                                  //stowrzenie listy klasy ExpresionToSolve która będzie przechowywać wartośc elementu równania wraz z zmiennymi które w nim wystąpiły #M
+            foreach (var item in ListViewExp.Items)                                                                         //Pętla sczytująca elementy równania z widoku Listy i wprowadzające je do listy ExpresionToSolve na której później będziemy operować aby wyliczć wartośc wyrażenia #M
             {
-                string variable = "";                                                                                   //zmienna do której zostanie załadowane niewiadome występujące w danym elemencie równania #M
-                var c = item as ListExpresionView;                                                                      //rzutowanie obiektu item który jest nieznanego typu na obiekt typu  ListExpresionView i przypisanie go do zmiennej c dzięki czemu otrzymamy możliwość odowłania się do konkretnego atrybutu obiektu item w liście klasu ExpresionsToSolve #M
-                if (c == null)                                                                                          //sprawdzenie czy rzutowanie przebiegło prawidłowo #M
+                string variable = "";                                                                                       //zmienna do której zostanie załadowane niewiadome występujące w danym elemencie równania #M
+                var c = item as ListExpresionView;                                                                          //rzutowanie obiektu item który jest nieznanego typu na obiekt typu  ListExpresionView i przypisanie go do zmiennej c dzięki czemu otrzymamy możliwość odowłania się do konkretnego atrybutu obiektu item w liście klasu ExpresionsToSolve #M
+                if (c == null)                                                                                              //sprawdzenie czy rzutowanie przebiegło prawidłowo #M
                 {
-                    var w = item as List<ListExpresionView>;                                                            //jeśli nie rzutowanie obiektu item na Listę klasy ListExpresionView #M
-                    if (w[0].Exp != "")                                                                                 //dodanie do listy obliczanych elementów równaniń tylko tych kontenerów, w których znajduje się jakieś równania dzięki temu zabezpieczamy możliwość zostawienia pustego konteneru przez użytkownika #M
+                    var w = item as List<ListExpresionView>;                                                                //jeśli nie rzutowanie obiektu item na Listę klasy ListExpresionView #M
+                    if (w[0].Exp != "")                                                                                     //dodanie do listy obliczanych elementów równaniń tylko tych kontenerów, w których znajduje się jakieś równania dzięki temu zabezpieczamy możliwość zostawienia pustego konteneru przez użytkownika #M
                     {
-                        variable = equalizationsolverfunction.ExpresionFindVariable(w[0].Exp, variable,VariableList);                                           //funcja zapisuje do zmiennej wszystkie niewiadome jakie wystąpiły w elemencie równania #M
-                        lisetexpresiontosolve.Add(new ExpresionsToSolve { expresion = w[0].Exp, variable = variable });//dodanie do listy elemetu równania wraz z jego niewiadomymi #M
+                        variable = equalizationsolverfunction.ExpresionFindVariable(w[0].Exp, variable,VariableList);       //funcja zapisuje do zmiennej wszystkie niewiadome jakie wystąpiły w elemencie równania #M
+                        lisetexpresiontosolve.Add(new ExpresionsToSolve { expresion = w[0].Exp, variable = variable });     //dodanie do listy elemetu równania wraz z jego niewiadomymi #M
                     }
                 }
-                else                                                                                                    //w przypadku gdy rzutowanie zmiennej powiodło się w zmiennej c znajduje się obiekt klasy ExpresionsToSolve dzięki czemu możemy odowłać się do jego atrybutów #M
+                else                                                                                                        //w przypadku gdy rzutowanie zmiennej powiodło się w zmiennej c znajduje się obiekt klasy ExpresionsToSolve dzięki czemu możemy odowłać się do jego atrybutów #M
                 {
-                    if(c.Exp != "")                                                                                     //dodanie do listy obliczanych elementów równaniń tylko tych kontenerów, w których znajduje się jakieś równania dzięki temu zabezpieczamy możliwość zostawienia pustego konteneru przez użytkownika #M
+                    if(c.Exp != "")                                                                                         //dodanie do listy obliczanych elementów równaniń tylko tych kontenerów, w których znajduje się jakieś równania dzięki temu zabezpieczamy możliwość zostawienia pustego konteneru przez użytkownika #M
                     {
-                        variable = equalizationsolverfunction.ExpresionFindVariable(c.Exp, variable,VariableList);                                              //funcja zapisuje do zmiennej wszystkie niewiadome jakie wystąpiły w elemencie równania #M
-                        lisetexpresiontosolve.Add(new ExpresionsToSolve { expresion = c.Exp, variable = variable });    //dodanie do listy elemetu równania wraz z jego niewiadomymi #M
+                        variable = equalizationsolverfunction.ExpresionFindVariable(c.Exp, variable,VariableList);          //funcja zapisuje do zmiennej wszystkie niewiadome jakie wystąpiły w elemencie równania #M
+                        lisetexpresiontosolve.Add(new ExpresionsToSolve { expresion = c.Exp, variable = variable });        //dodanie do listy elemetu równania wraz z jego niewiadomymi #M
                     }                   
                 }
             }
-            MessageBox.Show(equalizationsolverfunction.solve(lisetexpresiontosolve, ""));                                                          //wywołanie funkcji solve której parametrem jest lista elementów równania wraz z niewiadomymi efektem wykonania funkcji jest zwrócenie do zmiennej typu string rozwiązania równania #M                                                   
-            SolverExample.Visibility = Visibility.Hidden;
+            string result = equalizationsolverfunction.solve(lisetexpresiontosolve, "");
+            if (result != "Mistake in Equation" )
+            {
+                SolverResultList.Items.Add(new ResultExpresionView { ResultSolving = result , Index = countresultsolving });    //wywołanie funkcji solve której parametrem jest lista elementów równania wraz z niewiadomymi efektem wykonania funkcji jest zwrócenie do zmiennej typu string rozwiązania równania #M  
+                                                                                                                                //następnie dodanie do listy wyników wyniku funkcji solve oraz pozycji w liscie #M
+                countresultsolving = countresultsolving + 1;
+            }
+            else MessageBox.Show("Mistake in Equation");                                                                         //Pokazanie wiadomości o błędnej deklaracji równania #M
+            SolverExample.Visibility = Visibility.Hidden;                                                                        
+        }
+
+        private void RemoveEquation_Click(object sender, RoutedEventArgs e)
+        {
+            int index = 0;
+            var key = (Button)sender;
+            foreach(var item in (SolverResultList as ListBox).Items)
+            {
+                if(int.Parse(key.Tag.ToString())==(item as ResultExpresionView).Index)
+                {
+                    index = SolverResultList.Items.IndexOf(item);
+                }
+               
+
+            }
+            SolverResultList.Items.RemoveAt(index);
+            //Pętla sczytująca elementy równania z widoku Listy i wprowadzające je do listy ExpresionToSolve na której później będziemy operować aby wyliczć wartośc wyrażenia #M
+
         }
     }
 }
