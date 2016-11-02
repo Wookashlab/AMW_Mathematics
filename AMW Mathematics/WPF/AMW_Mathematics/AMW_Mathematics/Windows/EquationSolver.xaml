@@ -33,7 +33,15 @@
         </TabControl>
         <Button x:Name="Solve" Content="Solve" Margin="227,229,11,-153" Style="{StaticResource AccentedSquareButtonStyle}" Click="Solve_Click"/>
         <GroupBox x:Name="groupBox" Header="Equation Solving" Margin="2,274,0,-323">
-            <Grid Margin="0,0,0,-11"/>
+            <Grid>
+                <Grid x:Name="SolverExample">
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="45,10,0,0" TextWrapping="Wrap" Text="To solve a single equation in one unknow, click the box labeled Equation 1, enter the equation, and then click Solve." VerticalAlignment="Top" Width="225"/>
+                    <TextBlock Text="Example 1 : " Margin="45,63,152,30" FontStyle="Italic" FontWeight="Bold"></TextBlock>
+                    <TextBlock Text="x + 2 = 3" Margin="134,63,77,30"></TextBlock>
+                    <TextBlock Text="Example 2 : " Margin="45,83,152,10" FontStyle="Italic" FontWeight="Bold"/>
+                    <TextBlock Text="x² - 2 · x + 1 = 0" Margin="134,83,46,10"/>
+                </Grid>
+            </Grid>
         </GroupBox>
     </Grid>
 </Controls:MetroWindow>

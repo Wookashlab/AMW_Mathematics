@@ -89,6 +89,7 @@ namespace AMW_Mathematics.Windows
                 }
             }
             MessageBox.Show(equalizationsolverfunction.solve(lisetexpresiontosolve, ""));                                                          //wywołanie funkcji solve której parametrem jest lista elementów równania wraz z niewiadomymi efektem wykonania funkcji jest zwrócenie do zmiennej typu string rozwiązania równania #M                                                   
+            SolverExample.Visibility = Visibility.Hidden;
         }
     }
 }
