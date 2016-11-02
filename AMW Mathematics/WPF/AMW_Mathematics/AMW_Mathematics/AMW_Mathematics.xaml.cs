@@ -62,8 +62,12 @@ namespace AMW_Mathematics
         private DataToChart datatochart = new DataToChart();
 
         private DataLayout datalayout = new DataLayout();
+
         SplashScreen ss = new SplashScreen("img/SplashScreenv4.png");                           //Ustalenei jaki obraz ma być SplashScreenem #Ł
+
         Function.AppTheme Thememanager = new Function.AppTheme();                               //Instancja klasy obsługującej motyw aplikacji #Ł
+
+        int cursorExpression = 0;                                                               //Zmienna zapamiętująca pozycję kursora w ExpressionField #Ł
 
 
 
@@ -76,7 +80,7 @@ namespace AMW_Mathematics
 
             ss.Show(true, true);                                                                //Wywołanie splashscreena który zawsze jest na górze i samoistnie się wyłącza po załadowaniu aplikacji #Ł
             InitializeApplication();
-            
+           
         }
         public void InitializeApplication()
         {
@@ -149,6 +153,12 @@ namespace AMW_Mathematics
                         System.Windows.MessageBox.Show("There was an error in the expression syntax - correct expression and try againe", "Syntax Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
+                    if (Expresion.Contains("arguments"))
+
+                    {
+                        System.Windows.MessageBox.Show("Wrong number of arguments in function: " + Expresion.Substring(Expresion.IndexOf('@')+1), "Syntax Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                 }
 
                 if (Expresion.Contains("rat"))
@@ -169,9 +179,13 @@ namespace AMW_Mathematics
         {
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
-            ExpressionField.Text = ExpressionField.Text + wartosc;
-            ExpressionField.Focus();
-            ExpressionField.SelectionStart = ExpressionField.Text.Length;
+            string beforeCursor = ExpressionField.Text.Substring(0, cursorExpression);              //Treść ExpressionBoxa przed kursorem #Ł
+            string afterCursor = ExpressionField.Text.Substring(cursorExpression);               //Treść expressionBoxa po kursorze #Ł
+            string function = keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());          //Treść wybraniej funkcji #Ł
+            ExpressionField.Text = beforeCursor + wartosc + afterCursor;                                        //Nowa wartość ExpressionField #Ł
+            ExpressionField.Focus();                                                                        //Powórt do ExpressionField #Ł
+            ExpressionField.SelectionStart = wartosc.Length + cursorExpression;                            //Ustawienei kursora w ExpressionField #Ł
+            cursorExpression = ExpressionField.SelectionStart;                                              //Zapisanie nowej pozycji kursora #Ł
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)                  //Funckja czyszcząca okno wprowadzania #Ł
@@ -179,15 +193,24 @@ namespace AMW_Mathematics
             ExpressionField.Text = "";
             TipBox.Text = "Type an expression and then click Enter.";
             TipBox.Foreground = Brushes.Black;
+            ExpressionField.Focus();
         }
 
         private void kBack_MouseDown(object sender, MouseButtonEventArgs e)         //Funckja cofająca z klawiatury "telefonu" #Ł
         {
             if (ExpressionField.Text.Length > 0)
             {
-                ExpressionField.Text = ExpressionField.Text.Substring(0, ExpressionField.Text.Length - 1);
-                ExpressionField.Focus();
-                ExpressionField.SelectionStart = ExpressionField.Text.Length;
+                string beforeCursor = ExpressionField.Text.Substring(0, cursorExpression);                          //Treść ExpressionBoxa przed kursorem #Ł
+                string afterCursor = ExpressionField.Text.Substring(cursorExpression);                              //Treść expressionBoxa po kursorze #Ł
+                if (cursorExpression > 0)                                                                           //Sprawdzenie czy kursor nie jest na końcu ciągu #Ł
+                {
+                    ExpressionField.Text = beforeCursor.Substring(0, cursorExpression - 1) + afterCursor;           //Ustawienie nowej wartości ExpressionField po skasowaniu jednego znaku #Ł
+                    ExpressionField.Focus();                                                                        //Zmiana focusu programu na ExpressionField #Ł
+                    ExpressionField.SelectionStart = cursorExpression-1;                                            //Ustawienei kursora w ExpressionField #Ł
+                    cursorExpression = ExpressionField.SelectionStart;                                              //Nowa pozycja kursora #Ł
+                }
+                else
+                    ExpressionField.SelectionStart = 0;                                                             //Ustawienei kursora w ExpressionField w wypadku gdy był on na pozycji 0 #Ł
             }
         }
 
@@ -198,11 +221,19 @@ namespace AMW_Mathematics
             VariablesPopOut.IsOpen = false;
             if (worksheetTab.IsSelected)                                            //Wprowadzanie wartości przycisku na zakładce "Arkusz" #Ł
             {
-                ExpressionField.Text = ExpressionField.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
-                TipBox.Text = klawisz.ToolTip.ToString();
-                TipBox.Foreground = Brushes.Green;
-                ExpressionField.Focus();
-                ExpressionField.SelectionStart = ExpressionField.Text.Length;
+                string beforeCursor = ExpressionField.Text.Substring(0, cursorExpression);              //Treść ExpressionBoxa przed kursorem #Ł
+                string afterCursor = ExpressionField.Text.Substring(cursorExpression);               //Treść expressionBoxa po kursorze #Ł
+                string function = keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());          //Treść wybraniej funkcji #Ł
+                ExpressionField.Text = beforeCursor + function + afterCursor;                                        //Nowa wartość ExpressionField #Ł
+                int openingP = function.IndexOf('(');
+                TipBox.Text = klawisz.ToolTip.ToString();                                                       //Zmiana podpowiedzi na pasującą do przycisku #Ł
+                TipBox.Foreground = Brushes.Green;                                                              //Zmiana koloru podpowiedzi #Ł
+                ExpressionField.Focus();                                                                        //Powórt do ExpressionField #Ł
+                if (openingP == -1)
+                    ExpressionField.SelectionStart = function.Length + cursorExpression;                            //Ustawienei kursora w ExpressionField #Ł
+                else
+                    ExpressionField.SelectionStart = openingP + 1 + cursorExpression;
+                cursorExpression = ExpressionField.SelectionStart;                                              //Zapisanie nowej pozycji kursora #Ł
             }
             if (ChartsOverLap.IsSelected)
             {
@@ -1002,6 +1033,43 @@ namespace AMW_Mathematics
             DerivativeSImg.Source  = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/pochodna2.png", UriKind.Relative));
             SquareRootImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/square_root.png", UriKind.Relative));
             RootImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/" + color + "/square_root_x.png", UriKind.Relative));
+        }
+
+        private void FindCursor(object sender, RoutedEventArgs e)                                   //Funkcja znajdująca pozycję kurosra w polu ExpressionField #Ł
+        {
+            cursorExpression = ExpressionField.SelectionStart;
+        }
+
+        private void kBack_MouseEnter(object sender, MouseEventArgs e)                               //Funkcja znajdująca pozycję kurosra w polu ExpressionField  (dla obrazka) #Ł
+        {
+            cursorExpression = ExpressionField.SelectionStart;
+
+        }
+
+        private void cursorLeft_Click(object sender, RoutedEventArgs e)                             //Funkcja obsługująca przycisk przesuwania kursora w lewo #Ł
+        {
+            ExpressionField.Focus();
+            if (cursorExpression >0)
+            {
+                ExpressionField.SelectionStart = cursorExpression - 1;
+                cursorExpression = ExpressionField.SelectionStart;
+            }
+            else
+                ExpressionField.SelectionStart = cursorExpression;
+            
+        }
+
+        private void cursorRight_Click(object sender, RoutedEventArgs e)                             //Funkcja obsługująca przycisk przesuwania kursora w lewo #Ł
+        {
+            ExpressionField.Focus();
+            if (cursorExpression < ExpressionField.Text.Length)
+            {
+                
+                ExpressionField.SelectionStart = cursorExpression + 1;
+                cursorExpression = ExpressionField.SelectionStart;
+            }
+            else
+                ExpressionField.SelectionStart = cursorExpression;
         }
     }
 }
