@@ -40,6 +40,11 @@ namespace MaximaSharp
                 Eval("1.0+1.0");                                //"Przeczyszczenie maximy #Ł
                 return "error!syntax";                          //Zwrócenie błędu #Ł
             }
+            if (result.Contains("wrong number of arguments"))  //Sprawdzenei czy nie wystąpił bład argumentu #Ł
+            {
+                Eval("1.0+1.0");                                                                             //"Przeczyszczenie maximy #Ł
+                return "error!arguments@" + result.Substring(0,result.IndexOf(':'));                          //Zwrócenie błędu #Ł
+            }
             while (!result.EndsWith("$"))
                 result += Process.StandardOutput.ReadLine();
             Process.StandardOutput.ReadLine();

@@ -161,6 +161,7 @@
                             </GroupBox>
                             <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Right" Margin="0,10,107,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
                             <Button x:Name="Delete" Content="Remove" HorizontalAlignment="Right" Margin="0,10,18,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
+                            
                         </Grid>
                     </TabControl>
                 </TabItem>
@@ -404,28 +405,30 @@
         <Button x:Name="Menu" Content="File" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="-0.045,0.6" Click="Menu_Click"/>
         <Grid x:Name="Pad_Atribute">
             <Image x:Name="image" Source="img/AMW.png" HorizontalAlignment="Left" Height="618" Margin="-11,208,0,0" VerticalAlignment="Top" Width="364"/>
-            <Button x:Name="k7" Content="7" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
-            <Button x:Name="k8" Content="8" HorizontalAlignment="Left" Margin="98,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
-            <Button x:Name="k9" Content="9" HorizontalAlignment="Left" Margin="165,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" />
-            <Button x:Name="k4" Content="4" HorizontalAlignment="Left" Margin="29,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="k5" Content="5" HorizontalAlignment="Left" Margin="98,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="k6" Content="6" HorizontalAlignment="Left" Margin="165,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="k1" Content="1" HorizontalAlignment="Left" Margin="29,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="k2" Content="2" HorizontalAlignment="Left" Margin="98,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="k3" Content="3" HorizontalAlignment="Left" Margin="165,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="k0" Content="0" HorizontalAlignment="Left" Margin="29,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="kKropka" Content="." HorizontalAlignment="Left" Margin="98,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="kPrzecinek" Content="," HorizontalAlignment="Left" Margin="165,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="kDzielenie" Content="/" HorizontalAlignment="Left" Margin="232,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="kMnożenie" Content="*" HorizontalAlignment="Left" Margin="232,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="kDodawanie" Content="+" HorizontalAlignment="Left" Margin="232,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
-            <Button x:Name="kOdejmowanie" Content="-" HorizontalAlignment="Left" Margin="232,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"/>
+            <Button x:Name="k7" Content="7" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"  MouseEnter="FindCursor"/>
+            <Button x:Name="k8" Content="8" HorizontalAlignment="Left" Margin="98,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"  MouseEnter="FindCursor"/>
+            <Button x:Name="k9" Content="9" HorizontalAlignment="Left" Margin="165,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click"  MouseEnter="FindCursor"/>
+            <Button x:Name="k4" Content="4" HorizontalAlignment="Left" Margin="29,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="k5" Content="5" HorizontalAlignment="Left" Margin="98,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="k6" Content="6" HorizontalAlignment="Left" Margin="165,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="k1" Content="1" HorizontalAlignment="Left" Margin="29,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="k2" Content="2" HorizontalAlignment="Left" Margin="98,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="k3" Content="3" HorizontalAlignment="Left" Margin="165,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="k0" Content="0" HorizontalAlignment="Left" Margin="29,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="kKropka" Content="." HorizontalAlignment="Left" Margin="98,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="kPrzecinek" Content="," HorizontalAlignment="Left" Margin="165,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="kDzielenie" Content="/" HorizontalAlignment="Left" Margin="232,630,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="kMnożenie" Content="*" HorizontalAlignment="Left" Margin="232,663,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="kDodawanie" Content="+" HorizontalAlignment="Left" Margin="232,693,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
+            <Button x:Name="kOdejmowanie" Content="-" HorizontalAlignment="Left" Margin="232,723,0,0" VerticalAlignment="Top" Width="52" Click="Keyboard_Click" MouseEnter="FindCursor"/>
 
             <Image x:Name="kBack" HorizontalAlignment="Left" Height="33" Margin="219,770,0,0" VerticalAlignment="Top" Width="51" Source="img/Klawiatura/cofnij.png" MouseDown="kBack_MouseDown"/>
             <Image x:Name="kEnter" HorizontalAlignment="Left" Height="36" Margin="118,770,0,0" VerticalAlignment="Top" Width="87" Source="img/Klawiatura/=.png" MouseDown="ConfirmExpresion_Click"/>
             <Image x:Name="kMin" HorizontalAlignment="Left" Height="33" Margin="52,768,0,0" VerticalAlignment="Top" Width="50" Source="img/Klawiatura/minimalizuj.png" MouseDown="kMin_MouseDown"/>
 
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="24,624,0,0" Stroke="Black" VerticalAlignment="Top" Width="270"/>
+            <Button x:Name="cursorRight" Content="&gt;" HorizontalAlignment="Left" Margin="382,255,0,0" VerticalAlignment="Top" Width="35" FontSize="12" Height="25" MouseEnter="FindCursor" Click="cursorRight_Click"/>
+            <Button x:Name="cursorLeft" Content="&lt;" HorizontalAlignment="Left" Margin="342,255,0,0" VerticalAlignment="Top" Width="35" FontSize="12" Height="25" MouseEnter="FindCursor" Click="cursorLeft_Click"/>
         </Grid>
         <ListBox x:Name="Function_list" HorizontalAlignment="Left" Height="348" Margin="24,271,0,0" VerticalAlignment="Top" Width="270">
 
@@ -433,16 +436,16 @@
                 <Grid Height="168" >
                     <Button x:Name="Complex" Content="-" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
                     <Label x:Name="ComplexLabel" Content="Complex Numbers:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136" Margin="30,0,0,0"/>
-                    <Button x:Name="ComplexAbsolute3" Content="|z|" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="30" ToolTip="The absolute value of an expression representing a complex number. e.g. cabs(1+%i)" Click="Function_Click" Height="28"/>
-                    <Button x:Name="ImaginaryUnit2" Content="%i" HorizontalAlignment="Left" Margin="93,31,0,0" VerticalAlignment="Top" Width="30" ToolTip="Imaginary unit. The square root of -1. e.g. 1+%i" Click="Function_Click" Height="28"/>
-                    <Button x:Name="RealPart3" Content="real part" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Real part of an expression. e.g. realpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
-                    <Button x:Name="ImaginaryPart3" Content="imaginary part" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Imaginary part of an expression. e.g. imgagpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
-                    <Button x:Name="Conjugate3"  HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="43" ToolTip="Complex conjugate of an expression. e.g. conjugate(1+%i)" Click="Function_Click">
+                    <Button x:Name="ComplexAbsolute3" Content="|z|" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="30" ToolTip="The absolute value of an expression representing a complex number. e.g. cabs(1+%i)" Click="Function_Click" Height="28" MouseEnter="FindCursor"/>
+                    <Button x:Name="ImaginaryUnit2" Content="%i" HorizontalAlignment="Left" Margin="93,31,0,0" VerticalAlignment="Top" Width="30" ToolTip="Imaginary unit. The square root of -1. e.g. 1+%i" Click="Function_Click" Height="28" MouseEnter="FindCursor"/>
+                    <Button x:Name="RealPart3" Content="real part" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Real part of an expression. e.g. realpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08" MouseEnter="FindCursor"/>
+                    <Button x:Name="ImaginaryPart3" Content="imaginary part" HorizontalAlignment="Left" Margin="125,64,0,0" VerticalAlignment="Top" Width="110" ToolTip="Imaginary part of an expression. e.g. imgagpart(1+%i)" Click="Function_Click" RenderTransformOrigin="0.482,0.76" MouseEnter="FindCursor"/>
+                    <Button x:Name="Conjugate3"  HorizontalAlignment="Left" Margin="45,31,0,0" VerticalAlignment="Top" Width="43" ToolTip="Complex conjugate of an expression. e.g. conjugate(1+%i)" Click="Function_Click" MouseEnter="FindCursor">
                         <Image x:Name="ConjugateImg" Source="img/Klawiatura/Funkcje/Black/sprzężenie.png" />
                     </Button>
-                    <Button x:Name="ComplexArg1" Content="carg" HorizontalAlignment="Left" Margin="128,31,0,0" VerticalAlignment="Top" Width="38" ToolTip="Argument of an expression. e.g. carg(1+%i)" Click="Function_Click" Height="28"/>
-                    <Button x:Name="Rect_Polar3" Content="rectangular &gt; polar" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="228" ToolTip="Converts rectangular form to polar. Np. polarform(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08"/>
-                    <Button x:Name="Polar_Rect3" Content="polar &gt; rectangular" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="228" ToolTip="Converts polar form to rectangular. e.g. rectform(sqrt(5)*%e^(%i*atan(2)))" Click="Function_Click" RenderTransformOrigin="0.482,0.76"/>
+                    <Button x:Name="ComplexArg1" Content="carg" HorizontalAlignment="Left" Margin="128,31,0,0" VerticalAlignment="Top" Width="38" ToolTip="Argument of an expression. e.g. carg(1+%i)" Click="Function_Click" Height="28" MouseEnter="FindCursor"/>
+                    <Button x:Name="Rect_Polar3" Content="rectangular &gt; polar" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="228" ToolTip="Converts rectangular form to polar. Np. polarform(1+%i)" Click="Function_Click" RenderTransformOrigin="0.473,-0.08" MouseEnter="FindCursor"/>
+                    <Button x:Name="Polar_Rect3" Content="polar &gt; rectangular" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="228" ToolTip="Converts polar form to rectangular. e.g. rectform(sqrt(5)*%e^(%i*atan(2)))" Click="Function_Click" RenderTransformOrigin="0.482,0.76" MouseEnter="FindCursor"/>
                 </Grid>
             </ListBoxItem>
 
@@ -450,24 +453,24 @@
                 <Grid Height="105" >
                     <Button x:Name="Calculus" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
                     <Label x:Name="CalculusLabel" Content="Calculus:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="136"  Margin="30,0,0,0"/>
-                    <Button x:Name="Derivative3" ToolTip="Derivative of function. e.g. diff(x^2,x)"  HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="46" Height="38" Click="Function_Click">
+                    <Button x:Name="Derivative3" ToolTip="Derivative of function. e.g. diff(x^2,x)"  HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="46" Height="38" Click="Function_Click" MouseEnter="FindCursor">
                         <Image x:Name="DerivativeImg" Source="img/Klawiatura/Funkcje/Black/pochodna.png" Height="28" Width="40" />
                     </Button>
-                    <Button x:Name="DerivativeS3" ToolTip="The second derivative of function. e.g. diff(x^2,x,2)" HorizontalAlignment="Left" Margin="61,31,0,0" VerticalAlignment="Top" Width="49" Height="38" Click="Function_Click">
+                    <Button x:Name="DerivativeS3" ToolTip="The second derivative of function. e.g. diff(x^2,x,2)" HorizontalAlignment="Left" Margin="61,31,0,0" VerticalAlignment="Top" Width="49" Height="38" Click="Function_Click" MouseEnter="FindCursor">
                         <Image x:Name="DerivativeSImg" Source="img/Klawiatura/Funkcje/Black/pochodna2.png" Height="20" Width="46" />
                     </Button>
-                    <Button x:Name="Integrate3" ToolTip="Indefinite integral of function. e.g. integrate(x^2,x)"  HorizontalAlignment="Left" Margin="115,31,0,0" VerticalAlignment="Top" Width="24" Height="38" Click="Function_Click">
+                    <Button x:Name="Integrate3" ToolTip="Indefinite integral of function. e.g. integrate(x^2,x)"  HorizontalAlignment="Left" Margin="115,31,0,0" VerticalAlignment="Top" Width="24" Height="38" Click="Function_Click" MouseEnter="FindCursor">
                         <Image x:Name="IntegrateImg" Source="img/Klawiatura/Funkcje/Black/całka.png" Height="18" Width="15" />
                     </Button>
-                    <Button x:Name="IntegrateO3" ToolTip="Definite integral of function. e.g. integrate(x^2,x,#from,#to)"  HorizontalAlignment="Left" Margin="144,31,0,0" VerticalAlignment="Top" Width="27" Height="38" Click="Function_Click" >
+                    <Button x:Name="IntegrateO3" ToolTip="Definite integral of function. e.g. integrate(x^2,x,#from,#to)"  HorizontalAlignment="Left" Margin="144,31,0,0" VerticalAlignment="Top" Width="27" Height="38" Click="Function_Click" MouseEnter="FindCursor" >
                         <Image x:Name="IntegrateOImg" Source="img/Klawiatura/Funkcje/Black/całkaO.png" Height="28" Width="17" />
                     </Button>
-                    <Button x:Name="Limit3" ToolTip="Limit of a function. e.g. limit(expr,x,val) [limx→val expr(x)]"  HorizontalAlignment="Left" Margin="176,31,0,0" VerticalAlignment="Top" Width="44" Height="38" Click="Function_Click" >
+                    <Button x:Name="Limit3" ToolTip="Limit of a function. e.g. limit(expr,x,val) [limx→val expr(x)]"  HorizontalAlignment="Left" Margin="176,31,0,0" VerticalAlignment="Top" Width="44" Height="38" Click="Function_Click"  MouseEnter="FindCursor">
                         <Image x:Name="LimitImg" Source="img/Klawiatura/Funkcje/Black/granica.png" Height="24" Width="43" />
                     </Button>
-                    <Button x:Name="Addition3" ToolTip="Sum of a series. e.g.sum(i,i,1,3) [sum(value,variable,from,to)]" Content="Σ"  HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" FontSize="12" />
-                    <Button x:Name="Multiplication3" ToolTip="Product of a series. e.g. product(i,i,1,3) [product(value,variable,from,to)]" Content="Π"  HorizontalAlignment="Left" Margin="41,74,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" FontSize="12" />
-                    <Button x:Name="Infinity3" ToolTip="Infinity. e.g. inf - inf" Content="∞"  HorizontalAlignment="Left" Margin="72,74,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" FontSize="12" />
+                    <Button x:Name="Addition3" ToolTip="Sum of a series. e.g.sum(i,i,1,3) [sum(value,variable,from,to)]" Content="Σ"  HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" FontSize="12"  MouseEnter="FindCursor"/>
+                    <Button x:Name="Multiplication3" ToolTip="Product of a series. e.g. product(i,i,1,3) [product(value,variable,from,to)]" Content="Π"  HorizontalAlignment="Left" Margin="41,74,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" FontSize="12"  MouseEnter="FindCursor"/>
+                    <Button x:Name="Infinity3" ToolTip="Infinity. e.g. inf - inf" Content="∞"  HorizontalAlignment="Left" Margin="72,74,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" FontSize="12"  MouseEnter="FindCursor"/>
 
                 </Grid>
             </ListBoxItem>
@@ -477,15 +480,15 @@
 
                     <Button x:Name="Statistic" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
                     <Label x:Name="StatisticLabel" Content="Statistics:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104" Margin="30,0,0,0"/>
-                    <Button x:Name="NawiasKO2" Content="{}{" ToolTip="Opening of brace. e.g. {2,3,4}" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
-                    <Button x:Name="NawiasKZ2" Content="}" ToolTip="Closing of brace. e.g. {2,3,4}" HorizontalAlignment="Left" Margin="38,30,0,0" VerticalAlignment="Top" Width="24" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Sort3" Content="sort" ToolTip="Sorts numbers in ascending order. e.g. sort([2,1,6,3])" HorizontalAlignment="Left" Margin="67,31,0,0" VerticalAlignment="Top" Width="40" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Mean1" Content="mean?" ToolTip="Mean of a set of numbers. e.g. mean(list)????????????????????????????" HorizontalAlignment="Left" Margin="112,30,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Median1" Content="median?" ToolTip="Median of a set of numbers. e.g. median(list)????????????????????????????" HorizontalAlignment="Left" Margin="162,30,0,0" VerticalAlignment="Top" Width="58" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Minimum1" Content="min" ToolTip="Minimum of a set of numbers. e.g. min(2,3,1)" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Maximum1" Content="max" ToolTip="Maximum of a set of numbers. e.g. min(2,3,1)" HorizontalAlignment="Left" Margin="57,91,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Factorial2" Content="!" ToolTip="Factorial of a number. e.g. !5" HorizontalAlignment="Left" Margin="225,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Mode" Content="?mode?" ToolTip="Mode of a set of numbers. e.g. mode(1,2,3)" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="Function_Click"/>
+                    <Button x:Name="NawiasKO2" Content="{}{" ToolTip="Opening of brace. e.g. {2,3,4}" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="NawiasKZ2" Content="}" ToolTip="Closing of brace. e.g. {2,3,4}" HorizontalAlignment="Left" Margin="38,30,0,0" VerticalAlignment="Top" Width="24" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Sort3" Content="sort" ToolTip="Sorts numbers in ascending order. e.g. sort([2,1,6,3])" HorizontalAlignment="Left" Margin="67,31,0,0" VerticalAlignment="Top" Width="40" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Mean1" Content="mean?" ToolTip="Mean of a set of numbers. e.g. mean(list)????????????????????????????" HorizontalAlignment="Left" Margin="112,30,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Median1" Content="median?" ToolTip="Median of a set of numbers. e.g. median(list)????????????????????????????" HorizontalAlignment="Left" Margin="162,30,0,0" VerticalAlignment="Top" Width="58" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Minimum1" Content="min" ToolTip="Minimum of a set of numbers. e.g. min(2,3,1)" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Maximum1" Content="max" ToolTip="Maximum of a set of numbers. e.g. min(2,3,1)" HorizontalAlignment="Left" Margin="57,91,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Factorial2" Content="!" ToolTip="Factorial of a number. e.g. !5" HorizontalAlignment="Left" Margin="225,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Mode" Content="?mode?" ToolTip="Mode of a set of numbers. e.g. mode(1,2,3)" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
                 </Grid>
             </ListBoxItem>
 
@@ -493,18 +496,18 @@
                 <Grid Height="153" >
                     <Button x:Name="Trigonometry" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
                     <Label x:Name="TrigonometryLabel" Content="Trigonometry:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104"  Margin="30,0,0,0"/>
-                    <Button x:Name="Sine1" ToolTip="Sine of a number. e.g. sin(45)" Content="sin" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Cosine1" ToolTip="Coosine of a number. e.g. cos(45)" Content="cos" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Tangent1" ToolTip="Tamgemt of a number. e.g. tan(45)" Content="tan" HorizontalAlignment="Left" Margin="160,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Cotangent1" ToolTip="Cotangent of a number. e.g. cot(45)" Content="cot" HorizontalAlignment="Left" Margin="160,91,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="aSine1"  ToolTip="Arc sine of a number. e.g. asin(1)" Content="asin" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="aCosine1" ToolTip="Arc cosnine of a number. e.g. acos(1)" Content="acos" HorizontalAlignment="Left" Margin="85,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="aTangent1" ToolTip="Arc tangent of a number. e.g. atan(1)" Content="atan" HorizontalAlignment="Left" Margin="160,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="aCotangent1" ToolTip="Arc cotangent of a number. e.g. acot(1)" Content="acot" HorizontalAlignment="Left" Margin="160,121,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" RenderTransformOrigin="2.119,1.6"/>
-                    <Button x:Name="Cosecant1" ToolTip="Cosecant of a number. e.g. csc(45)" Content="csc" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Secant1" ToolTip="Secant of a number. e.g. sec(45)" Content="sec" HorizontalAlignment="Left" Margin="85,91,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="aCosecant1" ToolTip="Arc cosecant of a number. e.g. acsc(1)" Content="acsc" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="aSecant1" ToolTip="Arc secant of a number. e.g. asec(45)" Content="asec" HorizontalAlignment="Left" Margin="85,121,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
+                    <Button x:Name="Sine1" ToolTip="Sine of a number. e.g. sin(45)" Content="sin" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Cosine1" ToolTip="Coosine of a number. e.g. cos(45)" Content="cos" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Tangent1" ToolTip="Tamgemt of a number. e.g. tan(45)" Content="tan" HorizontalAlignment="Left" Margin="160,31,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Cotangent1" ToolTip="Cotangent of a number. e.g. cot(45)" Content="cot" HorizontalAlignment="Left" Margin="160,91,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="aSine1"  ToolTip="Arc sine of a number. e.g. asin(1)" Content="asin" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="aCosine1" ToolTip="Arc cosnine of a number. e.g. acos(1)" Content="acos" HorizontalAlignment="Left" Margin="85,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="aTangent1" ToolTip="Arc tangent of a number. e.g. atan(1)" Content="atan" HorizontalAlignment="Left" Margin="160,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="aCotangent1" ToolTip="Arc cotangent of a number. e.g. acot(1)" Content="acot" HorizontalAlignment="Left" Margin="160,121,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Cosecant1" ToolTip="Cosecant of a number. e.g. csc(45)" Content="csc" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Secant1" ToolTip="Secant of a number. e.g. sec(45)" Content="sec" HorizontalAlignment="Left" Margin="85,91,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="aCosecant1" ToolTip="Arc cosecant of a number. e.g. acsc(1)" Content="acsc" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="aSecant1" ToolTip="Arc secant of a number. e.g. asec(45)" Content="asec" HorizontalAlignment="Left" Margin="85,121,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
 
 
                 </Grid>
@@ -523,40 +526,41 @@
                 <Grid Height="232">
                     <Button x:Name="Standard" Content="-" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
                     <Label x:Name="StandardLabel" Content="Standard:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="104"  Margin="30,0,0,0"/>
-                    <Button x:Name="Xvariable2" ToolTip="The variable name x. e.g. x:=1" Content="x" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Yvariable2" ToolTip="The variable name y. e.g. y:=1" Content="y" HorizontalAlignment="Left" Margin="57,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Zvariable2" ToolTip="The variable name z. e.g. z:=1" Content="z" HorizontalAlignment="Left" Margin="104,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Variable" ToolTip="Open a box you can use to choose a variable" Content="more vars" HorizontalAlignment="Left" Margin="151,31,0,0" VerticalAlignment="Top" Width="85" Height="18" Click="Variable_Click" />
-                    <Button x:Name="NawiasO2" ToolTip="Opening parenthesis. e.g. 2*(2+2)" Content="(" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
-                    <Button x:Name="NawiasZ2" ToolTip="Closing parenthesis. e.g. 2*(2+2)" Content=")" HorizontalAlignment="Left" Margin="38,62,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Factor1" ToolTip="Prime factors of an integer,or factors of an algebraic expression. e.g. factor(2^65+3^65)" Content="factor" HorizontalAlignment="Left" Margin="66,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Multiplies2" ToolTip="Multiplies by 10 raised to a power. e.g. 12*10^5" Content="*10^" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Absolute3" ToolTip="Absolute value of a number. e.g. abs(-10)" Content="|x|" HorizontalAlignment="Left" Margin="60,92,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Expand1" ToolTip="Expanded form of an algebraic expression. e.g. expand((x-1)*(x-2))" Content="expand" HorizontalAlignment="Left" Margin="110,92,0,0" VerticalAlignment="Top" Width="51" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Round1" ToolTip="Number rounded to the nearest integer. e.g. round(2.222)" Content="round" HorizontalAlignment="Left" Margin="166,92,0,0" VerticalAlignment="Top" Width="51" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Logarithm3" ToolTip="Logarithm to base 10 of a given number. e.g. log(52)/log(10)" Content="log" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click"/>
-                    <Button x:Name="LogarithmN3" ToolTip="Natural logarithm, to base e, of a given number. e.g. log(52)" Content="ln" HorizontalAlignment="Left" Margin="60,122,0,0" VerticalAlignment="Top" Width="31" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Pi3" ToolTip="Ratio of a circle's circumference to its diameter. e.g. 24+%pi" Content="π" HorizontalAlignment="Left" Margin="96,122,0,0" VerticalAlignment="Top" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Powerof22" ToolTip="Raised to the power of 2. e.g. 32^2" Content="^2" HorizontalAlignment="Left" Margin="131,122,0,0" VerticalAlignment="Top" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Powerof2" ToolTip="Number raised to the power. e.g. 2^5" Content="^" HorizontalAlignment="Left" Margin="166,122,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click"/>
-                    <Button x:Name="SquareRoot3" ToolTip="Square root of a number. e.g. sqr(4)" HorizontalAlignment="Left" Margin="197,122,0,82" Width="39" Height="18" Click="Function_Click">
+                    <Button x:Name="Xvariable2" ToolTip="The variable name x. e.g. x:=1" Content="x" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click
+                            " MouseEnter="FindCursor"/>
+                    <Button x:Name="Yvariable2" ToolTip="The variable name y. e.g. y:=1" Content="y" HorizontalAlignment="Left" Margin="57,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Zvariable2" ToolTip="The variable name z. e.g. z:=1" Content="z" HorizontalAlignment="Left" Margin="104,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Variable" ToolTip="Open a box you can use to choose a variable" Content="more vars" HorizontalAlignment="Left" Margin="151,31,0,0" VerticalAlignment="Top" Width="85" Height="18" Click="Variable_Click" MouseEnter="FindCursor" />
+                    <Button x:Name="NawiasO2" ToolTip="Opening parenthesis. e.g. 2*(2+2)" Content="(" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="NawiasZ2" ToolTip="Closing parenthesis. e.g. 2*(2+2)" Content=")" HorizontalAlignment="Left" Margin="38,62,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Factor1" ToolTip="Prime factors of an integer,or factors of an algebraic expression. e.g. factor(2^65+3^65)" Content="factor" HorizontalAlignment="Left" Margin="66,61,0,0" VerticalAlignment="Top" Width="70" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Multiplies2" ToolTip="Multiplies by 10 raised to a power. e.g. 12*10^5" Content="*10^" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Absolute3" ToolTip="Absolute value of a number. e.g. abs(-10)" Content="|x|" HorizontalAlignment="Left" Margin="60,92,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Expand1" ToolTip="Expanded form of an algebraic expression. e.g. expand((x-1)*(x-2))" Content="expand" HorizontalAlignment="Left" Margin="110,92,0,0" VerticalAlignment="Top" Width="51" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Round1" ToolTip="Number rounded to the nearest integer. e.g. round(2.222)" Content="round" HorizontalAlignment="Left" Margin="166,92,0,0" VerticalAlignment="Top" Width="51" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Logarithm3" ToolTip="Logarithm to base 10 of a given number. e.g. log(52)/log(10)" Content="log" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="LogarithmN3" ToolTip="Natural logarithm, to base e, of a given number. e.g. log(52)" Content="ln" HorizontalAlignment="Left" Margin="60,122,0,0" VerticalAlignment="Top" Width="31" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Pi3" ToolTip="Ratio of a circle's circumference to its diameter. e.g. 24+%pi" Content="π" HorizontalAlignment="Left" Margin="96,122,0,0" VerticalAlignment="Top" Width="30" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Powerof22" ToolTip="Raised to the power of 2. e.g. 32^2" Content="^2" HorizontalAlignment="Left" Margin="131,122,0,0" VerticalAlignment="Top" Width="30" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Powerof2" ToolTip="Number raised to the power. e.g. 2^5" Content="^" HorizontalAlignment="Left" Margin="166,122,0,0" VerticalAlignment="Top" Width="26" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="SquareRoot3" ToolTip="Square root of a number. e.g. sqr(4)" HorizontalAlignment="Left" Margin="197,122,0,82" Width="39" Height="18" Click="Function_Click" MouseEnter="FindCursor">
                         <Image x:Name="SquareRootImg" Source="img/Klawiatura/Funkcje/Black/square_root.png" />
                     </Button>
-                    <Button x:Name="Root3" ToolTip="xth root of a number. e.g. sqr(4)???????????????????" HorizontalAlignment="Left" Margin="10,152,0,52" Width="39" Height="18" Click="Function_Click">
+                    <Button x:Name="Root3" ToolTip="xth root of a number. e.g. sqr(4)???????????????????" HorizontalAlignment="Left" Margin="10,152,0,52" Width="39" Height="18" Click="Function_Click" MouseEnter="FindCursor">
                         <Image x:Name="RootImg" Source="img/Klawiatura/Funkcje/Black/square_root_x.png" />
                     </Button>
-                    <Button x:Name="And2" ToolTip="Logical AND operator. e.g. true and true" Content="and" HorizontalAlignment="Left" Margin="54,152,0,52" Width="34" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Or2" ToolTip="Logical OR operator. e.g. true or false" Content="or" HorizontalAlignment="Left" Margin="93,152,0,52" Width="25" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Not2" ToolTip="Logical NOT operator. e.g. not true" Content="not" HorizontalAlignment="Left" Margin="123,152,0,52" Width="35" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Fraction3" ToolTip="Fraction. e.g. 3/4" Content="c/d" HorizontalAlignment="Left" Margin="163,152,0,52" Width="35" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Is1" ToolTip="Comparison. e.g. is(2&gt;3)" Content="is" HorizontalAlignment="Left" Margin="203,152,0,52" Width="35" Height="18" Click="Function_Click"/>
-                    <Button x:Name="LessE3" ToolTip="Less than or equal to sign. e.g. 3&lt;=4" Content="≤" HorizontalAlignment="Left" Margin="10,182,0,22" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Less2" ToolTip="Less than sign. e.g. 3&lt;5" Content="&lt;" HorizontalAlignment="Left" Margin="45,184,0,23" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="More2" ToolTip="Greater than sign. e.g. 5&gt;3" Content="&gt;" HorizontalAlignment="Left" Margin="80,184,0,23" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="MoreE3" ToolTip="Greater than or equal to sign. Np. 3&lt;=4" Content="≥" HorizontalAlignment="Left" Margin="115,184,0,23" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Equal2" ToolTip="Equal sign. e.g. x+x=3" Content="=" HorizontalAlignment="Left" Margin="150,182,0,22" Width="30" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Nequal3" ToolTip="Not equal sign. e.g. x+x#3" Content="≠" HorizontalAlignment="Left" Margin="185,184,0,23" Width="25" Height="18" Click="Function_Click"/>
-                    <Button x:Name="Impute2" ToolTip="Assigning a value to a variable. e.g. x+x#3" Content=":=" HorizontalAlignment="Left" Margin="215,184,0,23" Width="30" Height="18" Click="Function_Click"/>
+                    <Button x:Name="And2" ToolTip="Logical AND operator. e.g. true and true" Content="and" HorizontalAlignment="Left" Margin="54,152,0,52" Width="34" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Or2" ToolTip="Logical OR operator. e.g. true or false" Content="or" HorizontalAlignment="Left" Margin="93,152,0,52" Width="25" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Not2" ToolTip="Logical NOT operator. e.g. not true" Content="not" HorizontalAlignment="Left" Margin="123,152,0,52" Width="35" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Fraction3" ToolTip="Fraction. e.g. 3/4" Content="c/d" HorizontalAlignment="Left" Margin="163,152,0,52" Width="35" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Is1" ToolTip="Comparison. e.g. is(2&gt;3)" Content="is" HorizontalAlignment="Left" Margin="203,152,0,52" Width="35" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="LessE3" ToolTip="Less than or equal to sign. e.g. 3&lt;=4" Content="≤" HorizontalAlignment="Left" Margin="10,182,0,22" Width="30" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Less2" ToolTip="Less than sign. e.g. 3&lt;5" Content="&lt;" HorizontalAlignment="Left" Margin="45,184,0,23" Width="30" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="More2" ToolTip="Greater than sign. e.g. 5&gt;3" Content="&gt;" HorizontalAlignment="Left" Margin="80,184,0,23" Width="30" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="MoreE3" ToolTip="Greater than or equal to sign. Np. 3&lt;=4" Content="≥" HorizontalAlignment="Left" Margin="115,184,0,23" Width="30" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Equal2" ToolTip="Equal sign. e.g. x+x=3" Content="=" HorizontalAlignment="Left" Margin="150,182,0,22" Width="30" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Nequal3" ToolTip="Not equal sign. e.g. x+x#3" Content="≠" HorizontalAlignment="Left" Margin="185,184,0,23" Width="25" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Impute2" ToolTip="Assigning a value to a variable. e.g. x+x#3" Content=":=" HorizontalAlignment="Left" Margin="215,184,0,23" Width="30" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
 
                 </Grid>
             </ListBoxItem>
@@ -577,15 +581,15 @@
                     Height="101"
                     Background="#FF41B1E1">
                 <Grid>
-                    <Button x:Name="varA2" Content="a" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie a"/>
-                    <Button x:Name="varB2" Content="b" HorizontalAlignment="Left" Margin="53,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie b"/>
-                    <Button x:Name="varC2" Content="c" HorizontalAlignment="Left" Margin="96,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie c"/>
-                    <Button x:Name="varD2" Content="d" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie d"/>
-                    <Button x:Name="varE2" Content="e" HorizontalAlignment="Left" Margin="53,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie e"/>
-                    <Button x:Name="varF2" Content="f" HorizontalAlignment="Left" Margin="96,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie f"/>
-                    <Button x:Name="varG2" Content="g" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie g"/>
-                    <Button x:Name="varH2" Content="h" HorizontalAlignment="Left" Margin="53,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie h"/>
-                    <Button x:Name="varI2" Content="i" HorizontalAlignment="Left" Margin="96,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie i"/>
+                    <Button x:Name="varA2" Content="a" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie a" MouseEnter="FindCursor"/>
+                    <Button x:Name="varB2" Content="b" HorizontalAlignment="Left" Margin="53,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie b" MouseEnter="FindCursor"/>
+                    <Button x:Name="varC2" Content="c" HorizontalAlignment="Left" Margin="96,10,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie c" MouseEnter="FindCursor"/>
+                    <Button x:Name="varD2" Content="d" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie d" MouseEnter="FindCursor"/>
+                    <Button x:Name="varE2" Content="e" HorizontalAlignment="Left" Margin="53,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie e" MouseEnter="FindCursor"/>
+                    <Button x:Name="varF2" Content="f" HorizontalAlignment="Left" Margin="96,40,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie f" MouseEnter="FindCursor"/>
+                    <Button x:Name="varG2" Content="g" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie g" MouseEnter="FindCursor"/>
+                    <Button x:Name="varH2" Content="h" HorizontalAlignment="Left" Margin="53,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie h" MouseEnter="FindCursor"/>
+                    <Button x:Name="varI2" Content="i" HorizontalAlignment="Left" Margin="96,70,0,0" VerticalAlignment="Top" Width="38" Height="18" Click="Function_Click" ToolTip="Zmienna o nazwie i" MouseEnter="FindCursor"/>
 
                 </Grid>
 

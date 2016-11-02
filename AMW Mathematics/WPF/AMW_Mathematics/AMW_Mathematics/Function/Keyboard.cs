@@ -15,7 +15,7 @@ namespace AMW_Mathematics
             switch (tester)
             {
                 case '1':                                   //funckja z otwartym nawiasem #Ł
-                    return content + "(";
+                    return content + "()";
                 case '2':                                   //funckja bez nawiasu #Ł
                     return content;
                 case '3':                                   //inna !!DO NAPISANIA!! #Ł
@@ -64,31 +64,31 @@ namespace AMW_Mathematics
             switch (name)
             {
                 case "Derivative3":                         //pochodna #Ł
-                    return "diff(";
+                    return "diff()";
                 case "DerivativeS3":                        //pochodna drugiego stopnia #Ł          
                     return "diff(,,2)";
                 case "Integrate3":                          //całka #Ł
-                    return "integrate(";
+                    return "integrate()";
                 case "IntegrateO3":                         //całka oznaczona #Ł
                     return "integrate(,x,,)";
                 case "Infinity3":                           //nieskończoność #Ł
                     return "inf";
                 case "Addition3":                           // suma(sigma) #Ł
-                    return "sum(,i,,";
+                    return "sum(,i,,)";
                 case "Multiplication3":                     //iloczyn (pi) #Ł
                     return "product(,i,,";
                 case "Sort3":                               //sortowanie liczb #Ł
-                    return "sort([";
+                    return "sort([])";
                 case "Absolute3":                           //wartość bezwzględna #Ł
-                    return "abs(";
+                    return "abs()";
                 case "Logarithm3":                          //logartym o podstawie 10 #Ł
                     return "log()/log(10)";
                 case "LogarithmN3":                         //logarytm o podstawie e #Ł
-                    return "log(";
+                    return "log()";
                 case "Pi3":                                 //liczba pi #Ł
                     return "%pi";
                 case "SquareRoot3":                          //pierwiastek kwadratowy #Ł
-                    return "sqrt(";
+                    return "sqrt()";
                 case "Fraction3":                            // ułamek zwykły #Ł
                     return "/";
                 case "LessE3":                               // mniejsze-równe #Ł
@@ -98,19 +98,19 @@ namespace AMW_Mathematics
                 case "Nequal3":                             //nierówność #Ł
                     return "#";
                 case "Limit3":                              //granica #Ł
-                    return "limit(";
+                    return "limit()";
                 case "ComplexAbsolute3":                     //moduł liczby zespolonej #Ł
-                    return "cabs(";
+                    return "cabs()";
                 case "RealPart3":                           //cześć rzeczywista #Ł
-                    return "realpart(";
+                    return "realpart()";
                 case "ImaginaryPart3":                      //cześć urojona #Ł
-                    return "imagpart(";
+                    return "imagpart()";
                 case "Conjugate3":                          //sprzęrzenie zwrotne liczby zepspolonej #Ł
-                    return "conjugate(";
+                    return "conjugate()";
                 case "Polar_Rect3":
-                    return "rectform(";
+                    return "rectform()";
                 case "Rect_Polar3":
-                    return "polarform(";
+                    return "polarform()";
             }
             return "DODAJ DO OTHER";
         }
