@@ -1,0 +1,7 @@
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\bin\Release\ExpressionPlotterControl.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\bin\Release\ExpressionPlotterControl.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Release\ExpressionPlotterControl.csprojResolveAssemblyReference.cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Release\ExpressionPlotterControl.ExpressionPlotter.resources
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Release\ExpressionPlotterControl.csproj.GenerateResource.Cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Release\ExpressionPlotterControl.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Release\ExpressionPlotterControl.pdb

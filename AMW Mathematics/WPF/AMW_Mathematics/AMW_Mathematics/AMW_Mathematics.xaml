@@ -705,7 +705,7 @@
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Variable}" Margin="0,0,5,0"></TextBlock>
+                                            <TextBlock Text="{Binding Variable}"></TextBlock>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>

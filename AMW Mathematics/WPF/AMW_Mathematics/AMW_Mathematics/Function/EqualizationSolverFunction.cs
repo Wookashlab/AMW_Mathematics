@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MaximaSharp;
 using AMW_Mathematics.E_Model;
+using AMW_Mathematics.Function;
+using System.Windows.Controls;
 
 namespace AMW_Mathematics.Function
 {
@@ -44,7 +46,6 @@ namespace AMW_Mathematics.Function
                         }
                         expres = expres.Remove(0, 1);                                                                           //usunięcie perwszego znaku który był przecinkiem #M
                         expres = "linsolve([" + expres + "],[" + lisetexpresiontosolve[index].variable + "])";                  //przygotowanie równania do wprowadzenia do maximy #M
-                        expres = Maxima.Eval(expres);                                                                           //obliczenie wartości równania przez maxime #M
                         int ind = expres.IndexOf('[');
                         expres = expres.Remove(0, ind);
                         return expres;                                                                                          //zwrócenie obliczonych niewiadomych w postaci stringa #M
@@ -93,6 +94,21 @@ namespace AMW_Mathematics.Function
                 return "";
             }
 
+        }
+        public void ResizeListView(ref ListView List)           //funckja odpowiadająca za dostosowanie rozmaru itemów do listy #M
+        {
+            var gridView = List.View as GridView;               //rzutowanie listy na obiekt GridView
+            if (gridView != null)
+            {
+                foreach (var column in gridView.Columns)        //Pętla przebiegająca po nowo dodanym itemie w liście rzutowanyn ma GridView #M
+                {
+                    if (double.IsNaN(column.Width))             //Warunek odpowiadający za dostosowanie wielkości elementu itemu do listy #M
+                    {
+                        column.Width = column.ActualWidth;
+                    }
+                    column.Width = double.NaN;
+                }
+            }
         }
     }
 }

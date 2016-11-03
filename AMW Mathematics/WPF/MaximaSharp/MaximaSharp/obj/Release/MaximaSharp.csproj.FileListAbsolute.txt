@@ -1,0 +1,5 @@
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\bin\Release\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\bin\Release\MaximaSharp.pdb
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Release\MaximaSharp.csprojResolveAssemblyReference.cache
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Release\MaximaSharp.dll
+C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Release\MaximaSharp.pdb

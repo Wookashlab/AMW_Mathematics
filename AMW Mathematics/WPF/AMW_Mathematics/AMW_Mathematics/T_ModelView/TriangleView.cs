@@ -118,8 +118,6 @@ namespace AMW_Mathematics.T_ModelView
             return Triangle;
         }
 
-
-
         public void DrawLabel(Grid TriangeImg, Polygon Triangle, ref List<Label> ListLabel,ref List<Label> ListLabel2)
         {
             try

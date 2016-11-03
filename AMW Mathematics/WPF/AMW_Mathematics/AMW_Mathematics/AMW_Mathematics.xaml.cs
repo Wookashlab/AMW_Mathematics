@@ -69,7 +69,7 @@ namespace AMW_Mathematics
 
         int cursorExpression = 0;                                                               //Zmienna zapamiętująca pozycję kursora w ExpressionField #Ł
 
-
+        EqualizationSolverFunction equalizationsolverfunction = new EqualizationSolverFunction();
 
         System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();
         public string theme { get; set; }
@@ -984,8 +984,9 @@ namespace AMW_Mathematics
             VariablesListView.Items.Clear();
             int index = 0;
             foreach(var item in phrase.SymbolsAndValues)
-            {              
-                VariablesListView.Items.Add(new VariablesListView {Variable = item.Key + " = " + item.Value.Insert(item.Value.Length, " "), Index = index});
+            {
+                VariablesListView.Items.Insert(0, new VariablesListView { Variable = item.Key + " = " + item.Value.Insert(item.Value.Length, " "), Index = index });
+                equalizationsolverfunction.ResizeListView(ref VariablesListView);
                 index++;
             }
         }
@@ -993,9 +994,18 @@ namespace AMW_Mathematics
         private void ClearVariable_Click(object sender, RoutedEventArgs e)                          //Obsługa czysczenia danej zmeinnej #Ł
         {
             var klawisz = (Button)sender;
-            var item = VariablesListView.Items[int.Parse(klawisz.Tag.ToString())];
-            VariablesListView.Items.Remove(item);
-            var variable = item as VariablesListView;
+            var Symbol = VariablesListView.Items[int.Parse(klawisz.Tag.ToString())];
+            int index = 0;
+            var keys = (Button)sender;                                                           //przypisanie do zmiennej key controli wciśniętego przycisku #M
+            foreach (var item in (VariablesListView as ListBox).Items)                          //Przeszukanie listy rozwiązanych równań względem wciśniętej kontroli #M
+            {
+                if (int.Parse(keys.Tag.ToString()) == (item as VariablesListView).Index)         //Jeśli wciśnięta kontrola odpowiada elementowi na liście zapisanie idexu rozwiązania równania znajdującego się na liście #M
+                {
+                    index = VariablesListView.Items.IndexOf(item);
+                }
+            }
+            VariablesListView.Items.RemoveAt(index);                                            //Usunięcie elementu listy o znalezionym wcześniej indeksie #M
+            var variable = Symbol as VariablesListView;
             int ind = variable.Variable.IndexOf("=");
             string key = variable.Variable.Substring(0, ind-1).ToString();
             phrase.SymbolsAndValues.Remove(key);
@@ -1055,8 +1065,7 @@ namespace AMW_Mathematics
                 cursorExpression = ExpressionField.SelectionStart;
             }
             else
-                ExpressionField.SelectionStart = cursorExpression;
-            
+                ExpressionField.SelectionStart = cursorExpression;          
         }
 
         private void cursorRight_Click(object sender, RoutedEventArgs e)                             //Funkcja obsługująca przycisk przesuwania kursora w lewo #Ł
