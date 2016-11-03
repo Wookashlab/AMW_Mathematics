@@ -20,6 +20,8 @@ namespace AMW_Mathematics.Windows
 
         List<string> VariableList = File.ReadAllLines(@"VariableList").ToList();                               //Zczytanie listy zmiennych z pliku #Ł
 
+        List<ResultExpresionView> EquationList = new List<ResultExpresionView>();
+
         private int countresultsolving = 0;
 
         public EquationSolver(string borderColor)
@@ -79,7 +81,6 @@ namespace AMW_Mathematics.Windows
                     {
                         variable = equalizationsolverfunction.ExpresionFindVariable(w[0].Exp, variable, VariableList);       //funcja zapisuje do zmiennej wszystkie niewiadome jakie wystąpiły w elemencie równania #M
                         lisetexpresiontosolve.Add(new ExpresionsToSolve { expresion = w[0].Exp, variable = variable });     //dodanie do listy elemetu równania wraz z jego niewiadomymi #M
-
                     }
                 }
                 else                                                                                                        //w przypadku gdy rzutowanie zmiennej powiodło się w zmiennej c znajduje się obiekt klasy ExpresionsToSolve dzięki czemu możemy odowłać się do jego atrybutów #M
@@ -99,6 +100,10 @@ namespace AMW_Mathematics.Windows
                                                                                                                                      //następnie dodanie do listy wyników wyniku funkcji solve oraz pozycji w liscie #M
 
                 equalizationsolverfunction.ResizeListView(ref SolverResultList);                                                    //funcja odpowiadająca za dostoswanie wielkości itemów do listy #M
+                foreach(var item in lisetexpresiontosolve)
+                {
+                    EquationList.Add(new ResultExpresionView { ResultSolving = item.expresion, Index = countresultsolving });
+                }
                 SolverResultList.Items.Refresh();
                 countresultsolving = countresultsolving + 1;
             }
@@ -118,6 +123,31 @@ namespace AMW_Mathematics.Windows
                 }
             }
             SolverResultList.Items.RemoveAt(index);                                         //Usunięcie elementu listy o znalezionym wcześniej indeksie #M
+        }
+
+        private void ShowEquation_Click(object sender, RoutedEventArgs e)
+        {
+            var key = (Button)sender;
+            string result = "";
+            foreach(var item in EquationList)
+            {
+                if(item.Index == int.Parse(key.Tag.ToString()))
+                {
+                    result = result + "\n" + item.ResultSolving;
+                }
+            }
+            MessageBox.Show(result);
+        }
+        PointChartFunction pointchartfunction = new PointChartFunction();
+        private void EditEquation_Click(object sender, RoutedEventArgs e)
+        {
+            //List<TextBox> list = new List<TextBox>();
+            //var key = (Button)sender;
+            //int count = EquationList.FindAll(m => m.Index == int.Parse(key.Tag.ToString())).Count;
+            //ListViewExp.Items.Clear();
+            //CoEquations.SelectedIndex = count - 1;
+            ////List<TextBox> ListTextBox = new List<TextBox>();
+            //ListTextBox = pointchartfunction.FindBox(ListViewExp, "EquationTextbox", "", "", ListTextBox, "First");
         }
     }
 }

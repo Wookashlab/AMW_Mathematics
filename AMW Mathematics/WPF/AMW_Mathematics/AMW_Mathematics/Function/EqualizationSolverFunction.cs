@@ -46,6 +46,7 @@ namespace AMW_Mathematics.Function
                         }
                         expres = expres.Remove(0, 1);                                                                           //usunięcie perwszego znaku który był przecinkiem #M
                         expres = "linsolve([" + expres + "],[" + lisetexpresiontosolve[index].variable + "])";                  //przygotowanie równania do wprowadzenia do maximy #M
+                        expres = Maxima.Eval(expres);
                         int ind = expres.IndexOf('[');
                         expres = expres.Remove(0, ind);
                         return expres;                                                                                          //zwrócenie obliczonych niewiadomych w postaci stringa #M

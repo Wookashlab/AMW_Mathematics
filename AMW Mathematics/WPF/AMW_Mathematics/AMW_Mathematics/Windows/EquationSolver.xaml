@@ -25,7 +25,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,4">
-                            <TextBox Text="{Binding Exp}" Margin="0,0,5,0" Width="250" Height="33" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="{Binding Watermark}" FontSize="16"></TextBox>
+                            <TextBox x:Name="EquationTextbox" Text="{Binding Exp}" Margin="0,0,5,0" Width="250" Height="33" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="{Binding Watermark}" FontSize="16"></TextBox>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -60,14 +60,14 @@
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Show"  Tag="{Binding Index}"></Button>
+                                            <Button Content="Show"  Tag="{Binding Index}" Click="ShowEquation_Click"></Button>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                                 <GridViewColumn>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Content="Edit"  Tag="{Binding Index}"></Button>
+                                            <Button Content="Edit"  Tag="{Binding Index}" Click="EditEquation_Click"></Button>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
