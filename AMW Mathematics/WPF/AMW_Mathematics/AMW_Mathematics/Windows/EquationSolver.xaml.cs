@@ -24,6 +24,8 @@ namespace AMW_Mathematics.Windows
 
         private int countresultsolving = 0;
 
+        private bool EditChange = false;
+
         public EquationSolver(string borderColor)
         {
             InitializeComponent();
@@ -37,34 +39,37 @@ namespace AMW_Mathematics.Windows
 
         private void CoEquations_SelectionChanged(object sender, SelectionChangedEventArgs e)                     //Metoda odpowiedzialna za dodanie lub też odjęcie kontenera umożliwającego wprowadzenie elementu równania #M
         {
-            try                                                                                                   //obsługa błedu umożliwa uniknięcie nam przypadu gdy na liście combobox zostanie wybrany element który nie istnieje #M 
+            if (EditChange == false)
             {
-                int index = CoEquations.SelectedIndex;                                                            //sprawdzenie indexu contenera mówiącego nam o ilości wyrażeń. Zmienna index mówi nam o ilości kontenerów w które można będzie wprwadzić wyrażenia #M
-                int count;
-                if (ListViewExp.Items.Count <= index && ListViewExp.Items.Count < 6)                              //sprawdzenie czy lista dostępnych kontenerów jest mniejsza od liczby kontenerów które chcemy wyświetlić jak i mniejsza od maksymalnej ilości kontenerów #M
-                {                                                                                                 //jeśli liczba jest mniejsza oznacza to że należy dodać kontener #M
-                    count = index - ListViewExp.Items.Count + 1;                                                   //obliczenie ile kontenerów należy dodać do listy #M
-                    for (int i = 1; i <= count; i++)                                                              //pętla odpowiadajaca za dodanie kontenera #M
-                    {
-                        int val = ListViewExp.Items.Count + 1;                                                    //zadeklarowana zmienna umożliwa nam poprawne wprowadzenie do Welmarka ID kontenera #M
-                        ListViewExp.Items.Add(new ListExpresionView { Exp = "", Watermark = "Equation " + val }); //Dynamiczne dodanie kontenera do listy z parametrami klasy ListExpresionView #M
+                try                                                                                                   //obsługa błedu umożliwa uniknięcie nam przypadu gdy na liście combobox zostanie wybrany element który nie istnieje #M 
+                {
+                    int index = CoEquations.SelectedIndex;                                                            //sprawdzenie indexu contenera mówiącego nam o ilości wyrażeń. Zmienna index mówi nam o ilości kontenerów w które można będzie wprwadzić wyrażenia #M
+                    int count;
+                    if (ListViewExp.Items.Count <= index && ListViewExp.Items.Count < 6)                              //sprawdzenie czy lista dostępnych kontenerów jest mniejsza od liczby kontenerów które chcemy wyświetlić jak i mniejsza od maksymalnej ilości kontenerów #M
+                    {                                                                                                 //jeśli liczba jest mniejsza oznacza to że należy dodać kontener #M
+                        count = index - ListViewExp.Items.Count + 1;                                                   //obliczenie ile kontenerów należy dodać do listy #M
+                        for (int i = 1; i <= count; i++)                                                              //pętla odpowiadajaca za dodanie kontenera #M
+                        {
+                            int val = ListViewExp.Items.Count + 1;                                                    //zadeklarowana zmienna umożliwa nam poprawne wprowadzenie do Welmarka ID kontenera #M
+                            ListViewExp.Items.Add(new ListExpresionView { Exp = "", Watermark = "Equation " + val }); //Dynamiczne dodanie kontenera do listy z parametrami klasy ListExpresionView #M
+                        }
                     }
-                }
-                index = CoEquations.SelectedIndex;                                                                //ponowne przypisanie do zmiennej index wartości wciśniegego przycisku w polu combobox #M
-                if (ListViewExp.Items.Count > index + 1)                                                          //sprawdznie czy ilość kontenerów w liście jest większa niż ilość kontenerów którą wskazuje pole Combobox #M
-                {                                                                                                 //w przpadlu gdy liczba kontenerów jest mniejsza należy ją zmniejszyć w liście #M
-                    count = (ListViewExp.Items.Count - 1) - (index);                                               //określenie liczby kontenerów które należy usunąć z listy 
-                    do
-                    {
+                    index = CoEquations.SelectedIndex;                                                                //ponowne przypisanie do zmiennej index wartości wciśniegego przycisku w polu combobox #M
+                    if (ListViewExp.Items.Count > index + 1)                                                          //sprawdznie czy ilość kontenerów w liście jest większa niż ilość kontenerów którą wskazuje pole Combobox #M
+                    {                                                                                                 //w przpadlu gdy liczba kontenerów jest mniejsza należy ją zmniejszyć w liście #M
+                        count = (ListViewExp.Items.Count - 1) - (index);                                               //określenie liczby kontenerów które należy usunąć z listy 
+                        do
+                        {
 
-                        ListViewExp.Items.RemoveAt(ListViewExp.Items.Count - 1);
-                        ListViewExp.Items.Refresh();
-                        count = count - 1;
+                            ListViewExp.Items.RemoveAt(ListViewExp.Items.Count - 1);
+                            ListViewExp.Items.Refresh();
+                            count = count - 1;
+                        }
+                        while (count > 0);                                                                            //pętla usuwająca kontenery z widoku listy na podstawie zmiennej count która wcześniej określiła ile konenerów ma zostać usuniętych #M
                     }
-                    while (count > 0);                                                                            //pętla usuwająca kontenery z widoku listy na podstawie zmiennej count która wcześniej określiła ile konenerów ma zostać usuniętych #M
                 }
+                catch { }
             }
-            catch { }
         }
 
         private void Solve_Click(object sender, RoutedEventArgs e)                                                          //funcja odpowiadająca za obliczenie równania #M
@@ -138,16 +143,25 @@ namespace AMW_Mathematics.Windows
             }
             MessageBox.Show(result);
         }
-        PointChartFunction pointchartfunction = new PointChartFunction();
-        private void EditEquation_Click(object sender, RoutedEventArgs e)
+        private FunctionToAllPlot functiontoplot = new FunctionToAllPlot();
+
+        private void EditEquation_Click(object sender, RoutedEventArgs e)                                                                               //funkcja wprowadzająca równania do TextBox'ów w celu ich edycji #M
         {
-            //List<TextBox> list = new List<TextBox>();
-            //var key = (Button)sender;
-            //int count = EquationList.FindAll(m => m.Index == int.Parse(key.Tag.ToString())).Count;
-            //ListViewExp.Items.Clear();
-            //CoEquations.SelectedIndex = count - 1;
-            ////List<TextBox> ListTextBox = new List<TextBox>();
-            //ListTextBox = pointchartfunction.FindBox(ListViewExp, "EquationTextbox", "", "", ListTextBox, "First");
+            var key = (Button)sender;                                                                                                                   //przypisanie do zmiennej wciśniętego klawisza #M
+            int count = EquationList.FindAll(m => m.Index == int.Parse(key.Tag.ToString())).Count;                                                      
+            ListViewExp.Items.Clear();
+            int welmarkindex = 1;
+            foreach(var item in EquationList)
+            {
+                if(item.Index == int.Parse(key.Tag.ToString()))
+                {
+                    ListViewExp.Items.Add(new ListExpresionView {Exp = item.ResultSolving, Watermark = "Equation " +  welmarkindex.ToString() });
+                }
+                welmarkindex = welmarkindex + 1;
+            }
+            EditChange = true;
+            CoEquations.SelectedIndex = count - 1;
+            EditChange = false;
         }
     }
 }
