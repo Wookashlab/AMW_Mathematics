@@ -16,11 +16,13 @@ namespace AMW_Mathematics.Windows
     /// </summary>
     public partial class EquationSolver : MetroWindow
     {
-        EqualizationSolverFunction equalizationsolverfunction = new EqualizationSolverFunction();               //Stworzenie obiektu klasy equalizationsolvefunction w celu załadowania do widoku danych #M
+        private  EqualizationSolverFunction equalizationsolverfunction = new EqualizationSolverFunction();               //Stworzenie obiektu klasy equalizationsolvefunction w celu załadowania do widoku danych #M
 
-        List<string> VariableList = File.ReadAllLines(@"VariableList").ToList();                               //Zczytanie listy zmiennych z pliku #Ł
+        private List<string> VariableList = File.ReadAllLines(@"VariableList").ToList();                               //Zczytanie listy zmiennych z pliku #Ł
 
-        List<ResultExpresionView> EquationList = new List<ResultExpresionView>();
+        private List<ResultExpresionView> EquationList = new List<ResultExpresionView>();
+
+        private FunctionToAllPlot functiontoplot = new FunctionToAllPlot();
 
         private int countresultsolving = 0;
 
@@ -29,6 +31,7 @@ namespace AMW_Mathematics.Windows
         public EquationSolver(string borderColor)
         {
             InitializeComponent();
+            List<string> w = new List<string>();
             MainBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom(borderColor));
             SelectBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom(borderColor));
 
@@ -130,25 +133,23 @@ namespace AMW_Mathematics.Windows
             SolverResultList.Items.RemoveAt(index);                                         //Usunięcie elementu listy o znalezionym wcześniej indeksie #M
         }
 
-        private void ShowEquation_Click(object sender, RoutedEventArgs e)
+        private void ShowEquation_Click(object sender, RoutedEventArgs e)                           //metoda odpowiedzialna za wyświetlenie wszystkich elementów równania na podstawie wciśniętego klawisza #M
         {
-            var key = (Button)sender;
+            var key = (Button)sender;                                                               //przypisanie do zmiennej klawisza który był wciśnięty #M                            
+            int start = EquationList.FindIndex(m => m.Index == int.Parse(key.Tag.ToString()));      //znalezienie indexu pierwszego elementu równania #M
+            int end = EquationList.FindLastIndex(m => m.Index == int.Parse(key.Tag.ToString()));    //znalezienie indexu ostatniego elementu równania #M
             string result = "";
-            foreach(var item in EquationList)
+            foreach(var item in equalizationsolverfunction.GetElementEquation(EquationList,start,end))                         //pętla po Liście równań wprowadzajaca do zmiennej result wartości elementów równania #M
             {
-                if(item.Index == int.Parse(key.Tag.ToString()))
-                {
-                    result = result + "\n" + item.ResultSolving;
-                }
+                result = result + "\n" + item.ResultSolving;                                       
             }
-            MessageBox.Show(result);
+            MessageBox.Show(result);                                                                //wyświetlenie elementów równania #M
         }
-        private FunctionToAllPlot functiontoplot = new FunctionToAllPlot();
 
         private void EditEquation_Click(object sender, RoutedEventArgs e)                                                                               //funkcja wprowadzająca równania do TextBox'ów w celu ich edycji #M
         {
             var key = (Button)sender;                                                                                                                   //przypisanie do zmiennej wciśniętego klawisza #M
-            int count = EquationList.FindAll(m => m.Index == int.Parse(key.Tag.ToString())).Count;                                                      
+            int count = EquationList.FindAll(m => m.Index == int.Parse(key.Tag.ToString())).Count;                                                                                        
             ListViewExp.Items.Clear();
             int welmarkindex = 1;
             foreach(var item in EquationList)

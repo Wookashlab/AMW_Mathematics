@@ -7,6 +7,7 @@ using MaximaSharp;
 using AMW_Mathematics.E_Model;
 using AMW_Mathematics.Function;
 using System.Windows.Controls;
+using AMW_Mathematics.E_ModelView;
 
 namespace AMW_Mathematics.Function
 {
@@ -109,6 +110,15 @@ namespace AMW_Mathematics.Function
                     }
                     column.Width = double.NaN;
                 }
+            }
+        }
+        public IEnumerable<ResultExpresionView> GetElementEquation(List<ResultExpresionView> EquationList, int start, int end)  //metoda zwracająca tylko elementy listy znajdujące się w przedzialen od start do end #M
+        {                                                                                                                       //inumerable jest to interejs który zapwewnia nam iteracje po liście #M
+            for (int i = start; i <= end; i++)
+            {
+                yield return EquationList[i];                                                                                   //dzięki słowu kluczowemu yield jesteśmy w stanie zwracać element po elemencie danej listy #M
+                                                                                                                                //do zmiennej wynikowej nie ładowane są od razu wszystkie elementy listy, dzieje się to w momencie wykonania pętli na elementach listy 
+                                                                                                                                //yield jest wydajnieszy gdyż nie musimy pobierać wszystkich elementów listy tylko te które nas interesują #M
             }
         }
     }

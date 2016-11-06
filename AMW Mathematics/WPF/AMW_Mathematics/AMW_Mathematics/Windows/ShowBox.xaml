@@ -6,12 +6,11 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
-        Title="AMW Mathematics" Height="181.44" Width="303.317" ResizeMode="CanMinimize"
+        Title="AMW Mathematics" Height="196.074" Width="319.171" ResizeMode="CanMinimize"
         BorderThickness="2" 
         GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid Margin="0,0,0,53">
-        </Grid>
-        <Button x:Name="Solve" Content="Solve" Margin="115,100,115,10" Style="{StaticResource AccentedSquareButtonStyle}"/>
+    <Grid Margin="0,0,2,320">
+        <TextBlock Text="{Binding MessageBoxText}" Margin="-2,5,2,-114"></TextBlock>
+        <Button x:Name="Confirm" Content="Ok" Margin="120,119,120,-149" Style="{StaticResource AccentedSquareButtonStyle}" Click="Confirm_Click"/>
     </Grid>
 </Controls:MetroWindow>
