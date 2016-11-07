@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro;
 using MaximaSharp;
 using AMW_Mathematics.ModelView;
@@ -136,7 +137,7 @@ namespace AMW_Mathematics
                 if ((bool)RealNumber.IsChecked)
                     if (ExpressionField.Text.Contains("%i"))
                     {
-                        System.Windows.MessageBox.Show("Expression contains a complex number despite the fact that you are in real numbers mode. Change the expression or mode and try again ", " Error ", MessageBoxButton.OK, MessageBoxImage.Error);
+                        this.ShowMessageAsync("Error", "Expression contains a complex number despite the fact that you are in real numbers mode. Change the expression or mode and try again ");
                         return;
                     }
 
@@ -150,13 +151,13 @@ namespace AMW_Mathematics
                 {
                     if (Expresion.Contains("syntax"))
                     {
-                        System.Windows.MessageBox.Show("There was an error in the expression syntax - correct expression and try againe", "Syntax Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        this.ShowMessageAsync("Syntax Error", "There was an error in the expression syntax - correct expression and try againe");
                         return;
                     }
                     if (Expresion.Contains("arguments"))
 
                     {
-                        System.Windows.MessageBox.Show("Wrong number of arguments in function: " + Expresion.Substring(Expresion.IndexOf('@')+1), "Syntax Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        this.ShowMessageAsync("Syntax Error", "Wrong number of arguments in function: " + Expresion.Substring(Expresion.IndexOf('@') + 1));
                         return;
                     }
                 }
@@ -691,8 +692,7 @@ namespace AMW_Mathematics
         private void ComplexNumber_Checked(object sender, RoutedEventArgs e)                    //Funkcja uruchamiająca tryb Liczyb rzeczywiste #Ł
         {
             ComplexTab.Visibility = System.Windows.Visibility.Visible;                          //wyświetlenie pasku funkcji na kalkulatroze "Liczby zespolone #Ł
-            System.Windows.MessageBox.Show("You are now in the complex numbers mode. The imaginary unit in our program is determined by use of the phrase \" % i \" Ex. 2 + 3 *% i ", " Complex Numbers Mode", MessageBoxButton.OK, MessageBoxImage.Question);
-            
+            this.ShowMessageAsync("Complex Numbers Mode", "You are now in the complex numbers mode. The imaginary unit in our program is determined by use of the phrase \" % i \" Ex. 2 + 3 *% i ");
         }
 
         private void RealNumber_Checked(object sender, RoutedEventArgs e)                       //Funkcja uruchamiająca tryb liczby zespolone #Ł
