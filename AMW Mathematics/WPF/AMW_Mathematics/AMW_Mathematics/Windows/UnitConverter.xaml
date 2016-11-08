@@ -1,0 +1,31 @@
+﻿<Controls:MetroWindow x:Class="AMW_Mathematics.Windows.UnitConverter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:AMW_Mathematics"
+        mc:Ignorable="d"
+        Title="Unit Converter" Height="208.579" Width="344.379"  ResizeMode="CanMinimize"
+         BorderThickness="2" 
+        GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox x:Name="groupBox" Header="         Convert" Margin="0" BorderThickness="3">
+            <Grid>
+                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="90,-33,0,0" VerticalAlignment="Top" Width="114" Height="10"/>
+                <CheckBox x:Name="checkBox" Content="Show all unit" HorizontalAlignment="Left" Margin="219,-28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.5" Foreground="White"/>
+                <Label x:Name="label" Content="form:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.607"/>
+                <Label x:Name="label_Copy" Content="to:" HorizontalAlignment="Left" Margin="188,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.119"/>
+                <Label x:Name="label_Copy1" Content="Input:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy2" Content="Output:" HorizontalAlignment="Left" Margin="188,64,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120"/>
+                <ComboBox x:Name="comboBox1_Copy" HorizontalAlignment="Left" Margin="188,26,0,0" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="188,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="label1" Content="=" HorizontalAlignment="Left" Margin="146,94,0,0" VerticalAlignment="Top"/>
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Controls:MetroWindow>

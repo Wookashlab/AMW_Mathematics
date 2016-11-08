@@ -1080,5 +1080,13 @@ namespace AMW_Mathematics
             else
                 ExpressionField.SelectionStart = cursorExpression;
         }
+
+        private void UnitConverterButton_Click(object sender, RoutedEventArgs e)
+        {
+            Opacity = 0.3;
+            UnitConverter uconverter = new UnitConverter();
+            uconverter.ShowDialog();
+            Opacity = 1;
+        }
     }
 }

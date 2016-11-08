@@ -123,6 +123,9 @@
     <Compile Include="Windows\TriangleSolver.xaml.cs">
       <DependentUpon>TriangleSolver.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\UnitConverter.xaml.cs">
+      <DependentUpon>UnitConverter.xaml</DependentUpon>
+    </Compile>
     <Page Include="AMW_Mathematics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\TriangleSolver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UnitConverter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
