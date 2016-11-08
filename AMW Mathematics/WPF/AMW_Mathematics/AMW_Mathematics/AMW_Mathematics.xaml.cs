@@ -30,6 +30,14 @@ namespace AMW_Mathematics
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private List<int> IndexEquation = new List<int>();                      //lista przechowująca indeksy elementów równania w celu ich serializacji #M
+
+        private List<string> Equation = new List<string>();                     //lista przechowująca elementy równania w celu ich serializacji #M
+
+        private List<int> IndexResult = new List<int>();                        //lista przechowujące index rozwiązanego równania w celu jego serializacji #M
+
+        private List<string> Result = new List<string>();                       //lista przechowująca rozwiązania równania w celu jego serializacji #M
+
         private GraphingHelp HelpWzory = new GraphingHelp(1);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
 
         private GraphingHelp HelpZestawy = new GraphingHelp(2);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
@@ -155,7 +163,6 @@ namespace AMW_Mathematics
                         return;
                     }
                     if (Expresion.Contains("arguments"))
-
                     {
                         this.ShowMessageAsync("Syntax Error", "Wrong number of arguments in function: " + Expresion.Substring(Expresion.IndexOf('@') + 1));
                         return;
@@ -759,6 +766,14 @@ namespace AMW_Mathematics
             foreach (var item in ListFunctionPoint) ToSave.Add(item);
             ToSave.Add("Variables");
             foreach (var item in phrase.SymbolsAndValues) ToSave.Add(item.Key + " = " + item.Value);
+            ToSave.Add("IndexEquation");
+            foreach (var item in IndexEquation) ToSave.Add(item.ToString());
+            ToSave.Add("Equation");
+            foreach (var item in Equation) ToSave.Add(item);
+            ToSave.Add("IndexResult");
+            foreach (var item in IndexResult) ToSave.Add(item.ToString());
+            ToSave.Add("Result");
+            foreach (var item in Result) ToSave.Add(item);
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "Expresions"; // Default file name
             dlg.DefaultExt = ".data"; // Default file extension
@@ -837,11 +852,63 @@ namespace AMW_Mathematics
                 int ind = 0;
                 foreach(var item in ToSave)
                 {
-                    VariablesListView.Items.Add(new VariablesListView { Variable = item, Index = ind });
-                    ind++;
-                    string key = item.Substring(0, item.IndexOf("=") - 1);
-                    string value = item.Substring(item.IndexOf("=") + 1, item.Length-1- item.IndexOf("="));
-                    phrase.SymbolsAndValues.Add(key, value);
+                    if (item != "IndexEquation")
+                    {
+                        VariablesListView.Items.Add(new VariablesListView { Variable = item, Index = ind });
+                        ind++;
+                        string key = item.Substring(0, item.IndexOf("=") - 1);
+                        string value = item.Substring(item.IndexOf("=") + 1, item.Length - 1 - item.IndexOf("="));
+                        phrase.SymbolsAndValues.Add(key, value);
+                    }
+                    else
+                    {
+                        int index = ToSave.IndexOf(item);
+                        ToSave.RemoveRange(0, index + 1);
+                        break;
+                    }
+                }
+                foreach (var item in ToSave)
+                {
+                    if (item != "Equation")
+                    {
+                        IndexEquation.Add(int.Parse(item));
+                    }
+                    else
+                    {
+                        int index = ToSave.IndexOf(item);
+                        ToSave.RemoveRange(0, index + 1);
+                        break;
+                    }
+                }
+                foreach (var item in ToSave)
+                {
+                    if (item != "IndexResult")
+                    {
+                        Equation.Add(item);
+                    }
+                    else
+                    {
+                        int index = ToSave.IndexOf(item);
+                        ToSave.RemoveRange(0, index + 1);
+                        break;
+                    }
+                }
+                foreach (var item in ToSave)
+                {
+                    if (item != "Result")
+                    {
+                        IndexResult.Add(int.Parse(item));
+                    }
+                    else
+                    {
+                        int index = ToSave.IndexOf(item);
+                        ToSave.RemoveRange(0, index + 1);
+                        break;
+                    }
+                }
+                foreach(var item in ToSave)
+                {
+                    Result.Add(item);
                 }
             }
         }
@@ -857,6 +924,14 @@ namespace AMW_Mathematics
                 foreach (var item in ListFunctionPoint) ToSave.Add(item);
                 ToSave.Add("Variables");
                 foreach (var item in phrase.SymbolsAndValues) ToSave.Add(item.Key + " = " + item.Value);
+                ToSave.Add("IndexEquation");
+                foreach (var item in IndexEquation) ToSave.Add(item.ToString());
+                ToSave.Add("Equation");
+                foreach (var item in Equation) ToSave.Add(item);
+                ToSave.Add("IndexResult");
+                foreach (var item in IndexResult) ToSave.Add(item.ToString());
+                ToSave.Add("Result");
+                foreach (var item in Result) ToSave.Add(item);
                 Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
 
                 // Show save file dialog box
@@ -875,6 +950,16 @@ namespace AMW_Mathematics
                 foreach (var item in ListFunctionLine) ToSave.Add(item);
                 ToSave.Add("ChartPoint");
                 foreach (var item in ListFunctionPoint) ToSave.Add(item);
+                ToSave.Add("Variables");
+                foreach (var item in phrase.SymbolsAndValues) ToSave.Add(item.Key + " = " + item.Value);
+                ToSave.Add("IndexEquation");
+                foreach (var item in IndexEquation) ToSave.Add(item.ToString());
+                ToSave.Add("Equation");
+                foreach (var item in Equation) ToSave.Add(item);
+                ToSave.Add("IndexResult");
+                foreach (var item in IndexResult) ToSave.Add(item.ToString());
+                ToSave.Add("Result");
+                foreach (var item in Result) ToSave.Add(item);
                 Serialization.ConcurrentSerializer<List<string>>.Serialize(filename, ToSave);
             }
         }
@@ -1025,13 +1110,27 @@ namespace AMW_Mathematics
             trianglesolverwindow.ShowDialog();
             Opacity = 1;
         }
-
-        private void EquationSolverButton_Click(object sender, RoutedEventArgs e)               //Otworzenie okna rozwiązywania równań #Ł
+        private void EquationSolverButton_Click(object sender, RoutedEventArgs e)               
         {
+            EquationSolver equationsolver;                                                                                      //stworzenie obiektu klasy EqualizationSolver #M
             Opacity = 0.3;
-            EquationSolver equationsolver = new EquationSolver(Thememanager.borderColor);
-            equationsolver.ShowDialog();
-            Opacity = 1;
+            if(Result.Count == 0 && IndexResult.Count == 0 && Equation.Count == 0 && IndexEquation.Count ==0)                   //Sprawdzenie czy istnieją równania które zostały wcześniej serializowane #M
+            {
+                equationsolver = new EquationSolver(Thememanager.borderColor);                                                  //brak równań stworzenie istancji klasy z konstruktorem do którego nie przekazujemy równań #M
+            }
+            else
+            {
+                equationsolver = new EquationSolver(Thememanager.borderColor,IndexEquation,IndexResult,Equation,Result);        //równania wystąpiły stworzenie instancji klasy z konstruktorem do którego wprowadzamy liste równań wraz z rozwiązaniami #M
+            }
+            equationsolver.ShowDialog();                                                                                        //zatrzymanie programu otworzenie okna Equalization Solver okno głowne zatrzymane #M
+            
+            var ListEquations = equationsolver.EquationList;                                                                    //przypisanie do obketu listy równań z podziałem na ich elementy #M
+            IndexEquation = ListEquations.Select(m => m.Index).ToList();                                                        //podział obketu w którym znajduje sie lista elementów rownań na listę indexów poszczególnych elementów i samych elementów #M
+            Equation = ListEquations.Select(m => m.ResultSolving).ToList();
+            var ListResult = equationsolver.ToSerializeResultEquation;                                                          //lista rozwiązań #M
+            IndexResult = ListResult.Select(m => m.Index).ToList();                                                             //podział listy rozwiązań na listę indexów rozwiązań #M
+            Result = ListResult.Select(m => m.ResultSolving).ToList();                                                          //podiał na listę rozwiązań równań #M
+            Opacity = 1;                                                                                                        //podział ten powstał w celu serializacji danych #M
         }
         void ButtonColorChange(string color)                                                    //Zmiana kolorów przycisków #Ł
         {

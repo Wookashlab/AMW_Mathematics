@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AMW_Mathematics.E_ModelView
 {
-    class ResultExpresionView
+    public class ResultExpresionView
     {
         public string ResultSolving { get; set; }
         public int Index { get; set; }

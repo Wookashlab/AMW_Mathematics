@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="AMW Mathematics" Height="455.831" Width="296" ResizeMode="CanMinimize"
         BorderThickness="2" 
-        GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen">
+        GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen" Closing="EquationSolver_Closing">
     <Grid Margin="0,0,2,320">
         <TabControl x:Name="SelectBorder" BorderBrush="#3341B1E1" BorderThickness="6" Margin="0,0,0,30" >
             <ComboBox x:Name="CoEquations" HorizontalAlignment="Left" Width="203" Height="32" VerticalAlignment="Top" Margin="10,10,0,0" SelectionChanged="CoEquations_SelectionChanged" SelectedIndex="0">
