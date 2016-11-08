@@ -709,6 +709,10 @@ namespace AMW_Mathematics
         }
         private void NewProject_Click(object sender, RoutedEventArgs e)
         {
+            IndexEquation.Clear();
+            Equation.Clear();
+            IndexResult.Clear();
+            Result.Clear();
             VariablesListView.Items.Clear();
             phrase.SymbolsAndValues.Clear();
             ResultList.Items.Clear();
@@ -933,6 +937,9 @@ namespace AMW_Mathematics
                 ToSave.Add("Result");
                 foreach (var item in Result) ToSave.Add(item);
                 Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.FileName = "Expresions"; // Default file name
+                dlg.DefaultExt = ".data"; // Default file extension
+                dlg.Filter = "Expresions (.Data)|*.Data"; // Filter files by extension
 
                 // Show save file dialog box
                 Nullable<bool> result = dlg.ShowDialog();
