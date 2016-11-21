@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Media;
 using System.Windows.Media;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
+using MahApps.Metro.Controls;
+
 
 namespace AMW_Mathematics.Function
 {
@@ -14,23 +18,44 @@ namespace AMW_Mathematics.Function
 
         public String accentColor = "Blue", themeColor = "BaseLight", accentColorCode = "#FF41B1E1", borderColor = "#3341B1E1";
         
-        public void LoadTheme()                                                 //Odczytywanie pliku z zapisanym motywem #Ł
+        public void LoadTheme()                                                     //Odczytywanie pliku z zapisanym motywem #Ł
         {
-            string[] lines = System.IO.File.ReadAllLines(@"theme");             //Wpisuje wartość pliku do tablicy #Ł
-            accentColor = lines[0];                                // Zapisuje w zmiennej akcent #Ł
-            themeColor = lines[1];                               //Zapisuje w zmiennej motyw #Ł
-            Accent(accentColor);                                                //Generuje kod koloru #Ł
-            GetBorderColor(accentColorCode);
+            try                                                    //Sprawdzenie czy istnieje taki plik #Ł
+            {               
+                using (StreamReader sr = new StreamReader(@"theme"))        
+                {
+                    string[] lines = System.IO.File.ReadAllLines(@"theme");             //Wpisuje wartość pliku do tablicy #Ł
+                    accentColor = lines[0];                                // Zapisuje w zmiennej akcent #Ł
+                    themeColor = lines[1];                               //Zapisuje w zmiennej motyw #Ł
+                    Accent(accentColor);                                                //Generuje kod koloru #Ł
+                    GetBorderColor(accentColorCode);
+                }
+            }
+            catch (Exception e)
+            {
+                using (StreamWriter outputFile = new StreamWriter(@"theme", false))  //Jeśli nie utworzenie domyślnego pliku #Ł
+                {
+                    outputFile.Write(accentColor + "\n" + themeColor);
+                }
+            }
+          
             
             
         }
         public void SaveThem()                                                  //Zapisanie koloru aplikacji do pliku #Ł 
         {
-            System.IO.File.Delete(@"theme");                                    //Usunięcie pliku z informacjami o akcencie i matywie aplikacji #Ł
-            using (StreamWriter outputFile = new StreamWriter(@"theme", true))  //Zapisanie do poliku nowych informacji o akcencie i pliku #Ł
+            try                                                    //Sprawdzenie czy istnieje taki plik #Ł
             {
-                outputFile.Write(accentColor + "\n" + themeColor);
+                using (StreamWriter outputFile = new StreamWriter(@"theme", false))  //Zapisanie do poliku nowych informacji o akcencie i pliku #Ł
+                {
+                    outputFile.Write(accentColor + "\n" + themeColor);
+                }
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("Unfortunately you can not save your theme. Run the program as an administrator and try again", "Can not save your theme");
+            }
+
         }
 
 

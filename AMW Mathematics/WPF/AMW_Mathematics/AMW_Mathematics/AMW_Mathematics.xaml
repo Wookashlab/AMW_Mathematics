@@ -90,10 +90,17 @@
                                 <Button x:Name="Stored_Variable" Content="Stored&#xD;&#xA;Variables" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Stored_Variable_Click"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox4_Copy1" Header="Zoom [WIP]" HorizontalAlignment="Left" Margin="436,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
+                        <GroupBox x:Name="groupBox4_Copy1" Header="Zoom" HorizontalAlignment="Left" Margin="436,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
-                                <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="89" Height="19"/>
-                                <Button x:Name="button5_Copy2" Content="100%" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46"/>
+                                <ComboBox x:Name="SelectZoom" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="89" Height="19" SelectedIndex="2" SelectionChanged="SelectZoom_SelectionChanged">
+                                    <ComboBoxItem  Content="50%"/>
+                                    <ComboBoxItem Content="75%"/>
+                                    <ComboBoxItem Content="100%"/>
+                                    <ComboBoxItem Content="125%"/>
+                                    <ComboBoxItem Content="150%"/>
+                                    <ComboBoxItem Content="200%"/>
+                               </ComboBox>
+                                    <Button x:Name="NormalZoom" Content="100%" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="NormalZoom_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -149,7 +156,7 @@
                                 <ColumnDefinition Width="135*"/>
                                 <ColumnDefinition Width="739*"/>
                             </Grid.ColumnDefinitions>
-                            <ListBox x:Name="ResultList" Margin="10,40,10,160" FontSize="22" Grid.ColumnSpan="2">
+                            <ListBox x:Name="ResultList" Margin="10,40,10,160" FontSize="20" Grid.ColumnSpan="2">
                             </ListBox>
                             <GroupBox x:Name="groupBox5" Header="" Margin="10,418,18,0" VerticalAlignment="Top" Height="139" Grid.ColumnSpan="2">
                                 <Grid FocusManager.FocusedElement="{Binding ElementName=ExpressionField}">
@@ -161,7 +168,9 @@
                             </GroupBox>
                             <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Right" Margin="0,10,107,0" VerticalAlignment="Top" Width="75" Click="Edit_Click" RenderTransformOrigin="0.24,2.48" Grid.Column="1"/>
                             <Button x:Name="Delete" Content="Remove" HorizontalAlignment="Right" Margin="0,10,18,0" VerticalAlignment="Top" Width="75" Click="Delete_Click" Grid.Column="1"/>
-                            
+                            <Button x:Name="cursorRight" Content="&gt;" HorizontalAlignment="Left" Margin="50,8,0,0" VerticalAlignment="Top" Width="35" FontSize="12" Height="25" MouseEnter="FindCursor" Click="cursorRight_Click"/>
+                            <Button x:Name="cursorLeft" Content="&lt;" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="35" FontSize="12" Height="25" MouseEnter="FindCursor" Click="cursorLeft_Click"/>
+
                         </Grid>
                     </TabControl>
                 </TabItem>
@@ -427,8 +436,7 @@
             <Image x:Name="kMin" HorizontalAlignment="Left" Height="33" Margin="52,768,0,0" VerticalAlignment="Top" Width="50" Source="img/Klawiatura/minimalizuj.png" MouseDown="kMin_MouseDown"/>
 
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="24,624,0,0" Stroke="Black" VerticalAlignment="Top" Width="270"/>
-            <Button x:Name="cursorRight" Content="&gt;" HorizontalAlignment="Left" Margin="382,255,0,0" VerticalAlignment="Top" Width="35" FontSize="12" Height="25" MouseEnter="FindCursor" Click="cursorRight_Click"/>
-            <Button x:Name="cursorLeft" Content="&lt;" HorizontalAlignment="Left" Margin="342,255,0,0" VerticalAlignment="Top" Width="35" FontSize="12" Height="25" MouseEnter="FindCursor" Click="cursorLeft_Click"/>
+
         </Grid>
         <ListBox x:Name="Function_list" HorizontalAlignment="Left" Height="348" Margin="24,271,0,0" VerticalAlignment="Top" Width="270">
 

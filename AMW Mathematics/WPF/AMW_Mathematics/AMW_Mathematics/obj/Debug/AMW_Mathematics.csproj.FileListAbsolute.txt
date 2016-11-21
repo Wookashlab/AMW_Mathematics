@@ -296,8 +296,6 @@ C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.baml
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.g.cs
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.baml
-D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\ShowBox.g.cs
-D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\ShowBox.baml
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\UnitConverter.g.cs
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\UnitConverter.baml
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\UnitConverter.g.cs

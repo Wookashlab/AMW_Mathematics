@@ -5295,6 +5295,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_75B7C224329E4F3B90848094A2055C84"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7608560424EB43B484F8D941769D7DEB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -26273,7 +26279,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
@@ -29618,6 +29624,26 @@
             "TargetName" = "8:demoucron.lisp"
             "Tag" = "8:"
             "Folder" = "8:_26D1AF94111B4433A4F19B8C6B6C121E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_75B7C224329E4F3B90848094A2055C84"
+            {
+            "SourcePath" = "8:..\\AMW_Mathematics\\bin\\theme"
+            "TargetName" = "8:theme"
+            "Tag" = "8:"
+            "Folder" = "8:_12E8ACC47A93470EA46ADE3D7D798903"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -51753,7 +51779,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AMW Mathematics"
         "ProductCode" = "8:{85CC3A30-7364-4289-9B08-8299866ADFBE}"
-        "PackageCode" = "8:{ED9BE03D-3E8F-4640-A7D1-4527EF0FDEE6}"
+        "PackageCode" = "8:{4E68883B-4ACC-4316-8B79-4B58379C52F5}"
         "UpgradeCode" = "8:{81665A4C-140A-4581-8706-909BBE0EF580}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -1187,12 +1187,31 @@ namespace AMW_Mathematics
                 ExpressionField.SelectionStart = cursorExpression;
         }
 
-        private void UnitConverterButton_Click(object sender, RoutedEventArgs e)
+        private void UnitConverterButton_Click(object sender, RoutedEventArgs e)                    //Otworzenie okna UnitConvertera #Ł
         {
             Opacity = 0.3;
             UnitConverter uconverter = new UnitConverter();
             uconverter.ShowDialog();
             Opacity = 1;
+        }
+
+        private void NormalZoom_Click(object sender, RoutedEventArgs e)                     // Przywrócenie domyślnej wielkości czcionki #Ł
+        {
+            SelectZoom.SelectedIndex = 2;                   
+        }
+
+        private void SelectZoom_SelectionChanged(object sender, SelectionChangedEventArgs e)            //Zmiana wielkości czcionki #Ł
+        {                                                                           //Problem przy starcie próbuje to rozwiązać #Ł
+            try
+            {
+                double zoomlvl = int.Parse((SelectZoom.Items[SelectZoom.SelectedIndex] as ComboBoxItem).Content.ToString().Substring(0, (SelectZoom.Items[SelectZoom.SelectedIndex] as ComboBoxItem).Content.ToString().Length - 1));
+                ExpressionField.FontSize = 16 * (zoomlvl/100);
+                ResultList.FontSize = 20 * (zoomlvl / 100);
+            }
+            catch      
+            {
+
+            }
         }
     }
 }

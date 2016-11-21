@@ -49,9 +49,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
@@ -100,6 +99,7 @@
     <Compile Include="Function\PointChartFunction.cs" />
     <Compile Include="Function\Serialization.cs" />
     <Compile Include="Function\AppTheme.cs" />
+    <Compile Include="Function\UnitFactor.cs" />
     <Compile Include="ModelView\ChartLineView.cs" />
     <Compile Include="ModelView\ChartListViewInequalities.cs" />
     <Compile Include="ModelView\ChartListViewParametric.cs" />
@@ -112,6 +112,7 @@
     <Compile Include="Model\DataToChart.cs" />
     <Compile Include="Model\DataToLineChartView.cs" />
     <Compile Include="Model\DataToPointList.cs" />
+    <Compile Include="Model\Unit.cs" />
     <Compile Include="T_ModelView\TriangleShowBoxView.cs" />
     <Compile Include="T_ModelView\TriangleView.cs" />
     <Compile Include="Windows\EquationSolver.xaml.cs">
@@ -170,9 +171,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.manifest">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
