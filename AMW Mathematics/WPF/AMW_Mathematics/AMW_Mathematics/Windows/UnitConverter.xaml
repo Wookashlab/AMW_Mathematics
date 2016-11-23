@@ -6,30 +6,30 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
-        Title="Unit Converter" Height="238.817" Width="342.528"  ResizeMode="CanMinimize"
+        Title="Unit Converter" Height="248.598" Width="420.775"  ResizeMode="CanMinimize"
          BorderThickness="2" 
         GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen">
     <Grid>
-        <GroupBox x:Name="groupBox" Header="                         Convert" Margin="0" BorderThickness="3">
+        <GroupBox x:Name="groupBox" Header="                        &#x9; Convert" Margin="0" BorderThickness="3">
             <Grid>
-                <ComboBox x:Name="selectUnit" HorizontalAlignment="Left" Margin="160,-33,0,0" VerticalAlignment="Top" Width="114" Height="10" SelectionChanged="selectUnit_SelectionChanged">
+                <ComboBox x:Name="selectUnit" HorizontalAlignment="Left" Margin="170,-33,0,0" VerticalAlignment="Top" Width="150" Height="10" SelectionChanged="selectUnit_SelectionChanged">
                     <ComboBoxItem  Content="Length"/>
                     <ComboBoxItem Content="Area"/>
                     <ComboBoxItem Content="Mass"/>
                     <ComboBoxItem Content="Temperature"/>
                     <ComboBoxItem Content="Time"/>
                     <ComboBoxItem Content="Velocity"/>
-                                    </ComboBox>
+                </ComboBox>
                 <Label x:Name="label" Content="form:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.607"/>
-                <Label x:Name="label_Copy" Content="to:" HorizontalAlignment="Left" Margin="188,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.119"/>
+                <Label x:Name="label_Copy" Content="to:" HorizontalAlignment="Left" Margin="212,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.119"/>
                 <Label x:Name="label_Copy1" Content="Input:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="label_Copy2" Content="Output:" HorizontalAlignment="Left" Margin="188,64,0,0" VerticalAlignment="Top"/>
-                <ComboBox x:Name="FromCombo" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120"/>
-                <ComboBox x:Name="ToCombo" HorizontalAlignment="Left" Margin="188,26,0,0" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="OutputBox" HorizontalAlignment="Left" Height="23" Margin="188,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-                <Label x:Name="equal" Content="=" HorizontalAlignment="Left" Margin="146,94,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="Convert" Content="calculate" HorizontalAlignment="Left" Margin="232,136,0,0" VerticalAlignment="Top" Width="75" Click="Convert_Click"/>
+                <Label x:Name="label_Copy2" Content="Output:" HorizontalAlignment="Left" Margin="212,64,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="FromCombo" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="173"/>
+                <ComboBox x:Name="ToCombo" HorizontalAlignment="Left" Margin="212,26,0,0" VerticalAlignment="Top" Width="173" SelectionChanged="ToCombo_SelectionChanged"/>
+                <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
+                <TextBox x:Name="OutputBox" HorizontalAlignment="Left" Height="23" Margin="212,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsEnabled="False"/>
+                <Label x:Name="equal" Content="=" HorizontalAlignment="Left" Margin="189,94,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="Convert" Content="calculate" HorizontalAlignment="Left" Style="{StaticResource AccentedSquareButtonStyle}" Margin="295,135,0,0" VerticalAlignment="Top" Width="100" Click="Convert_Click" Height="36"/>
 
             </Grid>
         </GroupBox>

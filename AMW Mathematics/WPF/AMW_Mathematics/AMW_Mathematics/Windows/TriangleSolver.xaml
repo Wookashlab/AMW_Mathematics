@@ -6,14 +6,14 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AMW_Mathematics"
         mc:Ignorable="d"
-        Title="AMW Mathematics" Height="538.831" Width="392" ResizeMode="CanMinimize"
+        Title="AMW Mathematics" Height="549.831" Width="392" ResizeMode="CanMinimize"
         BorderThickness="2" 
         GlowBrush="{DynamicResource AccentColorBrush}" WindowStartupLocation="CenterScreen">
     
     <Grid Margin="0,0,0,3">
         <Grid x:Name="TriangeImg" Margin="10,10,10,318" HorizontalAlignment="Stretch"/>
-        <Button Margin="290,470,0,0"  Height="3" Content="Calculate" VerticalAlignment="Top" Opacity="0.6" Click="SolveTriangel_Click" MouseLeave="TriangelSolve_MouseLeave" HorizontalAlignment="Left" Width="84" IsDefault="True"/>
-        <Button Margin="10,470,287,0"  Height="3" Content="Clear" VerticalAlignment="Top" Opacity="0.6"  Click="SolveTriangelClear_Click"/>
+        <Button Margin="288,470,0,0"  Height="34" Style="{StaticResource AccentedSquareButtonStyle}" Content="Calculate" VerticalAlignment="Top" Opacity="0.6" Click="SolveTriangel_Click" MouseLeave="TriangelSolve_MouseLeave" HorizontalAlignment="Left" Width="84" IsDefault="True"/>
+        <Button Margin="10,470,288,0" Style="{StaticResource AccentedSquareButtonStyle}"  Height="34" Content="Clear" VerticalAlignment="Top" Opacity="0.6"  Click="SolveTriangelClear_Click" Width="84"/>
         <GroupBox x:Name="SolvingValuesBox" Header="            Sides                                        Angles           " HorizontalAlignment="Left" Width="364" Margin="10,299,0,0" Height="162" VerticalAlignment="Top">
             <Grid Margin="0,0,0,-2">
                 <ComboBox x:Name="TypeSolving" HorizontalAlignment="Left" Margin="102,-32,0,0" VerticalAlignment="Top" Width="73" SelectionChanged="TypeSolving_SelectionChanged">

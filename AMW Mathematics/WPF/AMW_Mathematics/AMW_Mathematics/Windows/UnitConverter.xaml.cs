@@ -30,20 +30,38 @@ namespace AMW_Mathematics.Windows
         private void selectUnit_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Model.Unit selectedUnit = new Model.Unit(FromCombo, ToCombo, (selectUnit.Items[selectUnit.SelectedIndex] as ComboBoxItem).Content.ToString());
+            FromCombo.SelectedIndex = 0;
+            ToCombo.SelectedIndex = 0;
         }
         private void Convert_Click(object sender, RoutedEventArgs e)
         {
+            ConvertButtonClick();
+        }
+        void ConvertButtonClick()
+        {
+            double equal;
             try
             {
-                Function.UnitFactor factoreValue = new Function.UnitFactor((FromCombo.Items[FromCombo.SelectedIndex] as ComboBoxItem).Content.ToString(), (ToCombo.Items[ToCombo.SelectedIndex] as ComboBoxItem).Content.ToString());
-                double equal = double.Parse(InputBox.Text) * factoreValue.unitF;
-                equal = Math.Round(equal, 6);
+
+                Function.UnitFactor factoreValue = new Function.UnitFactor((selectUnit.Items[selectUnit.SelectedIndex] as ComboBoxItem).Content.ToString(), (FromCombo.Items[FromCombo.SelectedIndex] as ComboBoxItem).Content.ToString(), (ToCombo.Items[ToCombo.SelectedIndex] as ComboBoxItem).Content.ToString());
+                equal = double.Parse(InputBox.Text) * factoreValue.unitF;
+
+                if ((selectUnit.Items[selectUnit.SelectedIndex] as ComboBoxItem).Content.ToString().Contains("Temperature"))
+                {
+                    equal = equal + factoreValue.temp;
+                }
+
                 OutputBox.Text = equal.ToString();
             }
-            catch(Exception error)
+            catch (Exception error)
             {
 
             }
+        }
+
+        private void ToCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (InputBox.Text != "") ConvertButtonClick();
         }
     }
 }

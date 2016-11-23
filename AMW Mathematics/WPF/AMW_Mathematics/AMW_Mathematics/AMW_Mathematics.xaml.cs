@@ -1213,5 +1213,11 @@ namespace AMW_Mathematics
 
             }
         }
+
+        private void SkinButton_Click(object sender, RoutedEventArgs e)
+        {
+            BitmapImage image = new BitmapImage(new Uri("img/oldView.png ", UriKind.Relative));
+            calcIMG.Source = image;
+        }
     }
 }
