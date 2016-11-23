@@ -29,7 +29,7 @@
                 <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
                 <TextBox x:Name="OutputBox" HorizontalAlignment="Left" Height="23" Margin="212,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsEnabled="False"/>
                 <Label x:Name="equal" Content="=" HorizontalAlignment="Left" Margin="189,94,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="Convert" Content="calculate" HorizontalAlignment="Left" Style="{StaticResource AccentedSquareButtonStyle}" Margin="295,135,0,0" VerticalAlignment="Top" Width="100" Click="Convert_Click" Height="36"/>
+                <Button x:Name="Convert" Content="calculate" HorizontalAlignment="Left" Style="{StaticResource AccentedSquareButtonStyle}" Margin="295,135,0,0" VerticalAlignment="Top" Width="100" Click="Convert_Click" Height="36" IsDefault="True"/>
 
             </Grid>
         </GroupBox>

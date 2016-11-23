@@ -32,6 +32,7 @@ namespace AMW_Mathematics.Windows
             Model.Unit selectedUnit = new Model.Unit(FromCombo, ToCombo, (selectUnit.Items[selectUnit.SelectedIndex] as ComboBoxItem).Content.ToString());
             FromCombo.SelectedIndex = 0;
             ToCombo.SelectedIndex = 0;
+            InputBox.Focus();
         }
         private void Convert_Click(object sender, RoutedEventArgs e)
         {
@@ -62,6 +63,7 @@ namespace AMW_Mathematics.Windows
         private void ToCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (InputBox.Text != "") ConvertButtonClick();
+            else InputBox.Focus();
         }
     }
 }
