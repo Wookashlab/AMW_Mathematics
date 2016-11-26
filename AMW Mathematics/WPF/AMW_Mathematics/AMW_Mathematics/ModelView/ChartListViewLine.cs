@@ -11,7 +11,7 @@ namespace AMW_Mathematics.ModelView
 {
     public class ChartListViewLine //Klasa opodiwada za załadowanie numeru numeru funkcji oraz typu wykresu do bindowanych pól ListView w XAML #M
     {
-        private string labelChartValue { get; set; }
+        private string labelChartValue { get; set; } //labelka do dynamicznie generującego się pola w ktore wprowadza się wyrażenie #M
         public string TextInChartPlot { get; set; }
         private string typeChart { get; set; }
         public string CountFunction { get; set; }

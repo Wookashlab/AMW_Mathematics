@@ -63,54 +63,54 @@ namespace AMW_Mathematics.ModelView
             }
             e.Refresh();                                                                                                                                                //odświerzenie wykresu #M
         }
-        public void ButtonZoomIn(ExpressionPlotter expPlotter, CheckBox ZoomAfterX, CheckBox ZoomAfterY)
+        public void ButtonZoomIn(ExpressionPlotter expPlotter, CheckBox ZoomAfterX, CheckBox ZoomAfterY)    //metoda odpowiedzialna za przybliżanie wykresu #M
         {
-            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == false)
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == false)                              //sprawdzenie po jakiej zmiennej ma zostać dokonane zwiększanie #M
             {
-                expPlotter.ZoomInX();
+                expPlotter.ZoomInX();                                                                       //po x #M
             }
-            if (ZoomAfterX.IsChecked == false && ZoomAfterY.IsChecked == true)
+            if (ZoomAfterX.IsChecked == false && ZoomAfterY.IsChecked == true)                              
             {
-                expPlotter.ZoomInY();
+                expPlotter.ZoomInY();                                                                       //po y #M
             }
             if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == true)
             {
-                expPlotter.ZoomIn();
+                expPlotter.ZoomIn();                                                                        //po x i y #M
             }
             expPlotter.Refresh();
         }
-        public void ButtonZoomOut(ExpressionPlotter expPlotter, CheckBox ZoomAfterX, CheckBox ZoomAfterY)
+        public void ButtonZoomOut(ExpressionPlotter expPlotter, CheckBox ZoomAfterX, CheckBox ZoomAfterY)    //metoda odpowiedzialna za oddalenie wykresu #M
         {
-            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == false)
+            if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == false)                               //sprawdzenie po jakiej zmiennej ma zostać dokonane oddalenie #M
             {
-                expPlotter.ZoomOutX();
+                expPlotter.ZoomOutX();                                                                      //po x #M
             }
             if (ZoomAfterX.IsChecked == false && ZoomAfterY.IsChecked == true)
             {
-                expPlotter.ZoomOutY();
+                expPlotter.ZoomOutY();                                                                       //po y #M
             }
             if (ZoomAfterX.IsChecked == true && ZoomAfterY.IsChecked == true)
             {
-                expPlotter.ZoomOut();
+                expPlotter.ZoomOut();                                                                        //po x i y #M
             }
             expPlotter.Refresh();
         }
-        public void MoveUPChart(ExpressionPlotter expPlotter)
+        public void MoveUPChart(ExpressionPlotter expPlotter)   //przesunięcie wykresu w górę #M
         {
             expPlotter.MoveUp(1);
             expPlotter.Refresh();
         }
-        public void MoveDownChart(ExpressionPlotter expPlotter)
+        public void MoveDownChart(ExpressionPlotter expPlotter) //przesunięcie wykresu w dół #M
         {
             expPlotter.MoveDown(1);
             expPlotter.Refresh();
         }
-        public void MoveLeftChart(ExpressionPlotter expPlotter)
+        public void MoveLeftChart(ExpressionPlotter expPlotter) //przesynięcie wykresu w lewo  #M
         {
             expPlotter.MoveLeft(1);
             expPlotter.Refresh();
         }
-        public void MoveRightChart(ExpressionPlotter expPlotter)
+        public void MoveRightChart(ExpressionPlotter expPlotter)    //przesunięcie wykresu w prawo #M
         {
             expPlotter.MoveRight(1);
             expPlotter.Refresh();

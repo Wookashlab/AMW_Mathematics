@@ -58,63 +58,63 @@ namespace AMW_Mathematics.Function
         }
         public List<TextBox> FindBox(ListView PointChartListFunction, string name, string namex, string namey, List<TextBox> ListTextBox, string function)
         {
-            switch (function)
+            switch (function)                                                                                                                       //decyduje który rodzaj szukania TextBoxów ma wykonać #<
             {
                 case "First":
                     var _ListBox = PointChartListFunction as ListBox;
                     foreach (var _ListBoxItem in _ListBox.Items)
                     {
                         var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                        var _Children = functiontoplot.AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                        var _Children = functiontoplot.AllChildren(_Container);                                                                     //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                         var _Name = name;
                         var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                        ListTextBox.Add(_Control);                                                                                         //dodanie do listy funkcji występującej w TextBox #M
+                        ListTextBox.Add(_Control);                                                                                                  //dodanie do listy TextBoxów występujących w ListView #M
                     }
                     return ListTextBox;
                 case "Second":
                     var _ListBoxs = PointChartListFunction as ListBox;
                     foreach (var _ListBoxItems in _ListBoxs.Items)
                     {
-                        var _Containers = _ListBoxs.ItemContainerGenerator.ContainerFromItem(_ListBoxItems);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                        var _Children = functiontoplot.AllChildren(_Containers);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                        var _Containers = _ListBoxs.ItemContainerGenerator.ContainerFromItem(_ListBoxItems);                                        //wprowadzenie do zmiennej _Container elementu ListView #M
+                        var _Children = functiontoplot.AllChildren(_Containers);                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                         var _Name = namex;
-                        var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                        _Control.Text = "";
-                        ListTextBox.Add(_Control);
+                        var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //znalezienie pierwszego TextBoxa który ma x w nazwie #M
+                        _Control.Text = "";                                                                                                         //oczyszczenie TextBoxa #M
+                        ListTextBox.Add(_Control);                                                                                                  //dodanie znalezionego TextBoxa do listy #M
                         _Name = namey;
-                        _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                        _Control.Text = "";//dodanie do listy funkcji występującej w TextBox #M
-                        ListTextBox.Add(_Control);
+                        _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                                  //znalezienie drugiego Textboxa który ma y w nazwie #M
+                        _Control.Text = "";                                                                                                         //Oczyszczenie TextBoxa #M
+                        ListTextBox.Add(_Control);                                                                                                  //dodanie znalezionego TextBoxa do listy #M
                     }
                     return ListTextBox;
             }
             return new List<TextBox>();
         }
 
-        public string FindFunctionInBox(ListView ListChartPointW, string function)
+        public string FindFunctionInBox(ListView ListChartPointW, string function)                                                              //metoda odpowiadająca za odczyt zawartości TexTboxów znadujących się w liście a następnie przedstawienie ich zawartości w formie stringa #M
         {
-            try
+            try                                                                                                                                 //obsłga błedu na wypadek złego przeczytania zawartości TextBoxa #M
             {
                 var _ListBox = ListChartPointW as ListBox;
                 foreach (var _ListBoxItem in _ListBox.Items)
                 {
                     var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                    var _Children = functiontoplot.AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                    var _Children = functiontoplot.AllChildren(_Container);                                                                     //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                     var _Name = "XValue";
                     var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                    if (_Control.Text != "") function += "{" + _Control.Text + ",";
+                    if (_Control.Text != "") function += "{" + _Control.Text + ",";                                                             //wprowadzenie do zmiennej function zawartości TextBoxa znajdującego się w liście jako parametru x #M
                     _Name = "YValue";
                     _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                    if (_Control.Text != "") function += _Control.Text + "}" + ",";                                //dodanie do listy funkcji występującej w TextBox #M
+                    if (_Control.Text != "") function += _Control.Text + "}" + ",";                                                             //wprowadzenie do zmiennej function zawartości TextBoxa znajdującego się w liście jako parametru y #M
                 }
-                int index = function.LastIndexOf(",");
+                int index = function.LastIndexOf(",");                                                                                          //znalezienie a następnie usunięcie kropi znadującej sięna końcu stringa #M
                 function = function.Remove(index, 1);
-                function = function + "}";
-                return function;
+                function = function + "}";                                                                                                      //dodanie do stringa nawiasu #M
+                return function;                                                                                                                //zwrócenie stringa #M
             }
             catch
             {
-                return function;
+                return function;                                                                                                                //zwrócenie stringa #M
             }
         }
     }

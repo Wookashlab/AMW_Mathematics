@@ -100,7 +100,7 @@ namespace AMW_Mathematics
             List<ChartListViewLine> DataListView = new List<ChartListViewLine>();                           //osobna klasa jeszcze nie wiem jaka :-)
             DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });      //osobna klasa jeszcze nie wiem jaka :-)
             ChartListFunction.Items.Add(DataListView);                                                  //osobna klasa jeszcze nie wiem jaka :-)
-            PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction });
+            PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction });  //dynamiczne dodanie pola które umożliwa wprowadzenie wyrażenia w zakladce wykresów #M
             DataSetChLV.Height = 20;                                                                    //osobna klasa jeszcze nie wiem jaka :-)
             ParametricChLV.Height = 20;
             InequalitiesChLV.Height = 20;
@@ -283,40 +283,40 @@ namespace AMW_Mathematics
                     List<DataToPointChartView> DataToChartPoint;                                                                                                                      //stworzenie listy punktów
                     ListFunctionPoint = functiontoallpolot.AddFunctionToList(PointChartListFunction, ListFunctionPoint, "PointFunctionTextBox", new Keyboard(), new Button(), false); //dodanie do ListyFunkcji nowych funkcji które występują w dynamicznie generowanej liście textboxów #M
                     DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), ListFunctionPoint);                                                      //lista punktów funkcji #M
-                    ViewPlot = new ChartPointView(DataToChartPoint);                                                                                                                                                                                                           
-                    DataContext = ViewPlot;
-                    datatolinechartview.TypeChart = "point";
-                    datatochart.WhichGraphZoom = "PointPlotChart";
+                    ViewPlot = new ChartPointView(DataToChartPoint);                                                                                                                  //stworzenie instancji wykresu w której jako parametr przekazana została lista punktów #M                                                                                         
+                    DataContext = ViewPlot;                                                                                                                                           //przypisanie modelu do widoku #M
+                    datatolinechartview.TypeChart = "point";                                                                                                                          //ustawienie parametrów dotyczących typu wykresu #M
+                    datatochart.WhichGraphZoom = "PointPlotChart";                                                                                                                    //ustawienie parametru określającego sposób zoomowania #M
                     break;
             }
         }
 
-        private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)
+        private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)                                                                                                         //metoda odpowadająca za dodanie wyrażenia wykresów #M
         {
-            Button buttonclicked = ((Button)sender);
+            Button buttonclicked = ((Button)sender);                                                                                                                                    //Pobranie nazwy przycisku #M
             switch (buttonclicked.Name)
             {
                 case "PointAddExpresionToPlot":
-                    datatopointchartview.CountFunction = datatopointchartview.CountFunction + 1;
-                    PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction });
+                    datatopointchartview.CountFunction = datatopointchartview.CountFunction + 1;                                                                                                   //zwiększenie indeksu funkcji #M
+                    PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction }); //dynamiczne dodanie pola do wprowadzania wyrażenia #M
                     break;
                 case "AddExpresionToPlot":
-                    chartlist.CountFunction = (int.Parse(chartlist.CountFunction) + 1).ToString();
-                    List<ChartListViewLine> DataListView = new List<ChartListViewLine>();
-                    DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });
-                    ChartListFunction.Items.Add(DataListView);
+                    chartlist.CountFunction = (int.Parse(chartlist.CountFunction) + 1).ToString();                                                                                                  //zwiększenie indeksu #M
+                    List<ChartListViewLine> DataListView = new List<ChartListViewLine>();                                                                                                           //stworzenie instancji klasy ChartListViewLine #M
+                    DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });                                                                                          
+                    ChartListFunction.Items.Add(DataListView);                                                                                                                                      //dodanie nowego pola do widoku w którem można wprowadzić wyrażenie #M
                     break;
             }
         }
 
-        private void RemoveFunctionFromChart_Click(object sender, RoutedEventArgs e)
+        private void RemoveFunctionFromChart_Click(object sender, RoutedEventArgs e)        //metoda usuwająca z wyrażenia w zakładce wykresów #M
         {
-            if (ChartListFunction.Items.Count > 1)
+            if (ChartListFunction.Items.Count > 1)                                          //uniemożliwienie usunięcia pierwszego wyrażenia #M
             {
-                var item = ChartListFunction.Items[ChartListFunction.Items.Count - 1];
-                ChartListFunction.Items.Remove(item);
+                var item = ChartListFunction.Items[ChartListFunction.Items.Count - 1];      
+                ChartListFunction.Items.Remove(item);                                       //usunięcie wyrażenia #M
             }
-            chartlist.CountFunction = (int.Parse(chartlist.CountFunction) - 1).ToString();
+            chartlist.CountFunction = (int.Parse(chartlist.CountFunction) - 1).ToString();  //zmniejszenie licznika wyrażeń #M
         }
 
         private void Tab_Click(object sender, RoutedEventArgs e)                    //Funckja po wciśnieciu + lub - na karcie #Ł
@@ -353,12 +353,12 @@ namespace AMW_Mathematics
             klawisz.Content = keyboard.Mark(klawisz.Content.ToString());   //zmiana znaku + na - i vice versa #Ł
         }
 
-        private void ShowElementListViewCharts(object sender, RoutedEventArgs e)    //Funckja po wciśnięciu + otwiera kartę w liście ListViewChart #M
+        private void ShowElementListViewCharts(object sender, RoutedEventArgs e)    //metoda po wciśnięciu + otwiera kartę w liście ListViewChart #M
         {
-            var keysender = (Button)sender; //pobranie nazwy przycisku danej karty
-            switch (keysender.Name) //sprawdzenie który przycisk został wciśnięty i na podstawie tego wyświetlenie odpowiednich pól w liście ListViewChart #M
+            var keysender = (Button)sender;                                         //pobranie nazwy przycisku danej karty
+            switch (keysender.Name)                                                 //sprawdzenie który przycisk został wciśnięty i na podstawie tego wyświetlenie odpowiednich pól w liście ListViewChart #M
             {
-                case "DataSetChB":
+                case "DataSetChB":                                                  //ustawienie wielkości oraz pozycji zakładki #M
                     DataSetChLV.Height = 428;
                     EqualizationAndFunctionsChLV.Height = 20;
                     ParametricChLV.Height = 20;
@@ -366,7 +366,7 @@ namespace AMW_Mathematics
                     TraceChLV.Height = 20;
                     GraphHelpGrid.DataContext = HelpZestawy;
                     break;
-                case "EqualizationAndFunctionsChB":
+                case "EqualizationAndFunctionsChB":                                 //ustawienie wielkości oraz pozycji zakładki #M
                     EqualizationAndFunctionsChLV.Height = 428;
                     DataSetChLV.Height = 20;
                     ParametricChLV.Height = 20;
@@ -374,21 +374,21 @@ namespace AMW_Mathematics
                     TraceChLV.Height = 20;
                     GraphHelpGrid.DataContext = HelpWzory;
                     break;
-                case "ParametricChB":
+                case "ParametricChB":                                               //ustawienie wielkości oraz pozycji zakładki #M
                     ParametricChLV.Height = 428;
                     EqualizationAndFunctionsChLV.Height = 20;
                     DataSetChLV.Height = 20;
                     InequalitiesChLV.Height = 20;
                     TraceChLV.Height = 20;
                     break;
-                case "InequalitiesChB":
+                case "InequalitiesChB":                                             //ustawienie wielkości oraz pozycji zakładki #M
                     InequalitiesChLV.Height = 428;
                     ParametricChLV.Height = 20;
                     EqualizationAndFunctionsChLV.Height = 20;
                     DataSetChLV.Height = 20;
                     TraceChLV.Height = 20;
                     break;
-                case "TraceChB":
+                case "TraceChB":                                                    //ustawienie wielkości oraz pozycji zakładki #M
                     TraceChLV.Height = 74;
                     InequalitiesChLV.Height = 20;
                     ParametricChLV.Height = 20;
@@ -398,98 +398,98 @@ namespace AMW_Mathematics
             }
         }
 
-        private void ZoomIN_Click(object sender, RoutedEventArgs e)                 //Funkcja zmniejszająca wykres #M
+        private void ZoomIN_Click(object sender, RoutedEventArgs e)                 //metoda zwiększająca wykres #M
         {
             string level;
-            switch (datatolinechartview.TypeChart)
+            switch (datatolinechartview.TypeChart)                                                                                      //sprawdzenie typu wykresu mówi nam na jakiej zakładce w danym momencie się znadujemy #M
             {
                 case "line":
-                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");
-                    for (int i = 0; i < int.Parse(level); i++)
+                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");   //pobranie z pola combobox wielkrotności zwiększania #M
+                    for (int i = 0; i < int.Parse(level); i++)                                                                          //pętla realizująca wielokrotność zwiększania #M
                     {
-                        ChartLineView.ButtonZoomIn(expPlotter, ZoomAfterX, ZoomAfterY);
+                        ChartLineView.ButtonZoomIn(expPlotter, ZoomAfterX, ZoomAfterY);                                                 //zwiększanie wykresu po dany parametrze #M
                     }
                     break;
                 case "point":
-                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");
-                    for (int i = 0; i < int.Parse(level); i++)
+                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");   //pobranie z pola combobox wielkrotności zwiększania #M
+                    for (int i = 0; i < int.Parse(level); i++)                                                                          //pętla realizująca wielokrotność zwiększania #M
                     {
-                        ViewPlot.UpdateModelZoomIn(Plot, ZoomAfterX, ZoomAfterY);
+                        ViewPlot.UpdateModelZoomIn(Plot, ZoomAfterX, ZoomAfterY);                                                       //zwiększanie wykresu po dany parametrze #M
                     }                        
                     break;
             }
         }
 
-        private void ZoomOut_Click(object sender, RoutedEventArgs e)
+        private void ZoomOut_Click(object sender, RoutedEventArgs e)                //metoda zmniejszająca wykres #M
         {
             string level;
-            switch (datatolinechartview.TypeChart)
+            switch (datatolinechartview.TypeChart)                                    //sprawdzenie typu wykresu mówi nam na jakiej zakładce w danym momencie się znadujemy #M
             {
                 case "line":
-                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");
-                    for (int i = 0; i < int.Parse(level); i++)
+                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");   //pobranie z pola combobox wielkrotności zmniejszania #
+                    for (int i = 0; i < int.Parse(level); i++)                                                                          //pętla realizująca wielokrotność zmniejszania #M
                     {
-                        ChartLineView.ButtonZoomOut(expPlotter, ZoomAfterX, ZoomAfterY);
+                        ChartLineView.ButtonZoomOut(expPlotter, ZoomAfterX, ZoomAfterY);                                                //zmniejszanie wykresu po dany parametrze #M
                     }
                     break;
                 case "point":
-                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");
-                    for (int i = 0; i < int.Parse(level); i++)
+                    level = (ChartZoomLevel.Items[ChartZoomLevel.SelectedIndex] as ComboBoxItem).Content.ToString().Replace("x", "");   //pobranie z pola combobox wielkrotności zmniejszania #
+                    for (int i = 0; i < int.Parse(level); i++)                                                                          //pętla realizująca wielokrotność zmniejszania #M
                     {
-                        ViewPlot.UpdateModelZoomOut(Plot, ZoomAfterX, ZoomAfterY);
+                        ViewPlot.UpdateModelZoomOut(Plot, ZoomAfterX, ZoomAfterY);                                                      //zmniejszanie wykresu po dany parametrze #M
                     }
                     break;
             }
         }
 
-        private void ChartLineTopPosition_Click(object sender, RoutedEventArgs e)
+        private void ChartLineTopPosition_Click(object sender, RoutedEventArgs e)   //metoda odpowiedzialna za przesuwanie do góry wykresu #M
         {
-            switch (datatochart.WhichGraphZoom)
+            switch (datatochart.WhichGraphZoom)                                     //sprawdzenie jaki wykres ma być przesuwany #M
             {
                 case "PlotChart":
-                    ChartLineView.MoveUPChart(expPlotter);
+                    ChartLineView.MoveUPChart(expPlotter);                          //przesunięcie wykresu w góre #M
                     break;
                 case "PointPlotChart":
-                    ViewPlot.MoveUPChart(Plot);
+                    ViewPlot.MoveUPChart(Plot);                                     //przesunięcie wykresu w góre #M
                     break;
             }
         }
 
-        private void ChartLineDownPosition_Click(object sender, RoutedEventArgs e)
+        private void ChartLineDownPosition_Click(object sender, RoutedEventArgs e) //metoda odpowiedzialna za przesuwanie w dół wykresu #M
         {
-            switch (datatochart.WhichGraphZoom)
+            switch (datatochart.WhichGraphZoom)                                     //sprawdzenie jaki wykres ma być przesuwany #M
             {
                 case "PlotChart":
-                    ChartLineView.MoveDownChart(expPlotter);
+                    ChartLineView.MoveDownChart(expPlotter);                        //przesunięcie wykresu w dół #M
                     break;
                 case "PointPlotChart":
-                    ViewPlot.MoveDownChart(Plot);
+                    ViewPlot.MoveDownChart(Plot);                                   //przesunięcie wykresu w dół #M
                     break;
             }
         }
 
-        private void ChartLineRightPosition_Click(object sender, RoutedEventArgs e)
+        private void ChartLineRightPosition_Click(object sender, RoutedEventArgs e) //metoda odpowiedzialna za przesuwanie w prawo wykresu #M
         {
-            switch (datatochart.WhichGraphZoom)
+            switch (datatochart.WhichGraphZoom)                                      //sprawdzenie jaki wykres ma być przesuwany #M
             {
                 case "PlotChart":
-                    ChartLineView.MoveRightChart(expPlotter);
+                    ChartLineView.MoveRightChart(expPlotter);                         //przesunięcie wykresu w prawko #M
                     break;
                 case "PointPlotChart":
-                    ViewPlot.MoveRightChart(Plot);
+                    ViewPlot.MoveRightChart(Plot);                                  //przesunięcie wykresu w prawko #M
                     break;
             }
         }
 
-        private void ChartLineLeftPosition_Click(object sender, RoutedEventArgs e)
+        private void ChartLineLeftPosition_Click(object sender, RoutedEventArgs e)      //metoda odpowiedzialna za przesuwanie w lewko wykresu #M
         {
-            switch (datatochart.WhichGraphZoom)
+            switch (datatochart.WhichGraphZoom)                                         //sprawdzenie jaki wykres ma być przesuwany #M
             {
                 case "PlotChart":
-                    ChartLineView.MoveLeftChart(expPlotter);
+                    ChartLineView.MoveLeftChart(expPlotter);                            //przesunięcie wykresu w lewo #M
                     break;
                 case "PointPlotChart":
-                    ViewPlot.MoveLeftChart(Plot);
+                    ViewPlot.MoveLeftChart(Plot);                                       //przesunięcie wykresu w lewo #M
                     break;
             }
         }
@@ -591,15 +591,15 @@ namespace AMW_Mathematics
             DataSetsPopOut.HorizontalOffset = point.X - 10;
             DataSetsPopOut.VerticalOffset = point.Y - 20;
             Button buttonclicked = ((Button)sender);
-            datatopointlist.IndexTextBox = int.Parse(buttonclicked.Tag.ToString()) - 1;
-            List<TextBox> ListTextBox = new List<TextBox>();
-            ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox", "", "", ListTextBox, "First");
-            List<DataToPointChartView> DataToChartPoint;
-            DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), new List<string>() { ListTextBox[datatopointlist.IndexTextBox].Text });
+            datatopointlist.IndexTextBox = int.Parse(buttonclicked.Tag.ToString()) - 1;                                                                                         //pobranie indexu wciśniętego przycisku #M
+            List<TextBox> ListTextBox = new List<TextBox>();                                        
+            ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox", "", "", ListTextBox, "First");                                             //przypisanie do zmiennej wyniku funkcji którym jest lista textboxów znajdujących się w dynamicznie generowanej liście #M
+            List<DataToPointChartView> DataToChartPoint;                                                                                                                        //stworzenie listy obiektów klasy #M
+            DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), new List<string>() { ListTextBox[datatopointlist.IndexTextBox].Text });    //wprowadzenie do lisy wyrażenia z TexTboxa który został kliknięty #M
             List<TextBox> ListTextboxInPomList = new List<TextBox>();
-            ListTextboxInPomList = pointchartfunction.FindBox(ListChartPointW, "", "XValue", "YValue", ListTextboxInPomList, "Second");
+            ListTextboxInPomList = pointchartfunction.FindBox(ListChartPointW, "", "XValue", "YValue", ListTextboxInPomList, "Second");                                         //pobranie wszystkich Textboxów z PopOut przeznaczonych do wprowadzania x i y #M
             int i = 0;
-            foreach (var Point in DataToChartPoint)
+            foreach (var Point in DataToChartPoint)                                                                                                                             //załadowanie do listy popout'a w której znajdują się textboxy x i y z wykorzystaniem pętli #M
             {
                 ListTextboxInPomList[i].Text = Point.dataX.ToString();
                 ListTextboxInPomList[i + 1].Text = Point.dataY.ToString();
@@ -612,17 +612,17 @@ namespace AMW_Mathematics
             DataSetsPopOut.IsOpen = false;
         }
 
-        private void DataSetOk_Click(object sender, RoutedEventArgs e)
+        private void DataSetOk_Click(object sender, RoutedEventArgs e)                                                              //Wprowadzenie danych z popout (x i y) do określonego TextBoxa w liście przeznaczonej do generowania wykresów punktówych #M
         {
-            List<TextBox> ListTextBox = new List<TextBox>();
+            List<TextBox> ListTextBox = new List<TextBox>();                                                                        //stworzenie listy obiektów TextBox #M
             string function = "{";
-            function = pointchartfunction.FindFunctionInBox(ListChartPointW, function);
-            ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox", "", "", ListTextBox, "First");
-            ListTextBox[datatopointlist.IndexTextBox].Text = function;
+            function = pointchartfunction.FindFunctionInBox(ListChartPointW, function);                                             //przygotowanie stringa w z danymi w odpowiednim formacie #M
+            ListTextBox = pointchartfunction.FindBox(PointChartListFunction, "PointFunctionTextBox", "", "", ListTextBox, "First"); //wyszukanie wszystkich TextBoxów #M
+            ListTextBox[datatopointlist.IndexTextBox].Text = function;                                                              //przypisanie do określonego TextBoxa przygotowanego wcześniej stringa który zawiera wyrażenie #M
             DataSetsPopOut.IsOpen = false;
         }
 
-        private void ExpPlotter_OnMouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void ExpPlotter_OnMouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)                                  //metoda umożliwająca zwiększanie lub zmniejszanie wykresu liniowego przy pomocy kółka znadującego się na myszcze #M
         {
             if (e.Delta > 0)
                 expPlotter.ZoomIn();
@@ -633,16 +633,16 @@ namespace AMW_Mathematics
 
         private void Chart_Click(object sender, EventArgs e)
         {
-            if (datatolinechartview.ShowTooltip == true)
+            if (datatolinechartview.ShowTooltip == true)                                                                             //zmienna sterująca wyświetlaniem tooltip zależnym od kliknięcia #M
             {
-                TooltipToLineChart.ReshowDelay = 0;
+                TooltipToLineChart.ReshowDelay = 0;                                                                                 //ustawienie opóźnienia wyświetlania tooltipu #M
                 TooltipToLineChart.InitialDelay = 0;
                 TooltipToLineChart.OwnerDraw = true;
-                TooltipToLineChart.Draw += new System.Windows.Forms.DrawToolTipEventHandler(toolTip1_Draw);
+                TooltipToLineChart.Draw += new System.Windows.Forms.DrawToolTipEventHandler(toolTip1_Draw);                         //tworznie tooltipu #M
                 TooltipToLineChart.Popup += new System.Windows.Forms.PopupEventHandler(toolTip1_Popup);
-                datatolinechartview.TooltipData = "X = " + datatolinechartview.currentX + " \nY = " + datatolinechartview.currentY;
-                TooltipToLineChart.Show(datatolinechartview.TooltipData, expPlotter);
-                datatolinechartview.ShowTooltip = false;
+                datatolinechartview.TooltipData = "X = " + datatolinechartview.currentX + " \nY = " + datatolinechartview.currentY; //dodanie zawartości tooltipu jako wartości x i y w danym punkcie #M 
+                TooltipToLineChart.Show(datatolinechartview.TooltipData, expPlotter);                                               //wyświetlenie tooltipa #M
+                datatolinechartview.ShowTooltip = false;                                                                            //zmiana smiennej sterującej na false po to aby po następnym kliknięci tooltip zniknął #M
             }
             else
             {
@@ -651,35 +651,35 @@ namespace AMW_Mathematics
             }
         }
 
-        private void ExpPlotter_OnMouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void ExpPlotter_OnMouseMove(object sender, System.Windows.Forms.MouseEventArgs e)                                               //metoda wykrywająca akcje najechania na komponent ExpoPloter jej zadaniem jest wygenerowanie wartości x i y wykresu #M
         {
-            datatolinechartview.currentX = (e.X - expPlotter.Width / 2) * expPlotter.ScaleX / expPlotter.Width * 2.25 + expPlotter.ForwardX;
-            datatolinechartview.currentY = (expPlotter.Height / 2 - e.Y) * expPlotter.ScaleY / expPlotter.Height * 2.25 + expPlotter.ForwardY;
-            if (this.expPlotter.GraphMode == GraphMode.Polar)
+            datatolinechartview.currentX = (e.X - expPlotter.Width / 2) * expPlotter.ScaleX / expPlotter.Width * 2.25 + expPlotter.ForwardX;    //obliczenie wartości x #M
+            datatolinechartview.currentY = (expPlotter.Height / 2 - e.Y) * expPlotter.ScaleY / expPlotter.Height * 2.25 + expPlotter.ForwardY;  //obliczenie wartości y #M
+            if (this.expPlotter.GraphMode == GraphMode.Polar)                                                                                   //w przypadku gdy wykres jest polarny zmiana sposobu liczenia x i y #M
             {
                 double r = ChartLineView.GetR(datatolinechartview.currentX, datatolinechartview.currentY);
                 double theta = ChartLineView.GetTheta(datatolinechartview.currentX, datatolinechartview.currentY);
-                datatolinechartview.currentX = r;
-                datatolinechartview.currentY = theta;
+                datatolinechartview.currentX = r;                                                                                               //przypisanie do zmiennej currentx obliczonej wartości r #M
+                datatolinechartview.currentY = theta;                                                                                           //przypisanie do zmiennej curenty obliczonej wartości theta #M
             }
-            datatolinechartview.currentX = Math.Round(datatolinechartview.currentX, 3);
-            datatolinechartview.currentY = Math.Round(datatolinechartview.currentY, 3);
+            datatolinechartview.currentX = Math.Round(datatolinechartview.currentX, 3);                                                         //zaokrąglenie x #M
+            datatolinechartview.currentY = Math.Round(datatolinechartview.currentY, 3);                                                         //zaokrąglenie y #M
         }
 
-        private void toolTip1_Popup(object sender, System.Windows.Forms.PopupEventArgs e)
+        private void toolTip1_Popup(object sender, System.Windows.Forms.PopupEventArgs e)                                                       //ustalenie stylu tooltipa (czcionka, rozmiar) #M
         {
             e.ToolTipSize = System.Windows.Forms.TextRenderer.MeasureText(datatolinechartview.TooltipData, new System.Drawing.Font("Arial", 13.0f));
         }
 
-        private void toolTip1_Draw(object sender, System.Windows.Forms.DrawToolTipEventArgs e)
+        private void toolTip1_Draw(object sender, System.Windows.Forms.DrawToolTipEventArgs e)                          //ustalenie sposobu rysowania tooltipa #M
         {
-            System.Drawing.Font f = new System.Drawing.Font("Arial", 13.0f);
-            e.DrawBackground();
-            e.DrawBorder();
-            e.Graphics.DrawString(e.ToolTipText, f, System.Drawing.Brushes.Black, new System.Drawing.PointF(2, 2));
+            System.Drawing.Font f = new System.Drawing.Font("Arial", 13.0f);                                           //zdeklarowanie czcionki #M
+            e.DrawBackground();                                                                                        //zdeklarowanie tła #M
+            e.DrawBorder();                                                                                            //zdeklarowanie ramki #M
+            e.Graphics.DrawString(e.ToolTipText, f, System.Drawing.Brushes.Black, new System.Drawing.PointF(2, 2));    //zdeklarowanie stylu tekstu jaki będzie zawierał tooltip #M
         }
 
-        private void DataSetClear_Click(object sender, RoutedEventArgs e)
+        private void DataSetClear_Click(object sender, RoutedEventArgs e)                                               //Pusta funcka dokończyć #M
         {
 
         }
@@ -707,22 +707,22 @@ namespace AMW_Mathematics
 
             ComplexTab.Visibility = System.Windows.Visibility.Collapsed;                    // ukrycie pasku funkcji na kalkulatorze "Liczby zespolone" #Ł
         }
-        private void NewProject_Click(object sender, RoutedEventArgs e)
+        private void NewProject_Click(object sender, RoutedEventArgs e)                     //metoda odpowiedzialna za stworzenie nowego projektu (wyczyszczenie zawartości wszystkich okien) #M
         {
-            IndexEquation.Clear();
-            Equation.Clear();
-            IndexResult.Clear();
-            Result.Clear();
-            VariablesListView.Items.Clear();
-            phrase.SymbolsAndValues.Clear();
-            ResultList.Items.Clear();
-            ChartListFunction.Items.Clear();
-            PointChartListFunction.Items.Clear();
-            ParametricChartListFunction.Items.Clear();
-            InequalitiesChartListFunction.Items.Clear();
-            expPlotter.RestoreDefaults();
-            LineTypeChart.SelectedItem = LineTypeChart.Items[0];
-            if (Calculus.Content.ToString() == "-")
+            IndexEquation.Clear();                                                         //czyszczenie zawartości komponentu #M
+            Equation.Clear();                                                              //czyszczenie zawartości komponentu #M     
+            IndexResult.Clear();                                                           //czyszczenie zawartości komponentu #M
+            Result.Clear();                                                                //czyszczenie zawartości komponentu #M
+            VariablesListView.Items.Clear();                                               //czyszczenie zawartości komponentu #M
+            phrase.SymbolsAndValues.Clear();                                               //czyszczenie zawartości komponentu #M
+            ResultList.Items.Clear();                                                      //czyszczenie zawartości komponentu #M
+            ChartListFunction.Items.Clear();                                               //czyszczenie zawartości komponentu #M
+            PointChartListFunction.Items.Clear();                                          //czyszczenie zawartości komponentu #M
+            ParametricChartListFunction.Items.Clear();                                     //czyszczenie zawartości komponentu #M
+            InequalitiesChartListFunction.Items.Clear();                                   //czyszczenie zawartości komponentu #M
+            expPlotter.RestoreDefaults();                                                  //czyszczenie zawartości komponentu #M
+            LineTypeChart.SelectedItem = LineTypeChart.Items[0];    
+            if (Calculus.Content.ToString() == "-")                                        //ustawienie wyglądu kalkulatora takiego jak w trakcie startu programu #M
             {
                 CalculusTab.Height = 27;
                 Calculus.Content = keyboard.Mark(Calculus.Content.ToString());
@@ -750,28 +750,28 @@ namespace AMW_Mathematics
             StandardTab.Height = 213;
             Standard.Content = keyboard.Mark(Standard.Content.ToString());
 
-            InitializeApplication();
+            InitializeApplication();                                                    //inicializacja aplikacji #M
             Plot.InvalidatePlot(true);
             worksheetTab.IsSelected = true;
         }
 
-        private void AplicationExit_Click(object sender, RoutedEventArgs e)
+        private void AplicationExit_Click(object sender, RoutedEventArgs e)             //metoda umozliwająca zamkniecie aplikacji #M
         {
             Application.Current.Shutdown();
         }
         private string filename = "";
-        private void SaveAs_Click(object sender, RoutedEventArgs e)
+        private void SaveAs_Click(object sender, RoutedEventArgs e)                                     //metoda zapisująca zmiany jako wybrany plik #M
         {
-            List<string> ToSave = new List<string>();
-            foreach (string item in ResultList.Items) ToSave.Add(item);
+            List<string> ToSave = new List<string>();                                                   //stworznie listy do której zostaną dodane elementu jakie będą podlegać zapisowi #M
+            foreach (string item in ResultList.Items) ToSave.Add(item);                                 //dodanie obliczonych wyrażeń #M
             ToSave.Add("ChartLine");
-            foreach (var item in ListFunctionLine) ToSave.Add(item);
+            foreach (var item in ListFunctionLine) ToSave.Add(item);                                    //dodanie listy funkcji wykresów liniowych #M
             ToSave.Add("ChartPoint");
-            foreach (var item in ListFunctionPoint) ToSave.Add(item);
+            foreach (var item in ListFunctionPoint) ToSave.Add(item);                                   //dodanie listy funkcji wykresów punktówych #M
             ToSave.Add("Variables");
-            foreach (var item in phrase.SymbolsAndValues) ToSave.Add(item.Key + " = " + item.Value);
+            foreach (var item in phrase.SymbolsAndValues) ToSave.Add(item.Key + " = " + item.Value);    //dodanie zdefiniowanych zmiennych
             ToSave.Add("IndexEquation");
-            foreach (var item in IndexEquation) ToSave.Add(item.ToString());
+            foreach (var item in IndexEquation) ToSave.Add(item.ToString());                            //dodanie wsyzstkich parametrów związanych z równaniami i ich rozwiązaniem #M
             ToSave.Add("Equation");
             foreach (var item in Equation) ToSave.Add(item);
             ToSave.Add("IndexResult");
@@ -779,49 +779,47 @@ namespace AMW_Mathematics
             ToSave.Add("Result");
             foreach (var item in Result) ToSave.Add(item);
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-            dlg.FileName = "Expresions"; // Default file name
-            dlg.DefaultExt = ".data"; // Default file extension
-            dlg.Filter = "Expresions (.Data)|*.Data"; // Filter files by extension
+            dlg.FileName = "Expresions";                                                                //domyślna nazwa pliku #M
+            dlg.DefaultExt = ".data";                                                                   //domyślne rozszerzenie #M
+            dlg.Filter = "Expresions (.Data)|*.Data";                                                   //filtr plików #M
 
-            // Show save file dialog box
-            Nullable<bool> result = dlg.ShowDialog();
-            // Process save file dialog box results
+            Nullable<bool> result = dlg.ShowDialog();                                                   //wyświetlenie okna zapisu #M
             if (result == true)
             {
                 filename = dlg.FileName;
-                Serialization.ConcurrentSerializer<List<string>>.Serialize(filename, ToSave);
+                Serialization.ConcurrentSerializer<List<string>>.Serialize(filename, ToSave);           //metoda zapisująca listę do pliku #M
             }
         }
-        private void OpenProject_Click(object sender, RoutedEventArgs e)
+        private void OpenProject_Click(object sender, RoutedEventArgs e)                                                                                //metoda której zadaniem jest otworzenie zapisanego projektu #M
         {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.FileName = "Expresions"; // Default file name
-            dlg.DefaultExt = ".data"; // Default file extension
-            dlg.Filter = "Expresions (.Data)|*.Data"; // Filter files by extension
-            Nullable<bool> result = dlg.ShowDialog();
-            if (result == true)
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();                                                                  //otowrzenie okna dialogowego #M
+            dlg.FileName = "Expresions";                                                                                                                //domyślna nazwa pliku #M
+            dlg.DefaultExt = ".data";                                                                                                                   //domyślne rozszerzenie #M
+            dlg.Filter = "Expresions (.Data)|*.Data";                                                                                                   //filtr plików #M
+            Nullable<bool> result = dlg.ShowDialog();                                                   
+            if (result == true)                                                                                                                         //sprawdzenie czy okno dialogowe jest otworzone #M
             {
-                List<string> ToSave = new List<string>();
-                ToSave = Serialization.ConcurrentSerializer<List<string>>.Deserialize(dlg.FileName);
-                ResultList.Items.Clear();
-                PointChartListFunction.Items.Clear();
+                List<string> ToSave = new List<string>();                                                                                               //stworzenie listy do której będziemy deserializować dane #M
+                ToSave = Serialization.ConcurrentSerializer<List<string>>.Deserialize(dlg.FileName);                                                    //deserializacja danych #M
+                ResultList.Items.Clear();                                                                                                               //wyczyszczenie zawartości listy #M
+                PointChartListFunction.Items.Clear();                                                                                                   //wyszyszczenie zawartości listy #M
                 chartlist.CountFunction = "1";
                 datatopointchartview.CountFunction = 1;
-                foreach (var item in ToSave)
+                foreach (var item in ToSave)                                                                                                            //dodanie do listy odczytanych z pliku wyrażeń #M
                 {
-                    if (item != "ChartLine")
+                    if (item != "ChartLine")                                                                                                            //odczyt dokonuje się tak długo aż nie napotkamy na nazwę która świadczy że musimy przejść do kolejnego komponentu #M
                     {
                         ResultList.Items.Add(item);
                     }
                     else
                     {
                         int index = ToSave.IndexOf(item);
-                        ToSave.RemoveRange(0, index + 1);
+                        ToSave.RemoveRange(0, index + 1);                                                                                               //usunięcie ostatniego elementu w tym przypadku jest to nazwa następnego kompnentu #M
                         break;
                     }
                 }
-                ChartListFunction.Items.Clear();
-                foreach (var item in ToSave)
+                ChartListFunction.Items.Clear();                
+                foreach (var item in ToSave)                                                                                                            //dodanie do listy odczytanych funkcji wykresu liniowego #M
                 {
                     if (item != "ChartPoint")
                     {
@@ -835,12 +833,13 @@ namespace AMW_Mathematics
                     }
                     chartlist.CountFunction = (int.Parse(chartlist.CountFunction) + 1).ToString();
                 }
-                if (ChartListFunction.Items.Count == 0) ChartListFunction.Items.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });
-                foreach (var item in ToSave)
+                if (ChartListFunction.Items.Count == 0) ChartListFunction.Items.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction }); //w przypadku gdy w pliku nie znadowała się zadna funkcja dodanie do Listy pustego elementu dzięki któremu będziemy mogli wprowadzić funkcje z której wygenerujemy wyres #M
+                foreach (var item in ToSave)                                                                                                              //dodanie funkcji do generowania wykresu punktowego #M
                 {
                     if(item != "Variables")
                     {
-                        PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction, TextBoxText = item });
+                        PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(),
+                                                                                    Index = datatopointchartview.CountFunction, TextBoxText = item });
                     }
                     else
                     {
@@ -855,7 +854,7 @@ namespace AMW_Mathematics
                 phrase.SymbolsAndValues.Clear();
                 int ind = 0;
                 foreach(var item in ToSave)
-                {
+                {                                                                                                                                           //dodanie zmiennych do listy #M
                     if (item != "IndexEquation")
                     {
                         VariablesListView.Items.Add(new VariablesListView { Variable = item, Index = ind });
@@ -871,7 +870,7 @@ namespace AMW_Mathematics
                         break;
                     }
                 }
-                foreach (var item in ToSave)
+                foreach (var item in ToSave)                                                                                                                 //dodanie rozwiązanych równań a następnie ich parametrów do listy #M
                 {
                     if (item != "Equation")
                     {
@@ -916,10 +915,10 @@ namespace AMW_Mathematics
                 }
             }
         }
-        private void Sava_Click(object sender, RoutedEventArgs e)
+        private void Sava_Click(object sender, RoutedEventArgs e)                                           //zasada działania metody taka sama jak SaveAs_Clik różnie jest w tym, że zapisujemy do pliku który został wcześniej wybrany nie wybieramy za każdym razem pliku gdzie mamy zapisać nasz projekt #M
         {
             List<string> ToSave = new List<string>();
-            if (filename == "")
+            if (filename == "")                                                                             //warunek sprawdzający czy nazwa pliku została zdefiniowana #M jeśli nie otwiera się okno dialogowe #M
             {
                 foreach (string item in ResultList.Items) ToSave.Add(item);
                 ToSave.Add("ChartLine");
@@ -937,20 +936,17 @@ namespace AMW_Mathematics
                 ToSave.Add("Result");
                 foreach (var item in Result) ToSave.Add(item);
                 Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-                dlg.FileName = "Expresions"; // Default file name
-                dlg.DefaultExt = ".data"; // Default file extension
-                dlg.Filter = "Expresions (.Data)|*.Data"; // Filter files by extension
-
-                // Show save file dialog box
+                dlg.FileName = "Expresions";
+                dlg.DefaultExt = ".data";
+                dlg.Filter = "Expresions (.Data)|*.Data"; 
                 Nullable<bool> result = dlg.ShowDialog();
-                // Process save file dialog box results
                 if (result == true)
                 {
                     filename = dlg.FileName;
                     Serialization.ConcurrentSerializer<List<string>>.Serialize(filename, ToSave);
                 }
             }
-            else
+            else                                                                                            //nazwa pliku został już wcześniej zdefiniowana dlatego zapisujemy do niej #M
             {
                 foreach (string item in ResultList.Items) ToSave.Add(item);
                 ToSave.Add("ChartLine");
@@ -1067,23 +1063,24 @@ namespace AMW_Mathematics
             }         
         }
 
-        private void Stored_Variable_Click(object sender, RoutedEventArgs e)                         //Otwarcie PopOutu z zmiennymi #Ł
+        private void Stored_Variable_Click(object sender, RoutedEventArgs e)                         //Otwarcie PopOutu z zmiennymi #M
         {
-            VariablePop.IsOpen = true;
+            VariablePop.IsOpen = true;                                                                                                                      //otworzneie popout #M
             var point = Mouse.GetPosition(Application.Current.MainWindow);
             VariablePop.HorizontalOffset = point.X - 10;
             VariablePop.VerticalOffset = point.Y - 20;
-            VariablesListView.Items.Clear();
-            int index = 0;
-            foreach(var item in phrase.SymbolsAndValues)
+            VariablesListView.Items.Clear();                                                                                                                //czyszczenie widoku listy zmiennych #M                                                                                            
+            int index = 0;                                                                                                                                  //ustawienie indexu zmiennej #M w celu późniejszych modyfilacji lub usunięcie zmiennej #M
+            foreach(var item in phrase.SymbolsAndValues)                                                                                                    //wyświetlenie wszystkich zmiennych w liście #M
             {
-                VariablesListView.Items.Insert(0, new VariablesListView { Variable = item.Key + " = " + item.Value.Insert(item.Value.Length, " "), Index = index });
-                equalizationsolverfunction.ResizeListView(ref VariablesListView);
+                VariablesListView.Items.Insert(0, new VariablesListView { Variable = item.Key + " = " + item.Value.Insert(item.Value.Length, " "),          //dodanie do listy zmiennej o określonym indeksie #M
+                                                                            Index = index }); 
+                equalizationsolverfunction.ResizeListView(ref VariablesListView);                                                                           //dostosowanie rozmiaru itemów do listy #M
                 index++;
             }
         }
 
-        private void ClearVariable_Click(object sender, RoutedEventArgs e)                          //Obsługa czysczenia danej zmeinnej #Ł
+        private void ClearVariable_Click(object sender, RoutedEventArgs e)                          //Obsługa czysczenia danej zmeinnej #M
         {
             var klawisz = (Button)sender;
             var Symbol = VariablesListView.Items[int.Parse(klawisz.Tag.ToString())];
@@ -1097,16 +1094,16 @@ namespace AMW_Mathematics
                 }
             }
             VariablesListView.Items.RemoveAt(index);                                            //Usunięcie elementu listy o znalezionym wcześniej indeksie #M
-            var variable = Symbol as VariablesListView;
+            var variable = Symbol as VariablesListView;                                         //przypisanie wartości zmiennej do zmiennej variable #M
             int ind = variable.Variable.IndexOf("=");
-            string key = variable.Variable.Substring(0, ind-1).ToString();
-            phrase.SymbolsAndValues.Remove(key);
+            string key = variable.Variable.Substring(0, ind-1).ToString();                      //prztpisanie zmodyfikowanej wartości zmiennej do zmiennej key #M
+            phrase.SymbolsAndValues.Remove(key);                                                //usunięcie z listy zmiennych zmiennej #M
         }
 
-        private void Clear_Variables_Click(object sender, RoutedEventArgs e)                       //Obsługa czyszczenia wsyzskich zmiennych #Ł
+        private void Clear_Variables_Click(object sender, RoutedEventArgs e)                       //Obsługa czyszczenia wsyzskich zmiennych #M
         {
-            VariablesListView.Items.Clear();
-            phrase.SymbolsAndValues.Clear();
+            VariablesListView.Items.Clear();                                                        //usunięcie z listy widoku wszystkich zmiennych #M
+            phrase.SymbolsAndValues.Clear();                                                        //usunięcie z listy wszystkich zmiennych #M
             VariablePop.IsOpen = false;
         }
 
@@ -1117,7 +1114,8 @@ namespace AMW_Mathematics
             trianglesolverwindow.ShowDialog();
             Opacity = 1;
         }
-        private void EquationSolverButton_Click(object sender, RoutedEventArgs e)               
+
+        private void EquationSolverButton_Click(object sender, RoutedEventArgs e)                                               //metoda odpowiada za otowzrenie okna EquationSolver wraz z załadowaniem rozwiązanych równań do solvera #M              
         {
             EquationSolver equationsolver;                                                                                      //stworzenie obiektu klasy EqualizationSolver #M
             Opacity = 0.3;
@@ -1139,6 +1137,7 @@ namespace AMW_Mathematics
             Result = ListResult.Select(m => m.ResultSolving).ToList();                                                          //podiał na listę rozwiązań równań #M
             Opacity = 1;                                                                                                        //podział ten powstał w celu serializacji danych #M
         }
+
         void ButtonColorChange(string color)                                                    //Zmiana kolorów przycisków #Ł
         {
             ConjugateImg.Source = new BitmapImage(new Uri("img/Klawiatura/Funkcje/"+color+"/sprzężenie.png", UriKind.Relative));
