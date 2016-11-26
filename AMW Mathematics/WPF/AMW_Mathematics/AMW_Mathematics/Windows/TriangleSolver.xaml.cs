@@ -47,23 +47,23 @@ namespace AMW_Mathematics.Windows
             ColorLabelGama.Background = color;
 
         }
-        public Dictionary<string,double> SolveAfterAngles(Dictionary<string, double> LenghtSides, double?  AngleA, double ? AngleB, double ? AngleC, double ? ValueC, double ?  ValueB, double ? ValueA )
+        public Dictionary<string,double> SolveAfterAngles(Dictionary<string, double> LenghtSides, double?  AngleA, double ? AngleB, double ? AngleC, double ? ValueC, double ?  ValueB, double ? ValueA )   //metoda zwraca listę boków wraz z kątaki (boki trójkątów liczone są na podstawie kontów) #M
         {
             bool solve = false;
-            if (AngleA != null && AngleB != null && AngleC != null) solve = true;
-            if (AngleA == null && AngleB != null && AngleC != null)
+            if (AngleA != null && AngleB != null && AngleC != null) solve = true;                                                                                                                           //zmienna pilnująca że do obliczia boków zostaną wprowadzone 3 kąty #M
+            if (AngleA == null && AngleB != null && AngleC != null)                                                                                                                                         //warunek sprawdzający czy 3 kąt trójkąta został podany #M
             {
-                AngleA = Math.Abs(((double)AngleB + (double)AngleC)-180);
+                AngleA = Math.Abs(((double)AngleB + (double)AngleC)-180);                                                                                                                                   //obliczenie 3 kąta trójkąta #M
                 solve = true;
             }
-            if (AngleA != null && AngleB == null && AngleC != null)
+            if (AngleA != null && AngleB == null && AngleC != null)                                                                                                                                         //warunek sprawdzający czy 3 kąt trójkąta został podany #M
             {
-                AngleB = Math.Abs(((double)AngleB + (double)AngleC)-180);
+                AngleB = Math.Abs(((double)AngleB + (double)AngleC)-180);                                                                                                                                   //obliczenie 3 kąta trójkąta #M
                 solve = true;
             }      
-            if (AngleA != null && AngleB != null && AngleC == null)
+            if (AngleA != null && AngleB != null && AngleC == null)                                                                                                                                         //warunek sprawdzający czy 3 kąt trójkąta został podany #M
             {
-                AngleC = Math.Abs(((double)AngleB + (double)AngleA)-180);
+                AngleC = Math.Abs(((double)AngleB + (double)AngleA)-180);                                                                                                                                   //obliczenie 3 kąta trójkąta #M
                 solve = true;
             }
                 
@@ -72,33 +72,33 @@ namespace AMW_Mathematics.Windows
             double Gamma = 0;
             if (solve == true)
             {
-                Alfa = ((double)AngleA * Math.PI) / 180;
+                Alfa = ((double)AngleA * Math.PI) / 180;                                                                                                                                                    //zamiana kątów w radianach na stopnie #M
                 Beta = ((double)AngleB * Math.PI) / 180;
                 Gamma = ((double)AngleC * Math.PI) / 180;
-                LenghtSides.Add("AngleA", (double)AngleA);
-                LenghtSides.Add("AngleB", (double)AngleB);
-                LenghtSides.Add("AngleC", (double)AngleC);
+                LenghtSides.Add("AngleA", (double)AngleA);                                                                                                                                                  //dodanie do listy obliczonych kontów #M
+                LenghtSides.Add("AngleB", (double)AngleB);                                                                                                                                                  //dodanie do listy obliczonych kontów #M
+                LenghtSides.Add("AngleC", (double)AngleC);                                                                                                                                                  //dodanie do listy obliczonych kontów #M
             }
             if(ValueC == null)
             {
-                ValueC = 10;             
-                ValueA = Math.Round((((double)ValueC * Math.Sin(Beta)) / (Math.Sin(Alfa))), 2);
-                ValueB = Math.Round((((double)ValueC * Math.Sin(Gamma)) / (Math.Sin(Alfa))), 2);
-                LenghtSides.Add("TValuec", (double)ValueB);
+                ValueC = 10;                                                                                                                                                                                //domyślne ustawienie długości jednego boku #M
+                ValueA = Math.Round((((double)ValueC * Math.Sin(Beta)) / (Math.Sin(Alfa))), 2);                                                                                                             //obliczenie długości boku na podstawie domyślnej długości jednego boku #M
+                ValueB = Math.Round((((double)ValueC * Math.Sin(Gamma)) / (Math.Sin(Alfa))), 2);                                                                                                            //obliczenie długości boku na podstawie domyślnej długości jendego boku #M
+                LenghtSides.Add("TValuec", (double)ValueB);                                                                                                                                                 //dodanie do listy obliczonych boków #M
                 LenghtSides.Add("TValuea", (double)ValueC);
                 LenghtSides.Add("TValueb", (double)ValueA);
             }
             
             return LenghtSides;
         }
-        private void SolveTriangel_Click(object sender, RoutedEventArgs e)
+        private void SolveTriangel_Click(object sender, RoutedEventArgs e)                                                                                              //metoda generuje rysunek wykresu i oblicza kąty lub też boki trójkąta #M 
         {
             try
             {
                 Dictionary<string, double> SolvingDictionary = new Dictionary<string, double>();
                 double diffrent = 0;
                 double val;
-                SolvingDictionary = SolveAfterAngles(SolvingDictionary,
+                SolvingDictionary = SolveAfterAngles(SolvingDictionary,                                                                                                 //przypisanie do zmiennej SolvingDictionary listy obliczonych boków na podstawie kątów #M
                     double.TryParse(AngleA.Text, out val) ? (double?)val : null,
                     double.TryParse(AngleB.Text, out val) ? (double?)val : null,
                     double.TryParse(AngleC.Text, out val) ? (double?)val : null,
@@ -107,20 +107,20 @@ namespace AMW_Mathematics.Windows
                     double.TryParse(TValuea.Text, out val) ? (double?)val : null
                     );
                 bool checkclear = false;
-                bool Checkanglessum = true;
+                bool Checkanglessum = true;                                                                                                                             //zmienna sprawdzająca czy summa kąty w trójkącie podane są prawidłwo #M
                 if (TValuec.Text == "" && TValueb.Text == "" && TValuea.Text == "" )
                 {
                     checkclear = true;
                 }
-                if (SolvingDictionary.Count != 0)
+                if (SolvingDictionary.Count != 0)                                                                                                                       //w przypadku gdy lista jest różna od zera oznacza to że obliczenia zostały wykonane na podstawie kątów #M
                 {
-                    var sol = ShowSolverBox;
-                    foreach (var item in SolvingDictionary)
+                    var sol = ShowSolverBox;                                                
+                    foreach (var item in SolvingDictionary)                                                                                                             //pętla odpowadająca za wprowadzenie do textboxów listy kątów i boków #M           
                     {
-                        TextBox searched = sol.FindName(item.Key) as TextBox;
-                        searched.Text = item.Value.ToString();
+                        TextBox searched = sol.FindName(item.Key) as TextBox;                                                                                           //znalezienie TextBoxa w ShowSolverBox #M
+                        searched.Text = item.Value.ToString();                                                                                                          //wprowadzenie do TextBoxa wartości listy #M
                     }
-                    if (double.Parse(AngleA.Text) + double.Parse(AngleB.Text) + double.Parse(AngleC.Text) != 180) Checkanglessum = false;
+                    if (double.Parse(AngleA.Text) + double.Parse(AngleB.Text) + double.Parse(AngleC.Text) != 180) Checkanglessum = false;                               //sprawdzenie czy suma kontów jest równa 180 jesli nie ustawienie zmiennej na false co uniemożliwi obliczenia #M
                 }
                 double ValueC = double.Parse(TValuec.Text);
                 double ValueA = double.Parse(TValuea.Text);
@@ -132,16 +132,16 @@ namespace AMW_Mathematics.Windows
                     TValueb.Text = "";
                 }
 
-                if (ValueA + ValueB > ValueC && ValueA + ValueC > ValueB && ValueC + ValueB > ValueA && Checkanglessum == true)
+                if (ValueA + ValueB > ValueC && ValueA + ValueC > ValueB && ValueC + ValueB > ValueA && Checkanglessum == true)                                             //sprawdzenie czy z podanych wartości można stworzyć trójkąt #M
                 {
-                    Triangle = triangleview.DrawTriangel(TriangeImg, Triangle, TValuea, TValueb, TValuec, AngleA, AngleB, AngleC, diffrent, ValueC, ValueA, ValueB, color);
-                    SolveTriangelProperties.IsEnabled = true;
-                    SolveTriangelProperties.SelectedIndex = 0;
-                    drawlabel = true;
+                    Triangle = triangleview.DrawTriangel(TriangeImg, Triangle, TValuea, TValueb, TValuec, AngleA, AngleB, AngleC, diffrent, ValueC, ValueA, ValueB, color); //przypisanie do zmiennej Triangle wyniku funkcji draw triangle efektem czego jest narysowanie trójkąta #M
+                    SolveTriangelProperties.IsEnabled = true;                                                                                                               //włączenie okna w którym można wybrać opis danego trójkąta #M
+                    SolveTriangelProperties.SelectedIndex = 0;                                                                                                              //ustawienie właściwości na 0 #M
+                    drawlabel = true;                                                                                                                                       //zmienna sterująca rysowaniem opisów
                 }
                 else
                 {
-                    TValuea.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
+                    TValuea.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));                                                                            //w przypadku gdy dane do wygenerowania trójkąta zostały źle podane podświetlenie TextBoxa na czerwono #M
                     TValueb.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
                     TValuec.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
                     AngleA.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
@@ -149,10 +149,10 @@ namespace AMW_Mathematics.Windows
                     AngleC.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
                     try
                     {
-                        TriangeImg.Children.RemoveRange(0, TriangeImg.Children.Count);
+                        TriangeImg.Children.RemoveRange(0, TriangeImg.Children.Count);                                                                                      //usunięcie poprzedniego trójkąta jeśli jest narysowane #M
                     }
                     catch { }
-                    drawlabel = false;
+                    drawlabel = false;                                                                                                                                      //złe dane opisy się nie pokażą #M
                     
                 }
             }
@@ -175,11 +175,11 @@ namespace AMW_Mathematics.Windows
             
         }
 
-        private void TriangelSolve_MouseLeave(object sender, MouseEventArgs e)
+        private void TriangelSolve_MouseLeave(object sender, MouseEventArgs e) //metoda odpowaida za dodanie labelek do rysunku trójkąta #M
         {
-            if (drawlabel == true)
+            if (drawlabel == true)                  //w przypadku gdy trójkąt został narysowany wygenerowanie labelek #M
             {
-                triangleview.DrawLabel(TriangeImg, Triangle,ref ListLabel,ref ListLabel2);
+                triangleview.DrawLabel(TriangeImg, Triangle,ref ListLabel,ref ListLabel2);  //dodanie do rysunku labelek #M
             }
             drawlabel = false;
         }

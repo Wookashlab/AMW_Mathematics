@@ -26,118 +26,118 @@ namespace AMW_Mathematics.T_ModelView
             return (Math.Acos(cos_kat) * 180 / 3.14159265);
         }
 
-        public Polygon DrawTriangel(Grid TriangeImg, Polygon Triangle, TextBox TValuea, TextBox TValueb, TextBox TValuec, TextBox AngleA, TextBox AngleB, TextBox AngleC, double diffrent, double ValueC, double ValueA, double ValueB, SolidColorBrush themeColor)
+        public Polygon DrawTriangel(Grid TriangeImg, Polygon Triangle, TextBox TValuea, TextBox TValueb, TextBox TValuec, TextBox AngleA, TextBox AngleB, TextBox AngleC, double diffrent, double ValueC, double ValueA, double ValueB, SolidColorBrush themeColor)      //metoda odpowadająca za rystowanie trójkąta #M
         {
-            TValuea.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
+            TValuea.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));                                                                                                                                                                              //ustawienie koloru TextBoxów na domyślny światczy to o tym że dane zostały wprowadzone prawidłowo #M
             TValueb.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
             TValuec.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
             AngleA.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
             AngleB.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
             AngleC.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 204, 204, 204));
-            if (TValuec.Text != "" && TValueb.Text != "" && TValuea.Text != "")
+            if (TValuec.Text != "" && TValueb.Text != "" && TValuea.Text != "")                                                                                                                                                                                         //sprawdzenie TextBoxy nie są puste dzięki temu nie wystąpią błędy podczas obliczeń #M
             {
-                AngleA.Text = Math.Round(licz_kat(ValueA, ValueB, ValueC), 2).ToString();
+                AngleA.Text = Math.Round(licz_kat(ValueA, ValueB, ValueC), 2).ToString();                                                                                                                                                                               //obliczenie kąta na podstawie boku #M
                 AngleB.Text = Math.Round(licz_kat(ValueB, ValueA, ValueC), 2).ToString();
                 AngleC.Text = Math.Round(licz_kat(ValueC, ValueB, ValueA), 2).ToString();
             }
-            Triangle = new Polygon
+            Triangle = new Polygon                                                                                                                                                                                                                                      //utworznie instancji klasy Polyglon oraz ustawienie u odpowiednich parametrów #M
             {
-                Name = "Triangle"
+                Name = "Triangle"                                                                                                                                                                                                                                       //podanie nazwy #M
               ,
-                StrokeThickness = 3
+                StrokeThickness = 3                                                                                                                                                                                                                                     //gubość lini #M
               ,
                 Fill = themeColor
               ,
-                Opacity = 1
+                Opacity = 1                                                                                                                                                                                                                                             //przezroczystośc #M
               ,
-                Margin = new Thickness(10, 10, 0, 0)
+                Margin = new Thickness(10, 10, 0, 0)                                                                                                                                                                                                                    //margines #M
               ,
                 VerticalAlignment = VerticalAlignment.Top
               ,
                 HorizontalAlignment = HorizontalAlignment.Center
-              ,
-                Height = 107
-              ,
-                Width = 280
+              ,         
+                Height = 107                                                                                                                                                                                                                                            //wysokość #M
+              ,         
+                Width = 280                                                                                                                                                                                                                                             //szerokość #M
               ,
                 Stroke = Brushes.Black
               ,
                 Stretch = Stretch.Uniform
-            };
-            if (ValueC < 150)
+            };                                                                                              
+            if (ValueC < 150)                                                                                                                                                                                                                                           //obliczenie długości boków które zostaną wygenerowane na rysunku w momencie gdy długość boku c jest mniejsza od 150 #M
             {
                 diffrent = 150 / ValueC;
                 ValueC = ValueC * diffrent;
                 ValueA = ValueA * diffrent;
                 ValueB = ValueB * diffrent;
             }
-            if (ValueC > 150)
+            if (ValueC > 150)                                                                                                                                                                                                                                           //obliczenie długości boków które zostaną wygenerowane na rysunku w momencie gdy długość boku c jest większa od 150 #M
             {
                 diffrent = ValueC / 150;
                 ValueC = 150;
                 ValueA = ValueA / diffrent;
                 ValueB = ValueB / diffrent;
             }
-            Point[] TrianglePoint = new Point[3];
+            Point[] TrianglePoint = new Point[3];                                                                                                                                                                                                                       //ustalenie współrzędnych dwóch punktów trójkąta #M
             TrianglePoint[0].X = ValueC;
             TrianglePoint[0].Y = 0;
             TrianglePoint[1].X = 0;
             TrianglePoint[1].Y = 0;
-            double c = TrianglePoint[0].X;
+            double c = TrianglePoint[0].X;                                                         
             double a = ValueA;
             double b = ValueB;
             double cA = Math.Pow(b, 2) + Math.Pow(c, 2) - Math.Pow(a, 2);
             double cB = Math.Pow(a, 2) + Math.Pow(c, 2) - Math.Pow(b, 2);
             double cC = Math.Pow(a, 2) + Math.Pow(b, 2) - Math.Pow(c, 2);
-            double P4 = Math.Sqrt(cA * cB + cB * cC + cC * cA);
-            double X = (TrianglePoint[0].X * cB + TrianglePoint[0].Y * P4 + TrianglePoint[1].X * cA - TrianglePoint[1].Y * P4) / (cA + cB);
+            double P4 = Math.Sqrt(cA * cB + cB * cC + cC * cA);                                                                                                                                                                                                         //obliczenie pola trójkąta #M
+            double X = (TrianglePoint[0].X * cB + TrianglePoint[0].Y * P4 + TrianglePoint[1].X * cA - TrianglePoint[1].Y * P4) / (cA + cB);                                                                                                                             //obliczenie 3 współrzędnej trójkąta #M
             double Y = (TrianglePoint[0].X * P4 + TrianglePoint[0].Y * cB + TrianglePoint[1].X * P4 + TrianglePoint[1].Y * cA) / (cB + cA);
             X = Math.Round(X, 0) + 100;
             Y = 100 - Math.Round(Y, 0);
             for (int i = 0; i < 2; i++)
             {
-                TrianglePoint[i].X = TrianglePoint[i].X + 100;
+                TrianglePoint[i].X = TrianglePoint[i].X + 100;                                                                                                                                                                                                          //przeskalowanie wcześniej ustalonych punktów trójąta #M
                 TrianglePoint[i].Y = TrianglePoint[i].Y + 100;
             }
-            TrianglePoint[2].X = X;
+            TrianglePoint[2].X = X;                                                                                                                                                                                                                                     //dodanie do tablicy obliczonych współrzędnych trzeciego punktu trójkąta #M
             TrianglePoint[2].Y = Y;
-            PointCollection polygonPoints = new PointCollection();
+            PointCollection polygonPoints = new PointCollection();                                                                                                                                                                                                      //stworzenie kolekcji punktów w celu dodania ich do obiektu Traingel #M
             foreach (var item in TrianglePoint)
             {
-                Triangle.Points.Add(item);
+                Triangle.Points.Add(item);                                                                                                                                                                                                                              //dodanie rysunków do obiektu traingel #M
 
             }
             try
             {
-                TriangeImg.Children.RemoveRange(0, TriangeImg.Children.Count);
+                TriangeImg.Children.RemoveRange(0, TriangeImg.Children.Count);                                                                                                                                                                                          //usunięcie wszystkich dzieci grida w którym znajduje się Triangel w celu ponownego jego narysowania #M
             }
             catch
             {
             };
-            TriangeImg.Children.Add(Triangle);
-            return Triangle;
+            TriangeImg.Children.Add(Triangle);                                                                                                                                                                                                                          //dodanie do Grida obiektu Triangel 
+            return Triangle;                                                                                                                                                                                                                                            //zwrócenie obietu Triangel;
         }
 
-        public void DrawLabel(Grid TriangeImg, Polygon Triangle, ref List<Label> ListLabel,ref List<Label> ListLabel2)
+        public void DrawLabel(Grid TriangeImg, Polygon Triangle, ref List<Label> ListLabel,ref List<Label> ListLabel2)  //metoda odpowiedzialna za dodanie labelek do rysunku trójkąta #M
         {
             try
             {
-                ListLabel = new List<Label> { new Label(), new Label(), new Label() };
+                ListLabel = new List<Label> { new Label(), new Label(), new Label() };                                  //stworzenie listy labelek #M
                 ListLabel[0].Content = "α";
                 ListLabel[1].Content = "β";
                 ListLabel[2].Content = "γ";
-                ListLabel2 = new List<Label> { new Label(), new Label(), new Label() };
+                ListLabel2 = new List<Label> { new Label(), new Label(), new Label() };                                 //stworzenie listy labelek #M
                 ListLabel2[0].Content = "c";
                 ListLabel2[1].Content = "b";
                 ListLabel2[2].Content = "a";
-                var transform = Triangle.RenderedGeometry.Transform;
+                var transform = Triangle.RenderedGeometry.Transform;                                                    //wyśrodkowanie trójkąta względem grida #M
                 int i = 0;
-                var polygonGeometryTransform = Triangle.RenderedGeometry.Transform;
-                var polygonToGridTransform = Triangle.TransformToAncestor(TriangeImg);
+                var polygonGeometryTransform = Triangle.RenderedGeometry.Transform;                        
+                var polygonToGridTransform = Triangle.TransformToAncestor(TriangeImg);                                  //przypisanie do zmiennej zawartości wyśrodkowanego grida #M
                 for (int j = 0; j < Triangle.Points.Count; j++)
                 {
                     var transformedPoint = polygonToGridTransform.Transform(
-                                          polygonGeometryTransform.Transform(Triangle.Points[j]));
+                                          polygonGeometryTransform.Transform(Triangle.Points[j]));                      //pobranie współrzednej punktu trójkąta #M
                     Point transformedPoint1 = new Point();
                     if (i != 2)
                     {
@@ -145,15 +145,15 @@ namespace AMW_Mathematics.T_ModelView
                                             polygonGeometryTransform.Transform(Triangle.Points[j + 1]));
                     }
 
-                    if (i == 0)
+                    if (i == 0)                                                                                         //ustalenie położenia pierwszej labelki z list ListLabel i Listlabel2  #M
                     {
-                        ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()), double.Parse(transformedPoint.Y.ToString()) - 5, 0, 0);
+                        ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()), double.Parse(transformedPoint.Y.ToString()) - 5, 0, 0);    
                         double labela = Math.Abs(double.Parse(transformedPoint.X.ToString()) - double.Parse(transformedPoint1.X.ToString()));
                         labela = labela / 2;
                         labela = labela + double.Parse(transformedPoint1.X.ToString());
                         ListLabel2[i].Margin = new Thickness(labela - 5, double.Parse(transformedPoint.Y.ToString()), 0, 0);
                     }
-                    if (i == 1)
+                    if (i == 1)                                                                                        //ustalenie położenia drugiej labelki z list ListLabel i Listlabel2  #M
                     {
                         ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()) - 18, double.Parse(transformedPoint.Y.ToString()) - 5, 0, 0);
                         if (double.Parse(transformedPoint.X.ToString()) < double.Parse(transformedPoint1.X.ToString()))
@@ -177,7 +177,7 @@ namespace AMW_Mathematics.T_ModelView
                             ListLabel2[i].Margin = new Thickness(labelbX - 16, labelbY, 0, 0);
                         }
                     }
-                    if (i == 2)
+                    if (i == 2)                                                                                         //ustalenie położenia trzeciel labelki z list ListLabel i Listlabel2  #M
                     {
                         ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()) - 7, double.Parse(transformedPoint.Y.ToString()) - 25, 0, 0);
                         transformedPoint1 = polygonToGridTransform.Transform(
@@ -205,8 +205,8 @@ namespace AMW_Mathematics.T_ModelView
 
 
                     }
-                    TriangeImg.Children.Add(ListLabel[i]);
-                    TriangeImg.Children.Add(ListLabel2[i]);
+                    TriangeImg.Children.Add(ListLabel[i]);                                                              //dodanie labelek do grida #M
+                    TriangeImg.Children.Add(ListLabel2[i]);                                                             //dodanie labelek do grida #M
                     i++;
                 }
             }
