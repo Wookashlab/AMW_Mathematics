@@ -10,7 +10,7 @@ namespace AMW_Mathematics.ModelView
 {
     class ChartLineView
     {
-        List<System.Drawing.Color> color = new List<System.Drawing.Color>
+        List<System.Drawing.Color> color = new List<System.Drawing.Color>                                   //Lista kolorów dla posczególnych serii #M
         {
             System.Drawing.Color.Green,
             System.Drawing.Color.Blue,
@@ -23,17 +23,17 @@ namespace AMW_Mathematics.ModelView
         {
             e.PenWidth = width;
         }
-        public void SetRange(ExpressionPlotter e, double startX, double endX, double startY, double endY)
+        public void SetRange(ExpressionPlotter e, double startX, double endX, double startY, double endY)   //Metoda odpowiadająca za ustawienie zakresu osi x i y #M
         {
             e.SetRangeX(startX, endX);
             e.SetRangeY(startY, endY);
         }
-        public void SetDivisions(ExpressionPlotter e, int divX, int divY)
+        public void SetDivisions(ExpressionPlotter e, int divX, int divY)                                   //metoda opowiadająca za ustawienie przedziału #M
         {
             e.DivisionsX = divX;
             e.DivisionsY = divY;
         }
-        public void SetMode(ExpressionPlotter e, GraphMode mode, int sensitivity)
+        public void SetMode(ExpressionPlotter e, GraphMode mode, int sensitivity)                           //Metoda odpowadająca za ustawienie parametrów wykresu polarnego #M
         {
             e.GraphMode = mode;
             if (mode == GraphMode.Polar)
@@ -41,12 +41,12 @@ namespace AMW_Mathematics.ModelView
                 e.PolarSensitivity = sensitivity;
             }
         }
-        public void DrawChartLine(ExpressionPlotter e, double startx, double endx, double starty, double endy, List<string> FunctionList, bool ToogleGridS, bool Type)
+        public void DrawChartLine(ExpressionPlotter e, double startx, double endx, double starty, double endy, List<string> FunctionList, bool ToogleGridS, bool Type) //metoda odpowiedzielna za generowanie wykresu #M
         {
-            SetRange(e, startx, endx, starty, endy);
-            SetDivisions(e, (int)5, (int)5);
-            SetPenWidth(e, (int)2);
-            if (Type == true)
+            SetRange(e, startx, endx, starty, endy);                                                                                                                    //ustawienie zakresu generowania wykresu #M
+            SetDivisions(e, (int)5, (int)5);                                                                                                                            //ustalenie podziału #M
+            SetPenWidth(e, (int)2);                                                                                                                                     //ustalenie grubości lini #M
+            if (Type == true)                                                                                                                                           //ustalenie typu wykresu #M
             {
                 e.GraphMode = GraphMode.Polar;
             }
@@ -54,14 +54,14 @@ namespace AMW_Mathematics.ModelView
             {
                 SetMode(e, GraphMode.Rectangular, 50);
             }
-            e.DisplayText = false;
+            e.DisplayText = false;                                                                                                                                      //ustawienie wyświetlania legendy #M
             if (ToogleGridS == true) e.ToggleGrids();
-            e.RemoveAllExpressions();
-            for (int i = 0; i < FunctionList.Count; i++)
+            e.RemoveAllExpressions();                                                                                                                                   //zresetowanie wykresu poprzez usunięcie poprzednich wyrażeń #M
+            for (int i = 0; i < FunctionList.Count; i++)                                                                                                                //pętla odpowiadająca za rysowanie wszystkich wyrażeń znajdujących się w liście #M
             {
-                e.AddExpression((IEvaluatable)new ExpressionPlotterControl.Expression(FunctionList[i]), color[i], true);
+                e.AddExpression((IEvaluatable)new ExpressionPlotterControl.Expression(FunctionList[i]), color[i], true);                                                //rysowanie wyrażenia #M
             }
-            e.Refresh();
+            e.Refresh();                                                                                                                                                //odświerzenie wykresu #M
         }
         public void ButtonZoomIn(ExpressionPlotter expPlotter, CheckBox ZoomAfterX, CheckBox ZoomAfterY)
         {
@@ -115,11 +115,11 @@ namespace AMW_Mathematics.ModelView
             expPlotter.MoveRight(1);
             expPlotter.Refresh();
         }
-        public double GetR(double X, double Y)
+        public double GetR(double X, double Y)      //wydaje mi się że niepotrzebne sprawdzić #M
         {
             return Math.Sqrt(X * X + Y * Y);
         }
-        public double GetTheta(double X, double Y)
+        public double GetTheta(double X, double Y)  //Wydaje mi się że nie potrzebne sprawdzieć #M
         {
             double dTheta;
             if (X == 0)
@@ -131,8 +131,6 @@ namespace AMW_Mathematics.ModelView
             }
             else
                 dTheta = Math.Atan(Y / X);
-
-            //actual range of theta is from 0 to 2PI
             if (X < 0)
                 dTheta = dTheta + Math.PI;
             else if (Y < 0)

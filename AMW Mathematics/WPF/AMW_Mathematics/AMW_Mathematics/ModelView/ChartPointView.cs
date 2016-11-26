@@ -12,18 +12,18 @@ namespace AMW_Mathematics.ModelView
     public class ChartPointView : INotifyPropertyChanged
     {
         private PlotModel plotModel;
-        public PlotModel PlotModel                                          //użycie akceleratorów get; set; w celu uzyskania dostępu do prywatnego pola plotMode. Wlłaściwość PlotModel jest publiczna dzieki temu możeby bindować w XAML prawatną zmienną plotMode                             // 
-        {                                                                   //czyli możemy wyświetlić wykres z jego wszystkimi parametrami ustawianymi w następnych krokach #M
+        public PlotModel PlotModel                                                          //użycie akceleratorów get; set; w celu uzyskania dostępu do prywatnego pola plotMode. Wlłaściwość PlotModel jest publiczna dzieki temu możeby bindować w XAML prawatną zmienną plotMode                             // 
+        {                                                                                   //czyli możemy wyświetlić wykres z jego wszystkimi parametrami ustawianymi w następnych krokach #M
             get { return plotModel; }
             set { plotModel = value; OnPropertyChanged("PlotModel"); }
         }
         public ChartPointView(List<DataToPointChartView> ReturFunctionValueToChart)        //konstruktor klasy ViewPlot wykona się podczas stworzenia nowego obiektu kalsy ViewPlot #M
         {
-            PlotModel = new PlotModel();                                    //Stworznie nowego obiektu kalsy PlotModel #M
-            SetUpModel();                                                   //metoda odpowiada za ustawienie podstawoych parametrów wykresu #M
+            PlotModel = new PlotModel();                                                    //Stworznie nowego obiektu kalsy PlotModel #M
+            SetUpModel();                                                                   //metoda odpowiada za ustawienie podstawoych parametrów wykresu #M
             LoadData(ReturFunctionValueToChart);
         }
-        private readonly List<OxyColor> colors = new List<OxyColor>         //Lista kolorów będąca wykorzystystana do wyświetlenia przebiegu różnych funkcji na jednym wykresie #M
+        private readonly List<OxyColor> colors = new List<OxyColor>                         //Lista kolorów będąca wykorzystystana do wyświetlenia przebiegu różnych funkcji na jednym wykresie #M
                                             {
                                                 OxyColors.Green,
                                                 OxyColors.IndianRed,
@@ -34,7 +34,7 @@ namespace AMW_Mathematics.ModelView
                                                 OxyColors.Violet,
                                                 OxyColors.Yellow
                                             };
-        private void SetUpModel()                                           //ustawienie parametrów wykresu takich jak: (legenda ramka, tło, oś x, oś y ), dla obiektu klasy PlotModel #M
+        private void SetUpModel()                                                           //ustawienie parametrów wykresu takich jak: (legenda ramka, tło, oś x, oś y ), dla obiektu klasy PlotModel #M
         {
             var dateAxis = new LinearAxis() { Position = AxisPosition.Bottom, MajorGridlineStyle = LineStyle.Solid, MinorGridlineStyle = LineStyle.Dot, IntervalLength = 80};
             PlotModel.Axes.Add(dateAxis);
@@ -43,10 +43,10 @@ namespace AMW_Mathematics.ModelView
         }
         private void LoadData(List<DataToPointChartView> DataToChart)                                    //Metoda odpowiedzialna za: załadowanie danych do wykresu, ustawienie koloru wykresu jego markerów i legendy #M
         {
-            var dataPerSeries = DataToChart.GroupBy(m => m.functionId).ToList();                  //grupowanie listy DataToChart po Seri #M
-            foreach (var data in dataPerSeries)                                                 //pętla dodająca dane do seri. Podzielenie danych na dwie serie w zależności od osi X dzięki temu unikniemy wystąpienia lini gdy funkcja nie ma miejsca zerowego.   #M               
+            var dataPerSeries = DataToChart.GroupBy(m => m.functionId).ToList();                        //grupowanie listy DataToChart po Id funkcji #M
+            foreach (var data in dataPerSeries)                                                         //pętla dodająca dane do seri #M               
             {
-                var scatterSeries = new ScatterSeries { MarkerType = MarkerType.Circle };           // (Funkcja powinna dodatkow mieć możliwość rozgraniczenia po Y) #M
+                var scatterSeries = new ScatterSeries { MarkerType = MarkerType.Circle };               //(Funkcja powinna dodatkow mieć możliwość rozgraniczenia po Y) #M
                 data.ToList().ForEach(d => scatterSeries.Points.Add(new ScatterPoint(d.dataX,d.dataY, 5, 200)));
                 PlotModel.Series.Add(scatterSeries);                                                 //Dodanie do modelu wykresu nowej serii #M
             }

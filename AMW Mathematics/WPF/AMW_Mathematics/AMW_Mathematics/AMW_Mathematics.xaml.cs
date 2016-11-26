@@ -60,8 +60,8 @@ namespace AMW_Mathematics
 
         private ChartLineView ChartLineView = new ChartLineView();
 
-        private PointChartFunction pointchartfunction = new PointChartFunction();
-
+        private PointChartFunction pointchartfunction = new PointChartFunction();               //stworzenie nowej instancji klasu PointChartFunction #M   
+            
         private FunctionToAllPlot functiontoallpolot = new FunctionToAllPlot();
 
         private DataToLineChartView datatolinechartview = new DataToLineChartView();
@@ -204,7 +204,7 @@ namespace AMW_Mathematics
             ExpressionField.Focus();
         }
 
-        private void kBack_MouseDown(object sender, MouseButtonEventArgs e)         //Funckja cofająca z klawiatury "telefonu" #Ł
+        private void kBack_MouseDown(object sender, MouseButtonEventArgs e)                                         //Funckja cofająca z klawiatury "telefonu" #Ł
         {
             if (ExpressionField.Text.Length > 0)
             {
@@ -222,68 +222,68 @@ namespace AMW_Mathematics
             }
         }
 
-        private void Function_Click(object sender, RoutedEventArgs e)               //Funckja do prowadznie funckji z klawiatury "telefonu" #Ł
+        private void Function_Click(object sender, RoutedEventArgs e)                                                                                       //Funckja do prowadznie funckji z klawiatury "telefonu" #Ł
         {
             var klawisz = (Button)sender;
             string wartosc = klawisz.Content.ToString();
             VariablesPopOut.IsOpen = false;
-            if (worksheetTab.IsSelected)                                            //Wprowadzanie wartości przycisku na zakładce "Arkusz" #Ł
+            if (worksheetTab.IsSelected)                                                                                                                    //Wprowadzanie wartości przycisku na zakładce "Arkusz" #Ł
             {
-                string beforeCursor = ExpressionField.Text.Substring(0, cursorExpression);              //Treść ExpressionBoxa przed kursorem #Ł
-                string afterCursor = ExpressionField.Text.Substring(cursorExpression);               //Treść expressionBoxa po kursorze #Ł
-                string function = keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());          //Treść wybraniej funkcji #Ł
-                ExpressionField.Text = beforeCursor + function + afterCursor;                                        //Nowa wartość ExpressionField #Ł
+                string beforeCursor = ExpressionField.Text.Substring(0, cursorExpression);                                                                  //Treść ExpressionBoxa przed kursorem #Ł
+                string afterCursor = ExpressionField.Text.Substring(cursorExpression);                                                                      //Treść expressionBoxa po kursorze #Ł
+                string function = keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());                                                      //Treść wybraniej funkcji #Ł
+                ExpressionField.Text = beforeCursor + function + afterCursor;                                                                               //Nowa wartość ExpressionField #Ł
                 int openingP = function.IndexOf('(');
-                TipBox.Text = klawisz.ToolTip.ToString();                                                       //Zmiana podpowiedzi na pasującą do przycisku #Ł
-                TipBox.Foreground = Brushes.Green;                                                              //Zmiana koloru podpowiedzi #Ł
-                ExpressionField.Focus();                                                                        //Powórt do ExpressionField #Ł
+                TipBox.Text = klawisz.ToolTip.ToString();                                                                                                   //Zmiana podpowiedzi na pasującą do przycisku #Ł
+                TipBox.Foreground = Brushes.Green;                                                                                                          //Zmiana koloru podpowiedzi #Ł
+                ExpressionField.Focus();                                                                                                                    //Powórt do ExpressionField #Ł
                 if (openingP == -1)
-                    ExpressionField.SelectionStart = function.Length + cursorExpression;                            //Ustawienei kursora w ExpressionField #Ł
+                    ExpressionField.SelectionStart = function.Length + cursorExpression;                                                                    //Ustawienei kursora w ExpressionField #Ł
                 else
                     ExpressionField.SelectionStart = openingP + 1 + cursorExpression;
-                cursorExpression = ExpressionField.SelectionStart;                                              //Zapisanie nowej pozycji kursora #Ł
+                cursorExpression = ExpressionField.SelectionStart;                                                                                          //Zapisanie nowej pozycji kursora #Ł
             }
             if (ChartsOverLap.IsSelected)
             {
-                ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", keyboard, klawisz, true);
+                ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", keyboard, klawisz, true);   //wprowadzenie do TextBoxa funkcji z klawiatry #M
             }
         }
 
-        private void PlotChart_Click(object sender, RoutedEventArgs e)              //Funckja generująca wykres podanej funkcji #M
+        private void PlotChart_Click(object sender, RoutedEventArgs e)                                                                                                      //metoda odpowadająca za generowanie wykresu #M
         {
 
-            var chartbutton = (Button)sender;
-            switch (chartbutton.Name)
+            var chartbutton = (Button)sender;                                                                                                                               //odczyt wciśniętego klawisza #M
+            switch (chartbutton.Name)                                                                                                                                       //odczyt nazwy klawisza #M 
             {
-                case "PlotChart":
+                case "PlotChart":                                                                                                                                           //w przpadku gdy klawisz ma taką nazwę generowanie wykresu liniowego #M
 
-                    GraphHelpGrid.Visibility = Visibility.Hidden;
-                    expPlotterControl.Visibility = Visibility.Visible;
-                    ListFunctionLine.Clear();
-                    ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);
-                    if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Cartesian")
+                    GraphHelpGrid.Visibility = Visibility.Hidden;                                                                                                           //ukrycie instrukcji wprowadzania wartości do generowania wykresu pokazującej się na samym początku #M
+                    expPlotterControl.Visibility = Visibility.Visible;                                                                                                      //ustawienie własnego kompunentu stworzonego w Windows Form na widoczny #M
+                    ListFunctionLine.Clear();                                                                                                                               //wyczyszczenie listy funkcji występujących w TextBoxach #M
+                    ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);   //dodanie do ListyFunkcji nowych funkcji które występują w dynamicznie generowanej liście textboxów #M
+                    if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Cartesian")                                               //sprawdzenie jaki typ wykresu ma być rysowany  czy kartezjański czy kołowy (typ wykresu został podany w polu combobox) #M
                     {
                         double ys = FindRoundMiddle(ListFunctionLine[0]);
-                        ChartLineView.DrawChartLine(expPlotter, -5, 5, ys - 5, ys + 5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);
-                        datatolinechartview.ToogleGridLineView = false;
+                        ChartLineView.DrawChartLine(expPlotter, -5, 5, ys - 5, ys + 5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);                    //metoda odpowadająca za rysowanie wykresu #M
+                        datatolinechartview.ToogleGridLineView = false;                                                                                                     //ustawienie rodzaju siatki na wykresie #M
                     }
                     else
                     {
-                        ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, false, true);
+                        ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, false, true);                                                               //metoda odpowiadająca za rysowanie wykresu kołowego #M                                      
                     }
 
                     datatolinechartview.TypeChart = "line";
                     datatochart.WhichGraphZoom = "PlotChart";
                     break;
-                case "PointPlotChart":
+                case "PointPlotChart":                                                                                                                                                //w przpadku gdy klawisz ma taką nazwę generowanie wykresu punktowy #M
                     GraphHelpGrid.Visibility = Visibility.Hidden;
                     expPlotterControl.Visibility = Visibility.Hidden;
-                    Plot.Visibility = Visibility.Visible;
+                    Plot.Visibility = Visibility.Visible;                                                                                                                             //ustawienie stworzonego modelu widoku na widoczy #M
                     ListFunctionPoint.Clear();
-                    List<DataToPointChartView> DataToChartPoint;
-                    ListFunctionPoint = functiontoallpolot.AddFunctionToList(PointChartListFunction, ListFunctionPoint, "PointFunctionTextBox", new Keyboard(), new Button(), false);
-                    DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), ListFunctionPoint);
-                    ViewPlot = new ChartPointView(DataToChartPoint);
+                    List<DataToPointChartView> DataToChartPoint;                                                                                                                      //stworzenie listy punktów
+                    ListFunctionPoint = functiontoallpolot.AddFunctionToList(PointChartListFunction, ListFunctionPoint, "PointFunctionTextBox", new Keyboard(), new Button(), false); //dodanie do ListyFunkcji nowych funkcji które występują w dynamicznie generowanej liście textboxów #M
+                    DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), ListFunctionPoint);                                                      //lista punktów funkcji #M
+                    ViewPlot = new ChartPointView(DataToChartPoint);                                                                                                                                                                                                           
                     DataContext = ViewPlot;
                     datatolinechartview.TypeChart = "point";
                     datatochart.WhichGraphZoom = "PointPlotChart";

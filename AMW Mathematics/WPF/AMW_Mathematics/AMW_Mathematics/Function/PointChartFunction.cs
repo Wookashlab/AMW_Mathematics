@@ -13,48 +13,48 @@ namespace AMW_Mathematics.Function
     class PointChartFunction
     {
         private FunctionToAllPlot functiontoplot = new FunctionToAllPlot();
-        public List<DataToPointChartView> DataListFunction(List<DataToPointChartView> DataToChartPoint, List<string> ListFunctionPoint)
+        public List<DataToPointChartView> DataListFunction(List<DataToPointChartView> DataToChartPoint, List<string> ListFunctionPoint) //Metoda odpowadająca za przerobienie wprowadzonych przez użytkownika punktów i wprowadzania ich do listy #M
         {
             int FunctionId = 0;
-            foreach (var function in ListFunctionPoint)
+            foreach (var function in ListFunctionPoint)                                                                                 //foreach usuwający w wszystkich funkcjach niepotrzebne znaki takie jak { } #M
             {
                 var f = function.Replace("{", "");
                 f = f.Replace("}", "");
                 f = f.Insert(f.Length, ",");
-                if(f.Length > 1) GetData(DataToChartPoint, f, FunctionId);
+                if(f.Length > 1) GetData(DataToChartPoint, f, FunctionId);                                                              //metoda zwracająca listę punktów danej funkcji #M
                 FunctionId++;
             }
 
-            return DataToChartPoint;
+            return DataToChartPoint;                                                                                                    //zwrócenie listy punktów wszystkich funkcji #M 
         }
-        private List<DataToPointChartView> GetData(List<DataToPointChartView> DataToChartPoint, String function, int FunctionId)
+        private List<DataToPointChartView> GetData(List<DataToPointChartView> DataToChartPoint, String function, int FunctionId)        //metoda rekurencyjna zwracająca listę punktów w danym wyrażeniu #M
         {
             var f = function;
             int index = f.IndexOf(",");
             double x = 0;
             try
             {
-               x  = double.Parse(f.Substring(0, index));
-            }
+               x  = double.Parse(f.Substring(0, index));                                                                            //zabezpieczenie na wypadek gdy x nie będzie liczbą użytkownik źle wprowadzi dane #M
+            }                                                                                                                       //pobranie pierwszej liczby jako x #M
             catch
             {
                 return new List<DataToPointChartView>();
             }         
-            f = f.Remove(0, index + 1);
+            f = f.Remove(0, index + 1);                                                                                             //usunięcie jej z ciągu znaków #M
             index = f.IndexOf(",");
             double y = 0;
             try
-            {
-                y = double.Parse(f.Substring(0, index).Replace(".", ","));
+            {                                                                                                                       //obsługa zdarzenia na wypadek gdyby y nie był liczbą #M
+                y = double.Parse(f.Substring(0, index).Replace(".", ","));                                                          //pobranie pierwszej liczby w ciagu jako y #M
             }
             catch
             {
                 return new List<DataToPointChartView>();
             }
             f = f.Remove(0, index + 1);
-            DataToChartPoint.Add(new DataToPointChartView { functionId = FunctionId, dataX = x, dataY = y });
-            if (f.Length == 0) return DataToChartPoint;
-            else return GetData(DataToChartPoint, f, FunctionId);
+            DataToChartPoint.Add(new DataToPointChartView { functionId = FunctionId, dataX = x, dataY = y });                       //dodanie do listy x i y oraz id funkcji z której pochodzi
+            if (f.Length == 0) return DataToChartPoint;     
+            else return GetData(DataToChartPoint, f, FunctionId);                                                                   //rekurencyjne wywołanie funkcji aż do momentu gdy ciąg znaków f będzie pusty #M
         }
         public List<TextBox> FindBox(ListView PointChartListFunction, string name, string namex, string namey, List<TextBox> ListTextBox, string function)
         {

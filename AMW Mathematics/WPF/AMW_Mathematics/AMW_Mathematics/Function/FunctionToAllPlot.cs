@@ -24,19 +24,19 @@ namespace AMW_Mathematics.Function
             return _List;                                                           //zwrócenie listy Kontrolek ListView #M
 
         }
-        public List<string> AddFunctionToList(ListView ListViewFunction, List<string> ListFunction, string name, Keyboard keyboard, Button klawisz, bool which)
+        public List<string> AddFunctionToList(ListView ListViewFunction, List<string> ListFunction, string name, Keyboard keyboard, Button klawisz, bool which) //metoda odpowiedzialna za dodanie funkcji znadujących w dynamicznej liście generowanej przez widok do listy typu string  #M
         {
             var _ListBox = ListViewFunction as ListBox;
             foreach (var _ListBoxItem in _ListBox.Items)
             {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                           //wprowadzenie do zmiennej _Container elementu ListView #M
-                var _Children = AllChildren(_Container);                                                                                    //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListBoxItem);                                                               //wprowadzenie do zmiennej _Container elementu ListView #M
+                var _Children = AllChildren(_Container);                                                                                                        //wprowadzenie do zmiennej wszyskich dziecki zmiennej _Container, która jest elementem ListView #M
                 var _Name = name;
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                              //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
-                ListFunction.Add(_Control.Text);                                                                                            //dodanie do listy funkcji występującej w TextBox #M
-                if (which == true)
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);                                                                                  //wprowadzenie do zmiennej _Control pierwszego znalezionego obiektu TextBox o nazwie zadeklarowanej powyżej #M
+                ListFunction.Add(_Control.Text);                                                                                                                //dodanie do listy funkcji występującej w TextBox #M
+                if (which == true)                                                                                                                              //zmienna odpowiadająca za wprowadzenie do TextBoxa przeznaczonego na funkcjie do generowania wykresów funkcji klikniętego przycisku z klawiatury #M
                 {
-                    _Control.Text = _Control.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());
+                    _Control.Text = _Control.Text + keyboard.Click(klawisz.Name.ToString(), klawisz.Content.ToString());                                        //Wprowadzenie do TextBoxa funkcji z klawiatury #M
                 }
             }
             return ListFunction;
