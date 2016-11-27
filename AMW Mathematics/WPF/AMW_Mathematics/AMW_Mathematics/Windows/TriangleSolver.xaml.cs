@@ -175,69 +175,69 @@ namespace AMW_Mathematics.Windows
             
         }
 
-        private void TriangelSolve_MouseLeave(object sender, MouseEventArgs e) //metoda odpowaida za dodanie labelek do rysunku trójkąta #M
+        private void TriangelSolve_MouseLeave(object sender, MouseEventArgs e)                  //metoda odpowaida za dodanie labelek w trójkąta #M
         {
-            if (drawlabel == true)                  //w przypadku gdy trójkąt został narysowany wygenerowanie labelek #M
+            if (drawlabel == true)                                                              //w przypadku gdy trójkąt został narysowany wygenerowanie labelek #M
             {
-                triangleview.DrawLabel(TriangeImg, Triangle,ref ListLabel,ref ListLabel2);  //dodanie do rysunku labelek #M
+                triangleview.DrawLabel(TriangeImg, Triangle,ref ListLabel,ref ListLabel2);      //dodanie do trójąta labelek #M
             }
             drawlabel = false;
         }
 
-        private void SolverLabel_MouseEnter(object sender, MouseEventArgs e)
+        private void SolverLabel_MouseEnter(object sender, MouseEventArgs e)                    //metoda odpowiedzialna za podświetlenie labelki trójkąta w przypadku najechania na TexTboX w którym znadują się boki trójkąta  #M
         {
-            triangleview.EnterToBoxSide(sender, ref ListLabel2);
+            triangleview.EnterToBoxSide(sender, ref ListLabel2);                                //podświetlenie labelki trójkąta #M
         }
  
-        private void SolverLabel_MouseLeave(object sender, MouseEventArgs e)
+        private void SolverLabel_MouseLeave(object sender, MouseEventArgs e)                    //metoda odpowiedzialna za podświetlenie labelki trójkąta w przypadku opuszczenia TexTbox'a w którym znadują się boki trójkąta  #M
         {
-            triangleview.LeaveBoxSide(sender, ref ListLabel2);
+            triangleview.LeaveBoxSide(sender, ref ListLabel2);                                  //przywrócenie domyślnego stylu labelki trójkąta #M        
         }
 
-        private void SolverLabelAngle_MouseEnter(object sender, MouseEventArgs e)
+        private void SolverLabelAngle_MouseEnter(object sender, MouseEventArgs e)               //metoda odpowiedzialna za podświetlenie labelki trójkąta w przypadku najechania na TexTboX w którym znadują się kąty trójkąta  #M
         {
-            triangleview.EnterToBoxAngle(sender, ref ListLabel);
+            triangleview.EnterToBoxAngle(sender, ref ListLabel);                                //podświetlenie labelki trójkąta #M
         }
 
-        private void SolverLabelAngle_MouseLeave(object sender, MouseEventArgs e)
+        private void SolverLabelAngle_MouseLeave(object sender, MouseEventArgs e)               //metoda odpowiedzialna za podświetlenie labelki trójkąta w przypadku opuszczenia TexTbox'a w którym znadują się kąty trójkąta  #M
         {
-            triangleview.LeaveBoxAngle(sender, ref ListLabel);
+            triangleview.LeaveBoxAngle(sender, ref ListLabel);                                  //podświetlenie labelki trójkąta #M
         }
 
-        private void SolveTriangelProperties_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SolveTriangelProperties_SelectionChanged(object sender, SelectionChangedEventArgs e)                                                                   //metoda odpowiedzialna za wyświetlenie okna informacji o trójkącie #M
         {
-            trangleshowboxview.ShowSolverBox_Window(SolveTriangelProperties.SelectedIndex, ShowSolverBox,TypeSolving, AngleA, AngleB, AngleC, TValuea, TValueb, TValuec);
+            trangleshowboxview.ShowSolverBox_Window(SolveTriangelProperties.SelectedIndex, ShowSolverBox,TypeSolving, AngleA, AngleB, AngleC, TValuea, TValueb, TValuec);   //wyświetlenie okna informacji o trójkącie w momencie wygenerowania trójkąta #M
         }
 
-        private void TypeSolving_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TypeSolving_SelectionChanged(object sender, SelectionChangedEventArgs e)     //metoda odpowiedzialna za zablokowania TextBoxów wprowadzania paremetrów trójkąta w zależności od wybranego itemu w polu ComboBox #M                                                                      
         {
             SolveTriangelProperties.SelectedIndex = -1;
-            ShowSolverBox.Items.Clear();
-            SolveTriangelProperties.IsEnabled = false;
+            ShowSolverBox.Items.Clear();                                                          //czyszczenie pola w którym znajdująsie informacje o trókącie #M
+            SolveTriangelProperties.IsEnabled = false;                                            //zmienna sterująca wyświetlaniem pola informacji o trójkącie #M
             TypeSolvingGrid.IsEnabled = true;
             TriangeImg.Children.RemoveRange(0, TriangeImg.Children.Count);
             int index = TypeSolving.SelectedIndex;
-            switch(index)
+            switch(index)                                                                        //włączenie Textboxów w zależności od wybranego itemu w ComboBox #M
             {
                 case 0:
-                    AngleA.Clear();
+                    AngleA.Clear();                                                             //oczyszczenie TextBoxa odpowiedzialnego za wprowadzanie kąta trójkąta #M
                     AngleB.Clear();
                     AngleC.Clear();
-                    TValuea.IsEnabled = true;
+                    TValuea.IsEnabled = true;                                                   //włączenie TextBoxa w który wprowadza się boki trójkąta #M
                     TValueb.IsEnabled = true;
                     TValuec.IsEnabled = true;
-                    AngleA.IsEnabled = false;
+                    AngleA.IsEnabled = false;                                                   //wyłączenie Textboxa w który wprowadza się kąty trójkąta #M
                     AngleB.IsEnabled = false;
                     AngleC.IsEnabled = false;
                     break;
                 case 1:
-                    TValuea.Clear();
+                    TValuea.Clear();                                                            //oczyszczenie TextBoxa odpowiedzialnego za wprowadzanie boku trójkąta #M
                     TValueb.Clear();
                     TValuec.Clear();
-                    AngleA.IsEnabled = true;
+                    AngleA.IsEnabled = true;                                                    //włączenie Textboxa w który wprowadza się kąty trójkąta #M
                     AngleB.IsEnabled = true;
                     AngleC.IsEnabled = true;
-                    TValuea.IsEnabled = false;
+                    TValuea.IsEnabled = false;                                                  //wyłączenie TextBoxa w który wprowadza się boki trójkąta #M
                     TValueb.IsEnabled = false;
                     TValuec.IsEnabled = false;
                     break;

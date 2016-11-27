@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 namespace AMW_Mathematics.E_ModelView
 {
 
-    class ListExpresionView
+    class ListExpresionView                     //model przechowujący dane do generowania listy równań #<
     {
-        public string Exp { get; set; }
-        public string Watermark { get; set; }
+        public string Exp { get; set; }         //element równania #M
+        public string Watermark { get; set; }   //opis #M
     }
 }

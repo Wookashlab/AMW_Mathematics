@@ -118,53 +118,53 @@ namespace AMW_Mathematics.T_ModelView
             return Triangle;                                                                                                                                                                                                                                            //zwrócenie obietu Triangel;
         }
 
-        public void DrawLabel(Grid TriangeImg, Polygon Triangle, ref List<Label> ListLabel,ref List<Label> ListLabel2)  //metoda odpowiedzialna za dodanie labelek do rysunku trójkąta #M
+        public void DrawLabel(Grid TriangeImg, Polygon Triangle, ref List<Label> ListLabel,ref List<Label> ListLabel2)                                              //metoda odpowiedzialna za dodanie labelek do rysunku trójkąta #M
         {
             try
             {
-                ListLabel = new List<Label> { new Label(), new Label(), new Label() };                                  //stworzenie listy labelek #M
+                ListLabel = new List<Label> { new Label(), new Label(), new Label() };                                                                              //stworzenie listy labelek #M
                 ListLabel[0].Content = "α";
                 ListLabel[1].Content = "β";
                 ListLabel[2].Content = "γ";
-                ListLabel2 = new List<Label> { new Label(), new Label(), new Label() };                                 //stworzenie listy labelek #M
+                ListLabel2 = new List<Label> { new Label(), new Label(), new Label() };                                                                             //stworzenie listy labelek #M
                 ListLabel2[0].Content = "c";
                 ListLabel2[1].Content = "b";
                 ListLabel2[2].Content = "a";
-                var transform = Triangle.RenderedGeometry.Transform;                                                    //wyśrodkowanie trójkąta względem grida #M
+                var transform = Triangle.RenderedGeometry.Transform;                                                                                                //wyśrodkowanie trójkąta względem grida #M
                 int i = 0;
                 var polygonGeometryTransform = Triangle.RenderedGeometry.Transform;                        
-                var polygonToGridTransform = Triangle.TransformToAncestor(TriangeImg);                                  //przypisanie do zmiennej zawartości wyśrodkowanego grida #M
+                var polygonToGridTransform = Triangle.TransformToAncestor(TriangeImg);                                                                              //przypisanie do zmiennej zawartości wyśrodkowanego grida #M
                 for (int j = 0; j < Triangle.Points.Count; j++)
                 {
-                    var transformedPoint = polygonToGridTransform.Transform(
-                                          polygonGeometryTransform.Transform(Triangle.Points[j]));                      //pobranie współrzednej punktu trójkąta #M
+                    var transformedPoint = polygonToGridTransform.Transform(                                                                                        //pobranie współrzędnych punktu trójkąta #M
+                                          polygonGeometryTransform.Transform(Triangle.Points[j]));                      
                     Point transformedPoint1 = new Point();
                     if (i != 2)
                     {
                         transformedPoint1 = polygonToGridTransform.Transform(
-                                            polygonGeometryTransform.Transform(Triangle.Points[j + 1]));
+                                            polygonGeometryTransform.Transform(Triangle.Points[j + 1]));                                                            //pobranie współrzędnych punktu trójkąta #M
                     }
 
-                    if (i == 0)                                                                                         //ustalenie położenia pierwszej labelki z list ListLabel i Listlabel2  #M
+                    if (i == 0)                                                                                                                                     //ustalenie położenia pierwszej labelki z list ListLabel i Listlabel2  względem pobranych wczesniej punktów #M
                     {
-                        ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()), double.Parse(transformedPoint.Y.ToString()) - 5, 0, 0);    
+                        ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()), double.Parse(transformedPoint.Y.ToString()) - 5, 0, 0);    //obliczenie lokalizacji labelki #M
                         double labela = Math.Abs(double.Parse(transformedPoint.X.ToString()) - double.Parse(transformedPoint1.X.ToString()));
                         labela = labela / 2;
                         labela = labela + double.Parse(transformedPoint1.X.ToString());
-                        ListLabel2[i].Margin = new Thickness(labela - 5, double.Parse(transformedPoint.Y.ToString()), 0, 0);
+                        ListLabel2[i].Margin = new Thickness(labela - 5, double.Parse(transformedPoint.Y.ToString()), 0, 0);                                        //obliczenie lokalizacji labelki #M
                     }
-                    if (i == 1)                                                                                        //ustalenie położenia drugiej labelki z list ListLabel i Listlabel2  #M
+                    if (i == 1)                                                                                                                                     //ustalenie położenia drugiej labelki z list ListLabel i Listlabel2  #M
                     {
-                        ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()) - 18, double.Parse(transformedPoint.Y.ToString()) - 5, 0, 0);
-                        if (double.Parse(transformedPoint.X.ToString()) < double.Parse(transformedPoint1.X.ToString()))
+                        ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()) - 18, double.Parse(transformedPoint.Y.ToString()) - 5, 0, 0);   //ustalenie lokalizacji labelku #M
+                        if (double.Parse(transformedPoint.X.ToString()) < double.Parse(transformedPoint1.X.ToString()))                                             //ustalanie lokalizacji labelki w zależności jaki trójkąt jest (ostrokątny roxwartokątny) #M
                         {
-                            double labelbX = Math.Abs(double.Parse(transformedPoint1.X.ToString()) - double.Parse(transformedPoint.X.ToString()));
+                            double labelbX = Math.Abs(double.Parse(transformedPoint1.X.ToString()) - double.Parse(transformedPoint.X.ToString())); 
                             double labelbY = Math.Abs(double.Parse(transformedPoint.Y.ToString()) - double.Parse(transformedPoint1.Y.ToString()));
                             labelbY = labelbY / 2;
                             labelbY = labelbY + double.Parse(transformedPoint1.Y.ToString());
                             labelbX = labelbX / 2;
                             labelbX = labelbX + double.Parse(transformedPoint.X.ToString());
-                            ListLabel2[i].Margin = new Thickness(labelbX - 16, labelbY - (labelbY / 2), 0, 0);
+                            ListLabel2[i].Margin = new Thickness(labelbX - 16, labelbY - (labelbY / 2), 0, 0);                                                      //ustalenie lokalizacji labelki #M
                         }
                         else
                         {
@@ -177,12 +177,12 @@ namespace AMW_Mathematics.T_ModelView
                             ListLabel2[i].Margin = new Thickness(labelbX - 16, labelbY, 0, 0);
                         }
                     }
-                    if (i == 2)                                                                                         //ustalenie położenia trzeciel labelki z list ListLabel i Listlabel2  #M
+                    if (i == 2)                                                                                                                                     //ustalenie położenia trzeciel labelki z list ListLabel i Listlabel2  #M
                     {
                         ListLabel[i].Margin = new Thickness(double.Parse(transformedPoint.X.ToString()) - 7, double.Parse(transformedPoint.Y.ToString()) - 25, 0, 0);
                         transformedPoint1 = polygonToGridTransform.Transform(
                                            polygonGeometryTransform.Transform(Triangle.Points[j - 2]));
-                        if (double.Parse(transformedPoint.X.ToString()) < double.Parse(transformedPoint1.X.ToString()))
+                        if (double.Parse(transformedPoint.X.ToString()) < double.Parse(transformedPoint1.X.ToString()))                                             //Obliczanie lokalizacji labelki w zależności od trójkąta (ostrokątny, rozwartokątny ) #M
                         {
                             double labelbX = Math.Abs(double.Parse(transformedPoint1.X.ToString()) - double.Parse(transformedPoint.X.ToString()));
                             double labelbY = Math.Abs(double.Parse(transformedPoint1.Y.ToString()) - double.Parse(transformedPoint.Y.ToString()));
@@ -190,81 +190,81 @@ namespace AMW_Mathematics.T_ModelView
                             labelbY = labelbY + double.Parse(transformedPoint.Y.ToString());
                             labelbX = labelbX / 2;
                             labelbX = labelbX + double.Parse(transformedPoint.X.ToString());
-                            ListLabel2[i].Margin = new Thickness(labelbX, labelbY - (labelbY / 2), 0, 0);
+                            ListLabel2[i].Margin = new Thickness(labelbX, labelbY - (labelbY / 2), 0, 0);                                                           //ustalenie położenia labelki #M
                         }
                         else
                         {
-                            double labelbX = Math.Abs(double.Parse(transformedPoint.X.ToString()) - double.Parse(transformedPoint1.X.ToString()));
-                            double labelbY = Math.Abs(double.Parse(transformedPoint.Y.ToString()) - double.Parse(transformedPoint1.Y.ToString()));
+                            double labelbX = Math.Abs(double.Parse(transformedPoint.X.ToString()) - double.Parse(transformedPoint1.X.ToString()));  
+                            double labelbY = Math.Abs(double.Parse(transformedPoint.Y.ToString()) - double.Parse(transformedPoint1.Y.ToString()));  
                             labelbY = labelbY / 2;
                             labelbY = labelbY + double.Parse(transformedPoint.Y.ToString());
                             labelbX = labelbX / 2;
                             labelbX = labelbX + double.Parse(transformedPoint1.X.ToString());
-                            ListLabel2[i].Margin = new Thickness(labelbX, labelbY, 0, 0);
+                            ListLabel2[i].Margin = new Thickness(labelbX, labelbY, 0, 0);                                                                           //ustalenie położenia labelki
                         }
 
 
                     }
-                    TriangeImg.Children.Add(ListLabel[i]);                                                              //dodanie labelek do grida #M
-                    TriangeImg.Children.Add(ListLabel2[i]);                                                             //dodanie labelek do grida #M
+                    TriangeImg.Children.Add(ListLabel[i]);                                                                                                          //dodanie labelek do grida #M
+                    TriangeImg.Children.Add(ListLabel2[i]);                                                                                                         //dodanie labelek do grida #M
                     i++;
                 }
             }
             catch { }
         }
 
-        public void EnterToBoxSide(object sender, ref List<Label> ListLabel2)
+        public void EnterToBoxSide(object sender, ref List<Label> ListLabel2)                                                   //metoda odpowiedzialna za podświetlenie labelki w momencie najechania na Textboxy w których znadują się obliczone kąty #M
         {
             try
             {
-                var name = (TextBox)sender;
-                switch (name.Name)
+                var name = (TextBox)sender;                                                                     
+                switch (name.Name)                                                                                              //pobranie nazwy najechanego przycisku #M
                 {
                     case "TValuec":
-                        ListLabel2[0].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
-                        ListLabel2[0].FontSize = 16;
-                        ListLabel2[0].FontWeight = FontWeights.Bold;
-                        ListLabel2[0].Content = ListLabel2[0].Content + "!";
+                        ListLabel2[0].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));                       //podświetlenie labelki #M
+                        ListLabel2[0].FontSize = 16;                                                                            //zmiana czzcionki labelki #M
+                        ListLabel2[0].FontWeight = FontWeights.Bold;                                                            //pogrubienie zawartości labelki #M
+                        ListLabel2[0].Content = ListLabel2[0].Content + "!";                                                    //zmiana zawartości labelki #M
                         break;
                     case "TValuea":
-                        ListLabel2[1].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
-                        ListLabel2[1].FontSize = 16;
-                        ListLabel2[1].FontWeight = FontWeights.Bold;
-                        ListLabel2[1].Margin = new Thickness(ListLabel2[1].Margin.Left - 8, ListLabel2[1].Margin.Top, 0, 0);
+                        ListLabel2[1].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));                       //podświetlenie labelki #M
+                        ListLabel2[1].FontSize = 16;                                                                            //zmiana czzcionki labelki #M
+                        ListLabel2[1].FontWeight = FontWeights.Bold;                                                            //pogrubienie zawartości labelki #M
+                        ListLabel2[1].Margin = new Thickness(ListLabel2[1].Margin.Left - 8, ListLabel2[1].Margin.Top, 0, 0);    //zmiana zawartości labelki #M
                         ListLabel2[1].Content = "!" + ListLabel2[1].Content;
                         break;
                     case "TValueb":
-                        ListLabel2[2].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
-                        ListLabel2[2].FontSize = 16;
-                        ListLabel2[2].FontWeight = FontWeights.Bold;
-                        ListLabel2[2].Content = "!" + ListLabel2[2].Content;
+                        ListLabel2[2].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));                       //podświetlenie labelki #M
+                        ListLabel2[2].FontSize = 16;                                                                            //zmiana czzcionki labelki #M
+                        ListLabel2[2].FontWeight = FontWeights.Bold;                                                            //pogrubienie zawartości labelki #M
+                        ListLabel2[2].Content = "!" + ListLabel2[2].Content;                                                    //zmiana zawartości labelki #M
                         break;
                 }
             }
             catch { };
         }
 
-        public void LeaveBoxSide(object sender, ref List<Label> ListLabel2)
+        public void LeaveBoxSide(object sender, ref List<Label> ListLabel2)                                                     //metoda odpowiedzialna za zmianę podświetlenia labelki w momencie opuszczenia Textboxa w których znadują się obliczone kąty #M
         {
             try
             {
-                var name = (TextBox)sender;
+                var name = (TextBox)sender;                                                                                     //pobranie nazwy TextBoxa #M
                 switch (name.Name)
                 {
-                    case "TValuec":
+                    case "TValuec":                                                                                             //przywrócenie stylu labelki do doyślnego #M
                         ListLabel2[0].ClearValue(Label.ForegroundProperty);
                         ListLabel2[0].ClearValue(Label.FontSizeProperty);
                         ListLabel2[0].ClearValue(Label.FontWeightProperty);
                         ListLabel2[0].Content = ListLabel2[0].Content.ToString().Replace("!", "");
                         break;
-                    case "TValuea":
+                    case "TValuea":                                                                                             //przywrócenie stylu labelki do doyślnego #M
                         ListLabel2[1].ClearValue(Label.ForegroundProperty);
                         ListLabel2[1].ClearValue(Label.FontSizeProperty);
                         ListLabel2[1].ClearValue(Label.FontWeightProperty);
                         ListLabel2[1].Margin = new Thickness(ListLabel2[1].Margin.Left + 8, ListLabel2[1].Margin.Top, 0, 0);
                         ListLabel2[1].Content = ListLabel2[1].Content.ToString().Replace("!", "");
                         break;
-                    case "TValueb":
+                    case "TValueb":                                                                                             //przywrócenie stylu labelki do doyślnego #M
                         ListLabel2[2].ClearValue(Label.ForegroundProperty);
                         ListLabel2[2].ClearValue(Label.FontSizeProperty);
                         ListLabel2[2].ClearValue(Label.FontWeightProperty);
@@ -275,58 +275,58 @@ namespace AMW_Mathematics.T_ModelView
             catch { }
         }
 
-        public void EnterToBoxAngle(object sender, ref List<Label> ListLabel)
+        public void EnterToBoxAngle(object sender, ref List<Label> ListLabel)                                                   //metoda odpowiedzialna za podświetlenie labelki w momencie najechania na Textboxy w których znadują się obliczone boki #M
         {
             try
             {
                 var name = (TextBox)sender;
-                switch (name.Name)
+                switch (name.Name)                                                                                              //pobranie nazwy najechanego przycisku #M
                 {
                     case "AngleC":
-                        ListLabel[2].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
-                        ListLabel[2].FontSize = 16;
-                        ListLabel[2].FontWeight = FontWeights.Bold;
-                        ListLabel[2].Margin = new Thickness(ListLabel[2].Margin.Left, ListLabel[2].Margin.Top - 5, 0, 0);
-                        ListLabel[2].Content = ListLabel[2].Content + "!";
+                        ListLabel[2].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));                        //podświetlenie labelki #M
+                        ListLabel[2].FontSize = 16;                                                                             //zmiana czzcionki labelki #M
+                        ListLabel[2].FontWeight = FontWeights.Bold;                                                             //pogrubienie zawartości labelki #M
+                        ListLabel[2].Margin = new Thickness(ListLabel[2].Margin.Left, ListLabel[2].Margin.Top - 5, 0, 0);       //zmiana położenia labelki #M
+                        ListLabel[2].Content = ListLabel[2].Content + "!";                                                      //zmiana zawartości labelki #M
                         break;
                     case "AngleB":
-                        ListLabel[1].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
-                        ListLabel[1].FontSize = 16;
-                        ListLabel[1].FontWeight = FontWeights.Bold;
-                        ListLabel[1].Content = "!" + ListLabel[1].Content;
+                        ListLabel[1].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));                        //podświetlenie labelki #M
+                        ListLabel[1].FontSize = 16;                                                                             //zmiana czzcionki labelki #M
+                        ListLabel[1].FontWeight = FontWeights.Bold;                                                             //pogrubienie zawartości labelki #M
+                        ListLabel[1].Content = "!" + ListLabel[1].Content;                                                      //zmiana zawartości labelki #M
                         break;
                     case "AngleA":
-                        ListLabel[0].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));
-                        ListLabel[0].FontSize = 16;
-                        ListLabel[0].FontWeight = FontWeights.Bold;
-                        ListLabel[0].Content = "!" + ListLabel[0].Content;
+                        ListLabel[0].Foreground = new SolidColorBrush(Color.FromArgb(255, 182, 16, 16));                        //podświetlenie labelki #M
+                        ListLabel[0].FontSize = 16;                                                                             //zmiana czzcionki labelki #M
+                        ListLabel[0].FontWeight = FontWeights.Bold;                                                             //pogrubienie zawartości labelki #M
+                        ListLabel[0].Content = "!" + ListLabel[0].Content;                                                      //zmiana zawartości labelki #M
                         break;
                 }
             }
             catch { };
         }
 
-        public void LeaveBoxAngle(object sender, ref List<Label> ListLabel)
+        public void LeaveBoxAngle(object sender, ref List<Label> ListLabel)                                                 //metoda odpowiedzialna za zmianę podświetlenia labelki w momencie opuszczenia Textboxa w których znadują się obliczone kąty #M
         {
             try
             {
-                var name = (TextBox)sender;
+                var name = (TextBox)sender;                                                                                 //pobranie nazwy TextBoxa #M
                 switch (name.Name)
                 {
-                    case "AngleC":
+                    case "AngleC":                                                                                          //przywrócenie stylu labelki do doyślnego #M
                         ListLabel[2].ClearValue(Label.ForegroundProperty);
                         ListLabel[2].ClearValue(Label.FontSizeProperty);
                         ListLabel[2].ClearValue(Label.FontWeightProperty);
                         ListLabel[2].Margin = new Thickness(ListLabel[2].Margin.Left, ListLabel[2].Margin.Top + 5, 0, 0);
                         ListLabel[2].Content = ListLabel[2].Content.ToString().Replace("!", "");
                         break;
-                    case "AngleB":
+                    case "AngleB":                                                                                          //przywrócenie stylu labelki do doyślnego #M
                         ListLabel[1].ClearValue(Label.ForegroundProperty);
                         ListLabel[1].ClearValue(Label.FontSizeProperty);
                         ListLabel[1].ClearValue(Label.FontWeightProperty);
                         ListLabel[1].Content = ListLabel[1].Content.ToString().Replace("!", "");
                         break;
-                    case "AngleA":
+                    case "AngleA":                                                                                          //przywrócenie stylu labelki do doyślnego #M
                         ListLabel[0].ClearValue(Label.ForegroundProperty);
                         ListLabel[0].ClearValue(Label.FontSizeProperty);
                         ListLabel[0].ClearValue(Label.FontWeightProperty);

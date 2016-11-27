@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AMW_Mathematics.E_ModelView
 {
-    public class ResultExpresionView
+    public class ResultExpresionView                    //model przeznaczony do geneorwania listy rozwiązań równania #M
     {
-        public string ResultSolving { get; set; }
-        public int Index { get; set; }
+        public string ResultSolving { get; set; }       //rozwiązanie #M
+        public int Index { get; set; }                  //index rozwiązania #M
     }
 }

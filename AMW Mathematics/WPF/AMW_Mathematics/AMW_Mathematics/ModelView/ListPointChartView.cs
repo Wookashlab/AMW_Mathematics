@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AMW_Mathematics.ModelView
 {
-    class ListPointChartView
+    class ListPointChartView                            //model widoku listy zmiennych #M
     {
-        public string ContentLabel { get; set; }
-        public string XName { get; set; }
-        public string YName { get; set; }
+        public string ContentLabel { get; set; }        //zawartość labelki #M
+        public string XName { get; set; }               //wartość zmiennej x #M
+        public string YName { get; set; }               //wartość zmiennej y #M
     }
 }

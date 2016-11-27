@@ -30,47 +30,47 @@ namespace AMW_Mathematics
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        private List<int> IndexEquation = new List<int>();                      //lista przechowująca indeksy elementów równania w celu ich serializacji #M
+        private List<int> IndexEquation = new List<int>();                                      //lista przechowująca indeksy elementów równania w celu ich serializacji #M
 
-        private List<string> Equation = new List<string>();                     //lista przechowująca elementy równania w celu ich serializacji #M
+        private List<string> Equation = new List<string>();                                     //lista przechowująca elementy równania w celu ich serializacji #M
 
-        private List<int> IndexResult = new List<int>();                        //lista przechowujące index rozwiązanego równania w celu jego serializacji #M
+        private List<int> IndexResult = new List<int>();                                        //lista przechowujące index rozwiązanego równania w celu jego serializacji #M
 
-        private List<string> Result = new List<string>();                       //lista przechowująca rozwiązania równania w celu jego serializacji #M
+        private List<string> Result = new List<string>();                                       //lista przechowująca rozwiązania równania w celu jego serializacji #M
 
-        private GraphingHelp HelpWzory = new GraphingHelp(1);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
+        private GraphingHelp HelpWzory = new GraphingHelp(1);                                   //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
 
-        private GraphingHelp HelpZestawy = new GraphingHelp(2);                                //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
+        private GraphingHelp HelpZestawy = new GraphingHelp(2);                                 //obiekt klasy GraphingHelp do wyświetlana pomocy w zakładce "Wykresy" #Ł
 
-        private Keyboard keyboard = new Keyboard();                                 //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
+        private Keyboard keyboard = new Keyboard();                                             //obiekt klasy Keyboard do obsługi wirtualnego "telefonu" #Ł
 
-        private Expreson phrase = new Expreson();                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
+        private Expreson phrase = new Expreson();                                               //obiekt klasy Expression do rozwiązywania podanych wyrażeń #Ł
 
-        private ChartPointView ViewPlot;
+        private ChartPointView ViewPlot;                                                        //stworznie obiekut klasy ViewPlot do generowania wykresy #M
 
-        private DataToPointChartView datatopointchartview = new DataToPointChartView();
+        private DataToPointChartView datatopointchartview = new DataToPointChartView();         //stworzenie nowej instancji klasu DataToPointChartView do przechowywanai danych o wykresie #M   
 
-        private ChartListViewLine chartlist = new ChartListViewLine();
+        private ChartListViewLine chartlist = new ChartListViewLine();                          //stworzenie nowej instancji klasu ChartListViewLine do przechowywanai danych o widoku listy #M   
 
         private List<string> ListFunctionLine = new List<string>();                             //lista funkcji przechodzących przez oś X do wykresu #M
 
         private List<string> ListFunctionPoint = new List<string>();                            //lista funkcji nie przechodzących przez oś X do wykresu #M
 
-        private List<DataToPointChartView> DataToChartList = new List<DataToPointChartView>();
+        private List<DataToPointChartView> DataToChartList = new List<DataToPointChartView>(); //stworzenie listy klasy DataToPointChartView do przechowywania danych o wykresie #M
 
-        private ChartLineView ChartLineView = new ChartLineView();
+        private ChartLineView ChartLineView = new ChartLineView();                              //stworzenie nowej isntancji klasy ChartLineView generującej wykres #M
 
-        private PointChartFunction pointchartfunction = new PointChartFunction();               //stworzenie nowej instancji klasu PointChartFunction #M   
+        private PointChartFunction pointchartfunction = new PointChartFunction();               //stworzenie nowej instancji klasy PointChartFunction przechowującej funkcje wykresu  #M   
             
-        private FunctionToAllPlot functiontoallpolot = new FunctionToAllPlot();
+        private FunctionToAllPlot functiontoallpolot = new FunctionToAllPlot();                 //stworzenie nowej instancji klasy FunctionToAllPlot przechowującej funkcje wykresu  #M  
 
-        private DataToLineChartView datatolinechartview = new DataToLineChartView();
+        private DataToLineChartView datatolinechartview = new DataToLineChartView();            //stworzenie nowej instancji klasy DataToLineChartView przechowującej dane do wykresu  #M 
 
-        private DataToPointList datatopointlist = new DataToPointList();
+        private DataToPointList datatopointlist = new DataToPointList();                        //stworzenie nowej instancji klasy DataToPointList #M 
 
-        private DataToChart datatochart = new DataToChart();
+        private DataToChart datatochart = new DataToChart();                                    //stworzenie nowej instancji klasy DataToChart #M 
 
-        private DataLayout datalayout = new DataLayout();
+        private DataLayout datalayout = new DataLayout();                                        //stworzenie nowej instancji klasy DataLayout przechowującej dane do wydoku #M 
 
         SplashScreen ss = new SplashScreen("img/SplashScreenv4.png");                           //Ustalenei jaki obraz ma być SplashScreenem #Ł
 
@@ -80,7 +80,7 @@ namespace AMW_Mathematics
 
         EqualizationSolverFunction equalizationsolverfunction = new EqualizationSolverFunction();
 
-        System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();
+        System.Windows.Forms.ToolTip TooltipToLineChart = new System.Windows.Forms.ToolTip();   //inicializacja tooltipa dla wykresu liniowego #M
         public string theme { get; set; }
         public string background { get; set; }
     
@@ -94,45 +94,45 @@ namespace AMW_Mathematics
         public void InitializeApplication()
         {
 
-            chartlist.CountFunction = "1";
-            datatopointchartview.CountFunction = 1;
-            InitializeComponent();                                                 //stworzenie nowego obiektu kalsy ChartToData w celu dodania do listy możliwych zmiennych w wykresie #M
-            List<ChartListViewLine> DataListView = new List<ChartListViewLine>();                           //osobna klasa jeszcze nie wiem jaka :-)
-            DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });      //osobna klasa jeszcze nie wiem jaka :-)
-            ChartListFunction.Items.Add(DataListView);                                                  //osobna klasa jeszcze nie wiem jaka :-)
+            chartlist.CountFunction = "1";                                                                                                                                                  //index pierwsze funkcji do dynamicznego geneorwania listy funkcji wykresów #M
+            datatopointchartview.CountFunction = 1;                                                                                                                                         //index pierwsze funkcji do dynamicznego geneorwania listy funkcji wykresów #M
+            InitializeComponent();                                                
+            List<ChartListViewLine> DataListView = new List<ChartListViewLine>();                           
+            DataListView.Add(new ChartListViewLine { LabelChartValue = chartlist.CountFunction });                                                                                          
+            ChartListFunction.Items.Add(DataListView);                                                                                                                                      //dynamiczne dodanie pola które umożliwa wprowadzenie wyrażenia w zakladce wykresów #M
             PointChartListFunction.Items.Add(new ChartListViewPoint { LabelChartPointValue = datatopointchartview.CountFunction.ToString(), Index = datatopointchartview.CountFunction });  //dynamiczne dodanie pola które umożliwa wprowadzenie wyrażenia w zakladce wykresów #M
-            DataSetChLV.Height = 20;                                                                    //osobna klasa jeszcze nie wiem jaka :-)
+            DataSetChLV.Height = 20;                                                                                                                                                        //ustalenie wielkości elementu listy znadującej się w zakładce wykresów #M
             ParametricChLV.Height = 20;
             InequalitiesChLV.Height = 20;
             TraceChLV.Height = 20;
-            Maxima.Eval("load (\"functs\")");                                                           //załadowanie functs do Maximy(potrzebne do kilku funkcji) #Ł
+            Maxima.Eval("load (\"functs\")");                                                                                                                                               //załadowanie functs do Maximy(potrzebne do kilku funkcji) #Ł
             List<ChartListViewParametric> DataToViewParametric = new List<ChartListViewParametric>();
             DataToViewParametric.Add(new ChartListViewParametric { LabelChartParametricValue = "1" });
-            ParametricChartListFunction.Items.Add(DataToViewParametric);
+            ParametricChartListFunction.Items.Add(DataToViewParametric);                                                                                                                    //dynamiczne dodanie pola które umożliwa wprowadzenie wyrażenia w zakladce wykresów #M
 
             List<ChartListViewInequalities> DataToViewInequalities = new List<ChartListViewInequalities>();
             DataToViewInequalities.Add(new ChartListViewInequalities { LabelChartInequalitiesValue = "1" });
-            InequalitiesChartListFunction.Items.Add(DataToViewInequalities);
+            InequalitiesChartListFunction.Items.Add(DataToViewInequalities);                                                                                                                //dynamiczne dodanie pola które umożliwa wprowadzenie wyrażenia w zakladce wykresów #M
 
             for (int i = 1; i < 21; i++)
             {
-                ListChartPointW.Items.Add(new ListPointChartView { ContentLabel = i.ToString(), XName = "X" + "i", YName = "Y" + i });
+                ListChartPointW.Items.Add(new ListPointChartView { ContentLabel = i.ToString(), XName = "X" + "i", YName = "Y" + i });                                                      //dynamiczne dodanie pola które umożliwa wprowadzenie wartości x i y w popout #M
             }
 
-            datatolinechartview.ShowTooltip = true;
-            datatolinechartview.ToogleGridLineView = true;
-            datatochart.WhichGraphZoom = "";
-            Thememanager.LoadTheme();                                                           //Załadowanie motywu z pliku #Ł
-            ThemeChange();                                                                      //Ustawienie motywu #Ł
-            if (Thememanager.themeColor == "BaseLight") ButtonColorChange("Black");             //Zmiana koloru guzików na "telefonie" w zależności od motywu #Ł
+            datatolinechartview.ShowTooltip = true;                                                                                                                                         //zmienna sterująca wyświetleniem tooltipa #M
+            datatolinechartview.ToogleGridLineView = true;                                                                                                                                  //zmienna sterująca rodzajemi lini na wykresie #M
+            datatochart.WhichGraphZoom = "";                                                                                                                                                //zmienna sterująca typem skalowania w zależności od rodzaju wykresu #M
+            Thememanager.LoadTheme();                                                                                                                                                       //Załadowanie motywu z pliku #Ł
+            ThemeChange();                                                                                                                                                                  //Ustawienie motywu #Ł
+            if (Thememanager.themeColor == "BaseLight") ButtonColorChange("Black");                                                                                                         //Zmiana koloru guzików na "telefonie" w zależności od motywu #Ł
             else ButtonColorChange("White");
-            RealNumber.IsChecked = true;                                                       //Włączenie trybu "Liczby rzeczywiste" #Ł
+            RealNumber.IsChecked = true;                                                                                                                                                    //Włączenie trybu "Liczby rzeczywiste" #Ł
         }
-        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)                                                                                                                   //metoda wykonująca się podczas załadowania programu #M
         {
-            datalayout.VisibilityCalculatorPad = true;
-            expPlotter.MouseMove += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseMove);
-            expPlotter.MouseWheel += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseWheel);
+            datalayout.VisibilityCalculatorPad = true;                                                                                                                                      //zmienna sterująca widocznością kalkulatora #M
+            expPlotter.MouseMove += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseMove);                                                                                     //przypisanie akcji najechania muszmi do komponentu #M
+            expPlotter.MouseWheel += new System.Windows.Forms.MouseEventHandler(ExpPlotter_OnMouseWheel);                                                                                   //przypisanie akcji kółka muszmi do komponentu #M
             Tuple<MahApps.Metro.AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
             ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent(Thememanager.accentColor), ThemeManager.GetAppTheme(Thememanager.themeColor));
         }
@@ -1044,22 +1044,22 @@ namespace AMW_Mathematics
             }
         }
 
-        private void Hidde_CalculatorPad_Click(object sender, RoutedEventArgs e)                    //Ukrycie i pokazanie "telefonu" z funkcjami #Ł
+        private void Hidde_CalculatorPad_Click(object sender, RoutedEventArgs e)                    //Ukrycie i pokazanie "telefonu" z funkcjami #M
         {
-            if(datalayout.VisibilityCalculatorPad == true)
+            if(datalayout.VisibilityCalculatorPad == true)                                          //w przypadku gdy zmienna jest true ukrycie telefonu #M
             {
-                Function_list.Visibility = Visibility.Hidden;
-                Pad_Atribute.Visibility = Visibility.Hidden;
-                Worksheetadn.Margin = new Thickness(10, 188, 0, 0);
-                Worksheetadn.Width = 1191;
+                Function_list.Visibility = Visibility.Hidden;                                       //ukrycie listy w telefonie #M
+                Pad_Atribute.Visibility = Visibility.Hidden;                                        //ukrycie telefonu #M 
+                Worksheetadn.Margin = new Thickness(10, 188, 0, 0);                                 //rozszerzenie okna wprowadzania wyrażeń #M
+                Worksheetadn.Width = 1191;                                                          //rozszerzenie okna wprowadzania wyrażeń #M
                 datalayout.VisibilityCalculatorPad = false;
             }else
             {
-                Function_list.Visibility = Visibility.Visible;
-                Pad_Atribute.Visibility = Visibility.Visible;
-                Worksheetadn.Margin = new Thickness(322, 188, 0, 0);
-                Worksheetadn.Width = 879;
-                datalayout.VisibilityCalculatorPad = true;
+                Function_list.Visibility = Visibility.Visible;                                      //polazanie listy w telefonie #M
+                Pad_Atribute.Visibility = Visibility.Visible;                                       //pokazanie telfonu #M
+                Worksheetadn.Margin = new Thickness(322, 188, 0, 0);                                //zmniejszenie okna wprowadzania wyrażeń #M
+                Worksheetadn.Width = 879;                                                           //zmniejszenie okna wprowadzania wyrażeń #M
+                datalayout.VisibilityCalculatorPad = true;                              
             }         
         }
 

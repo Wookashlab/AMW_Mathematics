@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AMW_Mathematics.Model
 {
-    class DataToPointList   //model listy wykresu punktowego #M
+    class DataToPointList                       //model listy wykresu punktowego #M
     {
         public int IndexTextBox { get; set; }   //index wyświetlany w trakcie dynamicznie generowanego pola listy #M
     }

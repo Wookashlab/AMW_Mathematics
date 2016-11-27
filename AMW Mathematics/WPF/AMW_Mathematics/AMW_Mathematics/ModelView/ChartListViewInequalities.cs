@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AMW_Mathematics.ModelView
 {
-    class ChartListViewInequalities
+    class ChartListViewInequalities                                 //model dostarczający dane do listy funkcji generujących wykres #M
     {
-        private string labelChartInequalitiesValue { get; set; }
+        private string labelChartInequalitiesValue { get; set; }    //labelka świadcząca o numrze funkcji #M
         public string LabelChartInequalitiesValue
         {
             get
