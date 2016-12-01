@@ -12,11 +12,14 @@ using MahApps.Metro.Controls;
 
 namespace AMW_Mathematics.Function
 {
-    class AppTheme
+    class AppTheme                                              //Klasa odpowiedzialna za operacje związane z zmianą motywu (zapis,odczyt,generowanie kodów kolorów) #Ł
     {
 
 
-        public String accentColor = "Blue", themeColor = "BaseLight", accentColorCode = "#FF41B1E1", borderColor = "#3341B1E1";
+        public String accentColor = "Blue";                     //Nazwa koloru akcentu - domyślnie niebieski #Ł
+        public String themeColor = "BaseLight";                 //Nazwa motywu - domyślnie jasny #Ł
+        public String accentColorCode = "#FF41B1E1";            //Kod koloru akcentu- domyślnie niebieski #Ł
+        public String borderColor = "#3341B1E1";                //Kod koloru ramek - domyślnie jaśnieszy niebieski #Ł
         
         public void LoadTheme()                                                     //Odczytywanie pliku z zapisanym motywem #Ł
         {
@@ -33,9 +36,9 @@ namespace AMW_Mathematics.Function
             }
             catch (Exception e)
             {
-                using (StreamWriter outputFile = new StreamWriter(@"theme", false))  //Jeśli nie utworzenie domyślnego pliku #Ł
+                using (StreamWriter outputFile = new StreamWriter(@"theme", false))  //Jeśli nie istnije - utworzenie pliku z domyślnymi kolorami #Ł
                 {
-                    outputFile.Write(accentColor + "\n" + themeColor);
+                    SaveThem();                                                     //Wywołanie funkci zapisy #Ł
                 }
             }
           
@@ -46,14 +49,14 @@ namespace AMW_Mathematics.Function
         {
             try                                                    //Sprawdzenie czy istnieje taki plik #Ł
             {
-                using (StreamWriter outputFile = new StreamWriter(@"theme", false))  //Zapisanie do poliku nowych informacji o akcencie i pliku #Ł
+                using (StreamWriter outputFile = new StreamWriter(@"theme", false))  //Stworzenie lub nadpisanie pliku zawierającego nowe informacje o akcencie i motywie #Ł
                 {
-                    outputFile.Write(accentColor + "\n" + themeColor);
+                    outputFile.Write(accentColor + "\n" + themeColor);              //Zapisanie do pliku 
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Unfortunately you can not save your theme. Run the program as an administrator and try again", "Can not save your theme");
+                MessageBox.Show("Unfortunately you can not save your theme. Run the program as an administrator and try again", "Can not save your theme");   //Informacja o błędzie jeżeli nie można zapisać motywu do pliku #Ł
             }
 
         }

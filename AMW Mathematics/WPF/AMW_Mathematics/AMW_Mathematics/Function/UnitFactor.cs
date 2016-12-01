@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace AMW_Mathematics.Function
 {
-    class UnitFactor
+    class UnitFactor                            //Klasa odpowiedzialna za wyliczanie mnożnika potrzebnego do zmiany jednostki #Ł
     {
 
 
-        public double unitF;
-        public double temp;
+        public double unitF;                    //Wartość mnożnika potrzebnego do zmiany jednostki #Ł
+        public double temp;                     //Zmienna potrzebna do wyliczanai temperatury #Ł
 
-        public UnitFactor(string category, string unit1, string unit2) {
+        public UnitFactor(string category, string unit1, string unit2)  //Konstruktor, którego wywołanie wylicza mnożnik w zależności od kategori i podanych jednostek #Ł
+        {
 
-            var list = new List<Tuple<string, string, double, double>>();
+            var list = new List<Tuple<string, string, double, double>>();                       //Utworzenie nowej listy z wartościami mnożników i jednostek #Ł
 
-            switch (category)
+            switch (category)                                                                  //Dodanie do listy wartości w zależności od kategori #Ł
             {
-                case "Time":
+                case "Time":                                //Jednostki czasu #Ł
                     list.Add(new Tuple<string, string, double, double>("microseconds", "miliseconds", 0.001, 1000));
                     list.Add(new Tuple<string, string, double, double>("microseconds", "seconds", 1E-06, 1000000));
                     list.Add(new Tuple<string, string, double, double>("microseconds", "minutes", 1.66666666666667E-08, 60000000));
@@ -41,14 +42,14 @@ namespace AMW_Mathematics.Function
 
                     list.Add(new Tuple<string, string, double, double>("hours", "days", 0.0416666666666667, 24));
                     break;
-                case "Temperature": //Farenhite problem
+                case "Temperature":                                 //Jednostki temperatury #Ł
                     list.Add(new Tuple<string, string, double, double>("degrees Celsius", "degrees Fahrenheit", 1.8, 32));
                     list.Add(new Tuple<string, string, double, double>("degrees Celsius", "Kelvins", 1, 273.15));
                     list.Add(new Tuple<string, string, double, double>("Kelvins", "degrees Celsius", 1, -273.15));
                     list.Add(new Tuple<string, string, double, double>("Kelvins", "degrees Fahrenheit", 1.8, -459.67));
 
                     break;
-                case "Velocity":   
+                case "Velocity":                                     //Jednostki prędkości #Ł
                     list.Add(new Tuple<string, string, double, double>("meters/second", "miles/hour", 2.23693629, 0.44704));
                     list.Add(new Tuple<string, string, double, double>("meters/second", "feet/hour", 11811, 8.46668360003387E-05));
                     list.Add(new Tuple<string, string, double, double>("meters/second", "kilometers/hour", 3.6, 0.277777778));
@@ -58,7 +59,7 @@ namespace AMW_Mathematics.Function
 
                     list.Add(new Tuple<string, string, double, double>("feet/hour", "kilometers/hour", 0.0003048, 3280.83333333333));
                     break;
-                case "Mass":
+                case "Mass":                                //Jednostki masy #Ł
                     list.Add(new Tuple<string, string, double, double>("miligrams", "grams", 0.001, 1000));
                     list.Add(new Tuple<string, string, double, double>("miligrams", "kilograms", 1E-06, 1000000));
                     list.Add(new Tuple<string, string, double, double>("miligrams", "tonnes", 1E-09, 1000000000));
@@ -95,7 +96,7 @@ namespace AMW_Mathematics.Function
                     list.Add(new Tuple<string, string, double, double>("short tons", "long tons", 0.892857142681392, 1.12000000022046));
 
                     break;
-                case "Area":
+                case "Area":                                                                            //Jednostki powierzchni #Ł
                     list.Add(new Tuple<string, string, double, double>("squere milimeters", "squere centimeters", 0.01, 100));
                     list.Add(new Tuple<string, string, double, double>("squere milimeters", "squere meters", 1E-06, 1000000));
                     list.Add(new Tuple<string, string, double, double>("squere milimeters", "hectares", 1E-10, 10000000000));
@@ -150,7 +151,7 @@ namespace AMW_Mathematics.Function
 
                     list.Add(new Tuple<string, string, double, double>("acres", "square miles", 0.0015625, 640));
                     break;
-                case "Length":
+                case "Length":                                //Jednostki długości #Ł
                     list.Add(new Tuple<string, string, double, double>("microns", "milimeters", 0.001, 1000));
                     list.Add(new Tuple<string, string, double, double>("microns", "centimeters", 0.0001, 10000));
                     list.Add(new Tuple<string, string, double, double>("microns", "meters", 1E-06, 1000000));
@@ -246,16 +247,16 @@ namespace AMW_Mathematics.Function
 
 
             }
-            foreach (var lst in list)
+            foreach (var lst in list)                               //Poszukiwanie w liście jednostek, które mamy użyć w konwersji #Ł
             {
-                if (unit1.Equals(unit2))
+                if (unit1.Equals(unit2))                        //Jeżeli dwie jednostki są takie same zwracamy mnożnik 1 #Ł
                     unitF = 1;
                 else
                 {
-                    if (lst.Item1.Equals(unit1) && lst.Item2.Equals(unit2))
+                    if (lst.Item1.Equals(unit1) && lst.Item2.Equals(unit2))                 //sprawdzanie występowania jednostek na liście w kolejności 1 -2 #Ł
                     {
                         unitF = lst.Item3;
-                        if (category.Contains("Temperature"))
+                        if (category.Contains("Temperature"))                               //Osobna zasada dla jednostek Temperatury #Ł
                         {
                             temp = lst.Item4;
                         }
@@ -263,12 +264,10 @@ namespace AMW_Mathematics.Function
                     }
                     else
                     {
-                        if (lst.Item1.Equals(unit2) && lst.Item2.Equals(unit1))
+                        if (lst.Item1.Equals(unit2) && lst.Item2.Equals(unit1)) //sprawdzanie występowania jednostek na liście w kolejności 2 - 1 #Ł
                         {
                             if (category.Contains("Temperature"))
-                            {
-
-                            }
+                            {}
                             else { 
                             unitF = lst.Item4;
                             break;

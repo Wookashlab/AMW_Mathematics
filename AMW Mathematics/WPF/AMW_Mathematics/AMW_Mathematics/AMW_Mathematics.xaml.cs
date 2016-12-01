@@ -168,7 +168,11 @@ namespace AMW_Mathematics
                         return;
                     }
                 }
-
+                if (Expresion.Contains("del("))
+                {
+                    Expresion = Expresion.Replace("*del(", " d(");
+                    Expresion = Expresion.Replace("del(", " d(");
+                }
                 if (Expresion.Contains("rat"))
                 {
                     string[] rat = Expresion.Split('=');
@@ -342,9 +346,6 @@ namespace AMW_Mathematics
                 case 5:
                     StandardTab.Height = 120 + wartosc * 93;
                     break;
-                case 6:
-                    FavoriteTab.Height = 90 + wartosc * 63;
-                    break;
                 case 7:
                     ComplexTab.Height = 91 + wartosc * 64;
                     break;
@@ -505,8 +506,10 @@ namespace AMW_Mathematics
             }
             if (ChartsOverLap.IsSelected)
             {
+                
                 ShowElementListViewCharts(this.EqualizationAndFunctionsChB, null);
                 FormatujOverLap.Visibility = System.Windows.Visibility.Visible;
+                FormatujOverLap.IsSelected = true;
                 Plot.Visibility = Visibility.Hidden;
                 GraphHelpGrid.Visibility = Visibility.Visible;
                 expPlotterControl.Visibility = Visibility.Hidden;
@@ -555,11 +558,6 @@ namespace AMW_Mathematics
             {
                 StandardTab.Height = 27;
                 Standard.Content = keyboard.Mark(Standard.Content.ToString());
-            }
-            if (Favorite.Content.ToString() == "-")
-            {
-                FavoriteTab.Height = 27;
-                Favorite.Content = keyboard.Mark(Favorite.Content.ToString());
             }
             if (Complex.Content.ToString() == "-")
             {
@@ -699,7 +697,7 @@ namespace AMW_Mathematics
         private void ComplexNumber_Checked(object sender, RoutedEventArgs e)                    //Funkcja uruchamiająca tryb Liczyb rzeczywiste #Ł
         {
             ComplexTab.Visibility = System.Windows.Visibility.Visible;                          //wyświetlenie pasku funkcji na kalkulatroze "Liczby zespolone #Ł
-            this.ShowMessageAsync("Complex Numbers Mode", "You are now in the complex numbers mode. The imaginary unit in our program is determined by use of the phrase \" % i \" Ex. 2 + 3 *% i ");
+
         }
 
         private void RealNumber_Checked(object sender, RoutedEventArgs e)                       //Funkcja uruchamiająca tryb liczby zespolone #Ł
@@ -741,11 +739,6 @@ namespace AMW_Mathematics
             {
                 LinearAlgebraTab.Height = 27;
                 LinearAlgebra.Content = keyboard.Mark(LinearAlgebra.Content.ToString());
-            }
-            if (Favorite.Content.ToString() == "-")
-            {
-                FavoriteTab.Height = 27;
-                Favorite.Content = keyboard.Mark(Favorite.Content.ToString());
             }
             StandardTab.Height = 213;
             Standard.Content = keyboard.Mark(Standard.Content.ToString());
@@ -1109,6 +1102,7 @@ namespace AMW_Mathematics
 
         private void TriangleSolverButton_Click(object sender, RoutedEventArgs e)               //Otworzenie okna rozwiązywania trójkątów #Ł
         {
+            worksheetTab.IsSelected = true;                                                                                     //powrót do karty z obliczeniami #Ł
             TriangleSolver trianglesolverwindow = new TriangleSolver(Thememanager.accentColorCode);
             Opacity = 0.3;
             trianglesolverwindow.ShowDialog();
@@ -1117,6 +1111,7 @@ namespace AMW_Mathematics
 
         private void EquationSolverButton_Click(object sender, RoutedEventArgs e)                                               //metoda odpowiada za otowzrenie okna EquationSolver wraz z załadowaniem rozwiązanych równań do solvera #M              
         {
+            worksheetTab.IsSelected = true;                                                                                     //powrót do karty z obliczeniami #Ł
             EquationSolver equationsolver;                                                                                      //stworzenie obiektu klasy EqualizationSolver #M
             Opacity = 0.3;
             if(Result.Count == 0 && IndexResult.Count == 0 && Equation.Count == 0 && IndexEquation.Count ==0)                   //Sprawdzenie czy istnieją równania które zostały wcześniej serializowane #M
@@ -1188,6 +1183,7 @@ namespace AMW_Mathematics
 
         private void UnitConverterButton_Click(object sender, RoutedEventArgs e)                    //Otworzenie okna UnitConvertera #Ł
         {
+            worksheetTab.IsSelected = true;                                                                                     //powrót do karty z obliczeniami #Ł
             Opacity = 0.3;
             UnitConverter uconverter = new UnitConverter();
             uconverter.ShowDialog();
@@ -1213,7 +1209,7 @@ namespace AMW_Mathematics
             }
         }
 
-        private void SkinButton_Click(object sender, RoutedEventArgs e)
+        private void SkinButton_Click(object sender, RoutedEventArgs e)                     //Funkcja zmniająca wyglądąd kalkulatora #Ł
         {
             BitmapImage image = new BitmapImage(new Uri("img/oldView.png ", UriKind.Relative));
             calcIMG.Source = image;

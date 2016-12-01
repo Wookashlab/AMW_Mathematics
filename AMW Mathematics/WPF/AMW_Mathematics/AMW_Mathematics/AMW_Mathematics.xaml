@@ -46,7 +46,7 @@
 
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy1" Header="Tools [WIP]" HorizontalAlignment="Left" Width="428" Margin="684,0,0,0">
+                        <GroupBox x:Name="groupBox_Copy1" Header="Tools " HorizontalAlignment="Left" Width="428" Margin="684,0,0,0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="18*"/>
@@ -144,7 +144,7 @@
                                 <TextBox x:Name="MaxY" Margin="159,54,0,-2"/>
                             </Grid>
                         </GroupBox>
-                        <Button x:Name="AcceptXY" Content="Confirm" HorizontalAlignment="Left" Margin="312,7,0,0" VerticalAlignment="Top" Width="68" Height="10" Click="AcceptXY_Click"/>
+                        <Button x:Name="AcceptXY" Content="Confirm" HorizontalAlignment="Left" Margin="312,7,0,0" VerticalAlignment="Top" Width="68" Height="15" Click="AcceptXY_Click" RenderTransformOrigin="0.882,0.44"/>
                     </Grid>
                 </TabItem>
             </TabControl>
@@ -189,7 +189,6 @@
                                         <TextBlock FontSize="16" Margin="40,1,29,0" Height="22" VerticalAlignment="Top" Text="Equations &amp; Functions"/>
                                         <ComboBox Width="100" SelectedIndex="0" Margin="15,31,132,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
-                                            <ComboBoxItem Content="3D"/>
                                         </ComboBox>
                                         <ComboBox x:Name="LineTypeChart" Width="100" SelectedIndex="0" Height="26" Margin="127,31,20,0" VerticalAlignment="Top">
                                             <ComboBoxItem  Content="Cartesian"/>
@@ -231,11 +230,9 @@
                                         <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top" Text="Data Sets"/>
                                         <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
-                                            <ComboBoxItem Content="3D"/>
                                         </ComboBox>
                                         <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,15,0" VerticalAlignment="Top">
                                             <ComboBoxItem Content="Cartesian"/>
-                                            <ComboBoxItem Content="Polar"/>
                                         </ComboBox>
                                         <ListView x:Name="PointChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -274,17 +271,15 @@
                                         <Button x:Name="PointPlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" Click="PlotChart_Click" />
                                     </Grid>
                                 </ListViewItem>
-                                <ListViewItem  x:Name="ParametricChLV" Height="28" Width="247">
+                                <ListViewItem  x:Name="ParametricChLV" Height="28" Width="247" Visibility="Hidden">
                                     <Grid>
                                         <Button x:Name="ParametricChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
                                         <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Parametric [WIP]</TextBlock>
                                         <ComboBox Width="100" SelectedIndex="0" RenderTransformOrigin="1.265,-0.788" Margin="15,31,127,0" Height="26" VerticalAlignment="Top">
                                             <ComboBoxItem Content="2D" />
-                                            <ComboBoxItem Content="3D"/>
                                         </ComboBox>
                                         <ComboBox Width="100" SelectedIndex="0" Height="26" Margin="127,31,15,0" VerticalAlignment="Top">
                                             <ComboBoxItem Content="Cartesian"/>
-                                            <ComboBoxItem Content="Polar"/>
                                         </ComboBox>
                                         <ListView x:Name="ParametricChartListFunction" Margin="15,62,10,0" Height="329" VerticalAlignment="Top">
                                             <ListView.Resources>
@@ -331,7 +326,7 @@
                                         <Button x:Name="ParametricPlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" />
                                     </Grid>
                                 </ListViewItem>
-                                <ListViewItem  x:Name="InequalitiesChLV" Height="26" Width="247">
+                                <ListViewItem  x:Name="InequalitiesChLV" Height="26" Width="247" Visibility="Hidden">
                                     <Grid>
                                         <Button x:Name="InequalitiesChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
                                         <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Inequalities [WIP]</TextBlock>
@@ -372,7 +367,7 @@
                                         <Button x:Name="InequalitiesPlotChart" Content="Graph" HorizontalAlignment="Left" Margin="170,396,0,0" VerticalAlignment="Top" Width="57" Height="20" />
                                     </Grid>
                                 </ListViewItem>
-                                <ListViewItem  x:Name="TraceChLV" Height="28" Width="247">
+                                <ListViewItem  x:Name="TraceChLV" Height="28" Width="247" Visibility="Hidden">
                                     <Grid>
                                         <Button x:Name="TraceChB" Content="+" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="ShowElementListViewCharts"/>
                                         <TextBlock FontSize="16" Margin="40,1,58,0" Height="24" VerticalAlignment="Top">Graph Controls [WiP]</TextBlock>
@@ -521,7 +516,7 @@
                 </Grid>
             </ListBoxItem>
 
-            <ListBoxItem x:Name="LinearAlgebraTab" Height="27" >
+            <ListBoxItem x:Name="LinearAlgebraTab" Height="27" Visibility="Collapsed">
                 <Grid Height="153">
                     <Button x:Name="LinearAlgebra" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
                     <Label x:Name="LinearAlgebraLabel" Content="Linear Algebra: [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150" Margin="30,0,0,0"/>
@@ -573,12 +568,7 @@
                 </Grid>
             </ListBoxItem>
 
-            <ListBoxItem x:Name="FavoriteTab" Height="27" >
-                <Grid Height="153" >
-                    <Button x:Name="Favorite" Content="+" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
-                    <Label x:Name="FavoriteLabel" Content="Favorite Buttons: [WIP]" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="150"  Margin="30,0,0,0"/>
-                </Grid>
-            </ListBoxItem>
+
         </ListBox>
         <Popup Name="VariablesPopOut"
                Placement="Relative"

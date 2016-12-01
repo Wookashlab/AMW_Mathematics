@@ -107,12 +107,12 @@ namespace AMW_Mathematics
                     return "imagpart()";
                 case "Conjugate3":                          //sprzęrzenie zwrotne liczby zepspolonej #Ł
                     return "conjugate()";
-                case "Polar_Rect3":
+                case "Polar_Rect3":                         //zamiana liczby zespolonej na formę rectagle #Ł
                     return "rectform()";
-                case "Rect_Polar3":
+                case "Rect_Polar3":                         //zamiana liczby zespolonej na formę  polar #Ł
                     return "polarform()";
             }
-            return "DODAJ DO OTHER";
+            return "DODAJ DO OTHER";                        //Wyświetlenie błędu informującego, że funkcja nie jest dodana do tej listy #Ł
         }
     }
 }

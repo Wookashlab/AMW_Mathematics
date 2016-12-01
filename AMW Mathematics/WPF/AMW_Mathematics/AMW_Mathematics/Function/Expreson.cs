@@ -8,11 +8,11 @@ using MaximaSharp;
 
 namespace AMW_Mathematics
 {
-    class Expreson
+    class Expreson                  //Klasa do operacji na wyrażeniu #Ł
     {
         public Dictionary<string, string> SymbolsAndValues = new Dictionary<string, string>();
 
-        public string SaveValuesOfVariables(string Expresion, TextBox ExpressionField)                                                                                                                      //Metoda odpowadająca za sprawdzenie cz wyrażenie które zostało wprowadzone do obliczenia jest deklaracją zmiennej czy wyrażeniem do obliczenia #M 
+        public string SaveValuesOfVariables(string Expresion, TextBox ExpressionField)            // Zapisanie wartości zmiennyhc #Ł                                                                                                          //Metoda odpowadająca za sprawdzenie cz wyrażenie które zostało wprowadzone do obliczenia jest deklaracją zmiennej czy wyrażeniem do obliczenia #M 
         {
             if (Expresion.Contains(":=") == true)                                                                                                                                                           //sprawdzenie czy wyrażenie ma zostać podstawione jako zmienna #M
             {
@@ -36,7 +36,7 @@ namespace AMW_Mathematics
 
         }
 
-        public string AddToNumberDot(string Expresion)                                                                                                                                                      //metoda odpowiadająca za dodanie kropi i zera do każdej liczby całkowitej w celu poprawnego wprowadzenia do Maximy #M
+        public string AddToNumberDot(string Expresion)                              //Dodanie .0 do liczb w wyrażeniu #Ł                                                                                                                                               //metoda odpowiadająca za dodanie kropi i zera do każdej liczby całkowitej w celu poprawnego wprowadzenia do Maximy #M
         {
             string pom = "";
             for (int i = 0; i < Expresion.Length; i++)                                                                                                                                                      //pętla szukająca w wyrażeniu liczb całkowitych #M
