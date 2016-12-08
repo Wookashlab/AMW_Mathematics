@@ -300,3 +300,38 @@ D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\A
 D:\Programowanie\W razie W\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\UnitConverter.baml
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\UnitConverter.g.cs
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\UnitConverter.baml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe.config
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.exe
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.exe
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\AMW_Mathematics.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\ExpressionPlotterControl.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\System.Windows.Interactivity.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\ExpressionPlotterControl.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MaximaSharp.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\MahApps.Metro.xml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.xml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\bin\Debug\OxyPlot.Wpf.xml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csprojResolveAssemblyReference.cache
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.cs
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.g.cs
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\TriangleSolver.g.cs
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\UnitConverter.g.cs
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.g.cs
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.cache
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics_MarkupCompile.lref
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\App.baml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.baml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\EquationSolver.baml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\TriangleSolver.baml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\Windows\UnitConverter.baml
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.g.resources
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.Properties.Resources.resources
+E:\AMW_Mathematics\AMW Mathematics\WPF\AMW_Mathematics\AMW_Mathematics\obj\Debug\AMW_Mathematics.csproj.GenerateResource.Cache

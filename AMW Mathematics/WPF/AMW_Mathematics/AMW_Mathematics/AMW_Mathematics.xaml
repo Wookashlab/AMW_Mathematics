@@ -46,18 +46,19 @@
 
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy1" Header="Tools " HorizontalAlignment="Left" Width="428" Margin="684,0,0,0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="18*"/>
-                                    <ColumnDefinition Width="18*"/>
-                                    <ColumnDefinition Width="305*"/>
-                                </Grid.ColumnDefinitions>
-                                <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3"/>
-                                <Button x:Name="button1_Copy" Content="Formulas and &#xD;&#xA;Equations" HorizontalAlignment="Right" Margin="0,10,204,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2"/>
+                        <GroupBox x:Name="groupBox_Copy1" Header="Tools " Margin="684,0,163,0">
+                            <Grid Margin="0,0,-2,0">
+
                                 <Button x:Name="EquationSolverButton" Content="Equation&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.ColumnSpan="3" Click="EquationSolverButton_Click"/>
-                                <Button x:Name="TriangleSolverButton" Content="Triangle&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2" Click="TriangleSolverButton_Click"/>
-                                <Button x:Name="UnitConverterButton" Content="Unit&#xD;&#xA;Converter" HorizontalAlignment="Left" Margin="272,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Grid.Column="2" Click="UnitConverterButton_Click"/>
+                                <Button x:Name="TriangleSolverButton" Content="Triangle&#xD;&#xA;Solver" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100" Height="56" Click="TriangleSolverButton_Click"/>
+                                <Button x:Name="UnitConverterButton" Content="Unit&#xD;&#xA;Converter" Margin="220,10,10,0" VerticalAlignment="Top" Height="56" Click="UnitConverterButton_Click"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox x:Name="Help_groupBox" Header="Help" Margin="1027,0,0,0">
+                            <Grid Margin="10,0,-2,0">
+
+
+                                <Button x:Name="Userguide1" Content="user guide" HorizontalAlignment="Right" Margin="0,10,18,0" VerticalAlignment="Top" Width="100" Height="56" Click="User_guide_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -80,7 +81,7 @@
                     <Grid Margin="0,0,0,-106">
                         <GroupBox x:Name="groupBox4" Header="Appearance" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
-                                <Button x:Name="SkinButton" Content="Skins" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="SkinButton_Click"/>
+                                <Button x:Name="SkinButton" Content="Skins" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46" />
                                 <Button x:Name="ThemaMenu" Content="Color&#xD;&#xA;Schemes" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="ThemaMenu_Click"/>
                             </Grid>
                         </GroupBox>

@@ -38,3 +38,8 @@ C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.csprojResolveAssemblyReference.cache
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.dll
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\bin\Debug\MaximaSharp.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\bin\Debug\MaximaSharp.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.csprojResolveAssemblyReference.cache
+E:\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\MaximaSharp\MaximaSharp\obj\Debug\MaximaSharp.pdb

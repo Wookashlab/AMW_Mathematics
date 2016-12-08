@@ -1209,10 +1209,19 @@ namespace AMW_Mathematics
             }
         }
 
-        private void SkinButton_Click(object sender, RoutedEventArgs e)                     //Funkcja zmniająca wyglądąd kalkulatora #Ł
+        private void User_guide_Click(object sender, RoutedEventArgs e)
         {
-            BitmapImage image = new BitmapImage(new Uri("img/oldView.png ", UriKind.Relative));
-            calcIMG.Source = image;
+            try
+            {
+
+                System.Diagnostics.Process.Start(@"user_guide.pdf");
+
+            }
+            catch (Exception ex)
+            {
+                this.ShowMessageAsync("Error", "Can not open file with uster guid.");
+
+            }
         }
     }
 }

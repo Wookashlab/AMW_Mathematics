@@ -18,3 +18,10 @@ C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Debug\ExpressionPlotterControl.csproj.GenerateResource.Cache
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Debug\ExpressionPlotterControl.dll
 C:\Users\MaciejH\Desktop\Praca Inżynierska\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Debug\ExpressionPlotterControl.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\bin\Debug\ExpressionPlotterControl.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\bin\Debug\ExpressionPlotterControl.pdb
+E:\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Debug\ExpressionPlotterControl.csprojResolveAssemblyReference.cache
+E:\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Debug\ExpressionPlotterControl.ExpressionPlotter.resources
+E:\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Debug\ExpressionPlotterControl.csproj.GenerateResource.Cache
+E:\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Debug\ExpressionPlotterControl.dll
+E:\AMW_Mathematics\AMW Mathematics\WPF\ExpressionPlotterControl\ExpressionPlotterControl\obj\Debug\ExpressionPlotterControl.pdb
