@@ -152,7 +152,7 @@ namespace AMW_Mathematics
                 string Expresion = ExpressionField.Text;
                 Expresion = phrase.SaveValuesOfVariables(Expresion, ExpressionField);
                 Expresion = phrase.CheckVariablesinExpresion(Expresion);
-                if (Expresion.Contains(":=") == false) Expresion = phrase.AddToNumberDot(Expresion);
+                if (Expresion.Contains(":=") == false && Expresion.Contains("diff") == false) Expresion = phrase.AddToNumberDot(Expresion); //poprawka mojego kodu 
                 Expresion = Maxima.Eval(Expresion);
                 Expresion = Expresion.Replace(":=", " = ");
                 if (Expresion.Contains("error"))
@@ -176,7 +176,15 @@ namespace AMW_Mathematics
                 if (Expresion.Contains("rat"))
                 {
                     string[] rat = Expresion.Split('=');
-                    Expresion = rat.Last() + "     [WIP]";
+                    Expresion = rat[rat.Length - 2];                                    //poprawka twwojego kodu Łukasz
+                    try
+                    {
+                        Expresion = Expresion.Remove(0, Expresion.IndexOf("d") + 2);
+                    }
+                    catch
+                    {
+                        Expresion = rat[rat.Length - 1];
+                    }
                 }
                 ResultList.Items.Add("Input:      " + phrase.AddToNumberDot(ExpressionField.Text) + "\nOutput:   " + Expresion);
                 ResultList.SelectedIndex = ResultList.Items.Count - 1;
@@ -681,17 +689,29 @@ namespace AMW_Mathematics
         {
 
         }
+
         public double FindRoundMiddle(string expression)                                        //Funkcja znajdująca środek wykresu #Ł
         {
-            if (expression.Contains(":=") == false) expression = phrase.AddToNumberDot(expression);         //dopisanie do wyrażenia .0 #Ł
-            if (Maxima.Eval("limit(" + expression + ",x,0)").Contains("infinity"))                              //sprawdzenie czy nie próbujemy dzielić przez 0 #Ł
-                expression = expression.Replace("x", "(1.0)");                                              //jeżeli tak to zminiamy wartość na 1 #Ł
-            else expression = expression.Replace("x", "(0.0)");                                             //jeżeli nie to zostajmey z wartością 0 #Ł
-            if (expression.Contains(":=") == false) expression = phrase.AddToNumberDot(expression);          //dopisanie do wyrażenia .0 #Ł
-            expression = Maxima.Eval(expression);                                                           //obliczenie wyrażenia dla podanej wartości #Ł
-            double result = double.Parse(expression.Replace('.', ','));                                     //zamiana kropek na przecinki (maxima->double)#Ł
-            result = Math.Round(result);                                                                    //zaokrąglenie wyniku #Ł
-            return result;                                                                                  //zwrócenie wyniku #Ł
+            try
+            {
+                if (expression.Contains(":=") == false) expression = phrase.AddToNumberDot(expression);         //dopisanie do wyrażenia .0 #Ł
+                if (Maxima.Eval("limit(" + expression + ",x,0)").Contains("infinity"))                              //sprawdzenie czy nie próbujemy dzielić przez 0 #Ł
+                    expression = expression.Replace("x", "(1.0)");                                              //jeżeli tak to zminiamy wartość na 1 #Ł
+                else expression = expression.Replace("x", "(0.0)");                                             //jeżeli nie to zostajmey z wartością 0 #Ł
+                if (expression.Contains(":=") == false) expression = phrase.AddToNumberDot(expression);          //dopisanie do wyrażenia .0 #Ł
+                expression = expression.Replace("arcsin", "ASIN");
+                expression = expression.Replace("arccos", "ACOS");
+                expression = expression.Replace("arctan", "ATAN");
+                expression = expression.Replace("cosec", "CSC");
+                expression = Maxima.Eval(expression);                                                           //obliczenie wyrażenia dla podanej wartości #Ł
+                double result = double.Parse(expression.Replace('.', ','));                                     //zamiana kropek na przecinki (maxima->double)#Ł
+                result = Math.Round(result);                                                                    //zaokrąglenie wyniku #Ł
+                return result;                                                                                  //zwrócenie wyniku #Ł
+            }
+            catch
+            {
+                return 0.0;
+            }
         }
 
         private void ComplexNumber_Checked(object sender, RoutedEventArgs e)                    //Funkcja uruchamiająca tryb Liczyb rzeczywiste #Ł

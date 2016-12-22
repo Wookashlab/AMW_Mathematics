@@ -21,7 +21,7 @@ namespace AMW_Mathematics.ModelView
         {
             Title = "Help for Graphing Tab";
             SubTitle = "Equation and Function 2D";
-            MainHelp = "Enter the equation or function you want to plot.\n\nExamples\ny = x + 3\ny = sqrt(x^2 + 2)\ny = x ^ 2 + 2x - 1 - 2";
+            MainHelp = "Enter the equation or function you want to plot.\n\nExamples\nx + 3\nsqrt(x^2 + 2)\nx ^ 2 + 2x - 1 - 2";
         }
         public void ZestawDanych()
         {
