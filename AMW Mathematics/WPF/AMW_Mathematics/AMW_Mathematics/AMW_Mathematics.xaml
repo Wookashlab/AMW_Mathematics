@@ -22,9 +22,9 @@
                             <Grid Margin="0,0,0,-11">
                                 <Button x:Name="button" Content="Undo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
                                 <Button x:Name="button_Copy" Content="Redo" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
-                                <Button x:Name="button_Copy1" Content="Paste" HorizontalAlignment="Left" Margin="108,0,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="button_Copy2" Content="Cut" HorizontalAlignment="Left" Margin="108,29,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="button_Copy3" Content="Copy" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="button_Copy1" Content="Paste" HorizontalAlignment="Left" Margin="108,0,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                                <Button x:Name="button_Copy2" Content="Cut" HorizontalAlignment="Left" Margin="108,29,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                                <Button x:Name="button_Copy3" Content="Copy" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox x:Name="groupBox_Copy" Header="Numbers &amp; Angles [WIP]" HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
