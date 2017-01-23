@@ -33,25 +33,26 @@ namespace MaximaSharp
         public static string Eval(string expr)
         {
 
-            Process.StandardInput.WriteLine(string.Format("{0}$ grind({1});", string.Join("$", Functions), expr.ToLower()));
-            var result = Process.StandardOutput.ReadLine();
-            if (result.Contains("incorrect"))                   //Sprawdzenie czy nie wystąpił błąd pisowni #Ł
+            Process.StandardInput.WriteLine(string.Format("{0}$ grind({1});", string.Join("$", Functions), expr.ToLower())); //wysłanie wyrażenai do Maximy #Ł
+            var result = Process.StandardOutput.ReadLine();	//wczytanie 1 linijki odpowiedzi do zmiennej #Ł
+            if (result.Contains("incorrect"))                  		 //sprawdzenie czy nie wystąpił błąd pisowni #Ł
             {
-                Eval("1.0+1.0");                                //"Przeczyszczenie maximy #Ł
-                return "error!syntax";                          //Zwrócenie błędu #Ł
+                Eval("1.0+1.0");                                		//przeczyszczenie Maximy  #Ł
+                return "error!syntax";                        		//zwrócenie błędu #Ł
             }
-            if (result.Contains("wrong number of arguments"))  //Sprawdzenei czy nie wystąpił bład argumentu #Ł
+            if (result.Contains("wrong number of arguments"))  	//sprawdzenie czy nie wystąpił błąd argumentów  #Ł
             {
-                Eval("1.0+1.0");                                                                             //"Przeczyszczenie maximy #Ł
-                return "error!arguments@" + result.Substring(0,result.IndexOf(':'));                          //Zwrócenie błędu #Ł
+                Eval("1.0+1.0");                                                               //przeczyszczenie Maximy  #Ł
+                return "error!arguments@" + result.Substring(0, result.IndexOf(':'));                          //zwrócenie błędu #Ł
             }
-            while (!result.EndsWith("$"))
+            while (!result.EndsWith("$"))			//czytanie reszty wyniku  #Ł
                 result += Process.StandardOutput.ReadLine();
             Process.StandardOutput.ReadLine();
-            if (result.EndsWith("$")) return result.TrimEnd('$');
+            if (result.EndsWith("$")) return result.TrimEnd('$');	//zakończenie pracy z Maximą jesli na końcu odpowiedzi jest znak “$” #Ł
             Process = NewMaxima();
-            throw new Exception(string.Format("Unexpected result: {0}", result));
+            throw new Exception(string.Format("Unexpected result: {0}", result));	//wyrzucenie niespodziewanego wyniku #Ł
         }
+
 
         public static LambdaExpression ToExpression(string types, string parameters, string code)
         {

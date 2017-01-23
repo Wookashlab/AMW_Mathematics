@@ -140,44 +140,44 @@ namespace AMW_Mathematics
         private void ConfirmExpresion_Click(object sender, RoutedEventArgs e)
         {
 
-            if (ExpressionField.Text != "")
+            if (ExpressionField.Text != "")		 //sprawdzenie czy użytkownik podał wyrażenie #Ł
             {
-                if ((bool)RealNumber.IsChecked)
-                    if (ExpressionField.Text.Contains("%i"))
+                if ((bool)RealNumber.IsChecked)		//sprawdzenie czy włączony jest tryb liczb rzeczywistych #Ł
+                    if (ExpressionField.Text.Contains("%i"))	//sprawdzenie czy w wyrażeniu występuje jednostka urojona#Ł
                     {
-                        this.ShowMessageAsync("Error", "Expression contains a complex number despite the fact that you are in real numbers mode. Change the expression or mode and try again ");
+                        this.ShowMessageAsync("Error", "Expression contains a complex number despite the fact that you are in real numbers mode. Change the expression or mode and try again ");	//wyświetlenie błędu jeżeli użyta jest jednostka urojona w trybie liczb rzeczywistych #Ł
                         return;
                     }
 
-                string Expresion = ExpressionField.Text;
-                Expresion = phrase.SaveValuesOfVariables(Expresion, ExpressionField);
-                Expresion = phrase.CheckVariablesinExpresion(Expresion);
-                if (Expresion.Contains(":=") == false && Expresion.Contains("diff") == false) Expresion = phrase.AddToNumberDot(Expresion); //poprawka mojego kodu 
-                Expresion = Maxima.Eval(Expresion);
-                Expresion = Expresion.Replace(":=", " = ");
-                if (Expresion.Contains("error"))
+                string Expresion = ExpressionField.Text;	//zaczytanie wprowadzonego wyrażenia #Ł
+                Expresion = phrase.SaveValuesOfVariables(Expresion, ExpressionField);	//zapisanie wartości zmiennych #Ł
+                Expresion = phrase.CheckVariablesinExpresion(Expresion);		//sprawdzanie zmiennych w wyrażaniu #Ł
+                if (Expresion.Contains(":=") == false && Expresion.Contains("diff") == false) Expresion = phrase.AddToNumberDot(Expresion); //jeżeli wyrażenie nie jest deklaracją zmiennych dopisanie .0 do liczb występujących w wyrażeniu  #Ł
+                Expresion = Maxima.Eval(Expresion);	//obliczenie wyrażenia w Maximie #Ł
+                Expresion = Expresion.Replace(":=", " = ");	//zamina := na = #Ł
+                if (Expresion.Contains("error"))		//obsłużenie błędów  #Ł
                 {
-                    if (Expresion.Contains("syntax"))
+                    if (Expresion.Contains("syntax"))	//sprawdzanie czy występuje błąd związany z składnią #Ł
                     {
                         this.ShowMessageAsync("Syntax Error", "There was an error in the expression syntax - correct expression and try againe");
                         return;
                     }
-                    if (Expresion.Contains("arguments"))
+                    if (Expresion.Contains("arguments"))	//sprawdzenie czy występuje błąd związany z argumentami funkcji #Ł
                     {
                         this.ShowMessageAsync("Syntax Error", "Wrong number of arguments in function: " + Expresion.Substring(Expresion.IndexOf('@') + 1));
                         return;
                     }
                 }
-                if (Expresion.Contains("del("))
+                if (Expresion.Contains("del("))		//czy wyrażenie zawiera „del()” #Ł
                 {
                     Expresion = Expresion.Replace("*del(", " d(");
                     Expresion = Expresion.Replace("del(", " d(");
                 }
-                if (Expresion.Contains("rat"))
+                if (Expresion.Contains("rat"))		//czy wyrażenie zawiera zaokrąglenie Maxiamy – „rat” #Ł
                 {
-                    string[] rat = Expresion.Split('=');
-                    Expresion = rat[rat.Length - 2];                                    //poprawka twwojego kodu Łukasz
-                    try
+                    string[] rat = Expresion.Split('=');	//podział wyrażenia na części #Ł
+                    Expresion = rat[rat.Length - 2];  	//przepisanie wyrażenia bez “rat=” #Ł
+                    try				//próba usunięcia d #Ł
                     {
                         Expresion = Expresion.Remove(0, Expresion.IndexOf("d") + 2);
                     }
@@ -186,12 +186,12 @@ namespace AMW_Mathematics
                         Expresion = rat[rat.Length - 1];
                     }
                 }
-                ResultList.Items.Add("Input:      " + phrase.AddToNumberDot(ExpressionField.Text) + "\nOutput:   " + Expresion);
-                ResultList.SelectedIndex = ResultList.Items.Count - 1;
-                ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);
-                ExpressionField.Clear();
-                TipBox.Text = "Type an expression and then click Enter.";
-                TipBox.Foreground = Brushes.Black;
+                ResultList.Items.Add("Input:      " + phrase.AddToNumberDot(ExpressionField.Text) + "\nOutput:   " + Expresion); //dodanie wyrażenia i rozwiązania do listy  #Ł
+                ResultList.SelectedIndex = ResultList.Items.Count - 1;		//zaznaczenie na liście ostatnio wprowadzonego wyrażenia  #Ł
+                ResultList.ScrollIntoView(ResultList.Items[ResultList.Items.Count - 1]);	//przewinięcie listy do ostatniego wyrażenia  #Ł
+                ExpressionField.Clear();		//wyczyszczenie pola wprowadzania  #Ł
+                TipBox.Text = "Type an expression and then click Enter.";	//zmiana pola podpowiedzi na tekst domyślny  #Ł
+                TipBox.Foreground = Brushes.Black;//przywrócenie koloru pola podpowiedzi do standardowego  #Ł
             }
         }
 
@@ -1234,7 +1234,7 @@ namespace AMW_Mathematics
             try
             {
 
-                System.Diagnostics.Process.Start(@"user_guide.pdf");
+                System.Diagnostics.Process.Start(@"user`s_guide.pdf");
 
             }
             catch (Exception ex)

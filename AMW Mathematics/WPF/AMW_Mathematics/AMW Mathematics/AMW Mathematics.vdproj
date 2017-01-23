@@ -9315,12 +9315,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CFB8D94C2171490FB8B690820F1000A0"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CFCADDFFE2F549598BF6556D98C3CC22"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -10324,6 +10318,12 @@
         "Entry"
         {
         "MsmKey" = "8:_E4B13E82A2764A4C90EFF38C0BBE77EF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E53E68BC87294308AFA83362385C5594"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43197,26 +43197,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CFB8D94C2171490FB8B690820F1000A0"
-            {
-            "SourcePath" = "8:..\\AMW_Mathematics\\bin\\Debug\\user_guide.PDF"
-            "TargetName" = "8:user_guide.PDF"
-            "Tag" = "8:"
-            "Folder" = "8:_12E8ACC47A93470EA46ADE3D7D798903"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CFCADDFFE2F549598BF6556D98C3CC22"
             {
             "SourcePath" = "8:..\\AMW_Mathematics\\bin\\Debug\\Maxima-5.30.0\\share\\maxima\\5.30.0\\src\\macsys.lisp"
@@ -46567,6 +46547,26 @@
             "TargetName" = "8:plot2d.gif"
             "Tag" = "8:"
             "Folder" = "8:_19F773C5C34F41D68CF704B973D38E59"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E53E68BC87294308AFA83362385C5594"
+            {
+            "SourcePath" = "8:C:\\Users\\Wookash\\Desktop\\User`s_guide.PDF"
+            "TargetName" = "8:User`s_guide.PDF"
+            "Tag" = "8:"
+            "Folder" = "8:_12E8ACC47A93470EA46ADE3D7D798903"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -51805,7 +51805,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AMW Mathematics"
         "ProductCode" = "8:{85CC3A30-7364-4289-9B08-8299866ADFBE}"
-        "PackageCode" = "8:{06AD0466-B5E2-4044-804A-7EE4A573E225}"
+        "PackageCode" = "8:{B2C76BB0-839F-4E2A-ACC0-DF47E6F581B8}"
         "UpgradeCode" = "8:{81665A4C-140A-4581-8706-909BBE0EF580}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

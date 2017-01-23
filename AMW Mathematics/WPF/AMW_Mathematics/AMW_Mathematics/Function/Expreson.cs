@@ -36,51 +36,51 @@ namespace AMW_Mathematics
 
         }
 
-        public string AddToNumberDot(string Expresion)                              //Dodanie .0 do liczb w wyrażeniu #Ł                                                                                                                                               //metoda odpowiadająca za dodanie kropi i zera do każdej liczby całkowitej w celu poprawnego wprowadzenia do Maximy #M
+        public string AddToNumberDot(string Expresion)                        //Dodanie .0 do liczb w wyrażeniu      #Ł                                                                                                                                        //metoda odpowiadająca za dodanie kropi i zera do każdej liczby całkowitej w celu poprawnego wprowadzenia do Maximy 
         {
             string pom = "";
-            for (int i = 0; i < Expresion.Length; i++)                                                                                                                                                      //pętla szukająca w wyrażeniu liczb całkowitych #M
+            for (int i = 0; i < Expresion.Length; i++)             //pętla szukająca w wyrażeniu liczb całkowitych #Ł
             {                                                                                                                                                                                               //wprzypadku gdy z
-                if (Char.IsNumber(Expresion[i]) == true)                                                                                                                                                    //sprawdzenie czy znak jest liczbą #M
+                if (Char.IsNumber(Expresion[i]) == true)       //sprawdzenie czy znak jest liczbą #Ł
                 {
-                    for (int j = i; j < Expresion.Length; j++)                                                                                                                                              //w przypadku gdy jest sprawdzenie czy jest to liczba całkwita #M
+                    for (int j = i; j < Expresion.Length; j++)      //w przypadku gdy jest sprawdzenie czy jest to liczba całkowita #Ł
                     {
-                        if (Char.IsNumber(Expresion[j]) != true && Expresion[j] != '.')                                                                                                                     //w przypadku gdy jest całkwitą dodanie do liczby ciągu .0 #M
+                        if (Char.IsNumber(Expresion[j]) != true && Expresion[j] != '.')     //w przypadku gdy jest całkowita dodanie do liczby ciągu .0  #Ł
                         {
                             if (pom.Length == 1)
                             {
-                                Expresion = Expresion.Insert(j, ".0");                                                                                                                                      //dodanie do wyrażenia .0 w przypadku gdy liczba jest od 0-9 #M                                                                                                      
+                                Expresion = Expresion.Insert(j, ".0");                    //dodanie do wyrażenia .0 w przypadku gdy liczba jest od 0-9    #Ł                                                                                                    
                                 i = i + 2;
                                 pom = "";
                                 break;
                             }
                             else
                             {
-                                if (pom.Contains(".") != true)                                                                                                                                             //dodanie do wyrażenia .0 w przypadku gdy lcizba jest większa od 9 #M
+                                if (pom.Contains(".") != true)          //dodanie do wyrażenia .0 w przypadku gdy liczba jest większa od 9  #Ł
                                 {
-                                    Expresion = Expresion.Insert(j, ".0");
-                                    pom = "";
-                                    i = j + 2;
+                                    Expresion = Expresion.Insert(j, ".0");	//wstawienie w indeksie j „.0” #Ł
+                                    pom = "";				//wyczyszczenie zmiennej pomocniczej #Ł
+                                    i = j + 2;				//przesunięcie licznika pętli o 2 #Ł
                                     break;
                                 }
                                 else
                                 {
-                                    pom = "";
-                                    i = j;
+                                    pom = "";				//wyczyszczenie zmiennej pomocniczej #Ł
+                                    i = j;				//przywrócenie licznika pętli do wartości i #Ł
                                     break;
                                 }
                             }
                         }
                         else
                         {
-                            pom = pom + Expresion[j];
+                            pom = pom + Expresion[j];	// dopisanie do zmiennej pomocniczej znaku z pozycji j #Ł
                         }
-                        if (i + 1 == Expresion.Length)
+                        if (i + 1 == Expresion.Length)	//sprawdzenie czy jest to koniec przedostatni znak w ciągu #Ł
                         {
-                            if (pom.Length == 1)
+                            if (pom.Length == 1)		//sprawdzenie czy w zmiennej pomocniczej znajduje się tylko jeden znak #Ł
                             {
-                                Expresion = Expresion.Insert(j + 1, ".0");
-                                i = i + 2;
+                                Expresion = Expresion.Insert(j + 1, ".0");	///wstawienie w indeksie j+1 „.0” #Ł
+                                i = i + 2;				//przesunięcie licznika pętli o 2 #Ł
                                 pom = "";
                                 break;
                             }
@@ -88,15 +88,15 @@ namespace AMW_Mathematics
                             {
                                 if (pom.Contains(".") != true)
                                 {
-                                    Expresion = Expresion.Insert(j + 1, ".0");
-                                    pom = "";
-                                    i = j + 2;
+                                    Expresion = Expresion.Insert(j + 1, ".0");  	///wstawienie w indeksie j+1 „.0” #Ł
+                                    pom = "";				//wyczyszczenie zmiennej pomocniczej #Ł
+                                    i = j + 2;				//przesunięcie licznika pętli o j+ 2	 #Ł
                                     break;
                                 }
                                 else
                                 {
-                                    pom = "";
-                                    i = j;
+                                    pom = "";				//wyczyszczenie zmiennej pomocniczej #Ł
+                                    i = j;				//ustawienie licznika i na wartości j #Ł
                                     break;
                                 }
                             }
@@ -104,8 +104,9 @@ namespace AMW_Mathematics
                     }
                 }
             }
-            return Expresion;                                                                                                                                               //zwrócenie wartości wyrażenia #M
+            return Expresion;                                //zwrócenie wartości wyrażenia  #Ł
         }
+
 
         public string CheckVariablesinExpresion(string Expresion)                                                                                                           //metoda odpowadająca sprawdzeniem czy wyrażenie nie jest deklaracją zmiennej i wprowadzanie do wyrażenia wartości zmiennych #M
         {

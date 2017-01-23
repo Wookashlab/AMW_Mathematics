@@ -38,23 +38,23 @@ namespace AMW_Mathematics.Windows
         {
             ConvertButtonClick();                       //Wywołanie funkcji, która obsługuje obliczaniejednostki #Ł
         }
-        void ConvertButtonClick()                       //Funkcja wyliczająca wartość po konwersji #Ł
+        void ConvertButtonClick()
         {
-            double equal;                               //Wartość wyjściowa #Ł
-            try                                        //Wyłapywanie błędów podczas konwersji #Ł
+            double equal;                               //wartość wyjściowa
+            try                                        //wyłapywanie błędów podczas konwersji
             {
 
-                Function.UnitFactor factoreValue = new Function.UnitFactor((selectUnit.Items[selectUnit.SelectedIndex] as ComboBoxItem).Content.ToString(), (FromCombo.Items[FromCombo.SelectedIndex] as ComboBoxItem).Content.ToString(), (ToCombo.Items[ToCombo.SelectedIndex] as ComboBoxItem).Content.ToString()); //Wywołanie funkcji zwracającej mnożnik potrzebny do konwersji #Ł
-                equal = double.Parse(InputBox.Text) * factoreValue.unitF;     // Wymnożenie podanej wartości przez mnożnik #Ł
+                Function.UnitFactor factoreValue = new Function.UnitFactor((selectUnit.Items[selectUnit.SelectedIndex] as ComboBoxItem).Content.ToString(), (FromCombo.Items[FromCombo.SelectedIndex] as ComboBoxItem).Content.ToString(), (ToCombo.Items[ToCombo.SelectedIndex] as ComboBoxItem).Content.ToString()); //wywołanie metody zwracającej mnożnik potrzebny do konwersji #Ł
+                equal = double.Parse(InputBox.Text) * factoreValue.unitF;     // wymnożenie podanej wartości przez mnożnik #Ł
 
-                if ((selectUnit.Items[selectUnit.SelectedIndex] as ComboBoxItem).Content.ToString().Contains("Temperature"))  //Osobna zasada dla kategori temperatura (jednostki tenie wymagają mnożenia tylko dodawania) #Ł
+                if ((selectUnit.Items[selectUnit.SelectedIndex] as ComboBoxItem).Content.ToString().Contains("Temperature"))  //osobna zasada dla kategorii temperatura (jednostki te nie wymagają mnożenia tylko dodawania)  #Ł
                 {
-                    equal = equal + factoreValue.temp;          //Dodanie pobraniej wartości potrzebnej do zmiany Temperatury #Ł
+                    equal = equal + factoreValue.temp;          //dodanie pobranej wartości potrzebnej do zmiany temperatury #Ł
                 }
 
-                OutputBox.Text = equal.ToString();              //Wpisanie obliczonej wartości do pola #Ł
+                OutputBox.Text = equal.ToString();              //wpisanie obliczonej wartości do pola #Ł
             }
-            catch (Exception error)                         //Jeżeli zostanie złapany błąd podczas konwersji nic nie rób #Ł      
+            catch (Exception error)                         //jeżeli zostanie złapany błąd podczas konwersji nic nie rób   #Ł  
             {
 
             }

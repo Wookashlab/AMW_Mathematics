@@ -58,7 +58,7 @@
                             <Grid Margin="10,0,-2,0">
 
 
-                                <Button x:Name="Userguide1" Content="user guide" HorizontalAlignment="Right" Margin="0,10,18,0" VerticalAlignment="Top" Width="100" Height="56" Click="User_guide_Click"/>
+                                <Button x:Name="Userguide1" Content="user`s guide" HorizontalAlignment="Right" Margin="0,10,18,0" VerticalAlignment="Top" Width="100" Height="56" Click="User_guide_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -478,8 +478,7 @@
 
                 </Grid>
             </ListBoxItem>
-
-            <ListBoxItem x:Name="StatisticTab" Height="27" >
+            <ListBoxItem x:Name="StatisticTab" Height="27">
                 <Grid Height="153" >
 
                     <Button x:Name="Statistic" Content="+" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" Height="25" Click="Tab_Click"/>
@@ -487,12 +486,14 @@
                     <Button x:Name="NawiasKO2" Content="{}{" ToolTip="Opening of brace. e.g. {2,3,4}" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
                     <Button x:Name="NawiasKZ2" Content="}" ToolTip="Closing of brace. e.g. {2,3,4}" HorizontalAlignment="Left" Margin="38,30,0,0" VerticalAlignment="Top" Width="24" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
                     <Button x:Name="Sort3" Content="sort" ToolTip="Sorts numbers in ascending order. e.g. sort([2,1,6,3])" HorizontalAlignment="Left" Margin="67,31,0,0" VerticalAlignment="Top" Width="40" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
-                    <Button x:Name="Mean1" Content="mean?" ToolTip="Mean of a set of numbers. e.g. mean(list)????????????????????????????" HorizontalAlignment="Left" Margin="112,30,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <!--  <Button x:Name="Mode" Content="?mode?" ToolTip="Mode of a set of numbers. e.g. mode(1,2,3)" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                -->
+                    <!--     <Button x:Name="Mean1" Content="mean?" ToolTip="Mean of a set of numbers. e.g. mean(list)????????????????????????????" HorizontalAlignment="Left" Margin="112,30,0,0" VerticalAlignment="Top" Width="45" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
                     <Button x:Name="Median1" Content="median?" ToolTip="Median of a set of numbers. e.g. median(list)????????????????????????????" HorizontalAlignment="Left" Margin="162,30,0,0" VerticalAlignment="Top" Width="58" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
-                    <Button x:Name="Minimum1" Content="min" ToolTip="Minimum of a set of numbers. e.g. min(2,3,1)" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
-                    <Button x:Name="Maximum1" Content="max" ToolTip="Maximum of a set of numbers. e.g. min(2,3,1)" HorizontalAlignment="Left" Margin="57,91,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
-                    <Button x:Name="Factorial2" Content="!" ToolTip="Factorial of a number. e.g. !5" HorizontalAlignment="Left" Margin="225,30,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
-                    <Button x:Name="Mode" Content="?mode?" ToolTip="Mode of a set of numbers. e.g. mode(1,2,3)" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                  -->
+                    <Button x:Name="Minimum1" Content="min" ToolTip="Minimum of a set of numbers. e.g. min(2,3,1)" HorizontalAlignment="Left" Margin="159,31,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Maximum1" Content="max" ToolTip="Maximum of a set of numbers. e.g. min(2,3,1)" HorizontalAlignment="Left" Margin="112,30,0,0" VerticalAlignment="Top" Width="42" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
+                    <Button x:Name="Factorial2" Content="!" ToolTip="Factorial of a number. e.g. !5" HorizontalAlignment="Left" Margin="206,31,0,0" VerticalAlignment="Top" Width="23" Height="18" Click="Function_Click" MouseEnter="FindCursor"/>
                 </Grid>
             </ListBoxItem>
 
