@@ -264,43 +264,45 @@ namespace AMW_Mathematics
         private void PlotChart_Click(object sender, RoutedEventArgs e)                                                                                                      //metoda odpowadająca za generowanie wykresu #M
         {
 
-            var chartbutton = (Button)sender;                                                                                                                               //odczyt wciśniętego klawisza #M
-            switch (chartbutton.Name)                                                                                                                                       //odczyt nazwy klawisza #M 
-            {
-                case "PlotChart":                                                                                                                                           //w przpadku gdy klawisz ma taką nazwę generowanie wykresu liniowego #M
+                var chartbutton = (Button)sender;                                                                                                                               //odczyt wciśniętego klawisza #M
+                switch (chartbutton.Name)                                                                                                                                       //odczyt nazwy klawisza #M 
+                {
+                    case "PlotChart":                                                                                                                                           //w przpadku gdy klawisz ma taką nazwę generowanie wykresu liniowego #M
 
-                    GraphHelpGrid.Visibility = Visibility.Hidden;                                                                                                           //ukrycie instrukcji wprowadzania wartości do generowania wykresu pokazującej się na samym początku #M
-                    expPlotterControl.Visibility = Visibility.Visible;                                                                                                      //ustawienie własnego kompunentu stworzonego w Windows Form na widoczny #M
-                    ListFunctionLine.Clear();                                                                                                                               //wyczyszczenie listy funkcji występujących w TextBoxach #M
-                    ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);   //dodanie do ListyFunkcji nowych funkcji które występują w dynamicznie generowanej liście textboxów #M
-                    if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Cartesian")                                               //sprawdzenie jaki typ wykresu ma być rysowany  czy kartezjański czy kołowy (typ wykresu został podany w polu combobox) #M
-                    {
-                        double ys = FindRoundMiddle(ListFunctionLine[0]);
-                        ChartLineView.DrawChartLine(expPlotter, -5, 5, ys - 5, ys + 5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);                    //metoda odpowadająca za rysowanie wykresu #M
-                        datatolinechartview.ToogleGridLineView = false;                                                                                                     //ustawienie rodzaju siatki na wykresie #M
-                    }
-                    else
-                    {
-                        ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, false, true);                                                               //metoda odpowiadająca za rysowanie wykresu kołowego #M                                      
-                    }
+                        GraphHelpGrid.Visibility = Visibility.Hidden;                                                                                                           //ukrycie instrukcji wprowadzania wartości do generowania wykresu pokazującej się na samym początku #M
+                        expPlotterControl.Visibility = Visibility.Visible;                                                                                                      //ustawienie własnego kompunentu stworzonego w Windows Form na widoczny #M
+                        ListFunctionLine.Clear();                                                                                                                               //wyczyszczenie listy funkcji występujących w TextBoxach #M
+                        ListFunctionLine = functiontoallpolot.AddFunctionToList(ChartListFunction, ListFunctionLine, "FunctionTextBox", new Keyboard(), new Button(), false);   //dodanie do ListyFunkcji nowych funkcji które występują w dynamicznie generowanej liście textboxów #M
+                        if ((LineTypeChart.Items[LineTypeChart.SelectedIndex] as ComboBoxItem).Content.ToString() == "Cartesian")                                               //sprawdzenie jaki typ wykresu ma być rysowany  czy kartezjański czy kołowy (typ wykresu został podany w polu combobox) #M
+                        {
+                            double ys = FindRoundMiddle(ListFunctionLine[0]);
+                            ChartLineView.DrawChartLine(expPlotter, -5, 5, ys - 5, ys + 5, ListFunctionLine, datatolinechartview.ToogleGridLineView, false);                    //metoda odpowadająca za rysowanie wykresu #M
+                            datatolinechartview.ToogleGridLineView = false;                                                                                                     //ustawienie rodzaju siatki na wykresie #M
+                        }
+                        else
+                        {
+                            ChartLineView.DrawChartLine(expPlotter, -5, 5, -5, 5, ListFunctionLine, false, true);                                                               //metoda odpowiadająca za rysowanie wykresu kołowego #M                                      
+                        }
 
-                    datatolinechartview.TypeChart = "line";
-                    datatochart.WhichGraphZoom = "PlotChart";
-                    break;
-                case "PointPlotChart":                                                                                                                                                //w przpadku gdy klawisz ma taką nazwę generowanie wykresu punktowy #M
-                    GraphHelpGrid.Visibility = Visibility.Hidden;
-                    expPlotterControl.Visibility = Visibility.Hidden;
-                    Plot.Visibility = Visibility.Visible;                                                                                                                             //ustawienie stworzonego modelu widoku na widoczy #M
-                    ListFunctionPoint.Clear();
-                    List<DataToPointChartView> DataToChartPoint;                                                                                                                      //stworzenie listy punktów
-                    ListFunctionPoint = functiontoallpolot.AddFunctionToList(PointChartListFunction, ListFunctionPoint, "PointFunctionTextBox", new Keyboard(), new Button(), false); //dodanie do ListyFunkcji nowych funkcji które występują w dynamicznie generowanej liście textboxów #M
-                    DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), ListFunctionPoint);                                                      //lista punktów funkcji #M
-                    ViewPlot = new ChartPointView(DataToChartPoint);                                                                                                                  //stworzenie instancji wykresu w której jako parametr przekazana została lista punktów #M                                                                                         
-                    DataContext = ViewPlot;                                                                                                                                           //przypisanie modelu do widoku #M
-                    datatolinechartview.TypeChart = "point";                                                                                                                          //ustawienie parametrów dotyczących typu wykresu #M
-                    datatochart.WhichGraphZoom = "PointPlotChart";                                                                                                                    //ustawienie parametru określającego sposób zoomowania #M
-                    break;
-            }
+                        datatolinechartview.TypeChart = "line";
+                        datatochart.WhichGraphZoom = "PlotChart";
+                        break;
+                    case "PointPlotChart":                                                                                                                                                //w przpadku gdy klawisz ma taką nazwę generowanie wykresu punktowy #M
+                        GraphHelpGrid.Visibility = Visibility.Hidden;
+                        expPlotterControl.Visibility = Visibility.Hidden;
+                        Plot.Visibility = Visibility.Visible;                                                                                                                             //ustawienie stworzonego modelu widoku na widoczy #M
+                        ListFunctionPoint.Clear();
+                        List<DataToPointChartView> DataToChartPoint;                                                                                                                      //stworzenie listy punktów
+                        ListFunctionPoint = functiontoallpolot.AddFunctionToList(PointChartListFunction, ListFunctionPoint, "PointFunctionTextBox", new Keyboard(), new Button(), false); //dodanie do ListyFunkcji nowych funkcji które występują w dynamicznie generowanej liście textboxów #M
+                        DataToChartPoint = pointchartfunction.DataListFunction(new List<DataToPointChartView>(), ListFunctionPoint);                                                      //lista punktów funkcji #M
+                        ViewPlot = new ChartPointView(DataToChartPoint);                                                                                                                  //stworzenie instancji wykresu w której jako parametr przekazana została lista punktów #M                                                                                         
+                        DataContext = ViewPlot;                                                                                                                                           //przypisanie modelu do widoku #M
+                        datatolinechartview.TypeChart = "point";                                                                                                                          //ustawienie parametrów dotyczących typu wykresu #M
+                        datatochart.WhichGraphZoom = "PointPlotChart";                                                                                                                    //ustawienie parametru określającego sposób zoomowania #M
+                        break;
+                }
+            
+
         }
 
         private void AddExpresionToPlot_Click(object sender, RoutedEventArgs e)                                                                                                         //metoda odpowadająca za dodanie wyrażenia wykresów #M
@@ -1239,6 +1241,7 @@ namespace AMW_Mathematics
             }
             catch (Exception ex)
             {
+                string war = ex.ToString();
                 this.ShowMessageAsync("Error", "Can not open file with uster guid.");
 
             }

@@ -56,7 +56,7 @@ namespace AMW_Mathematics.Windows
             }
             catch (Exception error)                         //jeżeli zostanie złapany błąd podczas konwersji nic nie rób   #Ł  
             {
-
+                string war = error.ToString();
             }
         }
 

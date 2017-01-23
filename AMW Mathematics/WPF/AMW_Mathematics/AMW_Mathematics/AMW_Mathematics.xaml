@@ -20,8 +20,8 @@
                     <Grid Margin="0,0,18,10" >
                         <GroupBox x:Name="groupBox" Header="Clipboard [WIP]" HorizontalAlignment="Left" Width="198" Margin="5,0,0,0">
                             <Grid Margin="0,0,0,-11">
-                                <Button x:Name="button" Content="Undo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="button_Copy" Content="Redo" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="button" Content="Undo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                                <Button x:Name="button_Copy" Content="Redo" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
                                 <Button x:Name="button_Copy1" Content="Paste" HorizontalAlignment="Left" Margin="108,0,0,0" VerticalAlignment="Top" Width="75"/>
                                 <Button x:Name="button_Copy2" Content="Cut" HorizontalAlignment="Left" Margin="108,29,0,0" VerticalAlignment="Top" Width="75"/>
                                 <Button x:Name="button_Copy3" Content="Copy" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top" Width="75"/>
@@ -31,11 +31,11 @@
                             <Grid Height="81" VerticalAlignment="Top">
                                 <RadioButton x:Name="RealNumber" Content="Real Numbers" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="RealNumber_Checked"/>
                                 <RadioButton x:Name="ComplexNumber" Content="Complex Numbers" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="ComplexNumber_Checked"/>
-                                <RadioButton x:Name="radioButton_Copy" Content="Degrees" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
-                                <RadioButton x:Name="radioButton_Copy1" Content="Radians" HorizontalAlignment="Left" Margin="143,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
-                                <RadioButton x:Name="radioButton_Copy2" Content="Gradians" HorizontalAlignment="Left" Margin="143,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test"/>
+                                <RadioButton x:Name="radioButton_Copy" Content="Degrees" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test" IsEnabled="False"/>
+                                <RadioButton x:Name="radioButton_Copy1" Content="Radians" HorizontalAlignment="Left" Margin="143,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test" IsEnabled="False"/>
+                                <RadioButton x:Name="radioButton_Copy2" Content="Gradians" HorizontalAlignment="Left" Margin="143,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" GroupName="Test" IsEnabled="False"/>
                                 <Label x:Name="label" Content="Decimal Places:" HorizontalAlignment="Left" Margin="237,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.158,-0.154"/>
-                                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+                                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" IsEnabled="False">
                                     <ListBoxItem Content="Not fixed"/>
                                     <ListBoxItem Content="0"/>
                                     <ListBoxItem Content="1"/>
@@ -67,13 +67,13 @@
 
                     <Grid Margin="0,0,0,-107">
                         <GroupBox x:Name="groupBox1" Header="Matrices [WIP]" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
-                            <Button x:Name="button2" Content="Matrix" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50"/>
+                            <Button x:Name="button2" Content="Matrix" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" IsEnabled="False"/>
                         </GroupBox>
                         <GroupBox x:Name="groupBox2" Header="Variables [WIP]" HorizontalAlignment="Left" Margin="134,5,0,0" VerticalAlignment="Top" Height="120" Width="119">
-                            <Button x:Name="button3" Content="Variable" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50"/>
+                            <Button x:Name="button3" Content="Variable" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" IsEnabled="False"/>
                         </GroupBox>
                         <GroupBox x:Name="groupBox3" Header="Data Sets [WiP]" HorizontalAlignment="Left" Margin="258,5,0,0" VerticalAlignment="Top" Height="120" Width="145">
-                            <Button x:Name="button4" Content="Data&#xD;&#xA;Set" HorizontalAlignment="Left" Margin="29,10,0,0" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" VerticalAlignment="Top"/>
+                            <Button x:Name="button4" Content="Data&#xD;&#xA;Set" HorizontalAlignment="Left" Margin="29,10,0,0" Width="73" RenderTransformOrigin="0.547,-0.688" Height="50" VerticalAlignment="Top" IsEnabled="False"/>
                         </GroupBox>
                     </Grid>
                 </TabItem>
@@ -81,7 +81,7 @@
                     <Grid Margin="0,0,0,-106">
                         <GroupBox x:Name="groupBox4" Header="Appearance" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="120" Width="208">
                             <Grid>
-                                <Button x:Name="SkinButton" Content="Skins" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46" />
+                                <Button x:Name="SkinButton" Content="Skins" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="89" Height="46" IsEnabled="False" />
                                 <Button x:Name="ThemaMenu" Content="Color&#xD;&#xA;Schemes" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="89" Height="46" Click="ThemaMenu_Click"/>
                             </Grid>
                         </GroupBox>

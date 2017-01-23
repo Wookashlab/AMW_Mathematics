@@ -36,6 +36,7 @@ namespace AMW_Mathematics.Function
             }
             catch (Exception e)
             {
+                string war = e.ToString();
                 using (StreamWriter outputFile = new StreamWriter(@"theme", false))  //Jeśli nie istnije - utworzenie pliku z domyślnymi kolorami #Ł
                 {
                     SaveThem();                                                     //Wywołanie funkci zapisy #Ł
@@ -56,6 +57,7 @@ namespace AMW_Mathematics.Function
             }
             catch (Exception e)
             {
+                string war = e.ToString();
                 MessageBox.Show("Unfortunately you can not save your theme. Run the program as an administrator and try again", "Can not save your theme");   //Informacja o błędzie jeżeli nie można zapisać motywu do pliku #Ł
             }
 
