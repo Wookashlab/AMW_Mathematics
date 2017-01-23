@@ -18,7 +18,7 @@
                 </TabItem>
                 <TabItem x:Name="HomeTab"  VerticalAlignment="Top" Header="Home">
                     <Grid Margin="0,0,18,10" >
-                        <GroupBox x:Name="groupBox" Header="Clipboard [WIP]" HorizontalAlignment="Left" Width="198" Margin="5,0,0,0">
+                        <GroupBox x:Name="groupBox" Header="Clipboard " HorizontalAlignment="Left" Width="198" Margin="5,0,0,0">
                             <Grid Margin="0,0,0,-11">
                                 <Button x:Name="button" Content="Undo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
                                 <Button x:Name="button_Copy" Content="Redo" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
@@ -27,7 +27,7 @@
                                 <Button x:Name="button_Copy3" Content="Copy" HorizontalAlignment="Left" Margin="108,57,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox_Copy" Header="Numbers &amp; Angles [WIP]" HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
+                        <GroupBox x:Name="groupBox_Copy" Header="Numbers &amp; Angles " HorizontalAlignment="Left" Width="471" Margin="208,0,0,0">
                             <Grid Height="81" VerticalAlignment="Top">
                                 <RadioButton x:Name="RealNumber" Content="Real Numbers" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="RealNumber_Checked"/>
                                 <RadioButton x:Name="ComplexNumber" Content="Complex Numbers" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,-0.933" Checked="ComplexNumber_Checked"/>
